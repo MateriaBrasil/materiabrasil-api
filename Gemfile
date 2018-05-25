@@ -5,9 +5,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+gem 'awesome_print'
+gem 'committee'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'prmd'
 gem 'puma', '~> 3.11'
+gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.0'
+gem 'rails-i18n', '~> 5.1.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
@@ -21,8 +26,6 @@ gem 'rails', '~> 5.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
