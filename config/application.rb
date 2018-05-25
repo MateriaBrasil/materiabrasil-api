@@ -34,5 +34,7 @@ module MateriabrasilApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.time_zone = 'Brasilia'
+    config.active_record.schema_format = :sql
   end
 end
