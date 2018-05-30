@@ -1,0 +1,77 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Material
+description: A material is a raw material
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the material
+    readOnly: true
+    type:
+    - integer
+  user_id:
+    description: unique identifier of the material owner
+    type:
+    - integer
+  name:
+    description: the name of the material
+    type:
+    - string
+  image_url:
+    description: a link to an image of the material
+    type:
+    - string
+  description:
+    description: the description of the material
+    type:
+    - string
+  average_price:
+    description: the average price of the material
+    type:
+    - string
+  code:
+    description: the code of the material
+    type:
+    - string
+  identity:
+    anyOf:
+    - "$ref": "/schemata/material#/definitions/id"
+links:
+- description: List materials.
+  href: "/materials"
+  method: GET
+  rel: index
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/material"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List
+properties:
+  id:
+    "$ref": "/schemata/material#/definitions/id"
+  name:
+    "$ref": "/schemata/material#/definitions/name"
+  image_url:
+    "$ref": "/schemata/material#/definitions/image_url"
+  description:
+    "$ref": "/schemata/material#/definitions/description"
+  average_price:
+    "$ref": "/schemata/material#/definitions/average_price"
+  code:
+    "$ref": "/schemata/material#/definitions/code"
+required:
+- id
+- name
+- image_url
+- description
+- average_price
+- code
+additionalProperties: false
+id: schemata/material
