@@ -139,7 +139,15 @@
               }
             ]
           },
-          "title": "List"
+          "title": "List",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          }
         },
         {
           "description": "Info for existing material.",
@@ -156,7 +164,15 @@
               }
             ]
           },
-          "title": "Info"
+          "title": "Info",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          }
         }
       ],
       "properties": {

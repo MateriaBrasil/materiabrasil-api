@@ -72,6 +72,8 @@ GET /materials
 
 ```bash
 $ curl -n https://api.materiabrasil.com/materials
+ -G \
+  -d 
 ```
 
 
@@ -98,6 +100,8 @@ GET /materials/{material_id}
 
 ```bash
 $ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID
+ -G \
+  -d 
 ```
 
 

@@ -14,9 +14,10 @@ describe 'GET /materials/:id', type: :request do
   end
 
   let(:id) { material.id }
+  let(:params) { nil }
 
   before do
-    get "/materials/#{id}"
+    get "/materials/#{id}", params: params
   end
 
   context 'with material not found' do
@@ -34,6 +35,14 @@ describe 'GET /materials/:id', type: :request do
 
     it 'returns the material' do
       expect(response.body).to eq(material.to_json)
+    end
+  end
+
+  context 'with incorrect request' do
+    let(:params) { { foo: 'bar' } }
+
+    it 'returns bad request' do
+      expect(response).to have_http_status(:bad_request)
     end
   end
 end

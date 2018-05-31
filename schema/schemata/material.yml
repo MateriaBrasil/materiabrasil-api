@@ -53,6 +53,11 @@ links:
       }
     - "$ref": "/schemata/error"
   title: List
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
 - description: Info for existing material.
   href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}"
   method: GET
@@ -62,6 +67,11 @@ links:
     - "$ref": "/schemata/material"
     - "$ref": "/schemata/error"
   title: Info
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"
