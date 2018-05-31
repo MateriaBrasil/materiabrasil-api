@@ -32,4 +32,14 @@ describe 'GET /materials', type: :request do
       expect(response.body).to eq(materials.to_json)
     end
   end
+
+  context 'with incorrect request' do
+    before do
+      get '/materials', params: { foo: 'bar' }
+    end
+
+    it 'returns bad request' do
+      expect(response).to have_http_status(:bad_request)
+    end
+  end
 end

@@ -72,6 +72,36 @@ GET /materials
 
 ```bash
 $ curl -n https://api.materiabrasil.com/materials
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-GET-material-/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}">Material Info</a>
+
+Info for existing material.
+
+```
+GET /materials/{material_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID
+ -G \
+  -d 
 ```
 
 

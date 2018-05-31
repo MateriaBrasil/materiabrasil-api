@@ -139,7 +139,40 @@
               }
             ]
           },
-          "title": "List"
+          "title": "List",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          }
+        },
+        {
+          "description": "Info for existing material.",
+          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          }
         }
       ],
       "properties": {
