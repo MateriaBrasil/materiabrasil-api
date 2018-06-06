@@ -20,3 +20,4 @@ exclude_patterns:
 - .gems/
 - spec/
 - db/migrate/
+- db/seeds.rb
