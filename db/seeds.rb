@@ -10,7 +10,30 @@ Material.create(
   ' algodão novos com fios já reciclados garante um visual rústico e'\
   ' exclusivo.',
   average_price: 'R$ 111,00',
-  code: '00672'
+  code: '00672',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -19,7 +42,30 @@ Material.create(
   description: 'Madeira serrada com certificação FSC - Forest Stewardship'\
   ' Council - de manejo florestal e industrialização do material.',
   average_price: 'R$ 111,00',
-  code: '00647'
+  code: '00647',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -28,7 +74,30 @@ Material.create(
   description: 'Tecido estampado 100% reciclado e produzido no Brasil.'\
   ' Reciclado a partir de garrafas plásticas PET',
   average_price: 'R$ 111,00',
-  code: '00668'
+  code: '00668',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -45,7 +114,30 @@ Material.create(
   ' frente e verso) e com ele é possível fazer: convites personalizados, tags,'\
   ' crachás, folders, cartões e kits ecológicos.',
   average_price: 'R$ 111,00',
-  code: '00666'
+  code: '00666',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -58,7 +150,30 @@ Material.create(
   ' 100% recicláveis. Cada m² de pastilhas Rivesti evita o lançamento de 3kg'\
   ' de CO2 na atmosfera e retira do meio ambiente 66 garrafas PET.',
   average_price: 'R$ 111,00',
-  code: '00666'
+  code: '00666',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -72,7 +187,30 @@ Material.create(
   ' e desperta curiosidade sobre como medidas tão diversas podem se encaixar'\
   ' harmoniosamente.',
   average_price: 'R$ 111,00',
-  code: '00666'
+  code: '00666',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )
 
 Material.create(
@@ -89,5 +227,28 @@ Material.create(
   ' ser devolvidas para reciclagem. Possui aditivos de proteção anti UV. Não'\
   ' propagam fogo. São totalmente impermeáveis.',
   average_price: 'R$ 111,00',
-  code: '00666'
+  code: '00666',
+  supplier_name: 'Ita Moulding Process',
+  supplier_email: 'itamoulding@process.com',
+  manufacturing_location: 'Rio de Janeiro/RJ',
+  sales_location: 'São Paulo/SP',
+  technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+    'testfiles/resources/pdf/dummy.pdf',
+  properties: %(
+    Type: Composite (wood)
+    Shape: Various
+    Size: According to mould
+    Thickness: According to mould
+    Finishing: According to mould
+    Density: According to project
+    Certificates: PEFC Chain of custody (CoC) certification;
+    Molded wood Standards'
+  ),
+  usage: %(
+    #Any shape under moulding process with extraction angle
+    #High scale of production
+    #High replicability
+    #Hot moulded
+    #Furnishings and packaging
+  )
 )

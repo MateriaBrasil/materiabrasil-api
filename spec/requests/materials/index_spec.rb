@@ -5,12 +5,19 @@ require 'rails_helper'
 describe 'GET /materials', type: :request do
   before do
     %w[foo bar baz].each do |name|
-      Material.create!(
+      Material.new(
         name: name,
         image_url: 'http://foo.bar',
         description: 'Some description',
         average_price: 'R$ 111,00',
-        code: '1234'
+        code: '1234',
+        supplier_name: 'Foo Supplier',
+        supplier_email: 'foo@bar.com',
+        manufacturing_location: 'Foo City/FO',
+        sales_location: 'Bar City/BR',
+        technical_specification_url: 'http://foo',
+        properties: 'Foo properties',
+        usage: 'Bar usage'
       )
     end
   end
