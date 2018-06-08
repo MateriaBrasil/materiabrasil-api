@@ -2,7 +2,7 @@
 
 class Material < ApplicationRecord
   validates :name, :image_url, :description, :average_price, :code,
-    :supplier_name, :supplier_email, :manufacturing_location,
+    :supplier_name, :supplier_contact, :manufacturing_location,
     :sales_location, :technical_specification_url, :properties, :usage,
     presence: true
 
@@ -16,7 +16,7 @@ class Material < ApplicationRecord
       average_price: average_price,
       code: code,
       supplier_name: supplier_name,
-      supplier_email: supplier_email,
+      supplier_contact: supplier_contact,
       manufacturing_location: manufacturing_location,
       sales_location: sales_location,
       technical_specification_url: technical_specification_url,

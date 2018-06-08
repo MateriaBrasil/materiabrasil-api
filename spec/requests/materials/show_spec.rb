@@ -11,7 +11,7 @@ describe 'GET /materials/:id', type: :request do
       average_price: 'R$ 111,00',
       code: '1234',
       supplier_name: 'Foo Supplier',
-      supplier_email: 'foo@bar.com',
+      supplier_contact: 'foo@bar.com',
       manufacturing_location: 'Foo City/FO',
       sales_location: 'Bar City/BR',
       technical_specification_url: 'http://foo',

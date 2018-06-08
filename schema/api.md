@@ -61,7 +61,7 @@ A material is a raw material
 | **name** | *string* | the name of the material | `"example"` |
 | **properties** | *string* | the material's properties like type, shape and size | `"example"` |
 | **sales_location** | *string* | the city/state where the material is sold | `"example"` |
-| **supplier_email** | *string* | the email of the material's supplier | `"example"` |
+| **supplier_contact** | *string* | the email of the material's supplier | `"example"` |
 | **supplier_name** | *string* | the name of the materials' supplier | `"example"` |
 | **technical_specification_url** | *string* | a link to the pdf file with the material's specifications | `"example"` |
 | **usage** | *string* | how the material can be used | `"example"` |

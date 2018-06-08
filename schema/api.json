@@ -110,7 +110,7 @@
             "string"
           ]
         },
-        "supplier_email": {
+        "supplier_contact": {
           "description": "the email of the material's supplier",
           "type": [
             "string"
@@ -233,8 +233,8 @@
         "supplier_name": {
           "$ref": "#/definitions/material/definitions/supplier_name"
         },
-        "supplier_email": {
-          "$ref": "#/definitions/material/definitions/supplier_email"
+        "supplier_contact": {
+          "$ref": "#/definitions/material/definitions/supplier_contact"
         },
         "manufacturing_location": {
           "$ref": "#/definitions/material/definitions/manufacturing_location"
@@ -260,7 +260,7 @@
         "average_price",
         "code",
         "supplier_name",
-        "supplier_email",
+        "supplier_contact",
         "manufacturing_location",
         "sales_location",
         "technical_specification_url",

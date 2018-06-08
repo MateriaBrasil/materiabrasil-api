@@ -52,7 +52,7 @@ CREATE TABLE public.materials (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     supplier_name character varying,
-    supplier_email character varying,
+    supplier_contact text,
     manufacturing_location character varying,
     sales_location character varying,
     technical_specification_url character varying,

@@ -12,7 +12,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00672',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -44,7 +44,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00647',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -76,7 +76,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00668',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -116,7 +116,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -152,7 +152,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -189,7 +189,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -229,7 +229,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   supplier_name: 'Ita Moulding Process',
-  supplier_email: 'itamoulding@process.com',
+  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
