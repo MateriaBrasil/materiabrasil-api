@@ -50,7 +50,14 @@ CREATE TABLE public.materials (
     average_price character varying,
     code character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    supplier_name character varying,
+    supplier_contact text,
+    manufacturing_location character varying,
+    sales_location character varying,
+    technical_specification_url character varying,
+    properties text,
+    usage text
 );
 
 
@@ -120,6 +127,7 @@ ALTER TABLE ONLY public.schema_migrations
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('20180530120134');
+('20180530120134'),
+('20180605230655');
 
 

@@ -74,12 +74,6 @@
             "integer"
           ]
         },
-        "user_id": {
-          "description": "unique identifier of the material owner",
-          "type": [
-            "integer"
-          ]
-        },
         "name": {
           "description": "the name of the material",
           "type": [
@@ -106,6 +100,48 @@
         },
         "code": {
           "description": "the code of the material",
+          "type": [
+            "string"
+          ]
+        },
+        "supplier_name": {
+          "description": "the name of the materials' supplier",
+          "type": [
+            "string"
+          ]
+        },
+        "supplier_contact": {
+          "description": "the email of the material's supplier",
+          "type": [
+            "string"
+          ]
+        },
+        "manufacturing_location": {
+          "description": "the city/state where the material is manufactured",
+          "type": [
+            "string"
+          ]
+        },
+        "sales_location": {
+          "description": "the city/state where the material is sold",
+          "type": [
+            "string"
+          ]
+        },
+        "technical_specification_url": {
+          "description": "a link to the pdf file with the material's specifications",
+          "type": [
+            "string"
+          ]
+        },
+        "properties": {
+          "description": "the material's properties like type, shape and size",
+          "type": [
+            "string"
+          ]
+        },
+        "usage": {
+          "description": "how the material can be used",
           "type": [
             "string"
           ]
@@ -188,11 +224,32 @@
         "description": {
           "$ref": "#/definitions/material/definitions/description"
         },
+        "code": {
+          "$ref": "#/definitions/material/definitions/code"
+        },
         "average_price": {
           "$ref": "#/definitions/material/definitions/average_price"
         },
-        "code": {
-          "$ref": "#/definitions/material/definitions/code"
+        "supplier_name": {
+          "$ref": "#/definitions/material/definitions/supplier_name"
+        },
+        "supplier_contact": {
+          "$ref": "#/definitions/material/definitions/supplier_contact"
+        },
+        "manufacturing_location": {
+          "$ref": "#/definitions/material/definitions/manufacturing_location"
+        },
+        "sales_location": {
+          "$ref": "#/definitions/material/definitions/sales_location"
+        },
+        "technical_specification_url": {
+          "$ref": "#/definitions/material/definitions/technical_specification_url"
+        },
+        "properties": {
+          "$ref": "#/definitions/material/definitions/properties"
+        },
+        "usage": {
+          "$ref": "#/definitions/material/definitions/usage"
         }
       },
       "required": [
@@ -201,7 +258,14 @@
         "image_url",
         "description",
         "average_price",
-        "code"
+        "code",
+        "supplier_name",
+        "supplier_contact",
+        "manufacturing_location",
+        "sales_location",
+        "technical_specification_url",
+        "properties",
+        "usage"
       ],
       "additionalProperties": false
     }

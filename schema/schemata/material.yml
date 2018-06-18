@@ -11,10 +11,6 @@ definitions:
     readOnly: true
     type:
     - integer
-  user_id:
-    description: unique identifier of the material owner
-    type:
-    - integer
   name:
     description: the name of the material
     type:
@@ -33,6 +29,34 @@ definitions:
     - string
   code:
     description: the code of the material
+    type:
+    - string
+  supplier_name:
+    description: the name of the materials' supplier
+    type:
+    - string
+  supplier_contact:
+    description: the email of the material's supplier
+    type:
+    - string
+  manufacturing_location:
+    description: the city/state where the material is manufactured
+    type:
+    - string
+  sales_location:
+    description: the city/state where the material is sold
+    type:
+    - string
+  technical_specification_url:
+    description: a link to the pdf file with the material's specifications
+    type:
+    - string
+  properties:
+    description: the material's properties like type, shape and size
+    type:
+    - string
+  usage:
+    description: how the material can be used
     type:
     - string
   identity:
@@ -81,10 +105,24 @@ properties:
     "$ref": "/schemata/material#/definitions/image_url"
   description:
     "$ref": "/schemata/material#/definitions/description"
-  average_price:
-    "$ref": "/schemata/material#/definitions/average_price"
   code:
     "$ref": "/schemata/material#/definitions/code"
+  average_price:
+    "$ref": "/schemata/material#/definitions/average_price"
+  supplier_name:
+    "$ref": "/schemata/material#/definitions/supplier_name"
+  supplier_contact:
+    "$ref": "/schemata/material#/definitions/supplier_contact"
+  manufacturing_location:
+    "$ref": "/schemata/material#/definitions/manufacturing_location"
+  sales_location:
+    "$ref": "/schemata/material#/definitions/sales_location"
+  technical_specification_url:
+    "$ref": "/schemata/material#/definitions/technical_specification_url"
+  properties:
+    "$ref": "/schemata/material#/definitions/properties"
+  usage:
+    "$ref": "/schemata/material#/definitions/usage"
 required:
 - id
 - name
@@ -92,5 +130,12 @@ required:
 - description
 - average_price
 - code
+- supplier_name
+- supplier_contact
+- manufacturing_location
+- sales_location
+- technical_specification_url
+- properties
+- usage
 additionalProperties: false
 id: schemata/material

@@ -10,7 +10,14 @@ describe 'GET /materials', type: :request do
         image_url: 'http://foo.bar',
         description: 'Some description',
         average_price: 'R$ 111,00',
-        code: '1234'
+        code: '1234',
+        supplier_name: 'Foo Supplier',
+        supplier_contact: 'foo@bar.com',
+        manufacturing_location: 'Foo City/FO',
+        sales_location: 'Bar City/BR',
+        technical_specification_url: 'http://foo',
+        properties: 'Foo properties',
+        usage: 'Bar usage'
       )
     end
   end
@@ -30,6 +37,10 @@ describe 'GET /materials', type: :request do
 
     it 'renders materials' do
       expect(response.body).to eq(materials.to_json)
+    end
+
+    it 'returns the correct number of materials' do
+      expect(JSON.parse(response.body).length).to be(3)
     end
   end
 

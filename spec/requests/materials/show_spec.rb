@@ -5,11 +5,18 @@ require 'rails_helper'
 describe 'GET /materials/:id', type: :request do
   let(:material) do
     Material.create!(
-      name: 'foo',
+      name: 'Foo',
       image_url: 'http://foo.bar',
       description: 'Some description',
       average_price: 'R$ 111,00',
-      code: '1234'
+      code: '1234',
+      supplier_name: 'Foo Supplier',
+      supplier_contact: 'foo@bar.com',
+      manufacturing_location: 'Foo City/FO',
+      sales_location: 'Bar City/BR',
+      technical_specification_url: 'http://foo',
+      properties: 'Foo properties',
+      usage: 'Bar usage'
     )
   end
 
