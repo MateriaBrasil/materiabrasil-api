@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'GET /materials', type: :request do
   before do
     %w[foo bar baz].each do |name|
-      Material.new(
+      Material.create!(
         name: name,
         image_url: 'http://foo.bar',
         description: 'Some description',
@@ -37,6 +37,10 @@ describe 'GET /materials', type: :request do
 
     it 'renders materials' do
       expect(response.body).to eq(materials.to_json)
+    end
+
+    it 'returns the correct number of materials' do
+      expect(JSON.parse(response.body).length).to be(3)
     end
   end
 
