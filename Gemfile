@@ -7,6 +7,8 @@ ruby '2.4.3'
 
 gem 'awesome_print'
 gem 'committee'
+gem 'devise-i18n'
+gem 'devise_token_auth'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'prmd'
 gem 'puma', '~> 3.11'
