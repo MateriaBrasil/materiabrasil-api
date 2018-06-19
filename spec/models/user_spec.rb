@@ -19,14 +19,8 @@ RSpec.describe User, type: :model do
       }
     end
 
-    it 'returns only the necessary attributes' do
-      expect(user.as_json).to eq(json)
-    end
+    it { expect(user.as_json).to eq(json) }
   end
 
-  describe '#devise_token_auth fix' do
-    it 'returns false' do
-      expect(user.tokens_has_json_column_type?).to be(false)
-    end
-  end
+  it { expect(user.tokens_has_json_column_type?).to be(false) }
 end
