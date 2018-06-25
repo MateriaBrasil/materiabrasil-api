@@ -17,13 +17,6 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def unprocessable_entity(exception)
-    render status: :unprocessable_entity, json: {
-      id: 'unprocessable_entity',
-      message: exception.message
-    }
-  end
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :sign_up,
