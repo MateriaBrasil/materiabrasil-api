@@ -43,7 +43,7 @@ describe 'POST /auth' do
     end
   end
 
-  def param_error 
+  def param_error
     ['Os dados submetidos na requisição de cadastro são inválidos.']
   end
 end
