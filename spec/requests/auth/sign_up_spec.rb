@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'POST /auth' do
+describe 'POST /auth', type: :request do
   let(:user) do
     {
       name: 'foo',
