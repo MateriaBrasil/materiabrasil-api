@@ -93,10 +93,6 @@
           "$ref": "#/definitions/comment/definitions/commentable_id"
         }
       },
-      "required": [
-        "id",
-        "text"
-      ],
       "additionalProperties": false
     },
     "error": {

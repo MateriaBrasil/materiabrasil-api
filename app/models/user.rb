@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
-  has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :restrict_with_exception
 
   def as_json(_options = {})
     {

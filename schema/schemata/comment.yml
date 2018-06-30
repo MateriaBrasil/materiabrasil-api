@@ -54,8 +54,5 @@ properties:
     "$ref": "/schemata/comment#/definitions/user_id"
   commentable_id:
     "$ref": "/schemata/comment#/definitions/commentable_id"
-required:
-- id
-- text
 additionalProperties: false
 id: schemata/comment

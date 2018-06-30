@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Comment < ApplicationRecord
-  validates :text, presence: true
+  validates :text, :user, :commentable, presence: true
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true
@@ -9,7 +9,8 @@ class Comment < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
-      text: text
+      text: text,
+      user_id: user.id
     }
   end
 end

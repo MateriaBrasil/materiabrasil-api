@@ -9,7 +9,7 @@ class Material < ApplicationRecord
   has_many :comments,
     as: :commentable,
     inverse_of: :commentable,
-    dependent: :nullify
+    dependent: :restrict_with_exception
 
   # rubocop:disable Metrics/MethodLength
   def as_json(_options = {})
