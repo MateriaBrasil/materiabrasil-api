@@ -16,7 +16,11 @@ class CommentsController < ApplicationController
   private
 
   def commentable
-    params[:commentable_type].classify.constantize.find(params[:commentable_id])
+    commentable_type = [Material].find do |type|
+      type.name == params[:commentable_type]
+    end
+
+    commentable_type.find(params[:commentable_id])
   end
 
   def comment_params
