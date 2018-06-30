@@ -6,6 +6,11 @@ class Material < ApplicationRecord
     :sales_location, :technical_specification_url, :properties, :usage,
     presence: true
 
+  has_many :comments,
+    as: :commentable,
+    inverse_of: :commentable,
+    dependent: :nullify
+
   # rubocop:disable Metrics/MethodLength
   def as_json(_options = {})
     {
