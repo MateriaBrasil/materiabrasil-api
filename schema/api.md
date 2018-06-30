@@ -1,4 +1,58 @@
 
+## <a name="resource-comment">Material</a>
+
+Stability: `prototype`
+
+A comment is created by a user at a material, product or service
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
+| **id** | *integer* | unique identifier of the comment | `42` |
+| **text** | *string* | the text of the comment | `"example"` |
+| **user_id** | *integer* | the id of the author of the comment | `42` |
+
+### <a name="link-POST-comment-/comments">Material Create</a>
+
+Create a new comment.
+
+```
+POST /comments
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
+| **text** | *string* | the text of the comment | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/comments \
+  -d '{
+  "text": "example",
+  "commentable_id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-error">Error</a>
 
 Stability: `prototype`

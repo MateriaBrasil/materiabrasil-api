@@ -6,7 +6,7 @@ describe 'POST /auth', type: :request do
   let(:user) do
     {
       name: 'foo',
-      email: 'foo@bar.com',
+      email: 'bar@foo.com',
       password: '123456789'
     }
   end
@@ -15,7 +15,7 @@ describe 'POST /auth', type: :request do
   let(:params) { {} }
 
   before do
-    post '/auth', params: params
+    post '/auth', params: params.to_json
   end
 
   context 'without params' do
@@ -38,7 +38,7 @@ describe 'POST /auth', type: :request do
     it 'returns the created user' do
       expect(response.body).to eq({
         status: 'success',
-        data: User.first
+        data: User.last
       }.to_json)
     end
   end

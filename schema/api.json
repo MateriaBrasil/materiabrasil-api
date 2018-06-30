@@ -4,6 +4,101 @@
     "object"
   ],
   "definitions": {
+    "comment": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Material",
+      "description": "A comment is created by a user at a material, product or service",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the comment",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "text": {
+          "description": "the text of the comment",
+          "type": [
+            "string"
+          ]
+        },
+        "user_id": {
+          "description": "the id of the author of the comment",
+          "type": [
+            "integer"
+          ]
+        },
+        "commentable_id": {
+          "description": "the id of the material, product of service the comment is associated with",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/comment/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new comment.",
+          "href": "/comments",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "text": {
+                "$ref": "#/definitions/comment/definitions/text"
+              },
+              "commentable_id": {
+                "$ref": "#/definitions/comment/definitions/commentable_id"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/comment"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/comment/definitions/id"
+        },
+        "text": {
+          "$ref": "#/definitions/comment/definitions/text"
+        },
+        "user_id": {
+          "$ref": "#/definitions/comment/definitions/user_id"
+        },
+        "commentable_id": {
+          "$ref": "#/definitions/comment/definitions/commentable_id"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "additionalProperties": false
+    },
     "error": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Error",
@@ -271,6 +366,9 @@
     }
   },
   "properties": {
+    "comment": {
+      "$ref": "#/definitions/comment"
+    },
     "error": {
       "$ref": "#/definitions/error"
     },

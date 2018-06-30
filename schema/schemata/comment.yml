@@ -1,0 +1,61 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Material
+description: A comment is created by a user at a material, product or service
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the comment
+    readOnly: true
+    type:
+    - integer
+  text:
+    description: the text of the comment
+    type:
+    - string
+  user_id:
+    description: the id of the author of the comment
+    type:
+    - integer
+  commentable_id:
+    description: the id of the material, product of service the comment is associated with
+    type:
+    - integer
+  identity:
+    anyOf:
+    - "$ref": "/schemata/comment#/definitions/id"
+links:
+- description: Create a new comment.
+  href: "/comments"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties:
+      text:
+        "$ref": "/schemata/comment#/definitions/text"
+      commentable_id:
+        "$ref": "/schemata/comment#/definitions/commentable_id"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/comment"
+    - "$ref": "/schemata/error"
+  title: Create
+properties:
+  id:
+    "$ref": "/schemata/comment#/definitions/id"
+  text:
+    "$ref": "/schemata/comment#/definitions/text"
+  user_id:
+    "$ref": "/schemata/comment#/definitions/user_id"
+  commentable_id:
+    "$ref": "/schemata/comment#/definitions/commentable_id"
+required:
+- id
+- text
+additionalProperties: false
+id: schemata/comment
