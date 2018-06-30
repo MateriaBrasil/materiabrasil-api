@@ -36,34 +36,19 @@ describe 'POST /comments', type: :request do
   context 'with incorrect params' do
     let(:params) { { foo: 'bar' } }
 
-    it 'returns bad request' do
-      expect(response).to have_http_status(:bad_request)
-    end
+    it { expect(response).to have_http_status(:bad_request) }
   end
 
   context 'without current_user' do
     let(:headers) { { 'access-token' => nil } }
 
-    it 'returns unauthorized' do
-      expect(response).to have_http_status(:unauthorized)
-    end
+    it { expect(response).to have_http_status(:unauthorized) }
   end
 
   context 'with current_user' do
-    it 'returns created' do
-      expect(response).to have_http_status(:created)
-    end
-
-    it 'returns the correct body' do
-      expect(response.body).to eq(comment.to_json)
-    end
-
-    it 'associates with current user' do
-      expect(comment.user).to eq(current_user)
-    end
-
-    it 'associates with commentable' do
-      expect(comment.commentable).to eq(material)
-    end
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(comment.to_json) }
+    it { expect(comment.user).to eq(current_user) }
+    it { expect(comment.commentable).to eq(material) }
   end
 end
