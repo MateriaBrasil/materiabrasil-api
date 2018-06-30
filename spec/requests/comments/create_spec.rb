@@ -8,7 +8,8 @@ describe 'POST /comments', type: :request do
   let(:params) do
     {
       text: 'foo bar',
-      commentable_id: material.id
+      commentable_id: material.id,
+      commentable_type: 'Material'
     }
   end
 

@@ -23,6 +23,11 @@ definitions:
     description: the id of the material, product of service the comment is associated with
     type:
     - integer
+  commentable_type:
+    description: the type of object the comment is associated with
+    type:
+    - string
+    enum: ["Material", "Product", "Service"]
   identity:
     anyOf:
     - "$ref": "/schemata/comment#/definitions/id"
@@ -38,6 +43,8 @@ links:
         "$ref": "/schemata/comment#/definitions/text"
       commentable_id:
         "$ref": "/schemata/comment#/definitions/commentable_id"
+      commentable_type:
+        "$ref": "/schemata/comment#/definitions/commentable_type"
     type:
     - object
   targetSchema:
@@ -54,5 +61,7 @@ properties:
     "$ref": "/schemata/comment#/definitions/user_id"
   commentable_id:
     "$ref": "/schemata/comment#/definitions/commentable_id"
+  commentable_type:
+    "$ref": "/schemata/comment#/definitions/commentable_type"
 additionalProperties: false
 id: schemata/comment

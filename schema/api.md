@@ -10,6 +10,7 @@ A comment is created by a user at a material, product or service
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Product"` or `"Service"` | `"Material"` |
 | **id** | *integer* | unique identifier of the comment | `42` |
 | **text** | *string* | the text of the comment | `"example"` |
 | **user_id** | *integer* | the id of the author of the comment | `42` |
@@ -27,6 +28,7 @@ POST /comments
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Product"` or `"Service"` | `"Material"` |
 | **text** | *string* | the text of the comment | `"example"` |
 
 
@@ -36,7 +38,8 @@ POST /comments
 $ curl -n -X POST https://api.materiabrasil.com/comments \
   -d '{
   "text": "example",
-  "commentable_id": 42
+  "commentable_id": 42,
+  "commentable_type": "Material"
 }' \
   -H "Content-Type: application/json"
 ```

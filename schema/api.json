@@ -38,6 +38,17 @@
             "integer"
           ]
         },
+        "commentable_type": {
+          "description": "the type of object the comment is associated with",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "Material",
+            "Product",
+            "Service"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -60,6 +71,9 @@
               },
               "commentable_id": {
                 "$ref": "#/definitions/comment/definitions/commentable_id"
+              },
+              "commentable_type": {
+                "$ref": "#/definitions/comment/definitions/commentable_type"
               }
             },
             "type": [
@@ -91,6 +105,9 @@
         },
         "commentable_id": {
           "$ref": "#/definitions/comment/definitions/commentable_id"
+        },
+        "commentable_type": {
+          "$ref": "#/definitions/comment/definitions/commentable_type"
         }
       },
       "additionalProperties": false
