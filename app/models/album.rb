@@ -4,6 +4,7 @@ class Album < ApplicationRecord
   validates :user, :name, presence: true
 
   belongs_to :user
+  has_many :favorites, dependent: :restrict_with_exception
 
   def as_json(_options = {})
     {

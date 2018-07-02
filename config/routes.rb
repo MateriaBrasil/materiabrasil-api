@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     get 'comments', on: :member
   end
   resources :comments, only: %i[create]
+  resources :favorites, only: %i[create]
 end

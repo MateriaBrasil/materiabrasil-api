@@ -4,6 +4,66 @@
     "object"
   ],
   "definitions": {
+    "album": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Album",
+      "description": "An album is a collection of favorites",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the album",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "user": {
+          "description": "the user the album belongs to",
+          "type": [
+            "object"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/user"
+          }
+        },
+        "name": {
+          "description": "the name of the album",
+          "type": [
+            "string"
+          ]
+        },
+        "default": {
+          "description": "indicates if this album is the user's default one",
+          "type": [
+            "boolean"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/album/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/album/definitions/id"
+        },
+        "user": {
+          "$ref": "#/definitions/album/definitions/user"
+        },
+        "name": {
+          "$ref": "#/definitions/album/definitions/name"
+        }
+      },
+      "additionalProperties": false
+    },
     "comment": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Material",
@@ -170,6 +230,103 @@
           "$ref": "#/definitions/error/definitions/message"
         }
       }
+    },
+    "favorite": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Favorite",
+      "description": "A favorite is a material, product or service bookmarked by a user",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the favorite",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "album_id": {
+          "description": "the unique identifier of the album the favorite belongs to",
+          "type": [
+            "integer"
+          ]
+        },
+        "favoritable_id": {
+          "description": "the id of the material, product of service the favorite is associated with",
+          "type": [
+            "integer"
+          ]
+        },
+        "favoritable_type": {
+          "description": "the type of object the favorite is associated with",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "Material"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/favorite/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new favorite.",
+          "href": "/favorites",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "album_id": {
+                "$ref": "#/definitions/album/definitions/id"
+              },
+              "favoritable_id": {
+                "$ref": "#/definitions/favorite/definitions/favoritable_id"
+              },
+              "favoritable_type": {
+                "$ref": "#/definitions/favorite/definitions/favoritable_type"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/favorite"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/favorite/definitions/id"
+        },
+        "album_id": {
+          "$ref": "#/definitions/favorite/definitions/album_id"
+        },
+        "favoritable_id": {
+          "$ref": "#/definitions/favorite/definitions/favoritable_id"
+        },
+        "favoritable_type": {
+          "$ref": "#/definitions/favorite/definitions/favoritable_type"
+        }
+      },
+      "additionalProperties": false
     },
     "material": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -471,11 +628,17 @@
     }
   },
   "properties": {
+    "album": {
+      "$ref": "#/definitions/album"
+    },
     "comment": {
       "$ref": "#/definitions/comment"
     },
     "error": {
       "$ref": "#/definitions/error"
+    },
+    "favorite": {
+      "$ref": "#/definitions/favorite"
     },
     "material": {
       "$ref": "#/definitions/material"

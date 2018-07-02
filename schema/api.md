@@ -1,4 +1,19 @@
 
+## <a name="resource-album">Album</a>
+
+Stability: `prototype`
+
+An album is a collection of favorites
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the album | `42` |
+| **name** | *string* | the name of the album | `"example"` |
+| **user** | *object* | the user the album belongs to |  |
+
+
 ## <a name="resource-comment">Material</a>
 
 Stability: `prototype`
@@ -95,6 +110,62 @@ HTTP/1.1 200 OK
   "id": "example",
   "message": "example"
 }
+```
+
+
+## <a name="resource-favorite">Favorite</a>
+
+Stability: `prototype`
+
+A favorite is a material, product or service bookmarked by a user
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | the unique identifier of the album the favorite belongs to | `42` |
+| **favoritable_id** | *integer* | the id of the material, product of service the favorite is associated with | `42` |
+| **favoritable_type** | *string* | the type of object the favorite is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **id** | *integer* | unique identifier of the favorite | `42` |
+
+### <a name="link-POST-favorite-/favorites">Favorite Create</a>
+
+Create a new favorite.
+
+```
+POST /favorites
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | unique identifier of the album | `42` |
+| **favoritable_id** | *integer* | the id of the material, product of service the favorite is associated with | `42` |
+| **favoritable_type** | *string* | the type of object the favorite is associated with<br/> **one of:**`"Material"` | `"Material"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/favorites \
+  -d '{
+  "album_id": 42,
+  "favoritable_id": 42,
+  "favoritable_type": "Material"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
 ```
 
 
