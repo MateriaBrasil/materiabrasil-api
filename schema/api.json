@@ -273,6 +273,14 @@
           "href": "/materials",
           "method": "GET",
           "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
           "targetSchema": {
             "anyOf": [
               {
@@ -288,7 +296,13 @@
               }
             ]
           },
-          "title": "List",
+          "title": "List"
+        },
+        {
+          "description": "Info for existing material.",
+          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
           "schema": {
             "strictProperties": true,
             "properties": {
@@ -296,13 +310,7 @@
             "type": [
               "object"
             ]
-          }
-        },
-        {
-          "description": "Info for existing material.",
-          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
+          },
           "targetSchema": {
             "anyOf": [
               {
@@ -313,7 +321,13 @@
               }
             ]
           },
-          "title": "Info",
+          "title": "Info"
+        },
+        {
+          "description": "List comments on the material.",
+          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/comments",
+          "method": "GET",
+          "rel": "index",
           "schema": {
             "strictProperties": true,
             "properties": {
@@ -321,7 +335,23 @@
             "type": [
               "object"
             ]
-          }
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/comment"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List comments"
         }
       ],
       "properties": {
