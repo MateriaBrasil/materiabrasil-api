@@ -33,6 +33,8 @@ RSpec.describe Material, type: :model do
   it { is_expected.to validate_presence_of :properties }
   it { is_expected.to validate_presence_of :usage }
 
+  it { is_expected.to have_many :comments }
+
   describe '#as_json' do
     let(:json) do
       {

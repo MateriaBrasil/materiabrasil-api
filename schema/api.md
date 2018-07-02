@@ -1,4 +1,60 @@
 
+## <a name="resource-comment">Material</a>
+
+Stability: `prototype`
+
+A comment is created by a user at a material, product or service
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **created_at** | *date-time* | when the comment was created | `"2015-01-01T12:00:00Z"` |
+| **id** | *integer* | unique identifier of the comment | `42` |
+| **text** | *string* | the text of the comment | `"example"` |
+| **user** | *object* | the author of the comment |  |
+
+### <a name="link-POST-comment-/comments">Material Create</a>
+
+Create a new comment.
+
+```
+POST /comments
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **text** | *string* | the text of the comment | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/comments \
+  -d '{
+  "commentable_id": 42,
+  "commentable_type": "Material",
+  "text": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-error">Error</a>
 
 Stability: `prototype`
@@ -121,5 +177,20 @@ HTTP/1.1 200 OK
 ```json
 null
 ```
+
+
+## <a name="resource-user">Material</a>
+
+Stability: `prototype`
+
+A user is a person registered in the platform
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *email* | a link to an image of the user | `"username@example.com"` |
+| **id** | *integer* | unique identifier of the user | `42` |
+| **name** | *string* | the name of the user | `"example"` |
 
 
