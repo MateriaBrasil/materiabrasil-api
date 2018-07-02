@@ -9,8 +9,9 @@ class Favorite < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
-      album: album.as_json,
-      favoritable: favoritable.as_json
+      album_id: album.id,
+      favoritable_id: favoritable.id,
+      favoritable_type: favoritable.class.name
     }
   end
 end

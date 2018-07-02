@@ -247,14 +247,11 @@
             "integer"
           ]
         },
-        "album": {
-          "description": "the album the favorite belongs to",
+        "album_id": {
+          "description": "the unique identifier of the album the favorite belongs to",
           "type": [
-            "object"
-          ],
-          "targetSchema": {
-            "$ref": "#/definitions/album"
-          }
+            "integer"
+          ]
         },
         "favoritable_id": {
           "description": "the id of the material, product of service the favorite is associated with",
@@ -319,11 +316,14 @@
         "id": {
           "$ref": "#/definitions/favorite/definitions/id"
         },
-        "album": {
-          "$ref": "#/definitions/favorite/definitions/album"
+        "album_id": {
+          "$ref": "#/definitions/favorite/definitions/album_id"
         },
-        "favoritable": {
-          "$ref": "#/definitions/material"
+        "favoritable_id": {
+          "$ref": "#/definitions/favorite/definitions/favoritable_id"
+        },
+        "favoritable_type": {
+          "$ref": "#/definitions/favorite/definitions/favoritable_type"
         }
       },
       "additionalProperties": false

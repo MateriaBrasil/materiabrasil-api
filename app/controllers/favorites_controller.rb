@@ -4,8 +4,6 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    album = Album.create!(user: current_user, name: 'Favoritos', default: true)
-    # album = current_user.albums.find(params[:album_id]) || favorite_album
     favorite = Favorite.create!(
       album: album,
       favoritable: favoritable
@@ -16,8 +14,9 @@ class FavoritesController < ApplicationController
 
   private
 
-  def favorite_album
-    current_user.albums.find_by(default: true) ||
+  def album
+    current_user.albums.find_by(id: favorite_params[:album_id]) ||
+      current_user.albums.find_by(default: true) ||
       Album.create!(user: current_user, name: 'Favoritos', default: true)
   end
 

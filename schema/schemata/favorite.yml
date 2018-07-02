@@ -11,12 +11,10 @@ definitions:
     readOnly: true
     type:
     - integer
-  album:
-    description: the album the favorite belongs to
+  album_id:
+    description: the unique identifier of the album the favorite belongs to
     type:
-    - object
-    targetSchema:
-      "$ref": "/schemata/album"
+    - integer
   favoritable_id:
     description: the id of the material, product of service the favorite is associated with
     type:
@@ -54,9 +52,11 @@ links:
 properties:
   id:
     "$ref": "/schemata/favorite#/definitions/id"
-  album:
-    "$ref": "/schemata/favorite#/definitions/album"
-  favoritable:
-    "$ref": "/schemata/material"
+  album_id:
+    "$ref": "/schemata/favorite#/definitions/album_id"
+  favoritable_id:
+    "$ref": "/schemata/favorite#/definitions/favoritable_id"
+  favoritable_type:
+    "$ref": "/schemata/favorite#/definitions/favoritable_type"
 additionalProperties: false
 id: schemata/favorite

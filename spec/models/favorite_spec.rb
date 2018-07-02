@@ -45,8 +45,9 @@ RSpec.describe Favorite, type: :model do
     let(:json) do
       {
         id: favorite.id,
-        album: album.as_json,
-        favoritable: material.as_json
+        album_id: album.id,
+        favoritable_id: material.id,
+        favoritable_type: material.class.name
       }
     end
 
