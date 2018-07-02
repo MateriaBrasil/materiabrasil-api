@@ -1,0 +1,40 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Material
+description: An album is a collection of favorites
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the album
+    readOnly: true
+    type:
+    - integer
+  user:
+    description: the user the album belongs to
+    type:
+    - object
+    targetSchema:
+      "$ref": "/schemata/user"
+  name:
+    description: the name of the album
+    type:
+    - string
+  default:
+    description: indicates if this album is the user's default one
+    type:
+    - boolean
+  identity:
+    anyOf:
+    - "$ref": "/schemata/album#/definitions/id"
+links: []
+properties:
+  id:
+    "$ref": "/schemata/album#/definitions/id"
+  user:
+    "$ref": "/schemata/album#/definitions/user"
+  name:
+    "$ref": "/schemata/album#/definitions/name"
+additionalProperties: false
+id: schemata/album

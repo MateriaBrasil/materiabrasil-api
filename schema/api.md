@@ -1,4 +1,19 @@
 
+## <a name="resource-album">Material</a>
+
+Stability: `prototype`
+
+An album is a collection of favorites
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the album | `42` |
+| **name** | *string* | the name of the album | `"example"` |
+| **user** | *object* | the user the album belongs to |  |
+
+
 ## <a name="resource-comment">Material</a>
 
 Stability: `prototype`
@@ -95,6 +110,73 @@ HTTP/1.1 200 OK
   "id": "example",
   "message": "example"
 }
+```
+
+
+## <a name="resource-favorite">Material</a>
+
+Stability: `prototype`
+
+A favorite is a material, product or service bookmarked by a user
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album** | *object* | the album the favorite belongs to |  |
+| **[favoritable:average_price](#resource-material)** | *string* | the average price of the material | `"example"` |
+| **[favoritable:code](#resource-material)** | *string* | the code of the material | `"example"` |
+| **[favoritable:description](#resource-material)** | *string* | the description of the material | `"example"` |
+| **[favoritable:id](#resource-material)** | *integer* | unique identifier of the material | `42` |
+| **[favoritable:image_url](#resource-material)** | *string* | a link to an image of the material | `"example"` |
+| **[favoritable:manufacturing_location](#resource-material)** | *string* | the city/state where the material is manufactured | `"example"` |
+| **[favoritable:name](#resource-material)** | *string* | the name of the material | `"example"` |
+| **[favoritable:properties](#resource-material)** | *string* | the material's properties like type, shape and size | `"example"` |
+| **[favoritable:sales_location](#resource-material)** | *string* | the city/state where the material is sold | `"example"` |
+| **[favoritable:supplier_contact](#resource-material)** | *string* | the email of the material's supplier | `"example"` |
+| **[favoritable:supplier_name](#resource-material)** | *string* | the name of the materials' supplier | `"example"` |
+| **[favoritable:technical_specification_url](#resource-material)** | *string* | a link to the pdf file with the material's specifications | `"example"` |
+| **[favoritable:usage](#resource-material)** | *string* | how the material can be used | `"example"` |
+| **id** | *integer* | unique identifier of the favorite | `42` |
+
+### <a name="link-POST-favorite-/favorites">Material Create</a>
+
+Create a new favorite.
+
+```
+POST /favorites
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | unique identifier of the album | `42` |
+| **favoritable_id** | *integer* | the id of the material, product of service the favorite is associated with | `42` |
+| **favoritable_type** | *string* | the type of object the favorite is associated with<br/> **one of:**`"Material"` | `"Material"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/favorites \
+  -d '{
+  "album_id": 42,
+  "favoritable_id": 42,
+  "favoritable_type": "Material"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
 ```
 
 

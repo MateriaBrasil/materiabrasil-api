@@ -1,0 +1,62 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Material
+description: A favorite is a material, product or service bookmarked by a user
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the favorite
+    readOnly: true
+    type:
+    - integer
+  album:
+    description: the album the favorite belongs to
+    type:
+    - object
+    targetSchema:
+      "$ref": "/schemata/album"
+  favoritable_id:
+    description: the id of the material, product of service the favorite is associated with
+    type:
+    - integer
+  favoritable_type:
+    description: the type of object the favorite is associated with
+    type:
+    - string
+    enum:
+    - Material
+  identity:
+    anyOf:
+    - "$ref": "/schemata/favorite#/definitions/id"
+links:
+- description: Create a new favorite.
+  href: "/favorites"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties:
+      album_id:
+        "$ref": "/schemata/album#/definitions/id"
+      favoritable_id:
+        "$ref": "/schemata/favorite#/definitions/favoritable_id"
+      favoritable_type:
+        "$ref": "/schemata/favorite#/definitions/favoritable_type"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/favorite"
+    - "$ref": "/schemata/error"
+  title: Create
+properties:
+  id:
+    "$ref": "/schemata/favorite#/definitions/id"
+  album:
+    "$ref": "/schemata/favorite#/definitions/album"
+  favoritable:
+    "$ref": "/schemata/material"
+additionalProperties: false
+id: schemata/favorite
