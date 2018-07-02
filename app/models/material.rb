@@ -11,6 +11,11 @@ class Material < ApplicationRecord
     inverse_of: :commentable,
     dependent: :restrict_with_exception
 
+  has_many :favorites,
+    as: :favoritable,
+    inverse_of: :favoritable,
+    dependent: :restrict_with_exception
+
   # rubocop:disable Metrics/MethodLength
   def as_json(_options = {})
     {
