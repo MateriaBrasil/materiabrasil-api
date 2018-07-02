@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   has_many :comments, dependent: :restrict_with_exception
-  has_many :favorites, dependent: :restrict_with_exception
+  has_many :albums, dependent: :restrict_with_exception
 
   def as_json(_options = {})
     {

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Album < ApplicationRecord
-  validates :user, :name, :default, presence: true
+  validates :user, :name, presence: true
 
   belongs_to :user
 
