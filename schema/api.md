@@ -9,11 +9,10 @@ A comment is created by a user at a material, product or service
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
-| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Product"` or `"Service"` | `"Material"` |
+| **created_at** | *date-time* | when the comment was created | `"2015-01-01T12:00:00Z"` |
 | **id** | *integer* | unique identifier of the comment | `42` |
 | **text** | *string* | the text of the comment | `"example"` |
-| **user_id** | *integer* | the id of the author of the comment | `42` |
+| **user** | *object* | the author of the comment |  |
 
 ### <a name="link-POST-comment-/comments">Material Create</a>
 
@@ -28,7 +27,7 @@ POST /comments
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
-| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Product"` or `"Service"` | `"Material"` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` | `"Material"` |
 | **text** | *string* | the text of the comment | `"example"` |
 
 
@@ -37,9 +36,9 @@ POST /comments
 ```bash
 $ curl -n -X POST https://api.materiabrasil.com/comments \
   -d '{
-  "text": "example",
   "commentable_id": 42,
-  "commentable_type": "Material"
+  "commentable_type": "Material",
+  "text": "example"
 }' \
   -H "Content-Type: application/json"
 ```
@@ -178,5 +177,20 @@ HTTP/1.1 200 OK
 ```json
 null
 ```
+
+
+## <a name="resource-user">Material</a>
+
+Stability: `prototype`
+
+A user is a person registered in the platform
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *email* | a link to an image of the user | `"username@example.com"` |
+| **id** | *integer* | unique identifier of the user | `42` |
+| **name** | *string* | the name of the user | `"example"` |
 
 

@@ -9,8 +9,9 @@ class Comment < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
+      user: user.as_json,
       text: text,
-      user_id: user.id
+      created_at: created_at
     }
   end
 end

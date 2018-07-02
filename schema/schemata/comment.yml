@@ -15,10 +15,17 @@ definitions:
     description: the text of the comment
     type:
     - string
-  user_id:
-    description: the id of the author of the comment
+  user:
+    description: the author of the comment
     type:
-    - integer
+    - object
+    targetSchema:
+      "$ref": "/schemata/user"
+  created_at:
+    description: when the comment was created
+    format: date-time
+    type:
+    - string
   commentable_id:
     description: the id of the material, product of service the comment is associated with
     type:
@@ -27,7 +34,8 @@ definitions:
     description: the type of object the comment is associated with
     type:
     - string
-    enum: ["Material", "Product", "Service"]
+    enum:
+    - Material
   identity:
     anyOf:
     - "$ref": "/schemata/comment#/definitions/id"
@@ -39,12 +47,12 @@ links:
   schema:
     strictProperties: true
     properties:
-      text:
-        "$ref": "/schemata/comment#/definitions/text"
       commentable_id:
         "$ref": "/schemata/comment#/definitions/commentable_id"
       commentable_type:
         "$ref": "/schemata/comment#/definitions/commentable_type"
+      text:
+        "$ref": "/schemata/comment#/definitions/text"
     type:
     - object
   targetSchema:
@@ -55,13 +63,11 @@ links:
 properties:
   id:
     "$ref": "/schemata/comment#/definitions/id"
+  user:
+    "$ref": "/schemata/comment#/definitions/user"
   text:
     "$ref": "/schemata/comment#/definitions/text"
-  user_id:
-    "$ref": "/schemata/comment#/definitions/user_id"
-  commentable_id:
-    "$ref": "/schemata/comment#/definitions/commentable_id"
-  commentable_type:
-    "$ref": "/schemata/comment#/definitions/commentable_type"
+  created_at:
+    "$ref": "/schemata/comment#/definitions/created_at"
 additionalProperties: false
 id: schemata/comment

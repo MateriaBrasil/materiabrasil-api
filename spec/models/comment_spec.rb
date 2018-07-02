@@ -29,8 +29,9 @@ RSpec.describe Comment, type: :model do
     let(:json) do
       {
         id: comment.id,
+        user: user.as_json,
         text: comment.text,
-        user_id: user.id
+        created_at: comment.created_at
       }
     end
 
