@@ -27,6 +27,39 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: albums; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.albums (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    name character varying NOT NULL,
+    "default" boolean DEFAULT false,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: albums_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.albums_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: albums_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.albums_id_seq OWNED BY public.albums.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -47,7 +80,7 @@ CREATE TABLE public.comments (
     user_id bigint NOT NULL,
     commentable_type character varying NOT NULL,
     commentable_id bigint NOT NULL,
-    text text,
+    text text NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -70,6 +103,39 @@ CREATE SEQUENCE public.comments_id_seq
 --
 
 ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
+
+
+--
+-- Name: favorites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.favorites (
+    id bigint NOT NULL,
+    album_id bigint NOT NULL,
+    favoritable_type character varying NOT NULL,
+    favoritable_id bigint NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: favorites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.favorites_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: favorites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.favorites_id_seq OWNED BY public.favorites.id;
 
 
 --
@@ -173,10 +239,24 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
+-- Name: albums id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.albums ALTER COLUMN id SET DEFAULT nextval('public.albums_id_seq'::regclass);
+
+
+--
 -- Name: comments id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.comments_id_seq'::regclass);
+
+
+--
+-- Name: favorites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.favorites ALTER COLUMN id SET DEFAULT nextval('public.favorites_id_seq'::regclass);
 
 
 --
@@ -194,6 +274,14 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
+-- Name: albums albums_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.albums
+    ADD CONSTRAINT albums_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -207,6 +295,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.comments
     ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: favorites favorites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.favorites
+    ADD CONSTRAINT favorites_pkey PRIMARY KEY (id);
 
 
 --
@@ -234,6 +330,13 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- Name: index_albums_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_albums_on_user_id ON public.albums USING btree (user_id);
+
+
+--
 -- Name: index_comments_on_commentable_type_and_commentable_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -245,6 +348,20 @@ CREATE INDEX index_comments_on_commentable_type_and_commentable_id ON public.com
 --
 
 CREATE INDEX index_comments_on_user_id ON public.comments USING btree (user_id);
+
+
+--
+-- Name: index_favorites_on_album_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_favorites_on_album_id ON public.favorites USING btree (album_id);
+
+
+--
+-- Name: index_favorites_on_favoritable_type_and_favoritable_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_favorites_on_favoritable_type_and_favoritable_id ON public.favorites USING btree (favoritable_type, favoritable_id);
 
 
 --
@@ -284,6 +401,22 @@ ALTER TABLE ONLY public.comments
 
 
 --
+-- Name: favorites fk_rails_7bf3c060e4; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.favorites
+    ADD CONSTRAINT fk_rails_7bf3c060e4 FOREIGN KEY (album_id) REFERENCES public.albums(id);
+
+
+--
+-- Name: albums fk_rails_964016e0e8; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.albums
+    ADD CONSTRAINT fk_rails_964016e0e8 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -293,6 +426,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180530120134'),
 ('20180605230655'),
 ('20180618182933'),
-('20180630150955');
+('20180630150955'),
+('20180702201914'),
+('20180702202030');
 
 
