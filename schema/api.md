@@ -1,5 +1,5 @@
 
-## <a name="resource-album">Material</a>
+## <a name="resource-album">Album</a>
 
 Stability: `prototype`
 
@@ -113,7 +113,7 @@ HTTP/1.1 200 OK
 ```
 
 
-## <a name="resource-favorite">Material</a>
+## <a name="resource-favorite">Favorite</a>
 
 Stability: `prototype`
 
@@ -128,7 +128,7 @@ A favorite is a material, product or service bookmarked by a user
 | **favoritable_type** | *string* | the type of object the favorite is associated with<br/> **one of:**`"Material"` | `"Material"` |
 | **id** | *integer* | unique identifier of the favorite | `42` |
 
-### <a name="link-POST-favorite-/favorites">Material Create</a>
+### <a name="link-POST-favorite-/favorites">Favorite Create</a>
 
 Create a new favorite.
 

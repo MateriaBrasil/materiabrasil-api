@@ -6,7 +6,7 @@
   "definitions": {
     "album": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - Album",
       "description": "An album is a collection of favorites",
       "stability": "prototype",
       "type": [
@@ -233,7 +233,7 @@
     },
     "favorite": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - Favorite",
       "description": "A favorite is a material, product or service bookmarked by a user",
       "stability": "prototype",
       "type": [

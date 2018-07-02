@@ -1,6 +1,6 @@
 ---
 "$schema": http://json-schema.org/draft-04/hyper-schema
-title: MateriaBrasil - Material
+title: MateriaBrasil - Album
 description: An album is a collection of favorites
 stability: prototype
 type:
