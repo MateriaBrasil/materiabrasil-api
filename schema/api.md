@@ -11,7 +11,7 @@ An album is a collection of favorites
 | ------- | ------- | ------- | ------- |
 | **id** | *integer* | unique identifier of the album | `42` |
 | **name** | *string* | the name of the album | `"example"` |
-| **user** | *object* | the user the album belongs to |  |
+| **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
 
 
 ## <a name="resource-comment">Comment</a>
@@ -288,6 +288,7 @@ A user is a person registered in the platform
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **albums** | *array* | the albums that belong to the user |  |
 | **email** | *email* | a link to an image of the user | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **name** | *string* | the name of the user | `"example"` |

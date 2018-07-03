@@ -20,6 +20,12 @@ definitions:
     description: the name of the user
     type:
     - string
+  albums:
+    description: the albums that belong to the user
+    type:
+    - array
+    targetSchema:
+      "$ref": "/schemata/album"
   identity:
     anyOf:
     - "$ref": "/schemata/user#/definitions/id"
@@ -45,9 +51,12 @@ properties:
     "$ref": "/schemata/user#/definitions/email"
   name:
     "$ref": "/schemata/user#/definitions/name"
+  albums:
+    "$ref": "/schemata/user#/definitions/albums"
 required:
 - id
 - email
 - name
+- albums
 additionalProperties: false
 id: schemata/user
