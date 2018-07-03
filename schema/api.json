@@ -20,14 +20,11 @@
             "integer"
           ]
         },
-        "user": {
-          "description": "the user the album belongs to",
+        "user_id": {
+          "description": "the unique identifier of the user the album belongs to",
           "type": [
-            "object"
-          ],
-          "targetSchema": {
-            "$ref": "#/definitions/user"
-          }
+            "integer"
+          ]
         },
         "name": {
           "description": "the name of the album",
@@ -55,8 +52,8 @@
         "id": {
           "$ref": "#/definitions/album/definitions/id"
         },
-        "user": {
-          "$ref": "#/definitions/album/definitions/user"
+        "user_id": {
+          "$ref": "#/definitions/album/definitions/user_id"
         },
         "name": {
           "$ref": "#/definitions/album/definitions/name"
@@ -66,7 +63,7 @@
     },
     "comment": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - Comment",
       "description": "A comment is created by a user at a material, product or service",
       "stability": "prototype",
       "type": [
@@ -571,7 +568,7 @@
     },
     "user": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - User",
       "description": "A user is a person registered in the platform",
       "stability": "prototype",
       "type": [
@@ -598,6 +595,15 @@
             "string"
           ]
         },
+        "albums": {
+          "description": "the albums that belong to the user",
+          "type": [
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/album"
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -607,6 +613,31 @@
         }
       },
       "links": [
+        {
+          "description": "Info for existing user.",
+          "href": "/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        }
       ],
       "properties": {
         "id": {
@@ -617,12 +648,16 @@
         },
         "name": {
           "$ref": "#/definitions/user/definitions/name"
+        },
+        "albums": {
+          "$ref": "#/definitions/user/definitions/albums"
         }
       },
       "required": [
         "id",
         "email",
-        "name"
+        "name",
+        "albums"
       ],
       "additionalProperties": false
     }

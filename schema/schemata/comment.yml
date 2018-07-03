@@ -1,6 +1,6 @@
 ---
 "$schema": http://json-schema.org/draft-04/hyper-schema
-title: MateriaBrasil - Material
+title: MateriaBrasil - Comment
 description: A comment is created by a user at a material, product or service
 stability: prototype
 type:

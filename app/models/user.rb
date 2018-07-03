@@ -16,7 +16,8 @@ class User < ApplicationRecord
     {
       id: id,
       email: email,
-      name: name
+      name: name,
+      albums: albums
     }
   end
 

@@ -1,6 +1,6 @@
 ---
 "$schema": http://json-schema.org/draft-04/hyper-schema
-title: MateriaBrasil - Material
+title: MateriaBrasil - User
 description: A user is a person registered in the platform
 stability: prototype
 type:
@@ -20,10 +20,30 @@ definitions:
     description: the name of the user
     type:
     - string
+  albums:
+    description: the albums that belong to the user
+    type:
+    - array
+    targetSchema:
+      "$ref": "/schemata/album"
   identity:
     anyOf:
     - "$ref": "/schemata/user#/definitions/id"
-links: []
+links:
+- description: Info for existing user.
+  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/user"
+    - "$ref": "/schemata/error"
+  title: Info
 properties:
   id:
     "$ref": "/schemata/user#/definitions/id"
@@ -31,9 +51,12 @@ properties:
     "$ref": "/schemata/user#/definitions/email"
   name:
     "$ref": "/schemata/user#/definitions/name"
+  albums:
+    "$ref": "/schemata/user#/definitions/albums"
 required:
 - id
 - email
 - name
+- albums
 additionalProperties: false
 id: schemata/user

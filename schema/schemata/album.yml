@@ -11,12 +11,10 @@ definitions:
     readOnly: true
     type:
     - integer
-  user:
-    description: the user the album belongs to
+  user_id:
+    description: the unique identifier of the user the album belongs to
     type:
-    - object
-    targetSchema:
-      "$ref": "/schemata/user"
+    - integer
   name:
     description: the name of the album
     type:
@@ -32,8 +30,8 @@ links: []
 properties:
   id:
     "$ref": "/schemata/album#/definitions/id"
-  user:
-    "$ref": "/schemata/album#/definitions/user"
+  user_id:
+    "$ref": "/schemata/album#/definitions/user_id"
   name:
     "$ref": "/schemata/album#/definitions/name"
 additionalProperties: false

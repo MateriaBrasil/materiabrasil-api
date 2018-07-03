@@ -21,7 +21,7 @@ RSpec.describe Album, type: :model do
     let(:json) do
       {
         id: album.id,
-        user: current_user.as_json,
+        user_id: current_user.id,
         name: album.name,
         default: album.default
       }

@@ -9,7 +9,7 @@ class Album < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
-      user: user.as_json,
+      user_id: user.id,
       name: name,
       default: default
     }

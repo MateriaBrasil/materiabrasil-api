@@ -11,10 +11,10 @@ An album is a collection of favorites
 | ------- | ------- | ------- | ------- |
 | **id** | *integer* | unique identifier of the album | `42` |
 | **name** | *string* | the name of the album | `"example"` |
-| **user** | *object* | the user the album belongs to |  |
+| **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
 
 
-## <a name="resource-comment">Material</a>
+## <a name="resource-comment">Comment</a>
 
 Stability: `prototype`
 
@@ -29,7 +29,7 @@ A comment is created by a user at a material, product or service
 | **text** | *string* | the text of the comment | `"example"` |
 | **user** | *object* | the author of the comment |  |
 
-### <a name="link-POST-comment-/comments">Material Create</a>
+### <a name="link-POST-comment-/comments">Comment Create</a>
 
 Create a new comment.
 
@@ -278,7 +278,7 @@ null
 ```
 
 
-## <a name="resource-user">Material</a>
+## <a name="resource-user">User</a>
 
 Stability: `prototype`
 
@@ -288,8 +288,37 @@ A user is a person registered in the platform
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **albums** | *array* | the albums that belong to the user |  |
 | **email** | *email* | a link to an image of the user | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **name** | *string* | the name of the user | `"example"` |
+
+### <a name="link-GET-user-/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Info</a>
+
+Info for existing user.
+
+```
+GET /users/{user_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/users/$USER_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
 
 
