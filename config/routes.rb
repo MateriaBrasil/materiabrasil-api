@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :comments, only: %i[create]
   resources :favorites, only: %i[create]
+  resources :users, only: %i[show]
 end

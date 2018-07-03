@@ -66,7 +66,7 @@
     },
     "comment": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - Comment",
       "description": "A comment is created by a user at a material, product or service",
       "stability": "prototype",
       "type": [
@@ -571,7 +571,7 @@
     },
     "user": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "MateriaBrasil - Material",
+      "title": "MateriaBrasil - User",
       "description": "A user is a person registered in the platform",
       "stability": "prototype",
       "type": [
@@ -607,6 +607,31 @@
         }
       },
       "links": [
+        {
+          "description": "Info for existing user.",
+          "href": "/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        }
       ],
       "properties": {
         "id": {
