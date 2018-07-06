@@ -9,9 +9,38 @@ An album is a collection of favorites
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **default** | *boolean* | indicates if this album is the user's default one | `true` |
 | **id** | *integer* | unique identifier of the album | `42` |
 | **name** | *string* | the name of the album | `"example"` |
 | **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
+
+### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites">Album List comments</a>
+
+List favorites on the album.
+
+```
+GET /albums/{album_id}/favorites
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/albums/$ALBUM_ID/favorites
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
 
 
 ## <a name="resource-comment">Comment</a>

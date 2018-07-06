@@ -47,6 +47,36 @@
         }
       },
       "links": [
+        {
+          "description": "List favorites on the album.",
+          "href": "/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/favorite"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List comments"
+        }
       ],
       "properties": {
         "id": {
@@ -57,6 +87,9 @@
         },
         "name": {
           "$ref": "#/definitions/album/definitions/name"
+        },
+        "default": {
+          "$ref": "#/definitions/album/definitions/default"
         }
       },
       "additionalProperties": false
