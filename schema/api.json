@@ -47,6 +47,36 @@
         }
       },
       "links": [
+        {
+          "description": "List favorites on the album.",
+          "href": "/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/favorite"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List comments"
+        }
       ],
       "properties": {
         "id": {
@@ -57,6 +87,9 @@
         },
         "name": {
           "$ref": "#/definitions/album/definitions/name"
+        },
+        "default": {
+          "$ref": "#/definitions/album/definitions/default"
         }
       },
       "additionalProperties": false
@@ -265,6 +298,19 @@
             "Material"
           ]
         },
+        "favoritable": {
+          "description": "the object the favorite is associated with",
+          "type": [
+            "object"
+          ],
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material"
+              }
+            ]
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -321,6 +367,9 @@
         },
         "favoritable_type": {
           "$ref": "#/definitions/favorite/definitions/favoritable_type"
+        },
+        "favoritable": {
+          "$ref": "#/definitions/favorite/definitions/favoritable"
         }
       },
       "additionalProperties": false

@@ -25,6 +25,13 @@ definitions:
     - string
     enum:
     - Material
+  favoritable:
+    description: the object the favorite is associated with
+    type:
+    - object
+    targetSchema:
+      anyOf:
+      - "$ref": "/schemata/material"
   identity:
     anyOf:
     - "$ref": "/schemata/favorite#/definitions/id"
@@ -58,5 +65,7 @@ properties:
     "$ref": "/schemata/favorite#/definitions/favoritable_id"
   favoritable_type:
     "$ref": "/schemata/favorite#/definitions/favoritable_type"
+  favoritable:
+    "$ref": "/schemata/favorite#/definitions/favoritable"
 additionalProperties: false
 id: schemata/favorite

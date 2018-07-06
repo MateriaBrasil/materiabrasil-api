@@ -11,7 +11,8 @@ class Favorite < ApplicationRecord
       id: id,
       album_id: album.id,
       favoritable_id: favoritable.id,
-      favoritable_type: favoritable.class.name
+      favoritable_type: favoritable.class.name,
+      favoritable: favoritable.as_json
     }
   end
 end

@@ -47,7 +47,8 @@ RSpec.describe Favorite, type: :model do
         id: favorite.id,
         album_id: album.id,
         favoritable_id: material.id,
-        favoritable_type: material.class.name
+        favoritable_type: material.class.name,
+        favoritable: material.as_json
       }
     end
 

@@ -26,7 +26,26 @@ definitions:
   identity:
     anyOf:
     - "$ref": "/schemata/album#/definitions/id"
-links: []
+links:
+- description: List favorites on the album.
+  href: "/albums/{(%2Fschemata%2Falbum%23%2Fdefinitions%2Fidentity)}/favorites"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/favorite"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List comments
 properties:
   id:
     "$ref": "/schemata/album#/definitions/id"
@@ -34,5 +53,7 @@ properties:
     "$ref": "/schemata/album#/definitions/user_id"
   name:
     "$ref": "/schemata/album#/definitions/name"
+  default:
+    "$ref": "/schemata/album#/definitions/default"
 additionalProperties: false
 id: schemata/album
