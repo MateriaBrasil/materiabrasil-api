@@ -298,6 +298,19 @@
             "Material"
           ]
         },
+        "favoritable": {
+          "description": "the object the favorite is associated with",
+          "type": [
+            "object"
+          ],
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material"
+              }
+            ]
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -354,6 +367,9 @@
         },
         "favoritable_type": {
           "$ref": "#/definitions/favorite/definitions/favoritable_type"
+        },
+        "favoritable": {
+          "$ref": "#/definitions/favorite/definitions/favoritable"
         }
       },
       "additionalProperties": false

@@ -153,6 +153,7 @@ A favorite is a material, product or service bookmarked by a user
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **album_id** | *integer* | the unique identifier of the album the favorite belongs to | `42` |
+| **favoritable** | *object* | the object the favorite is associated with |  |
 | **favoritable_id** | *integer* | the id of the material, product of service the favorite is associated with | `42` |
 | **favoritable_type** | *string* | the type of object the favorite is associated with<br/> **one of:**`"Material"` | `"Material"` |
 | **id** | *integer* | unique identifier of the favorite | `42` |
