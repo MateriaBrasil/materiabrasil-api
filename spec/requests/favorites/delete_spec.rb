@@ -48,11 +48,35 @@ describe 'DELETE /favorites/:id', type: :request do
   end
 
   context 'with favorite found' do
-    before { delete "/favorites/#{id}", params: params }
+    context 'when it belongs to current_user' do
+      before { delete "/favorites/#{id}", params: params }
 
-    it { expect(response).to have_http_status(:ok) }
-    it { expect(response.body).to eq(favorite.to_json) }
-    it { expect(Favorite.find_by(id: favorite.id)).to be(nil) }
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(favorite.to_json) }
+      it { expect(Favorite.find_by(id: favorite.id)).to be(nil) }
+    end
+
+    context 'when it belongs to another user' do
+      let(:user) do
+        User.create!(
+          email: 'bar@foo.com',
+          name: 'Foo Bar',
+          password: 'foobarfoo'
+        )
+      end
+
+      let(:album) do
+        Album.create!(
+          name: 'foo',
+          user: user,
+          default: true
+        )
+      end
+
+      before { delete "/favorites/#{id}", params: params }
+
+      it { expect(response).to have_http_status(:unauthorized) }
+    end
   end
 
   context 'with incorrect request' do
