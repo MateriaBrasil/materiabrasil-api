@@ -181,6 +181,41 @@ ALTER SEQUENCE public.materials_id_seq OWNED BY public.materials.id;
 
 
 --
+-- Name: reviews; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.reviews (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    reviewable_type character varying NOT NULL,
+    reviewable_id bigint NOT NULL,
+    text text NOT NULL,
+    rating integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.reviews_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.reviews_id_seq OWNED BY public.reviews.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -267,6 +302,13 @@ ALTER TABLE ONLY public.materials ALTER COLUMN id SET DEFAULT nextval('public.ma
 
 
 --
+-- Name: reviews id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.reviews_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -311,6 +353,14 @@ ALTER TABLE ONLY public.favorites
 
 ALTER TABLE ONLY public.materials
     ADD CONSTRAINT materials_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reviews reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT reviews_pkey PRIMARY KEY (id);
 
 
 --
@@ -365,6 +415,20 @@ CREATE INDEX index_favorites_on_favoritable_type_and_favoritable_id ON public.fa
 
 
 --
+-- Name: index_reviews_on_reviewable_type_and_reviewable_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_reviews_on_reviewable_type_and_reviewable_id ON public.reviews USING btree (reviewable_type, reviewable_id);
+
+
+--
+-- Name: index_reviews_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_reviews_on_user_id ON public.reviews USING btree (user_id);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -401,6 +465,14 @@ ALTER TABLE ONLY public.comments
 
 
 --
+-- Name: reviews fk_rails_74a66bd6c5; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT fk_rails_74a66bd6c5 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- Name: favorites fk_rails_7bf3c060e4; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -428,6 +500,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180618182933'),
 ('20180630150955'),
 ('20180702201914'),
-('20180702202030');
+('20180702202030'),
+('20180710175531');
 
 

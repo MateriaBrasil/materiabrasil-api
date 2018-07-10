@@ -15,4 +15,9 @@ class MaterialsController < ApplicationController
     material = Material.find(params[:id])
     render json: material.comments
   end
+
+  def reviews
+    material = Material.find(params[:id])
+    render json: material.reviews
+  end
 end

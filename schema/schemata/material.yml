@@ -115,6 +115,25 @@ links:
       }
     - "$ref": "/schemata/error"
   title: List comments
+- description: List reviews on the material.
+  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/reviews"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/review"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List reviews
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"

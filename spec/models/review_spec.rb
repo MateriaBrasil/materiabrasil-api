@@ -2,12 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
-  subject(:comment) do
-    Comment.create!(
+RSpec.describe Review, type: :model do
+  subject(:review) do
+    Review.create(
       text: 'foo',
+      rating: 4,
       user: user,
-      commentable: material
+      reviewable: material
     )
   end
 
@@ -37,22 +38,25 @@ RSpec.describe Comment, type: :model do
   end
 
   it { is_expected.to validate_presence_of :text }
-  it { is_expected.to validate_presence_of :commentable }
+  it { is_expected.to validate_presence_of :reviewable }
   it { is_expected.to validate_presence_of :user }
+  it { is_expected.to validate_presence_of :rating }
+  it { is_expected.to validate_inclusion_of(:rating).in_range(1..5) }
 
   it { is_expected.to belong_to(:user) }
-  it { is_expected.to belong_to(:commentable) }
+  it { is_expected.to belong_to(:reviewable) }
 
   describe '#as_json' do
     let(:json) do
       {
-        id: comment.id,
+        id: review.id,
         user: user.as_json,
-        text: comment.text,
-        created_at: comment.created_at
+        text: review.text,
+        rating: review.rating,
+        created_at: review.created_at
       }
     end
 
-    it { expect(comment.as_json).to eq(json) }
+    it { expect(review.as_json).to eq(json) }
   end
 end
