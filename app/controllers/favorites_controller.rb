@@ -12,6 +12,14 @@ class FavoritesController < ApplicationController
     render status: :created, json: favorite
   end
 
+  def destroy
+    favorite = Favorite.find(params[:id])
+    authorize favorite
+    favorite.destroy!
+
+    render status: :ok, json: favorite
+  end
+
   private
 
   def album

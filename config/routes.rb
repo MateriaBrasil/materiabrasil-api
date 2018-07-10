@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'comments', on: :member
   end
   resources :comments, only: %i[create]
-  resources :favorites, only: %i[create]
+  resources :favorites, only: %i[create destroy]
   resources :users, only: %i[show]
   resources :albums, only: %i[] do
     get 'favorites', on: :member

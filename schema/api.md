@@ -198,6 +198,35 @@ HTTP/1.1 201 Created
 null
 ```
 
+### <a name="link-DELETE-favorite-/favorites/{(%23%2Fdefinitions%2Ffavorite%2Fdefinitions%2Fidentity)}">Favorite Destroy</a>
+
+Destroy an existing favorite.
+
+```
+DELETE /favorites/{favorite_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X DELETE https://api.materiabrasil.com/favorites/$FAVORITE_ID \
+  -d '{
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-material">Material</a>
 

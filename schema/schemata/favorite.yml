@@ -56,6 +56,20 @@ links:
     - "$ref": "/schemata/favorite"
     - "$ref": "/schemata/error"
   title: Create
+- description: Destroy an existing favorite.
+  href: "/favorites/{(%2Fschemata%2Ffavorite%23%2Fdefinitions%2Fidentity)}"
+  method: DELETE
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/favorite"
+    - "$ref": "/schemata/error"
+  title: Destroy
 properties:
   id:
     "$ref": "/schemata/favorite#/definitions/id"

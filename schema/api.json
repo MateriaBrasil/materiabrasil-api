@@ -353,6 +353,31 @@
             ]
           },
           "title": "Create"
+        },
+        {
+          "description": "Destroy an existing favorite.",
+          "href": "/favorites/{(%23%2Fdefinitions%2Ffavorite%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/favorite"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Destroy"
         }
       ],
       "properties": {
