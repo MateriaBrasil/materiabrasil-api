@@ -75,7 +75,7 @@ describe 'DELETE /favorites/:id', type: :request do
 
       before { delete "/favorites/#{id}", params: params }
 
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 

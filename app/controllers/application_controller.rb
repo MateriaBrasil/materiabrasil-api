@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
   rescue_from ActiveRecord::InvalidForeignKey, with: :unprocessable_entity
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :forbidden
 
   private
 
@@ -19,9 +19,9 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def user_not_authorized(exception)
-    render status: :unauthorized, json: {
-      id: 'unauthorized',
+  def forbidden(exception)
+    render status: :forbidden, json: {
+      id: 'forbidden',
       message: exception.message
     }
   end
