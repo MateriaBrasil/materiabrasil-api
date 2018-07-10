@@ -11,6 +11,11 @@ class Material < ApplicationRecord
     inverse_of: :commentable,
     dependent: :restrict_with_exception
 
+  has_many :reviews,
+    as: :reviewable,
+    inverse_of: :reviewable,
+    dependent: :restrict_with_exception
+
   has_many :favorites,
     as: :favoritable,
     inverse_of: :favoritable,

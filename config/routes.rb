@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   resources :materials, only: %i[index show] do
     get 'comments', on: :member
+    get 'reviews', on: :member
   end
   resources :comments, only: %i[create]
+  resources :reviews, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resources :users, only: %i[show]
   resources :albums, only: %i[] do

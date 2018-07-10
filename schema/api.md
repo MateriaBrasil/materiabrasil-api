@@ -336,6 +336,93 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-GET-material-/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/reviews">Material List reviews</a>
+
+List reviews on the material.
+
+```
+GET /materials/{material_id}/reviews
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID/reviews
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
+## <a name="resource-review">Review</a>
+
+Stability: `prototype`
+
+A review is created by a user at a material, product or service
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **created_at** | *date-time* | when the review was created | `"2015-01-01T12:00:00Z"` |
+| **id** | *integer* | unique identifier of the review | `42` |
+| **rating** | *integer* | the rating of the review<br/> **Range:** `1 <= value <= 5` | `42` |
+| **text** | *string* | the text of the review | `"example"` |
+| **user** | *object* | the author of the review |  |
+
+### <a name="link-POST-review-/reviews">Review Create</a>
+
+Create a new review.
+
+```
+POST /reviews
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **rating** | *integer* | the rating of the review<br/> **Range:** `1 <= value <= 5` | `42` |
+| **reviewable_id** | *integer* | the id of the material, product of service the review is associated with | `42` |
+| **reviewable_type** | *string* | the type of object the review is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **text** | *string* | the text of the review | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/reviews \
+  -d '{
+  "reviewable_id": 42,
+  "reviewable_type": "Material",
+  "text": "example",
+  "rating": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-user">User</a>
 

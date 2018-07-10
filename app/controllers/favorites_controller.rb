@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
+  include PolymorphicFind
+
   before_action :authenticate_user!
 
   def create
     favorite = Favorite.create!(
       album: album,
-      favoritable: favoritable
+      favoritable: polymorphic_find('favoritable')
     )
 
     render status: :created, json: favorite
@@ -26,14 +28,6 @@ class FavoritesController < ApplicationController
     current_user.albums.find_by(id: favorite_params[:album_id]) ||
       current_user.albums.find_by(default: true) ||
       Album.create!(user: current_user, name: 'Favoritos', default: true)
-  end
-
-  def favoritable
-    favoritable_type = [Material].find do |type|
-      type.name == params[:favoritable_type]
-    end
-
-    favoritable_type.find(params[:favoritable_id])
   end
 
   def favorite_params
