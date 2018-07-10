@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
+  include PolymorphicFind
+
   before_action :authenticate_user!
 
   def create
@@ -8,21 +10,13 @@ class ReviewsController < ApplicationController
       user: current_user,
       rating: review_params[:rating],
       text: review_params[:text],
-      reviewable: reviewable
+      reviewable: polymorphic_find('reviewable')
     )
 
     render status: :created, json: review
   end
 
   private
-
-  def reviewable
-    reviewable_type = [Material].find do |type|
-      type.name == params[:reviewable_type]
-    end
-
-    reviewable_type.find(params[:reviewable_id])
-  end
 
   def review_params
     params.require(:review).permit!
