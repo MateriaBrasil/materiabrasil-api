@@ -43,6 +43,7 @@ class Material < ApplicationRecord
   # rubocop:enable Metrics/MethodLength
 
   def average_rating
-    reviews.average('rating')
+    average = reviews.average('rating')
+    average && average.to_f.round(2)
   end
 end
