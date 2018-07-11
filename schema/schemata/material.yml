@@ -59,6 +59,11 @@ definitions:
     description: how the material can be used
     type:
     - string
+  average_rating:
+    description: the average rating of the reviews of the material
+    type:
+    - number
+    - "null"
   identity:
     anyOf:
     - "$ref": "/schemata/material#/definitions/id"
@@ -161,6 +166,8 @@ properties:
     "$ref": "/schemata/material#/definitions/properties"
   usage:
     "$ref": "/schemata/material#/definitions/usage"
+  average_rating:
+    "$ref": "/schemata/material#/definitions/average_rating"
 required:
 - id
 - name

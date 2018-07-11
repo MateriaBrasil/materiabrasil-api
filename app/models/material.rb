@@ -36,8 +36,13 @@ class Material < ApplicationRecord
       sales_location: sales_location,
       technical_specification_url: technical_specification_url,
       properties: properties,
-      usage: usage
+      usage: usage,
+      average_rating: average_rating
     }
   end
   # rubocop:enable Metrics/MethodLength
+
+  def average_rating
+    reviews.average('rating')
+  end
 end

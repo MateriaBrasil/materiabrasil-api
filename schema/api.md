@@ -239,6 +239,7 @@ A material is a raw material
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **average_price** | *string* | the average price of the material | `"example"` |
+| **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **description** | *string* | the description of the material | `"example"` |
 | **id** | *integer* | unique identifier of the material | `42` |
