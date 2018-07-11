@@ -487,6 +487,13 @@
             "string"
           ]
         },
+        "average_rating": {
+          "description": "the average rating of the reviews of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -651,6 +658,9 @@
         },
         "usage": {
           "$ref": "#/definitions/material/definitions/usage"
+        },
+        "average_rating": {
+          "$ref": "#/definitions/material/definitions/average_rating"
         }
       },
       "required": [

@@ -50,12 +50,28 @@ RSpec.describe Material, type: :model do
         sales_location: material.sales_location,
         technical_specification_url: material.technical_specification_url,
         properties: material.properties,
-        usage: material.usage
+        usage: material.usage,
+        average_rating: material.average_rating
       }
     end
 
     it 'returns only the necessary attributes' do
       expect(material.as_json).to eq(json)
     end
+  end
+
+  describe '#average_rating' do
+    before do
+      [1, 4].each do |rating|
+        Review.create(
+          text: 'foo',
+          rating: rating,
+          user: current_user,
+          reviewable: material
+        )
+      end
+    end
+
+    it { expect(material.average_rating).to eq(2.5) }
   end
 end
