@@ -676,7 +676,8 @@
         "sales_location",
         "technical_specification_url",
         "properties",
-        "usage"
+        "usage",
+        "average_rating"
       ],
       "additionalProperties": false
     },

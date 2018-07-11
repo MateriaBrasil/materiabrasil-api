@@ -23,33 +23,45 @@ describe 'GET /materials/:id', type: :request do
   let(:id) { material.id }
   let(:params) { nil }
 
-  before do
-    get "/materials/#{id}", params: params
-  end
-
   context 'with material not found' do
     let(:id) { material.id + 1 }
 
-    it 'returns not found' do
-      expect(response).to have_http_status(:not_found)
-    end
+    before { get "/materials/#{id}", params: params }
+
+    it { expect(response).to have_http_status(:not_found) }
   end
 
   context 'with material found' do
-    it 'returns ok' do
-      expect(response).to have_http_status(:ok)
+    before { get "/materials/#{id}", params: params }
+
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(material.to_json) }
+  end
+
+  context 'with reviews' do
+    before do
+      %w[foo bar baz].each do |text|
+        Review.create!(
+          reviewable_id: material.id,
+          reviewable_type: 'Material',
+          text: text,
+          rating: 4,
+          user: current_user
+        )
+      end
+
+      get "/materials/#{id}", params: params
     end
 
-    it 'returns the material' do
-      expect(response.body).to eq(material.to_json)
-    end
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(material.to_json) }
   end
 
   context 'with incorrect request' do
     let(:params) { { foo: 'bar' } }
 
-    it 'returns bad request' do
-      expect(response).to have_http_status(:bad_request)
-    end
+    before { get "/materials/#{id}", params: params }
+
+    it { expect(response).to have_http_status(:bad_request) }
   end
 end

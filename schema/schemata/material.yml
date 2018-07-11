@@ -182,5 +182,6 @@ required:
 - technical_specification_url
 - properties
 - usage
+- average_rating
 additionalProperties: false
 id: schemata/material
