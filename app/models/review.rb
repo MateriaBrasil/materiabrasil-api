@@ -3,7 +3,11 @@
 class Review < ApplicationRecord
   validates :text, :user, :rating, :reviewable, presence: true
   validates :rating, inclusion: { in: 1..5 }
-  validates :user, uniqueness: { scope: %i[reviewable_type reviewable_id] }
+  validates :user_id,
+    uniqueness: {
+      scope: %i[reviewable_type reviewable_id],
+      message: 'já avaliou.'
+    }
 
   belongs_to :user
   belongs_to :reviewable, polymorphic: true
