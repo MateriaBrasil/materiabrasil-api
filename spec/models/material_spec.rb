@@ -61,15 +61,27 @@ RSpec.describe Material, type: :model do
   end
 
   describe '#average_rating' do
+    let(:other_user) do
+      User.create!(
+        email: 'bar@foo.com',
+        name: 'Foo Bar',
+        password: 'foobarfoo'
+      )
+    end
+
     before do
-      [1, 4].each do |rating|
-        Review.create(
-          text: 'foo',
-          rating: rating,
-          user: current_user,
-          reviewable: material
-        )
-      end
+      Review.create(
+        text: 'foo',
+        rating: 1,
+        user: current_user,
+        reviewable: material
+      )
+      Review.create(
+        text: 'foo',
+        rating: 4,
+        user: other_user,
+        reviewable: material
+      )
     end
 
     it { expect(material.average_rating).to eq(2.5) }

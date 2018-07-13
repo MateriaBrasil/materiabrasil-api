@@ -39,17 +39,29 @@ describe 'GET /materials/:id', type: :request do
   end
 
   context 'with reviews' do
-    before do
-      %w[foo bar baz].each do |text|
-        Review.create!(
-          reviewable_id: material.id,
-          reviewable_type: 'Material',
-          text: text,
-          rating: 4,
-          user: current_user
-        )
-      end
+    let(:other_user) do
+      User.create!(
+        email: 'bar@foo.com',
+        name: 'Foo Bar',
+        password: 'foobarfoo'
+      )
+    end
 
+    before do
+      Review.create!(
+        reviewable_id: material.id,
+        reviewable_type: 'Material',
+        text: 'foo bar',
+        rating: 4,
+        user: current_user
+      )
+      Review.create!(
+        reviewable_id: material.id,
+        reviewable_type: 'Material',
+        text: 'bar foo',
+        rating: 3,
+        user: other_user
+      )
       get "/materials/#{id}", params: params
     end
 

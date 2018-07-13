@@ -55,4 +55,20 @@ describe 'POST /reviews', type: :request do
     it { expect(review.user).to eq(current_user) }
     it { expect(review.reviewable).to eq(material) }
   end
+
+  context 'when current_user already wrote a review' do
+    before do
+      Review.create!(
+        reviewable_id: material.id,
+        reviewable_type: 'Material',
+        text: 'foo bar',
+        rating: 4,
+        user: current_user
+      )
+
+      post '/reviews', headers: headers, params: params.to_json
+    end
+
+    it { expect(response).to have_http_status(:unprocessable_entity) }
+  end
 end
