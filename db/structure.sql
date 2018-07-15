@@ -250,7 +250,8 @@ CREATE TABLE public.users (
     email character varying,
     tokens json,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    public_profile boolean DEFAULT true NOT NULL
 );
 
 
@@ -501,6 +502,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180630150955'),
 ('20180702201914'),
 ('20180702202030'),
-('20180710175531');
+('20180710175531'),
+('20180715214514');
 
 

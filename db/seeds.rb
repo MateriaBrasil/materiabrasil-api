@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+User.create!(
+  email: 'foo@bar.com',
+  name: 'Foo Bar',
+  password: '123456789'
+)
+
 Material.create(
   name: 'Tecido lona algodão reciclado',
   image_url: 'https://image.ibb.co/bPMTky/tecido.jpg',

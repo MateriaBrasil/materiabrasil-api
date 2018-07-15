@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_presence_of :public_profile }
 
   it { is_expected.to have_many :comments }
   it { is_expected.to have_many :albums }
@@ -19,7 +20,8 @@ RSpec.describe User, type: :model do
         id: user.id,
         email: user.email,
         name: user.name,
-        albums: user.albums
+        albums: user.albums,
+        public_profile: user.public_profile
       }
     end
 

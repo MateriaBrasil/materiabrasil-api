@@ -439,6 +439,7 @@ A user is a person registered in the platform
 | **email** | *email* | a link to an image of the user | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **name** | *string* | the name of the user | `"example"` |
+| **public_profile** | *boolean* | indicates if the user profile is public | `true` |
 
 ### <a name="link-GET-user-/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Info</a>
 

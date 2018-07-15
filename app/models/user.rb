@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :public_profile, presence: true
 
   has_many :comments, dependent: :restrict_with_exception
   has_many :reviews, dependent: :restrict_with_exception
@@ -18,7 +19,8 @@ class User < ApplicationRecord
       id: id,
       email: email,
       name: name,
-      albums: albums
+      albums: albums,
+      public_profile: public_profile
     }
   end
 

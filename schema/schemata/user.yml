@@ -26,6 +26,10 @@ definitions:
     - array
     targetSchema:
       "$ref": "/schemata/album"
+  public_profile:
+    description: indicates if the user profile is public
+    type:
+    - boolean
   identity:
     anyOf:
     - "$ref": "/schemata/user#/definitions/id"
@@ -53,10 +57,13 @@ properties:
     "$ref": "/schemata/user#/definitions/name"
   albums:
     "$ref": "/schemata/user#/definitions/albums"
+  public_profile:
+    "$ref": "/schemata/user#/definitions/public_profile"
 required:
 - id
 - email
 - name
 - albums
+- public_profile
 additionalProperties: false
 id: schemata/user
