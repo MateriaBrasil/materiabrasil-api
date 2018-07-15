@@ -22,19 +22,35 @@ RSpec.describe 'GET /users/:id', type: :request do
       it { expect(response.body).to eq(current_user.to_json) }
     end
 
-    context 'when accessing another user profile' do
-      let(:user) do
+    context 'when accessing a public user profile' do
+      let(:other_user) do
         User.create!(
           name: 'bar foo',
           email: 'bar@foo.com',
-          password: 123_456_789
+          password: 123_456_789,
+          public_profile: true
         )
       end
 
-      before { get "/users/#{user.id}", headers: headers }
+      before { get "/users/#{other_user.id}", headers: headers }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(response.body).to eq(user.to_json) }
+      it { expect(response.body).to eq(other_user.to_json) }
+    end
+
+    context 'when accessing a private user profile' do
+      let(:other_user) do
+        User.create!(
+          name: 'bar foo',
+          email: 'bar@foo.com',
+          password: 123_456_789,
+          public_profile: false
+        )
+      end
+
+      before { get "/users/#{other_user.id}", headers: headers }
+
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 
