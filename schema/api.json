@@ -494,6 +494,12 @@
             "null"
           ]
         },
+        "highlighted": {
+          "description": "indicates if the material should be highlighted on the list",
+          "type": [
+            "boolean"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -661,6 +667,9 @@
         },
         "average_rating": {
           "$ref": "#/definitions/material/definitions/average_rating"
+        },
+        "highlighted": {
+          "$ref": "#/definitions/material/definitions/highlighted"
         }
       },
       "required": [
@@ -677,7 +686,8 @@
         "technical_specification_url",
         "properties",
         "usage",
-        "average_rating"
+        "average_rating",
+        "highlighted"
       ],
       "additionalProperties": false
     },

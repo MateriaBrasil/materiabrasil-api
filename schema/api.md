@@ -242,6 +242,7 @@ A material is a raw material
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **description** | *string* | the description of the material | `"example"` |
+| **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
 | **image_url** | *string* | a link to an image of the material | `"example"` |
 | **manufacturing_location** | *string* | the city/state where the material is manufactured | `"example"` |

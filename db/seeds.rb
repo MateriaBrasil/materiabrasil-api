@@ -28,6 +28,7 @@ Material.create(
   supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
+  highlighted: true,
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(

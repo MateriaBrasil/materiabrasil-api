@@ -37,7 +37,8 @@ class Material < ApplicationRecord
       technical_specification_url: technical_specification_url,
       properties: properties,
       usage: usage,
-      average_rating: average_rating
+      average_rating: average_rating,
+      highlighted: highlighted
     }
   end
   # rubocop:enable Metrics/MethodLength

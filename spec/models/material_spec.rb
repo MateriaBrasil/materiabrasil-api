@@ -51,7 +51,8 @@ RSpec.describe Material, type: :model do
         technical_specification_url: material.technical_specification_url,
         properties: material.properties,
         usage: material.usage,
-        average_rating: material.average_rating
+        average_rating: material.average_rating,
+        highlighted: material.highlighted
       }
     end
 

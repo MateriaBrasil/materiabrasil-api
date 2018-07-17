@@ -157,7 +157,8 @@ CREATE TABLE public.materials (
     sales_location character varying,
     technical_specification_url character varying,
     properties text,
-    usage text
+    usage text,
+    highlighted boolean DEFAULT false NOT NULL
 );
 
 
@@ -503,6 +504,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180702201914'),
 ('20180702202030'),
 ('20180710175531'),
-('20180715214514');
+('20180715214514'),
+('20180717184108');
 
 
