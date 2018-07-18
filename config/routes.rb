@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :albums, only: %i[] do
     get 'favorites', on: :member
   end
+  resource :search, only: %i[show]
 end

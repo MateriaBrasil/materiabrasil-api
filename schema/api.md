@@ -426,6 +426,53 @@ null
 ```
 
 
+## <a name="resource-search">Search</a>
+
+Stability: `prototype`
+
+A search represents objects returned from the user's query term
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **term** | *string* | the term being searched for | `"example"` |
+
+### <a name="link-GET-search-/search">Search Search</a>
+
+Search for content.
+
+```
+GET /search
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **term** | *string* | the term being searched for | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/search
+ -G \
+  -d term=example
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-user">User</a>
 
 Stability: `prototype`
