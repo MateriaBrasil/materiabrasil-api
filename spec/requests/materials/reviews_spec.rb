@@ -25,16 +25,29 @@ describe 'GET /materials/:id/reviews', type: :request do
   let(:id) { material.id }
   let(:params) { nil }
 
+  let(:other_user) do
+    User.create!(
+      email: 'bar@foo.com',
+      name: 'Foo Bar',
+      password: 'foobarfoo'
+    )
+  end
+
   before do
-    %w[foo bar baz].each do |text|
-      Review.create!(
-        reviewable_id: material.id,
-        reviewable_type: 'Material',
-        text: text,
-        rating: 4,
-        user: current_user
-      )
-    end
+    Review.create!(
+      reviewable_id: material.id,
+      reviewable_type: 'Material',
+      text: 'foo bar',
+      rating: 4,
+      user: current_user
+    )
+    Review.create!(
+      reviewable_id: material.id,
+      reviewable_type: 'Material',
+      text: 'bar foo',
+      rating: 3,
+      user: other_user
+    )
   end
 
   context 'with material not found' do
@@ -52,7 +65,7 @@ describe 'GET /materials/:id/reviews', type: :request do
 
     it { expect(response).to have_http_status(:ok) }
     it { is_expected.to eq(JSON.parse(material.reviews.to_json)) }
-    it { expect(body.length).to eq(3) }
+    it { expect(body.length).to eq(2) }
   end
 
   context 'with bad request' do
