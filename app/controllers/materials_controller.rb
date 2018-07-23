@@ -2,7 +2,7 @@
 
 class MaterialsController < ApplicationController
   def index
-    materials = Material.all.order(created_at: :desc)
+    materials = Material.all.order(highlighted: :desc, created_at: :desc)
     render json: materials
   end
 
