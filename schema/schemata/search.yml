@@ -1,0 +1,48 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Search
+description: A search represents objects returned from the user's query term
+stability: prototype
+strictProperties: true
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of search
+    readOnly: true
+    pattern: "^\\w+$"
+    type:
+    - string
+  term:
+    description: the term being searched for
+    type:
+    - string
+  identity:
+    anyOf:
+    - "$ref": "/schemata/search#/definitions/id"
+links:
+- description: Search for content.
+  href: "/search"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties:
+      term:
+        "$ref": "/schemata/search#/definitions/term"
+    type:
+    - object    
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/material"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: Search
+properties:
+  term:
+    "$ref": "/schemata/search#/definitions/term"
+id: schemata/search

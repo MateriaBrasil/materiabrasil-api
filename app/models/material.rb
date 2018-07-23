@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class Material < ApplicationRecord
+  include PgSearch
+
+  multisearchable against: %i[
+    name description code supplier_name manufacturing_location sales_location
+    properties usage
+  ]
+
   validates :name, :image_url, :description, :average_price, :code,
     :supplier_name, :supplier_contact, :manufacturing_location,
     :sales_location, :technical_specification_url, :properties, :usage,
