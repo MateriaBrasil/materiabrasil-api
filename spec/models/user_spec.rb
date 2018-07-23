@@ -19,7 +19,8 @@ RSpec.describe User, type: :model do
         id: user.id,
         email: user.email,
         name: user.name,
-        albums: user.albums
+        albums: user.albums,
+        public_profile: user.public_profile
       }
     end
 

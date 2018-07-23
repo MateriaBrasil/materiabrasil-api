@@ -846,6 +846,12 @@
             "$ref": "#/definitions/album"
           }
         },
+        "public_profile": {
+          "description": "indicates if the user profile is public",
+          "type": [
+            "boolean"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -893,13 +899,17 @@
         },
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
+        },
+        "public_profile": {
+          "$ref": "#/definitions/user/definitions/public_profile"
         }
       },
       "required": [
         "id",
         "email",
         "name",
-        "albums"
+        "albums",
+        "public_profile"
       ],
       "additionalProperties": false
     }

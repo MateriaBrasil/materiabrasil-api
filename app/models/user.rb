@@ -18,7 +18,8 @@ class User < ApplicationRecord
       id: id,
       email: email,
       name: name,
-      albums: albums
+      albums: albums,
+      public_profile: public_profile
     }
   end
 
