@@ -64,6 +64,10 @@ definitions:
     type:
     - number
     - "null"
+  highlighted:
+    description: indicates if the material should be highlighted on the list
+    type:
+    - boolean
   identity:
     anyOf:
     - "$ref": "/schemata/material#/definitions/id"
@@ -168,6 +172,8 @@ properties:
     "$ref": "/schemata/material#/definitions/usage"
   average_rating:
     "$ref": "/schemata/material#/definitions/average_rating"
+  highlighted:
+    "$ref": "/schemata/material#/definitions/highlighted"
 required:
 - id
 - name
@@ -183,5 +189,6 @@ required:
 - properties
 - usage
 - average_rating
+- highlighted
 additionalProperties: false
 id: schemata/material

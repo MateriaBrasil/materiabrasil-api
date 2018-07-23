@@ -27,30 +27,16 @@ describe 'GET /materials', type: :request do
   end
 
   context 'with materials' do
-    before do
-      get '/materials'
-    end
+    before { get '/materials' }
 
-    it 'returns ok' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders materials' do
-      expect(response.body).to eq(materials.to_json)
-    end
-
-    it 'returns the correct number of materials' do
-      expect(JSON.parse(response.body).length).to be(3)
-    end
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(materials.reverse.to_json) }
+    it { expect(JSON.parse(response.body).length).to be(3) }
   end
 
   context 'with incorrect request' do
-    before do
-      get '/materials', params: { foo: 'bar' }
-    end
+    before { get '/materials', params: { foo: 'bar' } }
 
-    it 'returns bad request' do
-      expect(response).to have_http_status(:bad_request)
-    end
+    it { expect(response).to have_http_status(:bad_request) }
   end
 end
