@@ -241,10 +241,13 @@ A material is a raw material
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
+| **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
+| **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
-| **image_url** | *string* | a link to an image of the material | `"example"` |
+| **image_url** | *string* | a link to the default image of the material | `"example"` |
+| **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
 | **manufacturing_location** | *string* | the city/state where the material is manufactured | `"example"` |
 | **name** | *string* | the name of the material | `"example"` |
 | **properties** | *string* | the material's properties like type, shape and size | `"example"` |

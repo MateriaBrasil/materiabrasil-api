@@ -28,7 +28,7 @@ class Material < ApplicationRecord
     inverse_of: :favoritable,
     dependent: :restrict_with_exception
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {
       id: id,
@@ -45,10 +45,13 @@ class Material < ApplicationRecord
       properties: properties,
       usage: usage,
       average_rating: average_rating,
-      highlighted: highlighted
+      highlighted: highlighted,
+      cover_image_url: cover_image_url,
+      highlight_image_url: highlight_image_url,
+      list_image_url: list_image_url
     }
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def average_rating
     average = reviews.average('rating')
