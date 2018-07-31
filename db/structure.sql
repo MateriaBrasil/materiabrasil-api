@@ -158,7 +158,10 @@ CREATE TABLE public.materials (
     technical_specification_url character varying,
     properties text,
     usage text,
-    highlighted boolean DEFAULT false NOT NULL
+    highlighted boolean DEFAULT false NOT NULL,
+    cover_image_url character varying,
+    highlight_image_url character varying,
+    list_image_url character varying
 );
 
 
@@ -561,6 +564,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180710175531'),
 ('20180715214514'),
 ('20180717184108'),
-('20180718152935');
+('20180718152935'),
+('20180731194956');
 
 

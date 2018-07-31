@@ -16,7 +16,10 @@ RSpec.describe Material, type: :model do
       sales_location: 'Bar City/BR',
       technical_specification_url: 'http://foo',
       properties: 'Foo properties',
-      usage: 'Bar usage'
+      usage: 'Bar usage',
+      cover_image_url: 'http://cover-foo',
+      highlight_image_url: 'http://highlight-foo',
+      list_image_url: 'http://list-foo'
     )
   end
 
@@ -52,7 +55,10 @@ RSpec.describe Material, type: :model do
         properties: material.properties,
         usage: material.usage,
         average_rating: material.average_rating,
-        highlighted: material.highlighted
+        highlighted: material.highlighted,
+        cover_image_url: material.cover_image_url,
+        highlight_image_url: material.highlight_image_url,
+        list_image_url: material.list_image_url
       }
     end
 

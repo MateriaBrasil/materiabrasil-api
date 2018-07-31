@@ -16,9 +16,24 @@ definitions:
     type:
     - string
   image_url:
-    description: a link to an image of the material
+    description: a link to the default image of the material
     type:
     - string
+  cover_image_url:
+    description: a link to the optional cover image of the material
+    type:
+    - string
+    - "null"
+  highlight_image_url:
+    description: a link to the optional highlight image of the material
+    type:
+    - string
+    - "null"
+  list_image_url:
+    description: a link to the optional list image of the material
+    type:
+    - string
+    - "null"
   description:
     description: the description of the material
     type:
@@ -150,6 +165,12 @@ properties:
     "$ref": "/schemata/material#/definitions/name"
   image_url:
     "$ref": "/schemata/material#/definitions/image_url"
+  cover_image_url:
+    "$ref": "/schemata/material#/definitions/cover_image_url"
+  highlight_image_url:
+    "$ref": "/schemata/material#/definitions/highlight_image_url"
+  list_image_url:
+    "$ref": "/schemata/material#/definitions/list_image_url"
   description:
     "$ref": "/schemata/material#/definitions/description"
   code:
