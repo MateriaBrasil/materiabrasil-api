@@ -262,6 +262,49 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: suppliers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.suppliers (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    name character varying NOT NULL,
+    description text NOT NULL,
+    website character varying NOT NULL,
+    email character varying NOT NULL,
+    cnpj character varying NOT NULL,
+    company_name character varying NOT NULL,
+    municipal_subscription character varying NOT NULL,
+    state_subscription character varying NOT NULL,
+    phone character varying NOT NULL,
+    company_revenue character varying NOT NULL,
+    number_of_employees integer NOT NULL,
+    reach character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.suppliers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.suppliers_id_seq OWNED BY public.suppliers.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -354,6 +397,13 @@ ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.revi
 
 
 --
+-- Name: suppliers id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.suppliers ALTER COLUMN id SET DEFAULT nextval('public.suppliers_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -425,6 +475,14 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: suppliers suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.suppliers
+    ADD CONSTRAINT suppliers_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -489,6 +547,13 @@ CREATE INDEX index_reviews_on_user_id ON public.reviews USING btree (user_id);
 
 
 --
+-- Name: index_suppliers_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_suppliers_on_user_id ON public.suppliers USING btree (user_id);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -522,6 +587,14 @@ CREATE UNIQUE INDEX index_users_on_uid_and_provider ON public.users USING btree 
 
 ALTER TABLE ONLY public.comments
     ADD CONSTRAINT fk_rails_03de2dc08c FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- Name: suppliers fk_rails_30562c86c8; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.suppliers
+    ADD CONSTRAINT fk_rails_30562c86c8 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
@@ -565,6 +638,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180715214514'),
 ('20180717184108'),
 ('20180718152935'),
-('20180731194956');
+('20180731194956'),
+('20180801131136');
 
 

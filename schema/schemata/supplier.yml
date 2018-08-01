@@ -1,0 +1,160 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Supplier
+description: A supplier is a company that offers materials, products or services
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the supplier
+    readOnly: true
+    type:
+    - integer
+  user:
+    description: the user associated with the supplier
+    type:
+    - object
+    targetSchema:
+      "$ref": "/schemata/user"
+  name:
+    description: the name of the supplier
+    type:
+    - string
+  description:
+    description: the description of the supplier
+    type:
+    - string
+  website:
+    description: the website of the supplier
+    type:
+    - string
+  email:
+    description: a link to an image of the supplier
+    format: email
+    type:
+    - string
+  cnpj:
+    description: the cnpj of the supplier
+    type:
+    - string
+  company_name:
+    description: the legal name of the supplier
+    type:
+    - string
+  municipal_subscription:
+    description: the city subscription of the supplier
+    type:
+    - string
+  state_subscription:
+    description: the state subscription of the supplier
+    type:
+    - string
+  phone:
+    description: the phone of the supplier
+    type:
+    - string
+  company_revenue:
+    description: the yearly revenue of the company
+    type:
+    - string
+  number_of_employees:
+    description: the number of employees of the supplier
+    type:
+    - integer
+  reach:
+    description: the reach of the supplier
+    type:
+    - string
+    enum:
+    - city
+    - state
+    - country
+    - continent
+    - global
+  identity:
+    anyOf:
+    - "$ref": "/schemata/supplier#/definitions/id"
+links:
+- description: Create a new supplier.
+  href: "/suppliers"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties:
+      name:
+        "$ref": "/schemata/supplier#/definitions/name"
+      description:
+        "$ref": "/schemata/supplier#/definitions/description"
+      website:
+        "$ref": "/schemata/supplier#/definitions/website"
+      email:
+        "$ref": "/schemata/supplier#/definitions/email"
+      cnpj:
+        "$ref": "/schemata/supplier#/definitions/cnpj"
+      company_name:
+        "$ref": "/schemata/supplier#/definitions/company_name"
+      municipal_subscription:
+        "$ref": "/schemata/supplier#/definitions/municipal_subscription"
+      state_subscription:
+        "$ref": "/schemata/supplier#/definitions/state_subscription"
+      phone:
+        "$ref": "/schemata/supplier#/definitions/phone"
+      company_revenue:
+        "$ref": "/schemata/supplier#/definitions/company_revenue"
+      number_of_employees:
+        "$ref": "/schemata/supplier#/definitions/number_of_employees"
+      reach:
+        "$ref": "/schemata/supplier#/definitions/reach"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/supplier"
+    - "$ref": "/schemata/error"
+  title: Create
+properties:
+  id:
+    "$ref": "/schemata/supplier#/definitions/id"
+  user:
+    "$ref": "/schemata/supplier#/definitions/user"
+  name:
+    "$ref": "/schemata/supplier#/definitions/name"
+  description:
+    "$ref": "/schemata/supplier#/definitions/description"
+  website:
+    "$ref": "/schemata/supplier#/definitions/website"
+  email:
+    "$ref": "/schemata/supplier#/definitions/email"
+  cnpj:
+    "$ref": "/schemata/supplier#/definitions/cnpj"
+  company_name:
+    "$ref": "/schemata/supplier#/definitions/company_name"
+  municipal_subscription:
+    "$ref": "/schemata/supplier#/definitions/municipal_subscription"
+  state_subscription:
+    "$ref": "/schemata/supplier#/definitions/state_subscription"
+  phone:
+    "$ref": "/schemata/supplier#/definitions/phone"
+  company_revenue:
+    "$ref": "/schemata/supplier#/definitions/company_revenue"
+  number_of_employees:
+    "$ref": "/schemata/supplier#/definitions/number_of_employees"
+  reach:
+    "$ref": "/schemata/supplier#/definitions/reach"
+required:
+- id
+- name
+- website
+- email
+- cnpj
+- company_name
+- municipal_subscription
+- state_subscription
+- phone
+- company_revenue
+- number_of_employees
+- reach
+additionalProperties: false
+id: schemata/supplier

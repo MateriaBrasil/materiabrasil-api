@@ -12,6 +12,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many :comments }
   it { is_expected.to have_many :albums }
+  it { is_expected.to have_many :suppliers }
 
   describe '#as_json' do
     let(:json) do

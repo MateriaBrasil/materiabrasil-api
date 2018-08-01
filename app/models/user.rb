@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :restrict_with_exception
   has_many :reviews, dependent: :restrict_with_exception
   has_many :albums, dependent: :restrict_with_exception
+  has_many :suppliers, dependent: :restrict_with_exception
 
   def as_json(_options = {})
     {
