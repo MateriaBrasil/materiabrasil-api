@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :reviews, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resources :users, only: %i[show]
+  resources :suppliers, only: %i[create]
   resources :albums, only: %i[] do
     get 'favorites', on: :member
   end

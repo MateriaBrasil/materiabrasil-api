@@ -476,6 +476,90 @@ null
 ```
 
 
+## <a name="resource-supplier">Supplier</a>
+
+Stability: `prototype`
+
+A supplier is a company that offers materials, products or services
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **cnpj** | *string* | the cnpj of the supplier | `"example"` |
+| **company_name** | *string* | the legal name of the supplier | `"example"` |
+| **company_revenue** | *string* | the yearly revenue of the company | `"example"` |
+| **description** | *string* | the description of the supplier | `"example"` |
+| **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
+| **id** | *integer* | unique identifier of the supplier | `42` |
+| **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
+| **name** | *string* | the name of the supplier | `"example"` |
+| **number_of_employees** | *integer* | the number of employees of the supplier | `42` |
+| **phone** | *string* | the phone of the supplier | `"example"` |
+| **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
+| **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **user** | *object* | the user associated with the supplier |  |
+| **website** | *string* | the website of the supplier | `"example"` |
+
+### <a name="link-POST-supplier-/suppliers">Supplier Create</a>
+
+Create a new supplier.
+
+```
+POST /suppliers
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **cnpj** | *string* | the cnpj of the supplier | `"example"` |
+| **company_name** | *string* | the legal name of the supplier | `"example"` |
+| **company_revenue** | *string* | the yearly revenue of the company | `"example"` |
+| **description** | *string* | the description of the supplier | `"example"` |
+| **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
+| **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
+| **name** | *string* | the name of the supplier | `"example"` |
+| **number_of_employees** | *integer* | the number of employees of the supplier | `42` |
+| **phone** | *string* | the phone of the supplier | `"example"` |
+| **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
+| **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **website** | *string* | the website of the supplier | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/suppliers \
+  -d '{
+  "name": "example",
+  "description": "example",
+  "website": "example",
+  "email": "username@example.com",
+  "cnpj": "example",
+  "company_name": "example",
+  "municipal_subscription": "example",
+  "state_subscription": "example",
+  "phone": "example",
+  "company_revenue": "example",
+  "number_of_employees": 42,
+  "reach": "city"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-user">User</a>
 
 Stability: `prototype`
@@ -487,7 +571,7 @@ A user is a person registered in the platform
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **albums** | *array* | the albums that belong to the user |  |
-| **email** | *email* | a link to an image of the user | `"username@example.com"` |
+| **email** | *email* | the email of the user | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **name** | *string* | the name of the user | `"example"` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |

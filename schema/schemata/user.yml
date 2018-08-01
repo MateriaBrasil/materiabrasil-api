@@ -12,7 +12,7 @@ definitions:
     type:
     - integer
   email:
-    description: a link to an image of the user
+    description: the email of the user
     format: email
     type:
     - string
