@@ -326,12 +326,22 @@ CREATE TABLE public.users (
     confirmed_at timestamp without time zone,
     confirmation_sent_at timestamp without time zone,
     unconfirmed_email character varying,
-    name character varying,
+    first_name character varying,
     email character varying,
     tokens json,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    public_profile boolean DEFAULT true NOT NULL
+    public_profile boolean DEFAULT true NOT NULL,
+    last_name character varying DEFAULT ''::character varying NOT NULL,
+    image_url character varying,
+    city character varying,
+    state character varying,
+    country character varying,
+    newsletter boolean,
+    bio text,
+    company character varying,
+    work_title character varying,
+    website character varying
 );
 
 
@@ -639,6 +649,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180717184108'),
 ('20180718152935'),
 ('20180731194956'),
-('20180801131136');
+('20180801131136'),
+('20180805143752');
 
 

@@ -71,7 +71,8 @@ RSpec.describe Material, type: :model do
     let(:other_user) do
       User.create!(
         email: 'bar@foo.com',
-        name: 'Foo Bar',
+        first_name: 'Foo',
+        last_name: 'Bar',
         password: 'foobarfoo'
       )
     end

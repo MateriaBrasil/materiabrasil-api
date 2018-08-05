@@ -5,7 +5,8 @@ require 'rails_helper'
 describe 'POST /auth', type: :request do
   let(:user) do
     {
-      name: 'foo',
+      first_name: 'foo',
+      last_name: 'bar',
       email: 'bar@foo.com',
       password: '123456789'
     }

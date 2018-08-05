@@ -571,10 +571,19 @@ A user is a person registered in the platform
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **albums** | *array* | the albums that belong to the user |  |
+| **bio** | *nullable string* | a short biography of the user | `null` |
+| **city** | *nullable string* | the city of the user | `null` |
+| **company** | *nullable string* | the company where the user works | `null` |
+| **country** | *nullable string* | the country of the user | `null` |
 | **email** | *email* | the email of the user | `"username@example.com"` |
+| **first_name** | *string* | the first name of the user | `"example"` |
 | **id** | *integer* | unique identifier of the user | `42` |
-| **name** | *string* | the name of the user | `"example"` |
+| **image_url** | *nullable string* | a link to the profile image of the user | `null` |
+| **last_name** | *string* | the last name of the user | `"example"` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |
+| **state** | *nullable string* | the state of the user | `null` |
+| **website** | *nullable uri* | the website of the user | `null` |
+| **work_title** | *nullable string* | the work title of the user | `null` |
 
 ### <a name="link-GET-user-/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Info</a>
 
