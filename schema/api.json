@@ -1180,11 +1180,74 @@
             "string"
           ]
         },
-        "name": {
-          "description": "the name of the user",
+        "first_name": {
+          "description": "the first name of the user",
           "type": [
             "string"
           ]
+        },
+        "last_name": {
+          "description": "the last name of the user",
+          "type": [
+            "string"
+          ]
+        },
+        "image_url": {
+          "description": "a link to the profile image of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "description": "the city of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "description": "the state of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "description": "the country of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bio": {
+          "description": "a short biography of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "company": {
+          "description": "the company where the user works",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "work_title": {
+          "description": "the work title of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "description": "the website of the user",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
         },
         "albums": {
           "description": "the albums that belong to the user",
@@ -1197,6 +1260,12 @@
         },
         "public_profile": {
           "description": "indicates if the user profile is public",
+          "type": [
+            "boolean"
+          ]
+        },
+        "newsletter": {
+          "description": "indicates if the user is subscribed to the newsletter",
           "type": [
             "boolean"
           ]
@@ -1243,8 +1312,35 @@
         "email": {
           "$ref": "#/definitions/user/definitions/email"
         },
-        "name": {
-          "$ref": "#/definitions/user/definitions/name"
+        "first_name": {
+          "$ref": "#/definitions/user/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/user/definitions/last_name"
+        },
+        "image_url": {
+          "$ref": "#/definitions/user/definitions/image_url"
+        },
+        "city": {
+          "$ref": "#/definitions/user/definitions/city"
+        },
+        "state": {
+          "$ref": "#/definitions/user/definitions/state"
+        },
+        "country": {
+          "$ref": "#/definitions/user/definitions/country"
+        },
+        "bio": {
+          "$ref": "#/definitions/user/definitions/bio"
+        },
+        "company": {
+          "$ref": "#/definitions/user/definitions/company"
+        },
+        "work_title": {
+          "$ref": "#/definitions/user/definitions/work_title"
+        },
+        "website": {
+          "$ref": "#/definitions/user/definitions/website"
         },
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
@@ -1256,7 +1352,15 @@
       "required": [
         "id",
         "email",
-        "name",
+        "first_name",
+        "last_name",
+        "city",
+        "state",
+        "country",
+        "bio",
+        "company",
+        "work_title",
+        "website",
         "albums",
         "public_profile"
       ],

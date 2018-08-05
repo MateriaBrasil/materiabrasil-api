@@ -11,7 +11,8 @@ RSpec.describe UserPolicy do
     context 'when it is another user' do
       let(:other_user) do
         User.create!(
-          name: 'Bar foo',
+          first_name: 'Foo',
+          last_name: 'Bar',
           email: 'bar@foo.com',
           password: '123456789',
           public_profile: public_profile

@@ -60,7 +60,8 @@ describe 'DELETE /favorites/:id', type: :request do
       let(:user) do
         User.create!(
           email: 'bar@foo.com',
-          name: 'Foo Bar',
+          first_name: 'Foo',
+          last_name: 'Bar',
           password: 'foobarfoo'
         )
       end

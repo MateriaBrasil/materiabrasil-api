@@ -2,13 +2,15 @@
 
 User.create!(
   email: 'foo@bar.com',
-  name: 'Foo Bar',
+  first_name: 'Foo',
+  last_name: 'Bar',
   password: '123456789'
 )
 
 User.create!(
   email: 'bar@foo.com',
-  name: 'Bar Foo',
+  first_name: 'Foo',
+  last_name: 'Bar',
   password: '123456789',
   public_profile: false
 )

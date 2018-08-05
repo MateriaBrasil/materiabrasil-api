@@ -25,7 +25,8 @@ RSpec.describe 'GET /users/:id', type: :request do
     context 'when accessing a public user profile' do
       let(:other_user) do
         User.create!(
-          name: 'bar foo',
+          first_name: 'Foo',
+          last_name: 'Bar',
           email: 'bar@foo.com',
           password: 123_456_789,
           public_profile: true
@@ -41,7 +42,8 @@ RSpec.describe 'GET /users/:id', type: :request do
     context 'when accessing a private user profile' do
       let(:other_user) do
         User.create!(
-          name: 'bar foo',
+          first_name: 'Foo',
+          last_name: 'Bar',
           email: 'bar@foo.com',
           password: 123_456_789,
           public_profile: false

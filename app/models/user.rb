@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true
 
   has_many :comments, dependent: :restrict_with_exception
@@ -14,15 +15,26 @@ class User < ApplicationRecord
   has_many :albums, dependent: :restrict_with_exception
   has_many :suppliers, dependent: :restrict_with_exception
 
+  # rubocop:disable Metrics/MethodLength
   def as_json(_options = {})
     {
       id: id,
       email: email,
-      name: name,
+      first_name: first_name,
+      last_name: last_name,
+      image_url: image_url,
+      city: city,
+      state: state,
+      country: country,
+      bio: bio,
+      company: company,
+      work_title: work_title,
+      website: website,
       albums: albums,
       public_profile: public_profile
     }
   end
+  # rubocop:enable Metrics/MethodLength
 
   def tokens_has_json_column_type?
     false

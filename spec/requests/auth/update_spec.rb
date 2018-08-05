@@ -2,21 +2,12 @@
 
 require 'rails_helper'
 
-describe 'POST /auth', type: :request do
-  let(:user) do
-    {
-      first_name: 'foo',
-      last_name: 'bar',
-      email: 'bar@foo.com',
-      password: '123456789'
-    }
-  end
-
+describe 'PUT /auth', type: :request do
   let(:headers) { {} }
   let(:params) { {} }
 
   before do
-    post '/auth', params: params.to_json
+    put '/auth', params: params.to_json
   end
 
   context 'without params' do
@@ -32,19 +23,30 @@ describe 'POST /auth', type: :request do
   end
 
   context 'with correct params' do
-    let(:params) { user }
+    let(:params) do
+      {
+        image_url: 'http://foo.bar',
+        city: 'foocity',
+        state: 'foostate',
+        country: 'foocountry',
+        bio: 'some great bio',
+        company: 'foo company',
+        work_title: 'foo title',
+        website: 'http://foo.bar'
+      }
+    end
 
     it { expect(response).to have_http_status(:ok) }
 
-    it 'returns the created user' do
+    it 'returns the updated user' do
       expect(response.body).to eq({
         status: 'success',
-        data: User.last
+        data: current_user.reload
       }.to_json)
     end
   end
 
   def param_error
-    ['Os dados submetidos na requisição de cadastro são inválidos.']
+    ['Os dados submetidos para atualização de conta são inválidos.']
   end
 end

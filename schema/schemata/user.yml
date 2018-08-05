@@ -16,10 +16,55 @@ definitions:
     format: email
     type:
     - string
-  name:
-    description: the name of the user
+  first_name:
+    description: the first name of the user
     type:
     - string
+  last_name:
+    description: the last name of the user
+    type:
+    - string
+  image_url:
+    description: a link to the profile image of the user
+    type:
+    - string
+    - "null"
+  city:
+    description: the city of the user
+    type:
+    - string
+    - "null"
+  state:
+    description: the state of the user
+    type:
+    - string
+    - "null"
+  country:
+    description: the country of the user
+    type:
+    - string
+    - "null"
+  bio:
+    description: a short biography of the user
+    type:
+    - string
+    - "null"
+  company:
+    description: the company where the user works
+    type:
+    - string
+    - "null"
+  work_title:
+    description: the work title of the user
+    type:
+    - string
+    - "null"
+  website:
+    description: the website of the user
+    type:
+    - string
+    - "null"
+    format: uri
   albums:
     description: the albums that belong to the user
     type:
@@ -28,6 +73,10 @@ definitions:
       "$ref": "/schemata/album"
   public_profile:
     description: indicates if the user profile is public
+    type:
+    - boolean
+  newsletter:
+    description: indicates if the user is subscribed to the newsletter
     type:
     - boolean
   identity:
@@ -53,8 +102,26 @@ properties:
     "$ref": "/schemata/user#/definitions/id"
   email:
     "$ref": "/schemata/user#/definitions/email"
-  name:
-    "$ref": "/schemata/user#/definitions/name"
+  first_name:
+    "$ref": "/schemata/user#/definitions/first_name"
+  last_name:
+    "$ref": "/schemata/user#/definitions/last_name"
+  image_url:
+    "$ref": "/schemata/user#/definitions/image_url"
+  city:
+    "$ref": "/schemata/user#/definitions/city"
+  state:
+    "$ref": "/schemata/user#/definitions/state"
+  country:
+    "$ref": "/schemata/user#/definitions/country"
+  bio:
+    "$ref": "/schemata/user#/definitions/bio"
+  company:
+    "$ref": "/schemata/user#/definitions/company"
+  work_title:
+    "$ref": "/schemata/user#/definitions/work_title"
+  website:
+    "$ref": "/schemata/user#/definitions/website"
   albums:
     "$ref": "/schemata/user#/definitions/albums"
   public_profile:
@@ -62,7 +129,15 @@ properties:
 required:
 - id
 - email
-- name
+- first_name
+- last_name
+- city
+- state
+- country
+- bio
+- company
+- work_title
+- website
 - albums
 - public_profile
 additionalProperties: false
