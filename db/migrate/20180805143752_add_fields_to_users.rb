@@ -4,7 +4,7 @@
 class AddFieldsToUsers < ActiveRecord::Migration[5.2]
   def change
     rename_column :users, :name, :first_name
-    add_column :users, :last_name, :string, null: false, default: ''
+    add_column :users, :last_name, :string, null: false
     add_column :users, :image_url, :string
     add_column :users, :city, :string
     add_column :users, :state, :string

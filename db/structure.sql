@@ -332,7 +332,7 @@ CREATE TABLE public.users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     public_profile boolean DEFAULT true NOT NULL,
-    last_name character varying DEFAULT ''::character varying NOT NULL,
+    last_name character varying NOT NULL,
     image_url character varying,
     city character varying,
     state character varying,
