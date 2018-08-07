@@ -1303,6 +1303,55 @@
             ]
           },
           "title": "Info"
+        },
+        {
+          "description": "Update existing user.",
+          "href": "/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "image_url": {
+                "$ref": "#/definitions/user/definitions/image_url"
+              },
+              "city": {
+                "$ref": "#/definitions/user/definitions/city"
+              },
+              "state": {
+                "$ref": "#/definitions/user/definitions/state"
+              },
+              "country": {
+                "$ref": "#/definitions/user/definitions/country"
+              },
+              "bio": {
+                "$ref": "#/definitions/user/definitions/bio"
+              },
+              "company": {
+                "$ref": "#/definitions/user/definitions/company"
+              },
+              "work_title": {
+                "$ref": "#/definitions/user/definitions/work_title"
+              },
+              "website": {
+                "$ref": "#/definitions/user/definitions/website"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Update"
         }
       ],
       "properties": {
