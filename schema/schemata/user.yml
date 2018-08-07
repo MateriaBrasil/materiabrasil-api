@@ -97,6 +97,36 @@ links:
     - "$ref": "/schemata/user"
     - "$ref": "/schemata/error"
   title: Info
+- description: Update existing user.
+  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
+  method: PUT
+  rel: self
+  schema:
+    additionalProperties: false
+    properties:
+      image_url:
+        "$ref": "/schemata/user#/definitions/image_url"
+      city:
+        "$ref": "/schemata/user#/definitions/city"
+      state:
+        "$ref": "/schemata/user#/definitions/state"
+      country:
+        "$ref": "/schemata/user#/definitions/country"
+      bio:
+        "$ref": "/schemata/user#/definitions/bio"
+      company:
+        "$ref": "/schemata/user#/definitions/company"
+      work_title:
+        "$ref": "/schemata/user#/definitions/work_title"
+      website:
+        "$ref": "/schemata/user#/definitions/website"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/user"
+    - "$ref": "/schemata/error"
+  title: Update
 properties:
   id:
     "$ref": "/schemata/user#/definitions/id"

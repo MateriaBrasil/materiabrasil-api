@@ -613,4 +613,54 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-PUT-user-/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Update</a>
+
+Update existing user.
+
+```
+PUT /users/{user_id}
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **bio** | *nullable string* | a short biography of the user | `null` |
+| **city** | *nullable string* | the city of the user | `null` |
+| **company** | *nullable string* | the company where the user works | `null` |
+| **country** | *nullable string* | the country of the user | `null` |
+| **image_url** | *nullable string* | a link to the profile image of the user | `null` |
+| **state** | *nullable string* | the state of the user | `null` |
+| **website** | *nullable uri* | the website of the user | `null` |
+| **work_title** | *nullable string* | the work title of the user | `null` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://api.materiabrasil.com/users/$USER_ID \
+  -d '{
+  "image_url": "example",
+  "city": "example",
+  "state": "example",
+  "country": "example",
+  "bio": "example",
+  "company": "example",
+  "work_title": "example",
+  "website": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
