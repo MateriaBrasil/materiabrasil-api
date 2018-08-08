@@ -3,6 +3,11 @@
 class SuppliersController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    supplier = Supplier.find(params[:id])
+    render json: supplier
+  end
+
   def create
     supplier = Supplier.create!(supplier_params.merge(user: current_user))
     render status: :created, json: supplier

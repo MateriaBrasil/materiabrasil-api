@@ -501,6 +501,34 @@ A supplier is a company that offers materials, products or services
 | **user** | *object* | the user associated with the supplier |  |
 | **website** | *string* | the website of the supplier | `"example"` |
 
+### <a name="link-GET-supplier-/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Supplier Info</a>
+
+Info for existing supplier.
+
+```
+GET /suppliers/{supplier_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/suppliers/$SUPPLIER_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 ### <a name="link-POST-supplier-/suppliers">Supplier Create</a>
 
 Create a new supplier.

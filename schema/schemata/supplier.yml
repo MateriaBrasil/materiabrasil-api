@@ -76,6 +76,20 @@ definitions:
     anyOf:
     - "$ref": "/schemata/supplier#/definitions/id"
 links:
+- description: Info for existing supplier.
+  href: "/suppliers/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/supplier"
+    - "$ref": "/schemata/error"
+  title: Info
 - description: Create a new supplier.
   href: "/suppliers"
   method: POST

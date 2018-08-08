@@ -1036,6 +1036,31 @@
       },
       "links": [
         {
+          "description": "Info for existing supplier.",
+          "href": "/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/supplier"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        },
+        {
           "description": "Create a new supplier.",
           "href": "/suppliers",
           "method": "POST",
