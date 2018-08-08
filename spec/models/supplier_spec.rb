@@ -4,7 +4,21 @@ require 'rails_helper'
 
 RSpec.describe Supplier, type: :model do
   subject(:supplier) do
-    Supplier.new(name: 'Foo', email: 'foo@bar.com')
+    Supplier.new(
+      name: 'Foo Bar',
+      description: 'Foo description',
+      website: 'http://foo',
+      email: 'foo@company.com',
+      cnpj: '123456789',
+      company_name: 'Foo Inc',
+      municipal_subscription: 'does not apply',
+      state_subscription: '987654321',
+      phone: '5551987654321',
+      company_revenue: '100000000',
+      number_of_employees: 1000,
+      reach: 'country',
+      user: current_user
+    )
   end
 
   it { is_expected.to validate_presence_of :name }
@@ -37,7 +51,8 @@ RSpec.describe Supplier, type: :model do
         phone: supplier.phone,
         company_revenue: supplier.company_revenue,
         number_of_employees: supplier.number_of_employees,
-        reach: supplier.reach
+        reach: supplier.reach,
+        user_id: supplier.user_id
       }
     end
 

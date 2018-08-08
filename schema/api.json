@@ -937,14 +937,11 @@
             "integer"
           ]
         },
-        "user": {
-          "description": "the user associated with the supplier",
+        "user_id": {
+          "description": "the unique identifier of the user the supplier belongs to",
           "type": [
-            "object"
-          ],
-          "targetSchema": {
-            "$ref": "#/definitions/user"
-          }
+            "integer"
+          ]
         },
         "name": {
           "description": "the name of the supplier",
@@ -1036,6 +1033,31 @@
       },
       "links": [
         {
+          "description": "Info for existing supplier.",
+          "href": "/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/supplier"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        },
+        {
           "description": "Create a new supplier.",
           "href": "/suppliers",
           "method": "POST",
@@ -1101,8 +1123,8 @@
         "id": {
           "$ref": "#/definitions/supplier/definitions/id"
         },
-        "user": {
-          "$ref": "#/definitions/supplier/definitions/user"
+        "user_id": {
+          "$ref": "#/definitions/supplier/definitions/user_id"
         },
         "name": {
           "$ref": "#/definitions/supplier/definitions/name"
@@ -1258,6 +1280,15 @@
             "$ref": "#/definitions/album"
           }
         },
+        "suppliers": {
+          "description": "the suppliers that belong to the user",
+          "type": [
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/supplier"
+          }
+        },
         "public_profile": {
           "description": "indicates if the user profile is public",
           "type": [
@@ -1393,6 +1424,9 @@
         },
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
+        },
+        "suppliers": {
+          "$ref": "#/definitions/user/definitions/suppliers"
         },
         "public_profile": {
           "$ref": "#/definitions/user/definitions/public_profile"

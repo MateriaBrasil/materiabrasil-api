@@ -22,7 +22,8 @@ class Supplier < ApplicationRecord
       phone: phone,
       company_revenue: company_revenue,
       number_of_employees: number_of_employees,
-      reach: reach
+      reach: reach,
+      user_id: user.id
     }
   end
   # rubocop:enable Metrics/MethodLength

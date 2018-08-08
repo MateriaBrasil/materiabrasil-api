@@ -11,12 +11,10 @@ definitions:
     readOnly: true
     type:
     - integer
-  user:
-    description: the user associated with the supplier
+  user_id:
+    description: the unique identifier of the user the supplier belongs to
     type:
-    - object
-    targetSchema:
-      "$ref": "/schemata/user"
+    - integer
   name:
     description: the name of the supplier
     type:
@@ -76,6 +74,20 @@ definitions:
     anyOf:
     - "$ref": "/schemata/supplier#/definitions/id"
 links:
+- description: Info for existing supplier.
+  href: "/suppliers/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/supplier"
+    - "$ref": "/schemata/error"
+  title: Info
 - description: Create a new supplier.
   href: "/suppliers"
   method: POST
@@ -117,8 +129,8 @@ links:
 properties:
   id:
     "$ref": "/schemata/supplier#/definitions/id"
-  user:
-    "$ref": "/schemata/supplier#/definitions/user"
+  user_id:
+    "$ref": "/schemata/supplier#/definitions/user_id"
   name:
     "$ref": "/schemata/supplier#/definitions/name"
   description:

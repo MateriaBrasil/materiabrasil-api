@@ -31,6 +31,7 @@ class User < ApplicationRecord
       work_title: work_title,
       website: website,
       albums: albums,
+      suppliers: suppliers,
       public_profile: public_profile
     }
   end
