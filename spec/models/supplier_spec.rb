@@ -17,16 +17,7 @@ RSpec.describe Supplier, type: :model do
       company_revenue: '100000000',
       number_of_employees: 1000,
       reach: 'country',
-      user: user
-    )
-  end
-
-  let(:user) do
-    User.create!(
-      email: 'bar@foo.com',
-      first_name: 'Foo',
-      last_name: 'Bar',
-      password: 'foobarfoo'
+      user: current_user
     )
   end
 
@@ -61,7 +52,7 @@ RSpec.describe Supplier, type: :model do
         company_revenue: supplier.company_revenue,
         number_of_employees: supplier.number_of_employees,
         reach: supplier.reach,
-        user: supplier.user
+        user_id: supplier.user_id
       }
     end
 

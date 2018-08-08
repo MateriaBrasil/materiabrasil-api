@@ -70,6 +70,33 @@ RSpec.describe 'GET /users/:id', type: :request do
     end
 
     it { expect(response).to have_http_status(:ok) }
-    it { expect(response.body).to eq(current_user.to_json) }
+    it { expect(response.body).to eq(current_user.reload.to_json) }
+    it { expect(JSON.parse(response.body)['albums'].length).to be(2) }
+  end
+
+  context 'when user has suppliers' do
+    before do
+      Supplier.create!(
+        user: current_user,
+        name: 'Foo Bar',
+        description: 'Foo description',
+        website: 'http://foo',
+        email: 'foo@company.com',
+        cnpj: '123456789',
+        company_name: 'Foo Inc',
+        municipal_subscription: 'does not apply',
+        state_subscription: '987654321',
+        phone: '5551987654321',
+        company_revenue: '100000000',
+        number_of_employees: 1000,
+        reach: 'country'
+      )
+
+      get "/users/#{current_user.id}"
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(current_user.reload.to_json) }
+    it { expect(JSON.parse(response.body)['suppliers'].length).to be(1) }
   end
 end

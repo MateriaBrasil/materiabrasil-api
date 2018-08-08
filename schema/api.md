@@ -498,7 +498,7 @@ A supplier is a company that offers materials, products or services
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
-| **user** | *object* | the user associated with the supplier |  |
+| **user_id** | *integer* | the unique identifier of the user the supplier belongs to | `42` |
 | **website** | *string* | the website of the supplier | `"example"` |
 
 ### <a name="link-GET-supplier-/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Supplier Info</a>
@@ -610,6 +610,7 @@ A user is a person registered in the platform
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |
 | **state** | *nullable string* | the state of the user | `null` |
+| **suppliers** | *array* | the suppliers that belong to the user |  |
 | **website** | *nullable uri* | the website of the user | `null` |
 | **work_title** | *nullable string* | the work title of the user | `null` |
 
