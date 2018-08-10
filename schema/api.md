@@ -488,13 +488,13 @@ A supplier is a company that offers materials, products or services
 | ------- | ------- | ------- | ------- |
 | **cnpj** | *string* | the cnpj of the supplier | `"example"` |
 | **company_name** | *string* | the legal name of the supplier | `"example"` |
-| **company_revenue** | *string* | the yearly revenue of the company | `"example"` |
+| **company_revenue** | *nullable string* | the yearly revenue of the company | `null` |
 | **description** | *string* | the description of the supplier | `"example"` |
 | **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the supplier | `42` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
-| **number_of_employees** | *integer* | the number of employees of the supplier | `42` |
+| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
@@ -543,12 +543,12 @@ POST /suppliers
 | ------- | ------- | ------- | ------- |
 | **cnpj** | *string* | the cnpj of the supplier | `"example"` |
 | **company_name** | *string* | the legal name of the supplier | `"example"` |
-| **company_revenue** | *string* | the yearly revenue of the company | `"example"` |
+| **company_revenue** | *nullable string* | the yearly revenue of the company | `null` |
 | **description** | *string* | the description of the supplier | `"example"` |
 | **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
-| **number_of_employees** | *integer* | the number of employees of the supplier | `42` |
+| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |

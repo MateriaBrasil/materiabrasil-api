@@ -1001,13 +1001,15 @@
         "company_revenue": {
           "description": "the yearly revenue of the company",
           "type": [
-            "string"
+            "string",
+            "null"
           ]
         },
         "number_of_employees": {
           "description": "the number of employees of the supplier",
           "type": [
-            "integer"
+            "integer",
+            "null"
           ]
         },
         "reach": {
@@ -1063,7 +1065,7 @@
           "method": "POST",
           "rel": "create",
           "schema": {
-            "strictProperties": true,
+            "additionalProperties": false,
             "properties": {
               "name": {
                 "$ref": "#/definitions/supplier/definitions/name"

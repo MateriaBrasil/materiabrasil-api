@@ -56,10 +56,12 @@ definitions:
     description: the yearly revenue of the company
     type:
     - string
+    - "null"
   number_of_employees:
     description: the number of employees of the supplier
     type:
     - integer
+    - "null"
   reach:
     description: the reach of the supplier
     type:
@@ -93,7 +95,7 @@ links:
   method: POST
   rel: create
   schema:
-    strictProperties: true
+    additionalProperties: false
     properties:
       name:
         "$ref": "/schemata/supplier#/definitions/name"
