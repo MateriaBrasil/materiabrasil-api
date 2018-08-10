@@ -277,8 +277,8 @@ CREATE TABLE public.suppliers (
     municipal_subscription character varying NOT NULL,
     state_subscription character varying NOT NULL,
     phone character varying NOT NULL,
-    company_revenue character varying NOT NULL,
-    number_of_employees integer NOT NULL,
+    company_revenue character varying,
+    number_of_employees integer,
     reach character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -650,6 +650,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180718152935'),
 ('20180731194956'),
 ('20180801131136'),
-('20180805143752');
+('20180805143752'),
+('20180810202832');
 
 

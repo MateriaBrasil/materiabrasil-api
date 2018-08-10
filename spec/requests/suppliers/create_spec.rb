@@ -40,12 +40,39 @@ describe 'POST /suppliers', type: :request do
   end
 
   context 'with current_user' do
-    before do
-      post '/suppliers', headers: headers, params: params.to_json
+    context 'with all params' do
+      before do
+        post '/suppliers', headers: headers, params: params.to_json
+      end
+
+      it { expect(response).to have_http_status(:created) }
+      it { expect(response.body).to eq(supplier.to_json) }
+      it { expect(supplier.user).to eq(current_user) }
     end
 
-    it { expect(response).to have_http_status(:created) }
-    it { expect(response.body).to eq(supplier.to_json) }
-    it { expect(supplier.user).to eq(current_user) }
+    context 'without optional params' do
+      let(:params) do
+        {
+          name: 'Foo Bar',
+          description: 'Foo description',
+          website: 'http://foo',
+          email: 'foo@company.com',
+          cnpj: '123456789',
+          company_name: 'Foo Inc',
+          municipal_subscription: 'does not apply',
+          state_subscription: '987654321',
+          phone: '5551987654321',
+          reach: 'country'
+        }
+      end
+
+      before do
+        post '/suppliers', headers: headers, params: params.to_json
+      end
+
+      it { expect(response).to have_http_status(:created) }
+      it { expect(response.body).to eq(supplier.to_json) }
+      it { expect(supplier.user).to eq(current_user) }
+    end
   end
 end

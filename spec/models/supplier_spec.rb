@@ -30,8 +30,6 @@ RSpec.describe Supplier, type: :model do
   it { is_expected.to validate_presence_of :municipal_subscription }
   it { is_expected.to validate_presence_of :state_subscription }
   it { is_expected.to validate_presence_of :phone }
-  it { is_expected.to validate_presence_of :company_revenue }
-  it { is_expected.to validate_presence_of :number_of_employees }
   it { is_expected.to validate_presence_of :reach }
 
   it { is_expected.to belong_to(:user) }
