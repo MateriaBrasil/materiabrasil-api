@@ -588,6 +588,66 @@ HTTP/1.1 201 Created
 null
 ```
 
+### <a name="link-PUT-supplier-/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Supplier Update</a>
+
+Update a supplier.
+
+```
+PUT /suppliers/{supplier_id}
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **cnpj** | *string* | the cnpj of the supplier | `"example"` |
+| **company_name** | *string* | the legal name of the supplier | `"example"` |
+| **company_revenue** | *nullable string* | the yearly revenue of the company | `null` |
+| **description** | *string* | the description of the supplier | `"example"` |
+| **email** | *email* | the email of the supplier | `"username@example.com"` |
+| **image_url** | *nullable string* | a link to the profile image of the supplier | `null` |
+| **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
+| **name** | *string* | the name of the supplier | `"example"` |
+| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
+| **phone** | *string* | the phone of the supplier | `"example"` |
+| **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
+| **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **website** | *string* | the website of the supplier | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://api.materiabrasil.com/suppliers/$SUPPLIER_ID \
+  -d '{
+  "name": "example",
+  "description": "example",
+  "website": "example",
+  "email": "username@example.com",
+  "cnpj": "example",
+  "company_name": "example",
+  "municipal_subscription": "example",
+  "state_subscription": "example",
+  "phone": "example",
+  "company_revenue": "example",
+  "number_of_employees": 42,
+  "reach": "city",
+  "image_url": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-user">User</a>
 
