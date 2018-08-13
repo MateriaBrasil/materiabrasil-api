@@ -17,6 +17,7 @@ RSpec.describe Supplier, type: :model do
       company_revenue: '100000000',
       number_of_employees: 1000,
       reach: 'country',
+      image_url: 'http://foo-image',
       user: current_user
     )
   end
@@ -50,7 +51,8 @@ RSpec.describe Supplier, type: :model do
         company_revenue: supplier.company_revenue,
         number_of_employees: supplier.number_of_employees,
         reach: supplier.reach,
-        user_id: supplier.user_id
+        user_id: supplier.user_id,
+        image_url: supplier.image_url
       }
     end
 

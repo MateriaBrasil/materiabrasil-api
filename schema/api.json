@@ -962,7 +962,7 @@
           ]
         },
         "email": {
-          "description": "a link to an image of the supplier",
+          "description": "the email of the supplier",
           "format": "email",
           "type": [
             "string"
@@ -1009,6 +1009,13 @@
           "description": "the number of employees of the supplier",
           "type": [
             "integer",
+            "null"
+          ]
+        },
+        "image_url": {
+          "description": "a link to the profile image of the supplier",
+          "type": [
+            "string",
             "null"
           ]
         },
@@ -1163,6 +1170,9 @@
         },
         "reach": {
           "$ref": "#/definitions/supplier/definitions/reach"
+        },
+        "image_url": {
+          "$ref": "#/definitions/supplier/definitions/image_url"
         }
       },
       "required": [

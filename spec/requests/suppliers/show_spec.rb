@@ -18,7 +18,8 @@ RSpec.describe 'GET /suppliers/:id', type: :request do
       phone: '5551987654321',
       company_revenue: '100000000',
       number_of_employees: 1000,
-      reach: 'country'
+      reach: 'country',
+      image_url: 'http://foo-image'
     )
   end
 

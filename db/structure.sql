@@ -281,7 +281,8 @@ CREATE TABLE public.suppliers (
     number_of_employees integer,
     reach character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    image_url character varying
 );
 
 
@@ -651,6 +652,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180731194956'),
 ('20180801131136'),
 ('20180805143752'),
-('20180810202832');
+('20180810202832'),
+('20180813193754');
 
 
