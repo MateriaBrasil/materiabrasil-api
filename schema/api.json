@@ -1126,6 +1126,70 @@
             ]
           },
           "title": "Create"
+        },
+        {
+          "description": "Update a supplier.",
+          "href": "/suppliers/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/supplier/definitions/name"
+              },
+              "description": {
+                "$ref": "#/definitions/supplier/definitions/description"
+              },
+              "website": {
+                "$ref": "#/definitions/supplier/definitions/website"
+              },
+              "email": {
+                "$ref": "#/definitions/supplier/definitions/email"
+              },
+              "cnpj": {
+                "$ref": "#/definitions/supplier/definitions/cnpj"
+              },
+              "company_name": {
+                "$ref": "#/definitions/supplier/definitions/company_name"
+              },
+              "municipal_subscription": {
+                "$ref": "#/definitions/supplier/definitions/municipal_subscription"
+              },
+              "state_subscription": {
+                "$ref": "#/definitions/supplier/definitions/state_subscription"
+              },
+              "phone": {
+                "$ref": "#/definitions/supplier/definitions/phone"
+              },
+              "company_revenue": {
+                "$ref": "#/definitions/supplier/definitions/company_revenue"
+              },
+              "number_of_employees": {
+                "$ref": "#/definitions/supplier/definitions/number_of_employees"
+              },
+              "reach": {
+                "$ref": "#/definitions/supplier/definitions/reach"
+              },
+              "image_url": {
+                "$ref": "#/definitions/supplier/definitions/image_url"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/supplier"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Update"
         }
       ],
       "properties": {

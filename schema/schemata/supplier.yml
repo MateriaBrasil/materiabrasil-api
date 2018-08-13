@@ -133,6 +133,46 @@ links:
     - "$ref": "/schemata/supplier"
     - "$ref": "/schemata/error"
   title: Create
+- description: Update a supplier.
+  href: "/suppliers/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+  method: PUT
+  rel: self
+  schema:
+    additionalProperties: false
+    properties:
+      name:
+        "$ref": "/schemata/supplier#/definitions/name"
+      description:
+        "$ref": "/schemata/supplier#/definitions/description"
+      website:
+        "$ref": "/schemata/supplier#/definitions/website"
+      email:
+        "$ref": "/schemata/supplier#/definitions/email"
+      cnpj:
+        "$ref": "/schemata/supplier#/definitions/cnpj"
+      company_name:
+        "$ref": "/schemata/supplier#/definitions/company_name"
+      municipal_subscription:
+        "$ref": "/schemata/supplier#/definitions/municipal_subscription"
+      state_subscription:
+        "$ref": "/schemata/supplier#/definitions/state_subscription"
+      phone:
+        "$ref": "/schemata/supplier#/definitions/phone"
+      company_revenue:
+        "$ref": "/schemata/supplier#/definitions/company_revenue"
+      number_of_employees:
+        "$ref": "/schemata/supplier#/definitions/number_of_employees"
+      reach:
+        "$ref": "/schemata/supplier#/definitions/reach"
+      image_url:
+        "$ref": "/schemata/supplier#/definitions/image_url"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/supplier"
+    - "$ref": "/schemata/error"
+  title: Update
 properties:
   id:
     "$ref": "/schemata/supplier#/definitions/id"

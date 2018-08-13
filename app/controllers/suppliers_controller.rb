@@ -13,6 +13,13 @@ class SuppliersController < ApplicationController
     render status: :created, json: supplier
   end
 
+  def update
+    supplier = Supplier.find(params[:id])
+    supplier.update(supplier_params)
+
+    render json: supplier
+  end
+
   private
 
   def supplier_params
