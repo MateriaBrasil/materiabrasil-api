@@ -28,7 +28,7 @@ definitions:
     type:
     - string
   email:
-    description: a link to an image of the supplier
+    description: the email of the supplier
     format: email
     type:
     - string
@@ -61,6 +61,11 @@ definitions:
     description: the number of employees of the supplier
     type:
     - integer
+    - "null"
+  image_url:
+    description:  a link to the profile image of the supplier
+    type:
+    - string
     - "null"
   reach:
     description: the reach of the supplier
@@ -157,6 +162,8 @@ properties:
     "$ref": "/schemata/supplier#/definitions/number_of_employees"
   reach:
     "$ref": "/schemata/supplier#/definitions/reach"
+  image_url:
+    "$ref": "/schemata/supplier#/definitions/image_url"
 required:
 - id
 - name

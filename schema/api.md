@@ -490,8 +490,9 @@ A supplier is a company that offers materials, products or services
 | **company_name** | *string* | the legal name of the supplier | `"example"` |
 | **company_revenue** | *nullable string* | the yearly revenue of the company | `null` |
 | **description** | *string* | the description of the supplier | `"example"` |
-| **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
+| **email** | *email* | the email of the supplier | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the supplier | `42` |
+| **image_url** | *nullable string* | a link to the profile image of the supplier | `null` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
 | **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
@@ -545,7 +546,7 @@ POST /suppliers
 | **company_name** | *string* | the legal name of the supplier | `"example"` |
 | **company_revenue** | *nullable string* | the yearly revenue of the company | `null` |
 | **description** | *string* | the description of the supplier | `"example"` |
-| **email** | *email* | a link to an image of the supplier | `"username@example.com"` |
+| **email** | *email* | the email of the supplier | `"username@example.com"` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
 | **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |

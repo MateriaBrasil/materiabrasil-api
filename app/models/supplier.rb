@@ -6,7 +6,7 @@ class Supplier < ApplicationRecord
 
   belongs_to :user
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {
       id: id,
@@ -22,8 +22,9 @@ class Supplier < ApplicationRecord
       company_revenue: company_revenue,
       number_of_employees: number_of_employees,
       reach: reach,
+      image_url: image_url,
       user_id: user.id
     }
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 end
