@@ -21,6 +21,12 @@ $ rbenv install 2.5.1
 
 If rbenv complains you don't have that ruby version, upgrade [ruby-build](https://github.com/rbenv/ruby-build#readme).
 
+#### Clone the repository
+```
+$ git clone git@github.com:SeasonedSoftware/materiabrasil-api.git
+$ cd materiabrasil-api
+```
+
 #### Install local bundler
 ```
 $ gem install bundler
