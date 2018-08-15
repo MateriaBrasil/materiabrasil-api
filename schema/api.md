@@ -719,7 +719,9 @@ PUT /users/{user_id}
 | **city** | *nullable string* | the city of the user | `null` |
 | **company** | *nullable string* | the company where the user works | `null` |
 | **country** | *nullable string* | the country of the user | `null` |
+| **first_name** | *string* | the first name of the user | `"example"` |
 | **image_url** | *nullable string* | a link to the profile image of the user | `null` |
+| **last_name** | *string* | the last name of the user | `"example"` |
 | **state** | *nullable string* | the state of the user | `null` |
 | **website** | *nullable uri* | the website of the user | `null` |
 | **work_title** | *nullable string* | the work title of the user | `null` |
@@ -731,6 +733,8 @@ PUT /users/{user_id}
 $ curl -n -X PUT https://api.materiabrasil.com/users/$USER_ID \
   -d '{
   "image_url": "example",
+  "first_name": "example",
+  "last_name": "example",
   "city": "example",
   "state": "example",
   "country": "example",

@@ -1422,6 +1422,12 @@
               "image_url": {
                 "$ref": "#/definitions/user/definitions/image_url"
               },
+              "first_name": {
+                "$ref": "#/definitions/user/definitions/first_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/user/definitions/last_name"
+              },
               "city": {
                 "$ref": "#/definitions/user/definitions/city"
               },

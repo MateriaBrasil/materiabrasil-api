@@ -112,6 +112,10 @@ links:
     properties:
       image_url:
         "$ref": "/schemata/user#/definitions/image_url"
+      first_name:
+        "$ref": "/schemata/user#/definitions/first_name"
+      last_name:
+        "$ref": "/schemata/user#/definitions/last_name"
       city:
         "$ref": "/schemata/user#/definitions/city"
       state:
