@@ -7,11 +7,16 @@ Rails.application.routes.draw do
     get 'comments', on: :member
     get 'reviews', on: :member
   end
+  resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
   resources :reviews, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resources :users, only: %i[show update]
-  resources :suppliers, only: %i[show create update]
+
+  resources :suppliers, only: %i[show create update] do
+    get 'addresses', on: :member
+  end
+
   resources :albums, only: %i[] do
     get 'favorites', on: :member
   end

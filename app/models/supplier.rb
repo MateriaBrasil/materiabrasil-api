@@ -5,6 +5,7 @@ class Supplier < ApplicationRecord
     :municipal_subscription, :state_subscription, :phone, :reach, presence: true
 
   belongs_to :user
+  has_many :addresses, dependent: :restrict_with_exception
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})

@@ -4,6 +4,174 @@
     "object"
   ],
   "definitions": {
+    "address": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Address",
+      "description": "An address is a place associated with a supplier",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the address",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "supplier_id": {
+          "description": "the id of the supplier of the address",
+          "type": [
+            "integer"
+          ]
+        },
+        "address_type": {
+          "description": "the type the address",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "manufacture",
+            "postal"
+          ]
+        },
+        "street_address": {
+          "description": "the street address of the address",
+          "type": [
+            "string"
+          ]
+        },
+        "city": {
+          "description": "the city of the address",
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "the state of the address",
+          "type": [
+            "string"
+          ]
+        },
+        "country": {
+          "description": "the country of the address",
+          "type": [
+            "string"
+          ]
+        },
+        "zip_code": {
+          "description": "the zip code of the address",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone_number": {
+          "description": "the phone number of the address",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/address/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new address.",
+          "href": "/addresses",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additioProperties": false,
+            "properties": {
+              "supplier_id": {
+                "$ref": "#/definitions/address/definitions/supplier_id"
+              },
+              "address_type": {
+                "$ref": "#/definitions/address/definitions/address_type"
+              },
+              "street_address": {
+                "$ref": "#/definitions/address/definitions/street_address"
+              },
+              "city": {
+                "$ref": "#/definitions/address/definitions/city"
+              },
+              "state": {
+                "$ref": "#/definitions/address/definitions/state"
+              },
+              "country": {
+                "$ref": "#/definitions/address/definitions/country"
+              },
+              "zip_code": {
+                "$ref": "#/definitions/address/definitions/zip_code"
+              },
+              "phone_number": {
+                "$ref": "#/definitions/address/definitions/phone_number"
+              }
+            },
+            "required": [
+              "supplier_id",
+              "address_type",
+              "street_address",
+              "city",
+              "state",
+              "country"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/address"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/address/definitions/id"
+        },
+        "supplier_id": {
+          "$ref": "#/definitions/address/definitions/supplier_id"
+        },
+        "address_type": {
+          "$ref": "#/definitions/address/definitions/address_type"
+        },
+        "street_address": {
+          "$ref": "#/definitions/address/definitions/street_address"
+        },
+        "city": {
+          "$ref": "#/definitions/address/definitions/city"
+        },
+        "state": {
+          "$ref": "#/definitions/address/definitions/state"
+        },
+        "country": {
+          "$ref": "#/definitions/address/definitions/country"
+        },
+        "zip_code": {
+          "$ref": "#/definitions/address/definitions/zip_code"
+        },
+        "phone_number": {
+          "$ref": "#/definitions/address/definitions/phone_number"
+        }
+      },
+      "additionalProperties": false
+    },
     "album": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Album",
@@ -1190,6 +1358,36 @@
             ]
           },
           "title": "Update"
+        },
+        {
+          "description": "List addresses on the supplier.",
+          "href": "/suppliers/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/addresses",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/address"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List addresses"
         }
       ],
       "properties": {
@@ -1533,6 +1731,9 @@
     }
   },
   "properties": {
+    "address": {
+      "$ref": "#/definitions/address"
+    },
     "album": {
       "$ref": "#/definitions/album"
     },

@@ -28,7 +28,8 @@ RSpec.describe 'GET /suppliers/:id', type: :request do
 
     before { get "/suppliers/#{supplier.id}", headers: headers }
 
-    it { expect(response).to have_http_status(:unauthorized) }
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(supplier.to_json) }
   end
 
   context 'with current_user' do

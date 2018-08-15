@@ -173,6 +173,25 @@ links:
     - "$ref": "/schemata/supplier"
     - "$ref": "/schemata/error"
   title: Update
+- description: List addresses on the supplier.
+  href: "/suppliers/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/addresses"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/address"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List addresses
 properties:
   id:
     "$ref": "/schemata/supplier#/definitions/id"

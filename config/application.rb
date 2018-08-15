@@ -35,6 +35,5 @@ module MateriabrasilApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.time_zone = 'Brasilia'
-    config.active_record.schema_format = :sql
   end
 end

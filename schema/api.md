@@ -1,4 +1,81 @@
 
+## <a name="resource-address">Address</a>
+
+Stability: `prototype`
+
+An address is a place associated with a supplier
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **address_type** | *string* | the type the address<br/> **one of:**`"manufacture"` or `"postal"` | `"manufacture"` |
+| **city** | *string* | the city of the address | `"example"` |
+| **country** | *string* | the country of the address | `"example"` |
+| **id** | *integer* | unique identifier of the address | `42` |
+| **phone_number** | *nullable string* | the phone number of the address | `null` |
+| **state** | *string* | the state of the address | `"example"` |
+| **street_address** | *string* | the street address of the address | `"example"` |
+| **supplier_id** | *integer* | the id of the supplier of the address | `42` |
+| **zip_code** | *nullable string* | the zip code of the address | `null` |
+
+### <a name="link-POST-address-/addresses">Address Create</a>
+
+Create a new address.
+
+```
+POST /addresses
+```
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **address_type** | *string* | the type the address<br/> **one of:**`"manufacture"` or `"postal"` | `"manufacture"` |
+| **city** | *string* | the city of the address | `"example"` |
+| **country** | *string* | the country of the address | `"example"` |
+| **state** | *string* | the state of the address | `"example"` |
+| **street_address** | *string* | the street address of the address | `"example"` |
+| **supplier_id** | *integer* | the id of the supplier of the address | `42` |
+
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **phone_number** | *nullable string* | the phone number of the address | `null` |
+| **zip_code** | *nullable string* | the zip code of the address | `null` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/addresses \
+  -d '{
+  "supplier_id": 42,
+  "address_type": "manufacture",
+  "street_address": "example",
+  "city": "example",
+  "state": "example",
+  "country": "example",
+  "zip_code": "example",
+  "phone_number": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-album">Album</a>
 
 Stability: `prototype`
@@ -635,6 +712,34 @@ $ curl -n -X PUT https://api.materiabrasil.com/suppliers/$SUPPLIER_ID \
   "image_url": "example"
 }' \
   -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-GET-supplier-/suppliers/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/addresses">Supplier List addresses</a>
+
+List addresses on the supplier.
+
+```
+GET /suppliers/{material_id}/addresses
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/suppliers/$MATERIAL_ID/addresses
+ -G \
+  -d 
 ```
 
 
