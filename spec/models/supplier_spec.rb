@@ -54,7 +54,8 @@ RSpec.describe Supplier, type: :model do
         number_of_employees: supplier.number_of_employees,
         reach: supplier.reach,
         user_id: supplier.user_id,
-        image_url: supplier.image_url
+        image_url: supplier.image_url,
+        materials: supplier.materials
       }
     end
 

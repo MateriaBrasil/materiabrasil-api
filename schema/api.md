@@ -569,6 +569,7 @@ A supplier is a company that offers materials, products or services
 | **email** | *email* | the email of the supplier | `"username@example.com"` |
 | **id** | *integer* | unique identifier of the supplier | `42` |
 | **image_url** | *nullable string* | a link to the profile image of the supplier | `null` |
+| **materials** | *array* | the materials that belong to the supplier |  |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
 | **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |

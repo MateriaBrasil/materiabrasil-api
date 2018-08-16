@@ -47,6 +47,32 @@ RSpec.describe 'GET /suppliers/:id', type: :request do
     end
   end
 
+  context 'when supplier has materials' do
+    before do
+      %w[foo bar baz].each do |name|
+        Material.create!(
+          name: name,
+          image_url: 'http://foo.bar',
+          description: 'Some description',
+          average_price: 'R$ 111,00',
+          code: '1234',
+          manufacturing_location: 'Foo City/FO',
+          sales_location: 'Bar City/BR',
+          technical_specification_url: 'http://foo',
+          properties: 'Foo properties',
+          usage: 'Bar usage',
+          supplier: supplier
+        )
+      end
+
+      get "/suppliers/#{supplier.id}"
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(supplier.reload.to_json) }
+    it { expect(JSON.parse(response.body)['materials'].length).to be(3) }
+  end
+
   context 'with incorrect request' do
     before { get "/suppliers/#{supplier.id}", params: { foo: 'bar' } }
 

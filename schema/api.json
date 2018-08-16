@@ -1177,6 +1177,15 @@
             "null"
           ]
         },
+        "materials": {
+          "description": "the materials that belong to the supplier",
+          "type": [
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/material"
+          }
+        },
         "reach": {
           "description": "the reach of the supplier",
           "type": [
@@ -1425,6 +1434,9 @@
         },
         "image_url": {
           "$ref": "#/definitions/supplier/definitions/image_url"
+        },
+        "materials": {
+          "$ref": "#/definitions/supplier/definitions/materials"
         }
       },
       "required": [

@@ -25,7 +25,8 @@ class Supplier < ApplicationRecord
       number_of_employees: number_of_employees,
       reach: reach,
       image_url: image_url,
-      user_id: user.id
+      user_id: user.id,
+      materials: materials
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
