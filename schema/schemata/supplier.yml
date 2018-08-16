@@ -67,6 +67,12 @@ definitions:
     type:
     - string
     - "null"
+  materials:
+    description: the materials that belong to the supplier
+    type:
+    - array
+    targetSchema:
+      "$ref": "/schemata/material"
   reach:
     description: the reach of the supplier
     type:
@@ -223,6 +229,8 @@ properties:
     "$ref": "/schemata/supplier#/definitions/reach"
   image_url:
     "$ref": "/schemata/supplier#/definitions/image_url"
+  materials:
+    "$ref": "/schemata/supplier#/definitions/materials"
 required:
 - id
 - name
