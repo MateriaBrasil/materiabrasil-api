@@ -19,7 +19,27 @@ RSpec.describe Material, type: :model do
       usage: 'Bar usage',
       cover_image_url: 'http://cover-foo',
       highlight_image_url: 'http://highlight-foo',
-      list_image_url: 'http://list-foo'
+      list_image_url: 'http://list-foo',
+      supplier: supplier
+    )
+  end
+
+  let(:supplier) do
+    Supplier.create!(
+      user: current_user,
+      name: 'Foo Bar',
+      description: 'Foo description',
+      website: 'http://foo',
+      email: 'foo@company.com',
+      cnpj: '123456789',
+      company_name: 'Foo Inc',
+      municipal_subscription: 'does not apply',
+      state_subscription: '987654321',
+      phone: '5551987654321',
+      company_revenue: '100000000',
+      number_of_employees: 1000,
+      reach: 'country',
+      image_url: 'http://foo-image'
     )
   end
 
@@ -37,6 +57,7 @@ RSpec.describe Material, type: :model do
   it { is_expected.to validate_presence_of :usage }
 
   it { is_expected.to have_many :comments }
+  it { is_expected.to belong_to :supplier }
 
   describe '#as_json' do
     let(:json) do

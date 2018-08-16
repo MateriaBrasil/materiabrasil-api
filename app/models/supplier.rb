@@ -6,6 +6,7 @@ class Supplier < ApplicationRecord
 
   belongs_to :user
   has_many :addresses, dependent: :restrict_with_exception
+  has_many :materials, dependent: :restrict_with_exception
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})

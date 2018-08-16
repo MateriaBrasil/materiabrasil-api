@@ -28,6 +28,8 @@ class Material < ApplicationRecord
     inverse_of: :favoritable,
     dependent: :restrict_with_exception
 
+  belongs_to :supplier
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {

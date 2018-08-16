@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_122644) do
+ActiveRecord::Schema.define(version: 2018_08_16_132004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_122644) do
     t.string "cover_image_url"
     t.string "highlight_image_url"
     t.string "list_image_url"
+    t.bigint "supplier_id"
+    t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -164,6 +166,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_122644) do
   add_foreign_key "albums", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "albums"
+  add_foreign_key "materials", "suppliers"
   add_foreign_key "reviews", "users"
   add_foreign_key "suppliers", "users"
 end
