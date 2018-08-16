@@ -21,3 +21,4 @@ exclude_patterns:
 - spec/
 - db/migrate/
 - db/seeds.rb
+- db/schema.rb

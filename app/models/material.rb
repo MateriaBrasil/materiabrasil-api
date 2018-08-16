@@ -4,14 +4,13 @@ class Material < ApplicationRecord
   include PgSearch
 
   multisearchable against: %i[
-    name description code supplier_name manufacturing_location sales_location
+    name description code manufacturing_location sales_location
     properties usage
   ]
 
   validates :name, :image_url, :description, :average_price, :code,
-    :supplier_name, :supplier_contact, :manufacturing_location,
-    :sales_location, :technical_specification_url, :properties, :usage,
-    presence: true
+    :manufacturing_location, :sales_location, :technical_specification_url,
+    :properties, :usage, presence: true
 
   has_many :comments,
     as: :commentable,
@@ -28,6 +27,8 @@ class Material < ApplicationRecord
     inverse_of: :favoritable,
     dependent: :restrict_with_exception
 
+  belongs_to :supplier
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {
@@ -37,8 +38,6 @@ class Material < ApplicationRecord
       description: description,
       average_price: average_price,
       code: code,
-      supplier_name: supplier_name,
-      supplier_contact: supplier_contact,
       manufacturing_location: manufacturing_location,
       sales_location: sales_location,
       technical_specification_url: technical_specification_url,
@@ -48,7 +47,8 @@ class Material < ApplicationRecord
       highlighted: highlighted,
       cover_image_url: cover_image_url,
       highlight_image_url: highlight_image_url,
-      list_image_url: list_image_url
+      list_image_url: list_image_url,
+      supplier_id: supplier.id
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

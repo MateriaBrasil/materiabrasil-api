@@ -11,6 +11,10 @@ definitions:
     readOnly: true
     type:
     - integer
+  supplier_id:
+    description: the unique identifier of the supplier the material belongs to
+    type:
+    - integer
   name:
     description: the name of the material
     type:
@@ -44,14 +48,6 @@ definitions:
     - string
   code:
     description: the code of the material
-    type:
-    - string
-  supplier_name:
-    description: the name of the materials' supplier
-    type:
-    - string
-  supplier_contact:
-    description: the email of the material's supplier
     type:
     - string
   manufacturing_location:
@@ -161,6 +157,8 @@ links:
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"
+  supplier_id:
+    "$ref": "/schemata/material#/definitions/supplier_id"
   name:
     "$ref": "/schemata/material#/definitions/name"
   image_url:
@@ -177,10 +175,6 @@ properties:
     "$ref": "/schemata/material#/definitions/code"
   average_price:
     "$ref": "/schemata/material#/definitions/average_price"
-  supplier_name:
-    "$ref": "/schemata/material#/definitions/supplier_name"
-  supplier_contact:
-    "$ref": "/schemata/material#/definitions/supplier_contact"
   manufacturing_location:
     "$ref": "/schemata/material#/definitions/manufacturing_location"
   sales_location:
@@ -197,13 +191,12 @@ properties:
     "$ref": "/schemata/material#/definitions/highlighted"
 required:
 - id
+- supplier_id
 - name
 - image_url
 - description
 - average_price
 - code
-- supplier_name
-- supplier_contact
 - manufacturing_location
 - sales_location
 - technical_specification_url

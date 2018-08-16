@@ -35,6 +35,7 @@ RSpec.describe Supplier, type: :model do
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to have_many(:addresses) }
+  it { is_expected.to have_many(:materials) }
 
   describe '#as_json' do
     let(:json) do
