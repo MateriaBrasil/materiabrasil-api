@@ -67,8 +67,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_132004) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "supplier_name"
-    t.text "supplier_contact"
     t.string "manufacturing_location"
     t.string "sales_location"
     t.string "technical_specification_url"

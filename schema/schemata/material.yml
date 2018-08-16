@@ -46,14 +46,6 @@ definitions:
     description: the code of the material
     type:
     - string
-  supplier_name:
-    description: the name of the materials' supplier
-    type:
-    - string
-  supplier_contact:
-    description: the email of the material's supplier
-    type:
-    - string
   manufacturing_location:
     description: the city/state where the material is manufactured
     type:
@@ -177,10 +169,6 @@ properties:
     "$ref": "/schemata/material#/definitions/code"
   average_price:
     "$ref": "/schemata/material#/definitions/average_price"
-  supplier_name:
-    "$ref": "/schemata/material#/definitions/supplier_name"
-  supplier_contact:
-    "$ref": "/schemata/material#/definitions/supplier_contact"
   manufacturing_location:
     "$ref": "/schemata/material#/definitions/manufacturing_location"
   sales_location:
@@ -202,8 +190,6 @@ required:
 - description
 - average_price
 - code
-- supplier_name
-- supplier_contact
 - manufacturing_location
 - sales_location
 - technical_specification_url

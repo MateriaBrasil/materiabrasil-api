@@ -4,14 +4,13 @@ class Material < ApplicationRecord
   include PgSearch
 
   multisearchable against: %i[
-    name description code supplier_name manufacturing_location sales_location
+    name description code manufacturing_location sales_location
     properties usage
   ]
 
   validates :name, :image_url, :description, :average_price, :code,
-    :supplier_name, :supplier_contact, :manufacturing_location,
-    :sales_location, :technical_specification_url, :properties, :usage,
-    presence: true
+    :manufacturing_location, :sales_location, :technical_specification_url,
+    :properties, :usage, presence: true
 
   has_many :comments,
     as: :commentable,
@@ -39,8 +38,6 @@ class Material < ApplicationRecord
       description: description,
       average_price: average_price,
       code: code,
-      supplier_name: supplier_name,
-      supplier_contact: supplier_contact,
       manufacturing_location: manufacturing_location,
       sales_location: sales_location,
       technical_specification_url: technical_specification_url,

@@ -634,18 +634,6 @@
             "string"
           ]
         },
-        "supplier_name": {
-          "description": "the name of the materials' supplier",
-          "type": [
-            "string"
-          ]
-        },
-        "supplier_contact": {
-          "description": "the email of the material's supplier",
-          "type": [
-            "string"
-          ]
-        },
         "manufacturing_location": {
           "description": "the city/state where the material is manufactured",
           "type": [
@@ -842,12 +830,6 @@
         "average_price": {
           "$ref": "#/definitions/material/definitions/average_price"
         },
-        "supplier_name": {
-          "$ref": "#/definitions/material/definitions/supplier_name"
-        },
-        "supplier_contact": {
-          "$ref": "#/definitions/material/definitions/supplier_contact"
-        },
         "manufacturing_location": {
           "$ref": "#/definitions/material/definitions/manufacturing_location"
         },
@@ -877,8 +859,6 @@
         "description",
         "average_price",
         "code",
-        "supplier_name",
-        "supplier_contact",
         "manufacturing_location",
         "sales_location",
         "technical_specification_url",
