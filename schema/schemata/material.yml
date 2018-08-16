@@ -11,6 +11,10 @@ definitions:
     readOnly: true
     type:
     - integer
+  supplier_id:
+    description: the unique identifier of the supplier the material belongs to
+    type:
+    - integer
   name:
     description: the name of the material
     type:
@@ -153,6 +157,8 @@ links:
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"
+  supplier_id:
+    "$ref": "/schemata/material#/definitions/supplier_id"
   name:
     "$ref": "/schemata/material#/definitions/name"
   image_url:
@@ -185,6 +191,7 @@ properties:
     "$ref": "/schemata/material#/definitions/highlighted"
 required:
 - id
+- supplier_id
 - name
 - image_url
 - description

@@ -59,6 +59,7 @@ RSpec.describe Material, type: :model do
     let(:json) do
       {
         id: material.id,
+        supplier_id: supplier.id,
         name: material.name,
         image_url: material.image_url,
         description: material.description,

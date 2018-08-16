@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-User.create!(
+user1 = User.create!(
   email: 'foo@bar.com',
   first_name: 'Foo',
   last_name: 'Bar',
   password: '123456789'
 )
 
-User.create!(
+user2 = User.create!(
   email: 'bar@foo.com',
   first_name: 'Foo',
   last_name: 'Bar',
@@ -15,8 +15,43 @@ User.create!(
   public_profile: false
 )
 
+supplier1 = Supplier.create!(
+  user: user1,
+  name: 'First supplier',
+  description: 'Foo description',
+  website: 'http://foo',
+  email: 'foo@company.com',
+  cnpj: '123456789',
+  company_name: 'Foo Inc',
+  municipal_subscription: 'does not apply',
+  state_subscription: '987654321',
+  phone: '5551987654321',
+  company_revenue: '100000000',
+  number_of_employees: 1000,
+  reach: 'country',
+  image_url: 'http://foo-image'
+)
+
+supplier2 = Supplier.create!(
+  user: user2,
+  name: 'Second supplier',
+  description: 'Foo description',
+  website: 'http://foo',
+  email: 'bar@company.com',
+  cnpj: '123456789',
+  company_name: 'Foo Inc',
+  municipal_subscription: 'does not apply',
+  state_subscription: '987654321',
+  phone: '5551987654321',
+  company_revenue: '100000000',
+  number_of_employees: 1000,
+  reach: 'country',
+  image_url: 'http://foo-image'
+)
+
 Material.create(
   name: 'Tecido lona algodão reciclado',
+  supplier: supplier1,
   image_url: 'https://image.ibb.co/bPMTky/tecido.jpg',
   description: 'Lona com urdume de algodão natural, sem aplicação de'\
   ' tingimento e trama de algodão reciclado em cores. Foi desenvolvido com o'\
@@ -26,8 +61,6 @@ Material.create(
   ' exclusivo.',
   average_price: 'R$ 111,00',
   code: '00672',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   highlighted: true,
@@ -54,13 +87,12 @@ Material.create(
 
 Material.create(
   name: 'Madeira Serrada Certificada',
+  supplier: supplier1,
   image_url: 'https://image.ibb.co/ddazsd/madeira.jpg',
   description: 'Madeira serrada com certificação FSC - Forest Stewardship'\
   ' Council - de manejo florestal e industrialização do material.',
   average_price: 'R$ 111,00',
   code: '00647',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -86,13 +118,12 @@ Material.create(
 
 Material.create(
   name: 'Matü quadrado',
+  supplier: supplier1,
   image_url: 'https://image.ibb.co/jmdKsd/matu.jpg',
   description: 'Tecido estampado 100% reciclado e produzido no Brasil.'\
   ' Reciclado a partir de garrafas plásticas PET',
   average_price: 'R$ 111,00',
   code: '00668',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -118,6 +149,7 @@ Material.create(
 
 Material.create(
   name: 'Papel semente',
+  supplier: supplier2,
   image_url: 'https://image.ibb.co/fiazsd/papel_semente.jpg',
   description: 'Papel Semente é feito a partir de aparas de papel reciclável'\
   ' (coletados através de parceria com catadores de recicláveis da ONG'\
@@ -131,8 +163,6 @@ Material.create(
   ' crachás, folders, cartões e kits ecológicos.',
   average_price: 'R$ 111,00',
   code: '00666',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -158,6 +188,7 @@ Material.create(
 
 Material.create(
   name: 'Pastilhas de PET reciclado',
+  supplier: supplier2,
   image_url: 'https://image.ibb.co/dRGHdJ/pastilhas.jpg',
   description: 'As pastilhas Rivesti possuem em sua composição 85% de PET'\
   ' reciclado, além de aditivos minerais reaproveitados e utiliza, em sua'\
@@ -167,8 +198,6 @@ Material.create(
   ' de CO2 na atmosfera e retira do meio ambiente 66 garrafas PET.',
   average_price: 'R$ 111,00',
   code: '00666',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -194,6 +223,7 @@ Material.create(
 
 Material.create(
   name: 'Piso Fibonacci',
+  supplier: supplier2,
   image_url: 'https://image.ibb.co/cnj3JJ/piso.jpg',
   description: 'Desenvolvido em uma parceria entre a Parquet Nobre e a'\
   ' MateriaBrasil, o "Assoalho Fibonacci" toma partido dessa sequência para'\
@@ -204,8 +234,6 @@ Material.create(
   ' harmoniosamente.',
   average_price: 'R$ 111,00',
   code: '00666',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
@@ -231,6 +259,7 @@ Material.create(
 
 Material.create(
   name: 'Telhas Ecológicas',
+  supplier: supplier2,
   image_url: 'https://image.ibb.co/fmkoky/telhas.jpg',
   description: 'Telhas ecológicas de alta resistência, material 100% reciclado'\
   ' de garrafa PET de ações pós-consumo e pós-indústria, limpos e refinados na'\
@@ -244,8 +273,6 @@ Material.create(
   ' propagam fogo. São totalmente impermeáveis.',
   average_price: 'R$ 111,00',
   code: '00666',
-  supplier_name: 'Ita Moulding Process',
-  supplier_contact: 'itamoulding@process.com',
   manufacturing_location: 'Rio de Janeiro/RJ',
   sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\

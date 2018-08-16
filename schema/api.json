@@ -583,6 +583,12 @@
             "integer"
           ]
         },
+        "supplier_id": {
+          "description": "the unique identifier of the supplier the material belongs to",
+          "type": [
+            "integer"
+          ]
+        },
         "name": {
           "description": "the name of the material",
           "type": [
@@ -806,6 +812,9 @@
         "id": {
           "$ref": "#/definitions/material/definitions/id"
         },
+        "supplier_id": {
+          "$ref": "#/definitions/material/definitions/supplier_id"
+        },
         "name": {
           "$ref": "#/definitions/material/definitions/name"
         },
@@ -854,6 +863,7 @@
       },
       "required": [
         "id",
+        "supplier_id",
         "name",
         "image_url",
         "description",

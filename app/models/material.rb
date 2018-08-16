@@ -47,7 +47,8 @@ class Material < ApplicationRecord
       highlighted: highlighted,
       cover_image_url: cover_image_url,
       highlight_image_url: highlight_image_url,
-      list_image_url: list_image_url
+      list_image_url: list_image_url,
+      supplier_id: supplier.id
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
