@@ -61,8 +61,6 @@ Material.create(
   ' exclusivo.',
   average_price: 'R$ 111,00',
   code: '00672',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   highlighted: true,
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
@@ -93,8 +91,6 @@ Material.create(
   ' Council - de manejo florestal e industrialização do material.',
   average_price: 'R$ 111,00',
   code: '00647',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
@@ -124,8 +120,6 @@ Material.create(
   ' Reciclado a partir de garrafas plásticas PET',
   average_price: 'R$ 111,00',
   code: '00668',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
@@ -163,8 +157,6 @@ Material.create(
   ' crachás, folders, cartões e kits ecológicos.',
   average_price: 'R$ 111,00',
   code: '00666',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
@@ -198,8 +190,6 @@ Material.create(
   ' de CO2 na atmosfera e retira do meio ambiente 66 garrafas PET.',
   average_price: 'R$ 111,00',
   code: '00666',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
@@ -234,8 +224,6 @@ Material.create(
   ' harmoniosamente.',
   average_price: 'R$ 111,00',
   code: '00666',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
@@ -273,8 +261,6 @@ Material.create(
   ' propagam fogo. São totalmente impermeáveis.',
   average_price: 'R$ 111,00',
   code: '00666',
-  manufacturing_location: 'Rio de Janeiro/RJ',
-  sales_location: 'São Paulo/SP',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
   properties: %(
