@@ -323,13 +323,13 @@ A material is a raw material
 | **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
-| **image_url** | *string* | a link to the default image of the material | `"example"` |
+| **image_url** | *nullable string* | a link to the default image of the material | `null` |
 | **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
 | **properties** | *string* | the material's properties like type, shape and size | `"example"` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
-| **technical_specification_url** | *string* | a link to the pdf file with the material's specifications | `"example"` |
+| **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
@@ -382,6 +382,54 @@ $ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID
 
 ```
 HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-POST-material-/materials">Material Create</a>
+
+Create a new material.
+
+```
+POST /materials
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **average_price** | *string* | the average price of the material | `"example"` |
+| **code** | *string* | the code of the material | `"example"` |
+| **description** | *string* | the description of the material | `"example"` |
+| **name** | *string* | the name of the material | `"example"` |
+| **properties** | *string* | the material's properties like type, shape and size | `"example"` |
+| **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
+| **usage** | *string* | how the material can be used | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/materials \
+  -d '{
+  "supplier_id": 42,
+  "name": "example",
+  "description": "example",
+  "code": "example",
+  "average_price": "example",
+  "properties": "example",
+  "usage": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
 ```
 
 ```json
