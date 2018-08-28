@@ -325,11 +325,10 @@ A material is a raw material
 | **id** | *integer* | unique identifier of the material | `42` |
 | **image_url** | *string* | a link to the default image of the material | `"example"` |
 | **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
-| **manufacturing_location** | *string* | the city/state where the material is manufactured | `"example"` |
 | **name** | *string* | the name of the material | `"example"` |
 | **properties** | *string* | the material's properties like type, shape and size | `"example"` |
-| **sales_location** | *string* | the city/state where the material is sold | `"example"` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
+| **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *string* | a link to the pdf file with the material's specifications | `"example"` |
 | **usage** | *string* | how the material can be used | `"example"` |
 

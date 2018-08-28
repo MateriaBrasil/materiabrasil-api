@@ -44,8 +44,6 @@ RSpec.describe Favorite, type: :model do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      manufacturing_location: 'Foo City/FO',
-      sales_location: 'Bar City/BR',
       technical_specification_url: 'http://foo',
       properties: 'Foo properties',
       usage: 'Bar usage',

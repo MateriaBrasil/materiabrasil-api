@@ -4,13 +4,11 @@ class Material < ApplicationRecord
   include PgSearch
 
   multisearchable against: %i[
-    name description code manufacturing_location sales_location
-    properties usage
+    name description code properties usage
   ]
 
   validates :name, :image_url, :description, :average_price, :code,
-    :manufacturing_location, :sales_location, :technical_specification_url,
-    :properties, :usage, presence: true
+    :technical_specification_url, :properties, :usage, presence: true
 
   has_many :comments,
     as: :commentable,
@@ -38,8 +36,6 @@ class Material < ApplicationRecord
       description: description,
       average_price: average_price,
       code: code,
-      manufacturing_location: manufacturing_location,
-      sales_location: sales_location,
       technical_specification_url: technical_specification_url,
       properties: properties,
       usage: usage,
@@ -48,7 +44,8 @@ class Material < ApplicationRecord
       cover_image_url: cover_image_url,
       highlight_image_url: highlight_image_url,
       list_image_url: list_image_url,
-      supplier_id: supplier.id
+      supplier_id: supplier.id,
+      supplier_name: supplier.name
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
