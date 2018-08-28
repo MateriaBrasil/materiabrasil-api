@@ -40,11 +40,9 @@ RSpec.describe Material, type: :model do
   end
 
   it { is_expected.to validate_presence_of :name }
-  it { is_expected.to validate_presence_of :image_url }
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :average_price }
   it { is_expected.to validate_presence_of :code }
-  it { is_expected.to validate_presence_of :technical_specification_url }
   it { is_expected.to validate_presence_of :properties }
   it { is_expected.to validate_presence_of :usage }
 

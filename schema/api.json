@@ -604,7 +604,8 @@
         "image_url": {
           "description": "a link to the default image of the material",
           "type": [
-            "string"
+            "string",
+            "null"
           ]
         },
         "cover_image_url": {
@@ -649,7 +650,8 @@
         "technical_specification_url": {
           "description": "a link to the pdf file with the material's specifications",
           "type": [
-            "string"
+            "string",
+            "null"
           ]
         },
         "properties": {
@@ -740,6 +742,52 @@
             ]
           },
           "title": "Info"
+        },
+        {
+          "description": "Create a new material.",
+          "href": "/materials",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "supplier_id": {
+                "$ref": "#/definitions/material/definitions/supplier_id"
+              },
+              "name": {
+                "$ref": "#/definitions/material/definitions/name"
+              },
+              "description": {
+                "$ref": "#/definitions/material/definitions/description"
+              },
+              "code": {
+                "$ref": "#/definitions/material/definitions/code"
+              },
+              "average_price": {
+                "$ref": "#/definitions/material/definitions/average_price"
+              },
+              "properties": {
+                "$ref": "#/definitions/material/definitions/properties"
+              },
+              "usage": {
+                "$ref": "#/definitions/material/definitions/usage"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
         },
         {
           "description": "List comments on the material.",

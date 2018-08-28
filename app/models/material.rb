@@ -7,8 +7,8 @@ class Material < ApplicationRecord
     name description code properties usage
   ]
 
-  validates :name, :image_url, :description, :average_price, :code,
-    :technical_specification_url, :properties, :usage, presence: true
+  validates :name, :description, :average_price, :code, :properties,
+    :usage, presence: true
 
   has_many :comments,
     as: :commentable,

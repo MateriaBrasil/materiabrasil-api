@@ -27,6 +27,7 @@ definitions:
     description: a link to the default image of the material
     type:
     - string
+    - "null"
   cover_image_url:
     description: a link to the optional cover image of the material
     type:
@@ -58,6 +59,7 @@ definitions:
     description: a link to the pdf file with the material's specifications
     type:
     - string
+    - "null"
   properties:
     description: the material's properties like type, shape and size
     type:
@@ -112,6 +114,34 @@ links:
     - "$ref": "/schemata/material"
     - "$ref": "/schemata/error"
   title: Info
+- description: Create a new material.
+  href: "/materials"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    properties:
+      supplier_id:
+        "$ref": "/schemata/material#/definitions/supplier_id"
+      name:
+        "$ref": "/schemata/material#/definitions/name"
+      description:
+        "$ref": "/schemata/material#/definitions/description"
+      code:
+        "$ref": "/schemata/material#/definitions/code"
+      average_price:
+        "$ref": "/schemata/material#/definitions/average_price"
+      properties:
+        "$ref": "/schemata/material#/definitions/properties"
+      usage:
+        "$ref": "/schemata/material#/definitions/usage"
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/material"
+    - "$ref": "/schemata/error"
+  title: Create
 - description: List comments on the material.
   href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/comments"
   method: GET
