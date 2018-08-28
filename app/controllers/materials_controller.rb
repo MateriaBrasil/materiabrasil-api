@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MaterialsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[create update]
 
   def index
     materials = Material.all.order(highlighted: :desc, created_at: :desc)
@@ -16,6 +16,13 @@ class MaterialsController < ApplicationController
   def create
     material = Material.create!(material_params)
     render status: :created, json: material
+  end
+
+  def update
+    material = Material.find(params[:id])
+    material.update(material_params)
+
+    render json: material
   end
 
   def comments

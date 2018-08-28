@@ -436,6 +436,64 @@ HTTP/1.1 201 Created
 null
 ```
 
+### <a name="link-PUT-material-/materials/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Material Update</a>
+
+Update a material.
+
+```
+PUT /materials/{supplier_id}
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **average_price** | *string* | the average price of the material | `"example"` |
+| **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
+| **code** | *string* | the code of the material | `"example"` |
+| **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
+| **description** | *string* | the description of the material | `"example"` |
+| **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
+| **image_url** | *nullable string* | a link to the default image of the material | `null` |
+| **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
+| **name** | *string* | the name of the material | `"example"` |
+| **properties** | *string* | the material's properties like type, shape and size | `"example"` |
+| **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
+| **usage** | *string* | how the material can be used | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
+  -d '{
+  "name": "example",
+  "image_url": "example",
+  "cover_image_url": "example",
+  "highlight_image_url": "example",
+  "list_image_url": "example",
+  "description": "example",
+  "code": "example",
+  "average_price": "example",
+  "technical_specification_url": "example",
+  "properties": "example",
+  "usage": "example",
+  "average_rating": 42.0
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 ### <a name="link-GET-material-/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/comments">Material List comments</a>
 
 List comments on the material.
