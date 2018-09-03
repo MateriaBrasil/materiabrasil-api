@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddMoreFieldsToMaterials < ActiveRecord::Migration[5.2]
   def change
     remove_column :materials, :properties, :text
@@ -10,6 +12,5 @@ class AddMoreFieldsToMaterials < ActiveRecord::Migration[5.2]
     add_column :materials, :prizes, :text
     add_column :materials, :density, :text
     add_column :materials, :dimensions, :text
-
   end
 end

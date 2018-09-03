@@ -23,8 +23,6 @@ describe 'POST /materials', type: :request do
       prizes: 'Prizes bar',
       density: 'Some density',
       dimensions: 'Some dimensions'
-
-
     }
   end
 

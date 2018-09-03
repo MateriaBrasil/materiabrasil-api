@@ -54,7 +54,6 @@ class Material < ApplicationRecord
       prizes: prizes,
       density: density,
       dimensions: dimensions
-
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
