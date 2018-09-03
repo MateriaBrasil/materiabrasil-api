@@ -11,12 +11,20 @@ RSpec.describe Material, type: :model do
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
-      properties: 'Foo properties',
       usage: 'Bar usage',
       cover_image_url: 'http://cover-foo',
       highlight_image_url: 'http://highlight-foo',
       list_image_url: 'http://list-foo',
-      supplier: supplier
+      supplier: supplier,
+      unit_of_sale: 'foo unit',
+      minimum_purchase_quantity: 10,
+      maximum_purchase_quantity: 100,
+      ncm_code: '03022300',
+      sh_code: '0103.91',
+      certifications: 'foo certifications',
+      prizes: 'Prizes bar',
+      density: 'Some density',
+      dimensions: 'Some dimensions'
     )
   end
 
@@ -43,7 +51,6 @@ RSpec.describe Material, type: :model do
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :average_price }
   it { is_expected.to validate_presence_of :code }
-  it { is_expected.to validate_presence_of :properties }
   it { is_expected.to validate_presence_of :usage }
 
   it { is_expected.to have_many :comments }
@@ -61,13 +68,21 @@ RSpec.describe Material, type: :model do
         average_price: material.average_price,
         code: material.code,
         technical_specification_url: material.technical_specification_url,
-        properties: material.properties,
         usage: material.usage,
         average_rating: material.average_rating,
         highlighted: material.highlighted,
         cover_image_url: material.cover_image_url,
         highlight_image_url: material.highlight_image_url,
-        list_image_url: material.list_image_url
+        list_image_url: material.list_image_url,
+        unit_of_sale: material.unit_of_sale,
+        minimum_purchase_quantity: material.minimum_purchase_quantity,
+        maximum_purchase_quantity: material.maximum_purchase_quantity,
+        ncm_code: material.ncm_code,
+        sh_code: material.sh_code,
+        certifications: material.certifications,
+        prizes: material.prizes,
+        density: material.density,
+        dimensions: material.dimensions
       }
     end
 

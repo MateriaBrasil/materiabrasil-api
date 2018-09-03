@@ -13,8 +13,18 @@ describe 'POST /materials', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      properties: 'Foo properties',
-      usage: 'Bar usage'
+      usage: 'Bar usage',
+      unit_of_sale: 'foo unit',
+      minimum_purchase_quantity: 10,
+      maximum_purchase_quantity: 100,
+      ncm_code: '03022300',
+      sh_code: '0103.91',
+      certifications: 'foo certifications',
+      prizes: 'Prizes bar',
+      density: 'Some density',
+      dimensions: 'Some dimensions'
+
+
     }
   end
 
