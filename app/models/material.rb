@@ -4,10 +4,10 @@ class Material < ApplicationRecord
   include PgSearch
 
   multisearchable against: %i[
-    name description code properties usage
+    name description code usage
   ]
 
-  validates :name, :description, :average_price, :code, :properties,
+  validates :name, :description, :average_price, :code,
     :usage, presence: true
 
   has_many :comments,
