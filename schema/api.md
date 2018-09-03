@@ -317,19 +317,27 @@ A material is a raw material
 | ------- | ------- | ------- | ------- |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
+| **certifications** | *nullable string* | the certifications of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
+| **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
+| **dimensions** | *nullable string* | the dimensions of the material | `null` |
 | **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
 | **image_url** | *nullable string* | a link to the default image of the material | `null` |
 | **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
+| **maximum_purchase_quantity** | *nullable integer* | the maximum amount needed to order the material | `null` |
+| **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
-| **properties** | *string* | the material's properties like type, shape and size | `"example"` |
+| **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
+| **prizes** | *nullable string* | the prizes of the material | `null` |
+| **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
+| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
@@ -401,11 +409,19 @@ POST /materials
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **average_price** | *string* | the average price of the material | `"example"` |
+| **certifications** | *nullable string* | the certifications of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
+| **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
+| **dimensions** | *nullable string* | the dimensions of the material | `null` |
+| **maximum_purchase_quantity** | *nullable integer* | the maximum amount needed to order the material | `null` |
+| **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
-| **properties** | *string* | the material's properties like type, shape and size | `"example"` |
+| **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
+| **prizes** | *nullable string* | the prizes of the material | `null` |
+| **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
+| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 
@@ -419,8 +435,16 @@ $ curl -n -X POST https://api.materiabrasil.com/materials \
   "description": "example",
   "code": "example",
   "average_price": "example",
-  "properties": "example",
-  "usage": "example"
+  "usage": "example",
+  "unit_of_sale": "example",
+  "minimum_purchase_quantity": 42,
+  "maximum_purchase_quantity": 42,
+  "ncm_code": "example",
+  "sh_code": "example",
+  "certifications": "example",
+  "prizes": "example",
+  "density": "example",
+  "dimensions": "example"
 }' \
   -H "Content-Type: application/json"
 ```
@@ -450,15 +474,23 @@ PUT /materials/{supplier_id}
 | ------- | ------- | ------- | ------- |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
+| **certifications** | *nullable string* | the certifications of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
+| **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
+| **dimensions** | *nullable string* | the dimensions of the material | `null` |
 | **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **image_url** | *nullable string* | a link to the default image of the material | `null` |
 | **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
+| **maximum_purchase_quantity** | *nullable integer* | the maximum amount needed to order the material | `null` |
+| **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
-| **properties** | *string* | the material's properties like type, shape and size | `"example"` |
+| **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
+| **prizes** | *nullable string* | the prizes of the material | `null` |
+| **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
+| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 
@@ -476,9 +508,17 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "code": "example",
   "average_price": "example",
   "technical_specification_url": "example",
-  "properties": "example",
   "usage": "example",
-  "average_rating": 42.0
+  "average_rating": 42.0,
+  "unit_of_sale": "example",
+  "minimum_purchase_quantity": 42,
+  "maximum_purchase_quantity": 42,
+  "ncm_code": "example",
+  "sh_code": "example",
+  "certifications": "example",
+  "prizes": "example",
+  "density": "example",
+  "dimensions": "example"
 }' \
   -H "Content-Type: application/json"
 ```
