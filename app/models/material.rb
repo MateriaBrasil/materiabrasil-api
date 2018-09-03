@@ -37,7 +37,6 @@ class Material < ApplicationRecord
       average_price: average_price,
       code: code,
       technical_specification_url: technical_specification_url,
-      properties: properties,
       usage: usage,
       average_rating: average_rating,
       highlighted: highlighted,
@@ -45,7 +44,17 @@ class Material < ApplicationRecord
       highlight_image_url: highlight_image_url,
       list_image_url: list_image_url,
       supplier_id: supplier.id,
-      supplier_name: supplier.name
+      supplier_name: supplier.name,
+      unit_of_sale: unit_of_sale,
+      minimum_purchase_quantity: minimum_purchase_quantity,
+      maximum_purchase_quantity: maximum_purchase_quantity,
+      ncm_code: ncm_code,
+      sh_code: sh_code,
+      certifications: certifications,
+      prizes: prizes,
+      density: density,
+      dimensions: dimensions
+
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
