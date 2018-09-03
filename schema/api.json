@@ -674,7 +674,7 @@
           ]
         },
         "unit_of_sale": {
-          "description": "indicates how the material is sold",
+          "description": "indicates the quantity/scale in which the material is sold",
           "type": [
             "string",
             "null"

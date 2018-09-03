@@ -337,7 +337,7 @@ A material is a raw material
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
-| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
+| **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
@@ -421,7 +421,7 @@ POST /materials
 | **prizes** | *nullable string* | the prizes of the material | `null` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
-| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
+| **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 
@@ -490,7 +490,7 @@ PUT /materials/{supplier_id}
 | **prizes** | *nullable string* | the prizes of the material | `null` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
-| **unit_of_sale** | *nullable string* | indicates how the material is sold | `null` |
+| **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
 | **usage** | *string* | how the material can be used | `"example"` |
 
 
