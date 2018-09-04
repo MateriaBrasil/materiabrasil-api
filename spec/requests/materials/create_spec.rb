@@ -19,6 +19,7 @@ describe 'POST /materials', type: :request do
       ncm_code: '03022300',
       sh_code: '0103.91',
       certifications: 'foo certifications',
+      certifications_url: 'https://certifications.foo',
       prizes: 'Prizes bar',
       density: 'Some density',
       dimensions: 'Some dimensions'
