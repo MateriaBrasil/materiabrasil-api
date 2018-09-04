@@ -10,7 +10,7 @@ class AddMoreFieldsToMaterials < ActiveRecord::Migration[5.2]
     add_column :materials, :sh_code, :string
     add_column :materials, :certifications, :text
     add_column :materials, :prizes, :text
-    add_column :materials, :density, :text
-    add_column :materials, :dimensions, :text
+    add_column :materials, :density, :string
+    add_column :materials, :dimensions, :string
   end
 end
