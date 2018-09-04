@@ -709,6 +709,13 @@
             "null"
           ]
         },
+        "certifications_url": {
+          "description": "a link to the file with the material's certifications",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "prizes": {
           "description": "the prizes of the material",
           "type": [
@@ -842,6 +849,9 @@
               "certifications": {
                 "$ref": "#/definitions/material/definitions/certifications"
               },
+              "certifications_url": {
+                "$ref": "#/definitions/material/definitions/certifications_url"
+              },
               "prizes": {
                 "$ref": "#/definitions/material/definitions/prizes"
               },
@@ -926,6 +936,9 @@
               },
               "certifications": {
                 "$ref": "#/definitions/material/definitions/certifications"
+              },
+              "certifications_url": {
+                "$ref": "#/definitions/material/definitions/certifications_url"
               },
               "prizes": {
                 "$ref": "#/definitions/material/definitions/prizes"
@@ -1077,6 +1090,9 @@
         },
         "certifications": {
           "$ref": "#/definitions/material/definitions/certifications"
+        },
+        "certifications_url": {
+          "$ref": "#/definitions/material/definitions/certifications_url"
         },
         "prizes": {
           "$ref": "#/definitions/material/definitions/prizes"

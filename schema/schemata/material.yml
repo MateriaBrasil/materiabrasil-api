@@ -99,6 +99,11 @@ definitions:
     type:
     - string
     - "null"
+  certifications_url:
+    description: a link to the file with the material's certifications
+    type:
+    - string
+    - "null"
   prizes:
     description: the prizes of the material
     type:
@@ -185,6 +190,8 @@ links:
         "$ref": "/schemata/material#/definitions/sh_code"
       certifications:
         "$ref": "/schemata/material#/definitions/certifications"
+      certifications_url:
+        "$ref": "/schemata/material#/definitions/certifications_url"
       prizes:
         "$ref": "/schemata/material#/definitions/prizes"
       density:
@@ -239,6 +246,8 @@ links:
         "$ref": "/schemata/material#/definitions/sh_code"
       certifications:
         "$ref": "/schemata/material#/definitions/certifications"
+      certifications_url:
+        "$ref": "/schemata/material#/definitions/certifications_url"
       prizes:
         "$ref": "/schemata/material#/definitions/prizes"
       density:
@@ -333,6 +342,8 @@ properties:
     "$ref": "/schemata/material#/definitions/sh_code"
   certifications:
     "$ref": "/schemata/material#/definitions/certifications"
+  certifications_url:
+    "$ref": "/schemata/material#/definitions/certifications_url"
   prizes:
     "$ref": "/schemata/material#/definitions/prizes"
   density:
