@@ -10,7 +10,6 @@ RSpec.describe 'PUT /material/:id', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      usage: 'Bar usage',
       image_url: 'http://foo-image',
       cover_image_url: 'http://foo-cover-image',
       highlight_image_url: 'http://foo-highlight-image',
@@ -24,7 +23,8 @@ RSpec.describe 'PUT /material/:id', type: :request do
       certifications: 'foo certifications',
       prizes: 'Prizes bar',
       density: 'Some density',
-      dimensions: 'Some dimensions'
+      dimensions: 'Some dimensions',
+      availability: 'foo availability'
     }
   end
 
@@ -34,7 +34,6 @@ RSpec.describe 'PUT /material/:id', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      usage: 'Bar usage',
       supplier: supplier
     )
   end

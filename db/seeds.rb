@@ -63,24 +63,7 @@ Material.create(
   code: '00672',
   highlighted: true,
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -92,24 +75,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00647',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -121,24 +87,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00668',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -158,24 +107,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -191,24 +123,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -225,24 +140,7 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )
 
 Material.create(
@@ -262,22 +160,5 @@ Material.create(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf',
-  properties: %(
-    Type: Composite (wood)
-    Shape: Various
-    Size: According to mould
-    Thickness: According to mould
-    Finishing: According to mould
-    Density: According to project
-    Certificates: PEFC Chain of custody (CoC) certification;
-    Molded wood Standards'
-  ),
-  usage: %(
-    #Any shape under moulding process with extraction angle
-    #High scale of production
-    #High replicability
-    #Hot moulded
-    #Furnishings and packaging
-  )
+    'testfiles/resources/pdf/dummy.pdf'
 )

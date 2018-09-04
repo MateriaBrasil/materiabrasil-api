@@ -315,6 +315,7 @@ A material is a raw material
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
@@ -338,7 +339,6 @@ A material is a raw material
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
-| **usage** | *string* | how the material can be used | `"example"` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
 
@@ -408,6 +408,7 @@ POST /materials
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
 | **code** | *string* | the code of the material | `"example"` |
@@ -422,7 +423,6 @@ POST /materials
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
-| **usage** | *string* | how the material can be used | `"example"` |
 
 
 #### Curl Example
@@ -435,7 +435,6 @@ $ curl -n -X POST https://api.materiabrasil.com/materials \
   "description": "example",
   "code": "example",
   "average_price": "example",
-  "usage": "example",
   "unit_of_sale": "example",
   "minimum_purchase_quantity": 42,
   "maximum_purchase_quantity": 42,
@@ -444,7 +443,8 @@ $ curl -n -X POST https://api.materiabrasil.com/materials \
   "certifications": "example",
   "prizes": "example",
   "density": "example",
-  "dimensions": "example"
+  "dimensions": "example",
+  "availability": "example"
 }' \
   -H "Content-Type: application/json"
 ```
@@ -472,6 +472,7 @@ PUT /materials/{supplier_id}
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
@@ -491,7 +492,6 @@ PUT /materials/{supplier_id}
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
-| **usage** | *string* | how the material can be used | `"example"` |
 
 
 #### Curl Example
@@ -508,7 +508,6 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "code": "example",
   "average_price": "example",
   "technical_specification_url": "example",
-  "usage": "example",
   "average_rating": 42.0,
   "unit_of_sale": "example",
   "minimum_purchase_quantity": 42,
@@ -518,7 +517,8 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "certifications": "example",
   "prizes": "example",
   "density": "example",
-  "dimensions": "example"
+  "dimensions": "example",
+  "availability": "example"
 }' \
   -H "Content-Type: application/json"
 ```
