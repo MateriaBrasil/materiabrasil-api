@@ -10,13 +10,21 @@ RSpec.describe 'PUT /material/:id', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      properties: 'Foo properties',
       usage: 'Bar usage',
       image_url: 'http://foo-image',
       cover_image_url: 'http://foo-cover-image',
       highlight_image_url: 'http://foo-highlight-image',
       list_image_url: 'http://foo-list-image',
-      technical_specification_url: 'http://foo-url'
+      technical_specification_url: 'http://foo-url',
+      unit_of_sale: 'foo unit',
+      minimum_purchase_quantity: 10,
+      maximum_purchase_quantity: 100,
+      ncm_code: '03022300',
+      sh_code: '0103.91',
+      certifications: 'foo certifications',
+      prizes: 'Prizes bar',
+      density: 'Some density',
+      dimensions: 'Some dimensions'
     }
   end
 
@@ -26,7 +34,6 @@ RSpec.describe 'PUT /material/:id', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      properties: 'Foo properties',
       usage: 'Bar usage',
       supplier: supplier
     )

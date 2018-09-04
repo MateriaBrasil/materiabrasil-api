@@ -60,10 +60,6 @@ definitions:
     type:
     - string
     - "null"
-  properties:
-    description: the material's properties like type, shape and size
-    type:
-    - string
   usage:
     description: how the material can be used
     type:
@@ -77,6 +73,51 @@ definitions:
     description: indicates if the material should be highlighted on the list
     type:
     - boolean
+  unit_of_sale:
+    description: indicates the quantity/scale in which the material is sold
+    type:
+    - string
+    - "null"
+  minimum_purchase_quantity:
+    description: the minimum amount needed to order the material
+    type:
+    - integer
+    - "null"
+  maximum_purchase_quantity:
+    description: the maximum amount needed to order the material
+    type:
+    - integer
+    - "null"
+  ncm_code:
+    description: classification code of the material according to ncm
+    type:
+    - string
+    - "null"
+  sh_code:
+    description: classification code of the material according to sh
+    type:
+    - string
+    - "null"
+  certifications:
+    description: the certifications of the material
+    type:
+    - string
+    - "null"
+  prizes:
+    description: the prizes of the material
+    type:
+    - string
+    - "null"
+  density:
+    description: the density of the material
+    type:
+    - string
+    - "null"
+  dimensions:
+    description: the dimensions of the material
+    type:
+    - string
+    - "null"
   identity:
     anyOf:
     - $ref: /schemata/material#/definitions/id
@@ -131,10 +172,26 @@ links:
         "$ref": "/schemata/material#/definitions/code"
       average_price:
         "$ref": "/schemata/material#/definitions/average_price"
-      properties:
-        "$ref": "/schemata/material#/definitions/properties"
       usage:
         "$ref": "/schemata/material#/definitions/usage"
+      unit_of_sale:
+        "$ref": "/schemata/material#/definitions/unit_of_sale"
+      minimum_purchase_quantity:
+        "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
+      maximum_purchase_quantity:
+        "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
+      ncm_code:
+        "$ref": "/schemata/material#/definitions/ncm_code"
+      sh_code:
+        "$ref": "/schemata/material#/definitions/sh_code"
+      certifications:
+        "$ref": "/schemata/material#/definitions/certifications"
+      prizes:
+        "$ref": "/schemata/material#/definitions/prizes"
+      density:
+        "$ref": "/schemata/material#/definitions/density"
+      dimensions:
+        "$ref": "/schemata/material#/definitions/dimensions"
     type:
     - object
   targetSchema:
@@ -167,12 +224,28 @@ links:
         "$ref": "/schemata/material#/definitions/average_price"
       technical_specification_url:
         "$ref": "/schemata/material#/definitions/technical_specification_url"
-      properties:
-        "$ref": "/schemata/material#/definitions/properties"
       usage:
         "$ref": "/schemata/material#/definitions/usage"
       average_rating:
         "$ref": "/schemata/material#/definitions/average_rating"
+      unit_of_sale:
+        "$ref": "/schemata/material#/definitions/unit_of_sale"
+      minimum_purchase_quantity:
+        "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
+      maximum_purchase_quantity:
+        "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
+      ncm_code:
+        "$ref": "/schemata/material#/definitions/ncm_code"
+      sh_code:
+        "$ref": "/schemata/material#/definitions/sh_code"
+      certifications:
+        "$ref": "/schemata/material#/definitions/certifications"
+      prizes:
+        "$ref": "/schemata/material#/definitions/prizes"
+      density:
+        "$ref": "/schemata/material#/definitions/density"
+      dimensions:
+        "$ref": "/schemata/material#/definitions/dimensions"
     type:
     - object
   targetSchema:
@@ -243,14 +316,30 @@ properties:
     "$ref": "/schemata/material#/definitions/average_price"
   technical_specification_url:
     "$ref": "/schemata/material#/definitions/technical_specification_url"
-  properties:
-    "$ref": "/schemata/material#/definitions/properties"
   usage:
     "$ref": "/schemata/material#/definitions/usage"
   average_rating:
     "$ref": "/schemata/material#/definitions/average_rating"
   highlighted:
     "$ref": "/schemata/material#/definitions/highlighted"
+  unit_of_sale:
+    "$ref": "/schemata/material#/definitions/unit_of_sale"
+  minimum_purchase_quantity:
+    "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
+  maximum_purchase_quantity:
+    "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
+  ncm_code:
+    "$ref": "/schemata/material#/definitions/ncm_code"
+  sh_code:
+    "$ref": "/schemata/material#/definitions/sh_code"
+  certifications:
+    "$ref": "/schemata/material#/definitions/certifications"
+  prizes:
+    "$ref": "/schemata/material#/definitions/prizes"
+  density:
+    "$ref": "/schemata/material#/definitions/density"
+  dimensions:
+    "$ref": "/schemata/material#/definitions/dimensions"
 required:
 - id
 - supplier_id
@@ -261,7 +350,6 @@ required:
 - average_price
 - code
 - technical_specification_url
-- properties
 - usage
 - average_rating
 - highlighted

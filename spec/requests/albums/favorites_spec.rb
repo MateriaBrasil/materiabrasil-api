@@ -44,7 +44,6 @@ describe 'GET /albums/:id/favorites', type: :request do
         average_price: 'R$ 111,00',
         code: '1234',
         technical_specification_url: 'http://foo',
-        properties: 'Foo properties',
         usage: 'Bar usage',
         supplier: supplier
       )
