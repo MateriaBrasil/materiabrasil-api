@@ -30,7 +30,6 @@ describe 'GET /materials/:id', type: :request do
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
-      usage: 'Bar usage',
       supplier: supplier
     )
   end

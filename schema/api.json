@@ -654,12 +654,6 @@
             "null"
           ]
         },
-        "usage": {
-          "description": "how the material can be used",
-          "type": [
-            "string"
-          ]
-        },
         "average_rating": {
           "description": "the average rating of the reviews of the material",
           "type": [
@@ -731,6 +725,13 @@
         },
         "dimensions": {
           "description": "the dimensions of the material",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "availability": {
+          "description": "the states and/or countries where the material is available for purchase",
           "type": [
             "string",
             "null"
@@ -823,9 +824,6 @@
               "average_price": {
                 "$ref": "#/definitions/material/definitions/average_price"
               },
-              "usage": {
-                "$ref": "#/definitions/material/definitions/usage"
-              },
               "unit_of_sale": {
                 "$ref": "#/definitions/material/definitions/unit_of_sale"
               },
@@ -852,6 +850,9 @@
               },
               "dimensions": {
                 "$ref": "#/definitions/material/definitions/dimensions"
+              },
+              "availability": {
+                "$ref": "#/definitions/material/definitions/availability"
               }
             },
             "type": [
@@ -905,9 +906,6 @@
               "technical_specification_url": {
                 "$ref": "#/definitions/material/definitions/technical_specification_url"
               },
-              "usage": {
-                "$ref": "#/definitions/material/definitions/usage"
-              },
               "average_rating": {
                 "$ref": "#/definitions/material/definitions/average_rating"
               },
@@ -937,6 +935,9 @@
               },
               "dimensions": {
                 "$ref": "#/definitions/material/definitions/dimensions"
+              },
+              "availability": {
+                "$ref": "#/definitions/material/definitions/availability"
               }
             },
             "type": [
@@ -1053,9 +1054,6 @@
         "technical_specification_url": {
           "$ref": "#/definitions/material/definitions/technical_specification_url"
         },
-        "usage": {
-          "$ref": "#/definitions/material/definitions/usage"
-        },
         "average_rating": {
           "$ref": "#/definitions/material/definitions/average_rating"
         },
@@ -1088,6 +1086,9 @@
         },
         "dimensions": {
           "$ref": "#/definitions/material/definitions/dimensions"
+        },
+        "availability": {
+          "$ref": "#/definitions/material/definitions/availability"
         }
       },
       "required": [
@@ -1100,7 +1101,6 @@
         "average_price",
         "code",
         "technical_specification_url",
-        "usage",
         "average_rating",
         "highlighted"
       ],

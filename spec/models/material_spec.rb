@@ -11,7 +11,6 @@ RSpec.describe Material, type: :model do
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
-      usage: 'Bar usage',
       cover_image_url: 'http://cover-foo',
       highlight_image_url: 'http://highlight-foo',
       list_image_url: 'http://list-foo',
@@ -24,7 +23,8 @@ RSpec.describe Material, type: :model do
       certifications: 'foo certifications',
       prizes: 'Prizes bar',
       density: 'Some density',
-      dimensions: 'Some dimensions'
+      dimensions: 'Some dimensions',
+      availability: 'foo state'
     )
   end
 
@@ -51,7 +51,6 @@ RSpec.describe Material, type: :model do
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :average_price }
   it { is_expected.to validate_presence_of :code }
-  it { is_expected.to validate_presence_of :usage }
 
   it { is_expected.to have_many :comments }
   it { is_expected.to belong_to :supplier }
@@ -68,7 +67,6 @@ RSpec.describe Material, type: :model do
         average_price: material.average_price,
         code: material.code,
         technical_specification_url: material.technical_specification_url,
-        usage: material.usage,
         average_rating: material.average_rating,
         highlighted: material.highlighted,
         cover_image_url: material.cover_image_url,
@@ -82,7 +80,8 @@ RSpec.describe Material, type: :model do
         certifications: material.certifications,
         prizes: material.prizes,
         density: material.density,
-        dimensions: material.dimensions
+        dimensions: material.dimensions,
+        availability: material.availability
       }
     end
 

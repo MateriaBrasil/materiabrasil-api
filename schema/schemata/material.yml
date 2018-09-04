@@ -60,10 +60,6 @@ definitions:
     type:
     - string
     - "null"
-  usage:
-    description: how the material can be used
-    type:
-    - string
   average_rating:
     description: the average rating of the reviews of the material
     type:
@@ -115,6 +111,11 @@ definitions:
     - "null"
   dimensions:
     description: the dimensions of the material
+    type:
+    - string
+    - "null"
+  availability:
+    description: the states and/or countries where the material is available for purchase
     type:
     - string
     - "null"
@@ -172,8 +173,6 @@ links:
         "$ref": "/schemata/material#/definitions/code"
       average_price:
         "$ref": "/schemata/material#/definitions/average_price"
-      usage:
-        "$ref": "/schemata/material#/definitions/usage"
       unit_of_sale:
         "$ref": "/schemata/material#/definitions/unit_of_sale"
       minimum_purchase_quantity:
@@ -192,6 +191,8 @@ links:
         "$ref": "/schemata/material#/definitions/density"
       dimensions:
         "$ref": "/schemata/material#/definitions/dimensions"
+      availability:
+        "$ref": "/schemata/material#/definitions/availability"
     type:
     - object
   targetSchema:
@@ -224,8 +225,6 @@ links:
         "$ref": "/schemata/material#/definitions/average_price"
       technical_specification_url:
         "$ref": "/schemata/material#/definitions/technical_specification_url"
-      usage:
-        "$ref": "/schemata/material#/definitions/usage"
       average_rating:
         "$ref": "/schemata/material#/definitions/average_rating"
       unit_of_sale:
@@ -246,6 +245,8 @@ links:
         "$ref": "/schemata/material#/definitions/density"
       dimensions:
         "$ref": "/schemata/material#/definitions/dimensions"
+      availability:
+        "$ref": "/schemata/material#/definitions/availability"
     type:
     - object
   targetSchema:
@@ -316,8 +317,6 @@ properties:
     "$ref": "/schemata/material#/definitions/average_price"
   technical_specification_url:
     "$ref": "/schemata/material#/definitions/technical_specification_url"
-  usage:
-    "$ref": "/schemata/material#/definitions/usage"
   average_rating:
     "$ref": "/schemata/material#/definitions/average_rating"
   highlighted:
@@ -340,6 +339,8 @@ properties:
     "$ref": "/schemata/material#/definitions/density"
   dimensions:
     "$ref": "/schemata/material#/definitions/dimensions"
+  availability:
+    "$ref": "/schemata/material#/definitions/availability"
 required:
 - id
 - supplier_id
@@ -350,7 +351,6 @@ required:
 - average_price
 - code
 - technical_specification_url
-- usage
 - average_rating
 - highlighted
 additionalProperties: false

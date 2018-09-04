@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_193517) do
+ActiveRecord::Schema.define(version: 2018_09_04_195442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2018_09_03_193517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "technical_specification_url"
-    t.text "usage"
     t.boolean "highlighted", default: false, null: false
     t.string "cover_image_url"
     t.string "highlight_image_url"
@@ -81,8 +80,9 @@ ActiveRecord::Schema.define(version: 2018_09_03_193517) do
     t.string "sh_code"
     t.text "certifications"
     t.text "prizes"
-    t.text "density"
-    t.text "dimensions"
+    t.string "density"
+    t.string "dimensions"
+    t.string "availability"
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end
 

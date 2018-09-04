@@ -13,7 +13,6 @@ describe 'POST /materials', type: :request do
       description: 'Some description',
       average_price: 'R$ 111,00',
       code: '1234',
-      usage: 'Bar usage',
       unit_of_sale: 'foo unit',
       minimum_purchase_quantity: 10,
       maximum_purchase_quantity: 100,
