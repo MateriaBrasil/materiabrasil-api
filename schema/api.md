@@ -595,6 +595,116 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-GET-material-/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/categories">Material List categories</a>
+
+List material's categories
+
+```
+GET /materials/{material_id}/categories
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID/categories
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
+## <a name="resource-material_category">MaterialCategory</a>
+
+Stability: `prototype`
+
+An association between a material and a category
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **category_id** | *integer* | the unique identifier of the category to be associated | `42` |
+| **id** | *integer* | unique identifier of the association | `42` |
+| **material_id** | *integer* | the unique identifier of the material to be associated | `42` |
+
+### <a name="link-POST-material_category-/material_categories">MaterialCategory Create</a>
+
+Create a new association between a material and a category
+
+```
+POST /material_categories
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **category_id** | *integer* | the unique identifier of the category to be associated | `42` |
+| **material_id** | *integer* | the unique identifier of the material to be associated | `42` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/material_categories \
+  -d '{
+  "category_id": 42,
+  "material_id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+### <a name="link-DELETE-material_category-/material_categories/{(%23%2Fdefinitions%2Fmaterial_category%2Fdefinitions%2Fidentity)}">MaterialCategory Destroy</a>
+
+Destroy an association between a material and a category
+
+```
+DELETE /material_categories/{material_category_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X DELETE https://api.materiabrasil.com/material_categories/$MATERIAL_CATEGORY_ID \
+  -d '{
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-review">Review</a>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_195553) do
+ActiveRecord::Schema.define(version: 2018_09_05_113637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 2018_09_04_195553) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "commentable_type", null: false
@@ -57,6 +64,15 @@ ActiveRecord::Schema.define(version: 2018_09_04_195553) do
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_favorites_on_album_id"
     t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+  end
+
+  create_table "material_categories", force: :cascade do |t|
+    t.bigint "material_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_material_categories_on_category_id"
+    t.index ["material_id"], name: "index_material_categories_on_material_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -171,6 +187,8 @@ ActiveRecord::Schema.define(version: 2018_09_04_195553) do
   add_foreign_key "albums", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "albums"
+  add_foreign_key "material_categories", "categories"
+  add_foreign_key "material_categories", "materials"
   add_foreign_key "materials", "suppliers"
   add_foreign_key "reviews", "users"
   add_foreign_key "suppliers", "users"

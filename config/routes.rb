@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :materials, only: %i[index show create update] do
     get 'comments', on: :member
     get 'reviews', on: :member
+    get 'categories', on: :member
   end
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
@@ -21,4 +22,8 @@ Rails.application.routes.draw do
     get 'favorites', on: :member
   end
   resource :search, only: %i[show]
+
+  resources :categories, only: %i[index]
+
+  resources :material_categories, only: %i[create destroy]
 end

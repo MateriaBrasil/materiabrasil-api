@@ -24,6 +24,9 @@ class Material < ApplicationRecord
     inverse_of: :favoritable,
     dependent: :restrict_with_exception
 
+  has_many :material_categories, dependent: :destroy
+  has_many :categories, through: 'material_categories'
+
   belongs_to :supplier
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize

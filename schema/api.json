@@ -1028,6 +1028,36 @@
             ]
           },
           "title": "List reviews"
+        },
+        {
+          "description": "List material's categories",
+          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/categories",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/material_category"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List categories"
         }
       ],
       "properties": {
@@ -1120,6 +1150,116 @@
         "average_rating",
         "highlighted"
       ],
+      "additionalProperties": false
+    },
+    "material_category": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - MaterialCategory",
+      "description": "An association between a material and a category",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the association",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "category_id": {
+          "description": "the unique identifier of the category to be associated",
+          "type": [
+            "integer"
+          ]
+        },
+        "material_id": {
+          "description": "the unique identifier of the material to be associated",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/material_category/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "Create",
+          "description": "Create a new association between a material and a category",
+          "href": "/material_categories",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "category_id": {
+                "$ref": "#/definitions/material_category/definitions/category_id"
+              },
+              "material_id": {
+                "$ref": "#/definitions/material_category/definitions/material_id"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material_category"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
+          "description": "Destroy an association between a material and a category",
+          "href": "/material_categories/{(%23%2Fdefinitions%2Fmaterial_category%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self",
+          "templateRequired": [
+            "material_category_id"
+          ],
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material_category"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Destroy"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/material_category/definitions/id"
+        },
+        "material_id": {
+          "$ref": "#/definitions/material_category/definitions/material_id"
+        },
+        "category_id": {
+          "$ref": "#/definitions/material_category/definitions/category_id"
+        }
+      },
       "additionalProperties": false
     },
     "review": {
@@ -1993,6 +2133,9 @@
     },
     "material": {
       "$ref": "#/definitions/material"
+    },
+    "material_category": {
+      "$ref": "#/definitions/material_category"
     },
     "review": {
       "$ref": "#/definitions/review"
