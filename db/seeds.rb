@@ -162,3 +162,7 @@ Material.create(
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf'
 )
+
+root_category = Category.create!(name: 'Root')
+child_category = root_category.children.create!(name: 'Child')
+child_category.children.create!(name: 'Grandchild')
