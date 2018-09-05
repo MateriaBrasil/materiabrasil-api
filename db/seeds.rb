@@ -202,10 +202,12 @@ cat2_child1.children.create!(name: 'Impressão 3D')
 cat2_child1.children.create!(name: 'Estereolitografia (SLA)')
 cat2_child1.children.create!(name: 'Outro')
 
-cat2_cd2 = category2.children.create!(name: 'Processos materiais poliméricos')
-cat2_cd2.children.create!(name: 'Moldagem por extrusão')
-cat2_cd2.children.create!(name: 'Moldagem por injeção')
-cat2_child2_child3 = cat2_cd2.children.create!(name: 'Moldagem por sopro')
+cat2_child2 = category2.children.create!(
+  name: 'Processos materiais poliméricos'
+)
+cat2_child2.children.create!(name: 'Moldagem por extrusão')
+cat2_child2.children.create!(name: 'Moldagem por injeção')
+cat2_child2_child3 = cat2_child2.children.create!(name: 'Moldagem por sopro')
 cat2_child2_child3.children.create!(name: 'Moldagem por extrusão')
 cat2_child2_child3.children.create!(name: 'Moldagem por injeção')
 cat2_child2.children.create!(name: 'Moldagem por termoformação')
