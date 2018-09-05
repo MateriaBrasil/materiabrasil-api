@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     get 'favorites', on: :member
   end
   resource :search, only: %i[show]
+
+  resource :material_categories, only: %i[create]
 end

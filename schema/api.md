@@ -596,6 +596,59 @@ null
 ```
 
 
+## <a name="resource-material_category">MaterialCategory</a>
+
+Stability: `prototype`
+
+An association between a material and a category
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **category_id** | *integer* | the unique identifier of the category to be associated | `42` |
+| **id** | *integer* | unique identifier of the association | `42` |
+| **material_id** | *integer* | the unique identifier of the material to be associated | `42` |
+
+### <a name="link-POST-material_category-/material_categories">MaterialCategory Create</a>
+
+Create a new association between a material and a category
+
+```
+POST /material_categories
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **category_id** | *integer* | the unique identifier of the category to be associated | `42` |
+| **material_id** | *integer* | the unique identifier of the material to be associated | `42` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/material_categories \
+  -d '{
+  "category_id": 42,
+  "material_id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-review">Review</a>
 
 Stability: `prototype`
