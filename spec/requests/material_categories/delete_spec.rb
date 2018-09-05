@@ -2,15 +2,9 @@
 
 require 'rails_helper'
 
-describe 'POST /material_categories', type: :request do
+describe 'DELETE /material_categories/:id', type: :request do
   let(:headers) { {} }
-
-  let(:params) do
-    {
-      material_id: material.id,
-      category_id: category.id
-    }
-  end
+  let(:params) { {} }
 
   let(:supplier) do
     Supplier.create!(
@@ -43,26 +37,34 @@ describe 'POST /material_categories', type: :request do
     )
   end
 
-  let(:category) do
-    Category.create!(
-      name: 'Some Category'
+  let(:category) { Category.create!(name: 'Some category') }
+
+  let(:material_category) do
+    MaterialCategory.create!(
+      material: material,
+      category: category
     )
   end
 
   context 'with current_user' do
     before do
-      post '/material_categories', headers: headers, params: params.to_json
+      delete "/material_categories/#{material_category.id}",
+        headers: headers,
+        params: params.to_json
     end
 
-    it { expect(response).to have_http_status(:created) }
-    it { expect(response.body).to eq(MaterialCategory.last.to_json) }
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(material_category.to_json) }
+    it { expect(MaterialCategory.find_by(id: material_category.id)).to be(nil) }
   end
 
   context 'with incorrect params' do
     let(:params) { { foo: 'bar' } }
 
     before do
-      post '/material_categories', headers: headers, params: params.to_json
+      delete "/material_categories/#{material_category.id}",
+        headers: headers,
+        params: params.to_json
     end
 
     it { expect(response).to have_http_status(:bad_request) }
@@ -72,7 +74,9 @@ describe 'POST /material_categories', type: :request do
     let(:headers) { { 'access-token' => nil } }
 
     before do
-      post '/material_categories', headers: headers, params: params.to_json
+      delete "/material_categories/#{material_category.id}",
+        headers: headers,
+        params: params.to_json
     end
 
     it { expect(response).to have_http_status(:unauthorized) }

@@ -14,4 +14,11 @@ class MaterialCategoriesController < ApplicationController
 
     render status: :created, json: material_category
   end
+
+  def destroy
+    association = MaterialCategory.find(params[:id])
+    association.destroy!
+
+    render status: :ok, json: association
+  end
 end

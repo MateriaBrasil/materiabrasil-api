@@ -676,6 +676,35 @@ HTTP/1.1 201 Created
 null
 ```
 
+### <a name="link-DELETE-material_category-/material_categories/{(%23%2Fdefinitions%2Fmaterial_category%2Fdefinitions%2Fidentity)}">MaterialCategory Destroy</a>
+
+Destroy an association between a material and a category
+
+```
+DELETE /material_categories/{material_category_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X DELETE https://api.materiabrasil.com/material_categories/$MATERIAL_CATEGORY_ID \
+  -d '{
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-review">Review</a>
 

@@ -25,5 +25,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: %i[index]
 
-  resource :material_categories, only: %i[create]
+  resources :material_categories, only: %i[create destroy]
 end

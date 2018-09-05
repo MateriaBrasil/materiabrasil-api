@@ -1219,6 +1219,34 @@
               }
             ]
           }
+        },
+        {
+          "description": "Destroy an association between a material and a category",
+          "href": "/material_categories/{(%23%2Fdefinitions%2Fmaterial_category%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self",
+          "templateRequired": [
+            "material_category_id"
+          ],
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/material_category"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Destroy"
         }
       ],
       "properties": {

@@ -41,6 +41,22 @@ links:
     anyOf:
     - "$ref": "/schemata/material_category"
     - "$ref": "/schemata/error"
+- description: Destroy an association between a material and a category
+  href: "/material_categories/{(%2Fschemata%2Fmaterial_category%23%2Fdefinitions%2Fidentity)}"
+  method: DELETE
+  rel: self
+  templateRequired:
+    - material_category_id
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/material_category"
+    - "$ref": "/schemata/error"
+  title: Destroy
 properties:
   id:
     "$ref": "/schemata/material_category#/definitions/id"
