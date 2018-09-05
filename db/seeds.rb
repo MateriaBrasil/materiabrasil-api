@@ -319,7 +319,7 @@ cat2_cd5.children.create!(name: 'Moldagem em fita (tape casting)')
 cat2_cd5.children.create!(name: 'Conformação plástica')
 cat2_cd5.children.create!(name: 'Moldagem por injeção')
 
-category3 = Category.create!(name: 'Superfície', multiple_choice: False)
+category3 = Category.create!(name: 'Superfície', multiple_choice: false)
 category3.children.create!(name: 'Lisa')
 category3.children.create!(name: 'Texturizada')
 category3.children.create!(name: 'Outro')
