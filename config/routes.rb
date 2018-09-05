@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   end
   resource :search, only: %i[show]
 
+  resources :categories, only: %i[index]
+
   resource :material_categories, only: %i[create]
 end
