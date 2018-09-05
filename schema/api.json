@@ -1028,6 +1028,36 @@
             ]
           },
           "title": "List reviews"
+        },
+        {
+          "description": "List material's categories",
+          "href": "/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/categories",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/material_category"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List categories"
         }
       ],
       "properties": {

@@ -595,6 +595,34 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-GET-material-/materials/{(%23%2Fdefinitions%2Fmaterial%2Fdefinitions%2Fidentity)}/categories">Material List categories</a>
+
+List material's categories
+
+```
+GET /materials/{material_id}/categories
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/materials/$MATERIAL_ID/categories
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-material_category">MaterialCategory</a>
 

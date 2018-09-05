@@ -301,6 +301,25 @@ links:
       }
     - "$ref": "/schemata/error"
   title: List reviews
+- description: List material's categories
+  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/categories"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/material_category"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List categories
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"

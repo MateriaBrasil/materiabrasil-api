@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :materials, only: %i[index show create update] do
     get 'comments', on: :member
     get 'reviews', on: :member
+    get 'categories', on: :member
   end
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
