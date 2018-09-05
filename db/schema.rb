@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_195442) do
+ActiveRecord::Schema.define(version: 2018_09_04_195553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_195442) do
     t.string "density"
     t.string "dimensions"
     t.string "availability"
+    t.string "certifications_url"
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end
 

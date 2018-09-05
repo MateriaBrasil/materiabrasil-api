@@ -49,6 +49,7 @@ class Material < ApplicationRecord
       ncm_code: ncm_code,
       sh_code: sh_code,
       certifications: certifications,
+      certifications_url: certifications_url,
       prizes: prizes,
       density: density,
       dimensions: dimensions,

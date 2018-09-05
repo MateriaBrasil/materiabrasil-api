@@ -319,6 +319,7 @@ A material is a raw material
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
+| **certifications_url** | *nullable string* | a link to the file with the material's certifications | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
 | **density** | *nullable string* | the density of the material | `null` |
@@ -411,6 +412,7 @@ POST /materials
 | **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
+| **certifications_url** | *nullable string* | a link to the file with the material's certifications | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
@@ -441,6 +443,7 @@ $ curl -n -X POST https://api.materiabrasil.com/materials \
   "ncm_code": "example",
   "sh_code": "example",
   "certifications": "example",
+  "certifications_url": "example",
   "prizes": "example",
   "density": "example",
   "dimensions": "example",
@@ -476,6 +479,7 @@ PUT /materials/{supplier_id}
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
+| **certifications_url** | *nullable string* | a link to the file with the material's certifications | `null` |
 | **code** | *string* | the code of the material | `"example"` |
 | **cover_image_url** | *nullable string* | a link to the optional cover image of the material | `null` |
 | **density** | *nullable string* | the density of the material | `null` |
@@ -515,6 +519,7 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "ncm_code": "example",
   "sh_code": "example",
   "certifications": "example",
+  "certifications_url": "example",
   "prizes": "example",
   "density": "example",
   "dimensions": "example",
