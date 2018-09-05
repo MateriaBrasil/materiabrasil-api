@@ -35,4 +35,59 @@ RSpec.describe Category, type: :model do
       is_expected.to match_array expected_array
     end
   end
+
+  describe '#as_json' do
+    subject { category.as_json }
+
+    let(:category) { described_class.create!(name: 'Some Category') }
+
+    context 'without children' do
+      let(:expected_hash) do
+        {
+          id: category.id,
+          name: 'Some Category',
+          children: []
+        }
+      end
+
+      it { is_expected.to eq expected_hash }
+    end
+
+    context 'with children and grandchildren' do
+      let(:child_category) do
+        category.children.create!(
+          name: 'Child category'
+        )
+      end
+      let(:grandchild_category) do
+        child_category.children.create!(
+          name: 'Grandchild category'
+        )
+      end
+
+      before { grandchild_category }
+
+      let(:expected_hash) do
+        {
+          id: category.id,
+          name: 'Some Category',
+          children: [
+            {
+              id: child_category.id,
+              name: 'Child category',
+              children:[
+                {
+                  id: grandchild_category.id,
+                  name: 'Grandchild category',
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      end
+
+      it { is_expected.to eq expected_hash }
+    end
+  end
 end

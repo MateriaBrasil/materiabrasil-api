@@ -8,4 +8,12 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   scope :root, -> { where(parent_id: nil) }
+
+  def as_json(_options = {})
+    {
+      id: id,
+      name: name,
+      children: children.as_json,
+    }
+  end
 end
