@@ -55,6 +55,7 @@ RSpec.describe Material, type: :model do
 
   it { is_expected.to have_many :comments }
   it { is_expected.to belong_to :supplier }
+  it { should have_many(:categories).through(:material_categories) }
 
   describe '#as_json' do
     let(:json) do
