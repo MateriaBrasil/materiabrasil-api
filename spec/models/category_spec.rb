@@ -1,10 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   it { is_expected.to validate_presence_of :name }
-  it { is_expected.to belong_to(:parent).class_name('Category') }
-  it { is_expected.to have_many(:children).class_name('Category').with_foreign_key('parent_id')}
-  it { should have_many(:materials).through(:material_categories) }
+  it {
+    is_expected.to belong_to(:parent)
+      .class_name('Category')
+      .inverse_of(:children)
+  }
+
+  it {
+    is_expected.to have_many(:children)
+      .class_name('Category')
+      .with_foreign_key('parent_id')
+  }
+
+  it { is_expected.to have_many(:materials).through(:material_categories) }
 
   describe '.root' do
     subject { described_class.root }
@@ -65,8 +77,6 @@ RSpec.describe Category, type: :model do
         )
       end
 
-      before { grandchild_category }
-
       let(:expected_hash) do
         {
           id: category.id,
@@ -75,7 +85,7 @@ RSpec.describe Category, type: :model do
             {
               id: child_category.id,
               name: 'Child category',
-              children:[
+              children: [
                 {
                   id: grandchild_category.id,
                   name: 'Grandchild category',
@@ -86,6 +96,8 @@ RSpec.describe Category, type: :model do
           ]
         }
       end
+
+      before { grandchild_category }
 
       it { is_expected.to eq expected_hash }
     end

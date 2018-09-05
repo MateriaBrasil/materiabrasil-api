@@ -1,8 +1,19 @@
-class Category < ApplicationRecord
-  belongs_to :parent, class_name: 'Category', optional: true
-  has_many :children, class_name: 'Category', foreign_key: 'parent_id'
+# frozen_string_literal: true
 
-  has_many :material_categories
+class Category < ApplicationRecord
+  belongs_to :parent,
+    class_name: 'Category',
+    optional: true,
+    inverse_of: :children
+
+  has_many :children,
+    class_name: 'Category',
+    foreign_key: 'parent_id',
+    inverse_of: :parent,
+    dependent: :restrict_with_exception
+
+  has_many :material_categories, dependent: :destroy
+
   has_many :materials, through: 'material_categories'
 
   validates :name, presence: true
@@ -13,7 +24,7 @@ class Category < ApplicationRecord
     {
       id: id,
       name: name,
-      children: children.as_json,
+      children: children.as_json
     }
   end
 end

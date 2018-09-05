@@ -72,10 +72,12 @@ describe 'POST /material_categories', type: :request do
   context 'without current_user' do
     let(:headers) { { 'access-token' => nil } }
 
-    before { post '/material_categories', headers: headers, params: params.to_json }
+    before do
+      post '/material_categories', headers: headers, params: params.to_json
+    end
 
     it 'foobar' do
-     expect(response).to have_http_status(:unauthorized)
+      expect(response).to have_http_status(:unauthorized)
     end
   end
 end
