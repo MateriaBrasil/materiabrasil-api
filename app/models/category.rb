@@ -22,6 +22,7 @@ class Category < ApplicationRecord
 
   def as_json(_options = {})
     {
+      parent_id: parent_id,
       id: id,
       name: name,
       multiple_choice: multiple_choice,
