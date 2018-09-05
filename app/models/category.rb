@@ -6,4 +6,6 @@ class Category < ApplicationRecord
   has_many :materials, through: 'material_categories'
 
   validates :name, presence: true
+
+  scope :root, -> { where(parent_id: nil) }
 end
