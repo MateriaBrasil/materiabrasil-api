@@ -24,6 +24,7 @@ class Category < ApplicationRecord
     {
       id: id,
       name: name,
+      multiple_choice: multiple_choice,
       children: children.as_json
     }
   end

@@ -58,6 +58,7 @@ RSpec.describe Category, type: :model do
         {
           id: category.id,
           name: 'Some Category',
+          multiple_choice: true,
           children: []
         }
       end
@@ -68,7 +69,8 @@ RSpec.describe Category, type: :model do
     context 'with children and grandchildren' do
       let(:child_category) do
         category.children.create!(
-          name: 'Child category'
+          name: 'Child category',
+          multiple_choice: false
         )
       end
       let(:grandchild_category) do
@@ -81,14 +83,17 @@ RSpec.describe Category, type: :model do
         {
           id: category.id,
           name: 'Some Category',
+          multiple_choice: true,
           children: [
             {
               id: child_category.id,
               name: 'Child category',
+              multiple_choice: false,
               children: [
                 {
                   id: grandchild_category.id,
                   name: 'Grandchild category',
+                  multiple_choice: true,
                   children: []
                 }
               ]
