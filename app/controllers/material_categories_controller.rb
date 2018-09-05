@@ -6,6 +6,9 @@ class MaterialCategoriesController < ApplicationController
   def create
     material = Material.find(params[:material_id])
     category = Category.find(params[:category_id])
+    single_choice = !category.parent&.multiple_choice
+
+    destroy_siblings(material, category) if single_choice
 
     material_category = MaterialCategory.create!(
       material: material,
@@ -20,5 +23,15 @@ class MaterialCategoriesController < ApplicationController
     association.destroy!
 
     render status: :ok, json: association
+  end
+
+  private
+
+  def destroy_siblings(material, category)
+    return unless category.parent
+
+    material.material_categories
+      .joins(:category).where(categories: { parent_id: category.parent.id })
+      .destroy_all
   end
 end

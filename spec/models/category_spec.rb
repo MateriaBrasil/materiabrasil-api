@@ -57,6 +57,7 @@ RSpec.describe Category, type: :model do
       let(:expected_hash) do
         {
           id: category.id,
+          parent_id: category.parent_id,
           name: 'Some Category',
           multiple_choice: true,
           children: []
@@ -82,16 +83,19 @@ RSpec.describe Category, type: :model do
       let(:expected_hash) do
         {
           id: category.id,
+          parent_id: category.parent_id,
           name: 'Some Category',
           multiple_choice: true,
           children: [
             {
               id: child_category.id,
+              parent_id: child_category.parent_id,
               name: 'Child category',
               multiple_choice: false,
               children: [
                 {
                   id: grandchild_category.id,
+                  parent_id: grandchild_category.parent_id,
                   name: 'Grandchild category',
                   multiple_choice: true,
                   children: []
