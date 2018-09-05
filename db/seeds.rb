@@ -219,9 +219,9 @@ cat2_child3_child1 = cat2_child3.children.create!(name: 'Fundição')
 cat2_child3_child1.children.create!(name: 'Fundição em areia')
 cat2_child3_child1.children.create!(name: 'Fundição em coquilha')
 
-cat2_child3_child1 = cat2_child3.children.create!(name: 'Estampagem')
-cat2_child3_child1.children.create!(name: 'A quente')
-cat2_child3_child1.children.create!(name: 'A frio')
+cat2_child3_child5 = cat2_child3.children.create!(name: 'Estampagem')
+cat2_child3_child5.children.create!(name: 'A quente')
+cat2_child3_child5.children.create!(name: 'A frio')
 
 cat2_child3_child2 = cat2_child3.children.create!(name: 'Usinagem')
 cat2_child3_child2.children.create!(name: 'Furação')
