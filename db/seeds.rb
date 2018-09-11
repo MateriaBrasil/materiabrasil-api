@@ -163,34 +163,26 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-category1 = Category.create!(name: 'Classificação',
-                             multiple_choice: false)
-cat1_child1 = category1.children.create!(name: 'Compósitos',
-                                         multiple_choice: false)
+category1 = Category.create!(name: 'Classificação', multiple_choice: false)
+cat1_child1 = category1.children.create!(name: 'Compósitos')
 cat1_child1.children.create!(name: 'Naturais')
 cat1_child1.children.create!(name: 'Sintéticos')
 cat1_child1.children.create!(name: 'Misto')
-cat1_child2 = category1.children.create!(name: 'Cerâmicos',
-                                         multiple_choice: false)
+cat1_child2 = category1.children.create!(name: 'Cerâmicos')
 cat1_child2.children.create!(name: 'Tradicional')
 cat1_child2.children.create!(name: 'Avançado')
 cat1_child2.children.create!(name: 'Revestimento')
-cat1_child3 = category1.children.create!(name: 'Poliméricos',
-                                         multiple_choice: false)
-cat1_child3_child1 = cat1_child3.children.create!(name: 'Plásticos',
-                                                  multiple_choice: false)
+cat1_child3 = category1.children.create!(name: 'Poliméricos')
+cat1_child3_child1 = cat1_child3.children.create!(name: 'Plásticos')
 cat1_child3_child1.children.create!(name: 'Naturais')
 cat1_child3_child1.children.create!(name: 'Sintéticos')
-cat1_child3_child2 = cat1_child3.children.create!(name: 'Fibras',
-                                                  multiple_choice: false)
+cat1_child3_child2 = cat1_child3.children.create!(name: 'Fibras')
 cat1_child3_child2.children.create!(name: 'Naturais')
 cat1_child3_child2.children.create!(name: 'Sintéticos')
-cat1_child3_child3 = cat1_child3.children.create!(name: 'Borracha',
-                                                  multiple_choice: false)
+cat1_child3_child3 = cat1_child3.children.create!(name: 'Borracha')
 cat1_child3_child3.children.create!(name: 'Naturais')
 cat1_child3_child3.children.create!(name: 'Sintéticos')
-category1_child4 = category1.children.create!(name: 'Metálicos',
-                                              multiple_choice: false)
+category1_child4 = category1.children.create!(name: 'Metálicos')
 category1_child4.children.create!(name: 'Ferrosos')
 category1_child4.children.create!(name: 'Não Ferrosos')
 

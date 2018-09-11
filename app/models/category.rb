@@ -18,7 +18,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :root, -> { where(parent_id: nil) }
+  scope :root, -> { where(parent_id: nil).order(:created_at) }
 
   def as_json(_options = {})
     {

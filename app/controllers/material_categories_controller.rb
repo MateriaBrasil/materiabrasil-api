@@ -6,9 +6,10 @@ class MaterialCategoriesController < ApplicationController
   def create
     material = Material.find(params[:material_id])
     category = Category.find(params[:category_id])
-    single_choice = !category.parent&.multiple_choice
+    root = root_category(category)
+    single_choice = !root.multiple_choice
 
-    destroy_siblings(material, category) if single_choice
+    delete_children(material, root) if single_choice
 
     material_category = MaterialCategory.create!(
       material: material,
@@ -27,11 +28,19 @@ class MaterialCategoriesController < ApplicationController
 
   private
 
-  def destroy_siblings(material, category)
-    return unless category.parent
+  def root_category(category)
+    return category unless category.parent
 
+    root_category(category.parent)
+  end
+
+  def delete_children(material, category)
     material.material_categories
-      .joins(:category).where(categories: { parent_id: category.parent.id })
-      .destroy_all
+      .joins(:category).where(categories: { parent_id: category.id })
+      .delete_all
+
+    category.children.each do |child|
+      delete_children(material, child)
+    end
   end
 end
