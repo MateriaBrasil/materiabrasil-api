@@ -29,6 +29,13 @@ class Material < ApplicationRecord
 
   belongs_to :supplier
 
+  def self.with_categories(ids)
+    where(
+      'id IN (SELECT material_id FROM material_categories WHERE category_id ' \
+      "IN (#{ids.join(',')}))"
+    )
+  end
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {

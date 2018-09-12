@@ -5,6 +5,10 @@ class MaterialsController < ApplicationController
 
   def index
     materials = Material.all.order(highlighted: :desc, created_at: :desc)
+
+    categories = params[:categories]
+    materials = materials.with_categories(categories) if categories
+
     render json: materials
   end
 

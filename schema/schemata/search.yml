@@ -17,6 +17,13 @@ definitions:
     description: the term being searched for
     type:
     - string
+  categories:
+    description: ids of categories to filter list
+    type:
+    - array
+    - "null"
+    items:
+      type: string
   identity:
     anyOf:
     - "$ref": "/schemata/search#/definitions/id"
@@ -26,12 +33,14 @@ links:
   method: GET
   rel: index
   schema:
-    strictProperties: true
+    additionalProperties: false
     properties:
       term:
         "$ref": "/schemata/search#/definitions/term"
+      categories:
+        "$ref": "/schemata/search#/definitions/categories"
     type:
-    - object    
+    - object
   targetSchema:
     anyOf:
     - {

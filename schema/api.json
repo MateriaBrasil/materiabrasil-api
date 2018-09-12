@@ -744,6 +744,18 @@
             "null"
           ]
         },
+        "categories": {
+          "description": "ids of categories to filter list",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -759,8 +771,11 @@
           "method": "GET",
           "rel": "index",
           "schema": {
-            "strictProperties": true,
+            "additionalProperties": false,
             "properties": {
+              "categories": {
+                "$ref": "#/definitions/material/definitions/categories"
+              }
             },
             "type": [
               "object"
@@ -1413,6 +1428,18 @@
             "string"
           ]
         },
+        "categories": {
+          "description": "ids of categories to filter list",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -1428,10 +1455,13 @@
           "method": "GET",
           "rel": "index",
           "schema": {
-            "strictProperties": true,
+            "additionalProperties": false,
             "properties": {
               "term": {
                 "$ref": "#/definitions/search/definitions/term"
+              },
+              "categories": {
+                "$ref": "#/definitions/search/definitions/categories"
               }
             },
             "type": [

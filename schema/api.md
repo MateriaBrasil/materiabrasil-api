@@ -349,13 +349,20 @@ List materials.
 GET /materials
 ```
 
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **categories** | *nullable array* | ids of categories to filter list | `null` |
+| **categories** | *nullable array* | ids of categories to filter list | `null` |
+
 
 #### Curl Example
 
 ```bash
 $ curl -n https://api.materiabrasil.com/materials
  -G \
-  -d 
+  -d categories[]=
 ```
 
 
@@ -789,6 +796,8 @@ GET /search
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **categories** | *nullable array* | ids of categories to filter list | `null` |
+| **categories** | *nullable array* | ids of categories to filter list | `null` |
 | **term** | *string* | the term being searched for | `"example"` |
 
 
@@ -797,7 +806,8 @@ GET /search
 ```bash
 $ curl -n https://api.materiabrasil.com/search
  -G \
-  -d term=example
+  -d term=example \
+  -d categories[]=
 ```
 
 

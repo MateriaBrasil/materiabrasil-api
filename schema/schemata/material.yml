@@ -124,6 +124,13 @@ definitions:
     type:
     - string
     - "null"
+  categories:
+    description: ids of categories to filter list
+    type:
+    - array
+    - "null"
+    items:
+      type: string
   identity:
     anyOf:
     - $ref: /schemata/material#/definitions/id
@@ -133,8 +140,10 @@ links:
   method: GET
   rel: index
   schema:
-    strictProperties: true
-    properties: {}
+    additionalProperties: false
+    properties:
+      categories:
+        "$ref": "/schemata/material#/definitions/categories"
     type:
     - object
   targetSchema:
