@@ -713,6 +713,63 @@ null
 ```
 
 
+## <a name="resource-message">Message</a>
+
+Stability: `prototype`
+
+A message is a communication from a user to a supplier
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **created_at** | *date-time* | when the message was created | `"2015-01-01T12:00:00Z"` |
+| **from** | *object* | the author of the message |  |
+| **id** | *integer* | unique identifier of the message | `42` |
+| **text** | *string* | the text of the message | `"example"` |
+| **to** | *object* | the recipient of the message |  |
+
+### <a name="link-POST-message-/messages">Message Create</a>
+
+Create a new message.
+
+```
+POST /messages
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **text** | *string* | the text of the message | `"example"` |
+| **to_id** | *integer* | the id of the supplier to which the message is sent | `42` |
+| **to_type** | *string* | the type of object to which the message is sent<br/> **one of:**`"Supplier"` | `"Supplier"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/messages \
+  -d '{
+  "to_id": 42,
+  "to_type": "Supplier",
+  "text": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-review">Review</a>
 
 Stability: `prototype`
