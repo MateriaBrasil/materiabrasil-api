@@ -93,7 +93,7 @@ RSpec.describe Material, type: :model do
     end
   end
 
-  describe '#self.with_categories' do
+  describe '.with_categories' do
     let(:materials) do
       Material.all
     end
