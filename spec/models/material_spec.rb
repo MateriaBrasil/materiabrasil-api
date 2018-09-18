@@ -93,6 +93,25 @@ RSpec.describe Material, type: :model do
     end
   end
 
+  describe '.with_categories' do
+    let(:materials) do
+      Material.all
+    end
+
+    let(:category) do
+      Category.create!(
+        name: 'Some Parent Category',
+        multiple_choice: false
+      )
+    end
+
+    before do
+      MaterialCategory.create!(material: material, category: category)
+    end
+
+    it { expect(materials.with_categories([category.id])).to include(material) }
+  end
+
   describe '#average_rating' do
     let(:other_user) do
       User.create!(

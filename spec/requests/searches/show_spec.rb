@@ -36,6 +36,12 @@ describe 'GET /search', type: :request do
     )
   end
 
+  let(:category) do
+    Category.create!(
+      name: 'Some Category'
+    )
+  end
+
   before do
     %w[foo bar baz].each do |name|
       Material.create!(
@@ -65,6 +71,27 @@ describe 'GET /search', type: :request do
     before { get '/search', params: params }
 
     it { expect(response).to have_http_status(:not_found) }
+  end
+
+  context 'with categories' do
+    let(:term) { 'Find Me' }
+
+    before do
+      MaterialCategory.create!(material: material, category: category)
+      Material.create!(
+        name: 'Foo',
+        image_url: 'http://foo.bar',
+        description: 'Find Me',
+        average_price: 'R$ 111,00',
+        code: '1234',
+        technical_specification_url: 'http://foo',
+        supplier: supplier
+      )
+      get '/search', params: { term: term, categories: [category.id] }
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq([material].to_json) }
   end
 
   context 'with wrong params' do

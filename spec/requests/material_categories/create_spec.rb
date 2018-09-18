@@ -43,8 +43,21 @@ describe 'POST /material_categories', type: :request do
     )
   end
 
-  let(:category) do
+  let(:parent_category) do
     Category.create!(
+      name: 'Some Parent Category',
+      multiple_choice: false
+    )
+  end
+
+  let(:category) do
+    parent_category.children.create!(
+      name: 'Some Category'
+    )
+  end
+
+  let(:child_category) do
+    category.children.create!(
       name: 'Some Category'
     )
   end
