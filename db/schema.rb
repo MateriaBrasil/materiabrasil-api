@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_191348) do
+ActiveRecord::Schema.define(version: 2018_09_17_202720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,18 @@ ActiveRecord::Schema.define(version: 2018_09_05_191348) do
     t.string "availability"
     t.string "certifications_url"
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "from_type", null: false
+    t.bigint "from_id", null: false
+    t.string "to_type", null: false
+    t.bigint "to_id", null: false
+    t.text "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["from_type", "from_id"], name: "index_messages_on_from_type_and_from_id"
+    t.index ["to_type", "to_id"], name: "index_messages_on_to_type_and_to_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
