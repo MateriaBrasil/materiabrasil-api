@@ -53,9 +53,27 @@ links:
     anyOf:
     - type: array
       items:
-        "$ref": "/schemata/topic"
-    - "$ref": "/schemata/error"
+        $ref: /schemata/topic
+    - $ref: /schemata/error
   title: List
+- description: Create a new topic.
+  href: "/topics"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties:
+      subject:
+        $ref: /schemata/topic#/definitions/subject
+      text:
+        $ref: /schemata/topic#/definitions/text
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/topic"
+    - "$ref": "/schemata/error"
+  title: Create
 properties:
   id:
     "$ref": "/schemata/topic#/definitions/id"
