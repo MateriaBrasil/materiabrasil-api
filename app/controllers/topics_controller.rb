@@ -18,6 +18,11 @@ class TopicsController < ApplicationController
     render status: :created, json: topic
   end
 
+  def comments
+    topic = Topic.find(params[:id])
+    render json: topic.comments
+  end
+
   private
 
   def topic_params

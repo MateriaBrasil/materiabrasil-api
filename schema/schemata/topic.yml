@@ -74,6 +74,25 @@ links:
     - "$ref": "/schemata/topic"
     - "$ref": "/schemata/error"
   title: Create
+- description: List comments on the topic.
+  href: "/topics/{(%2Fschemata%2Ftopic%23%2Fdefinitions%2Fidentity)}/comments"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/comment"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List comments
 properties:
   id:
     "$ref": "/schemata/topic#/definitions/id"
