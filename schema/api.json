@@ -1993,6 +1993,120 @@
       ],
       "additionalProperties": false
     },
+    "topic": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Topic",
+      "description": "A topic is created by a user to start a conversation",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the topic",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "text": {
+          "description": "the text of the topic",
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "subject": {
+          "description": "the subject of the topic",
+          "type": [
+            "string"
+          ]
+        },
+        "user": {
+          "description": "the author of the topic",
+          "type": [
+            "object"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/user"
+          }
+        },
+        "created_at": {
+          "description": "when the topic was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the topic was updated",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/topic/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List topics.",
+          "href": "/topics",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/topic"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/topic/definitions/id"
+        },
+        "user": {
+          "$ref": "#/definitions/topic/definitions/user"
+        },
+        "subject": {
+          "$ref": "#/definitions/topic/definitions/subject"
+        },
+        "text": {
+          "$ref": "#/definitions/topic/definitions/text"
+        },
+        "created_at": {
+          "$ref": "#/definitions/topic/definitions/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/topic/definitions/updated_at"
+        }
+      },
+      "additionalProperties": false
+    },
     "user": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - User",
@@ -2303,6 +2417,9 @@
     },
     "supplier": {
       "$ref": "#/definitions/supplier"
+    },
+    "topic": {
+      "$ref": "#/definitions/topic"
     },
     "user": {
       "$ref": "#/definitions/user"
