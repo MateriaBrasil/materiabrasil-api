@@ -148,7 +148,7 @@ POST /comments
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
-| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Topic"` | `"Material"` |
 | **text** | *string* | the text of the comment | `"example"` |
 
 
@@ -1158,6 +1158,34 @@ $ curl -n -X POST https://api.materiabrasil.com/topics \
 
 ```
 HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+### <a name="link-GET-topic-/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}/comments">Topic List comments</a>
+
+List comments on the topic.
+
+```
+GET /topics/{topic_id}/comments
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics/$TOPIC_ID/comments
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
 ```
 
 ```json

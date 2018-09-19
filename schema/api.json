@@ -312,7 +312,8 @@
             "string"
           ],
           "enum": [
-            "Material"
+            "Material",
+            "Topic"
           ]
         },
         "identity": {
@@ -2114,6 +2115,36 @@
             ]
           },
           "title": "Create"
+        },
+        {
+          "description": "List comments on the topic.",
+          "href": "/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}/comments",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/comment"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List comments"
         }
       ],
       "properties": {
