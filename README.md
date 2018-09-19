@@ -20,12 +20,14 @@ Rbenv: [repo](https://github.com/rbenv/rbenv)
 
 Rbenv-gemset: [repo](https://github.com/jf/rbenv-gemset)
 
-#### Install ruby 2.5.1
+#### 4. Install ruby 2.5.1
 ```
 $ rbenv install 2.5.1
 ```
 
 If rbenv complains you don't have that ruby version, upgrade [ruby-build](https://github.com/rbenv/ruby-build#readme).
+
+### Setup the project
 
 #### Clone the repository
 ```
@@ -78,16 +80,15 @@ Ask a colleague for the values.
 $ bin/rails db:create db:migrate db:seed
 ```
 
-#### Run the server
+## Running the server
 ```
 $ bin/rails s
 ```
 
 You can check that it worked by browsing `localhost:3000/materials`. You should see a json file.
 
-## Tests
 
-#### Running tests
+## Tests
 ```
 $ bin/rspec
 ```
