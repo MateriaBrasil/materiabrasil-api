@@ -4,13 +4,19 @@
 
 ## Installation
 
-#### Dependencies
+### Install Dependencies
+
+#### 1. Install PostgreSQL
 
 [PostgreSQL](http://postgresql.org/)
 
+#### 2. Install Rbenv
+
 Rbenv: [repo](https://github.com/rbenv/rbenv)
 
-- Check that the rbenv PATH is configured correctly, according the repo instructions.
+- Check that the rbenv PATH is configured correctly, according to the repo instructions.
+
+#### 3. Install Rbenv-gemset
 
 Rbenv-gemset: [repo](https://github.com/jf/rbenv-gemset)
 
@@ -28,9 +34,32 @@ $ cd materiabrasil-api
 ```
 
 #### Install local bundler
+Make sure you're running the correct ruby version. Run:
+
+```
+rbenv versions
+```
+It should return something like:
+```
+system
+...(other ruby versions installed)...
+* 2.5.1 (set by /home/<path-to-repo-folder>/materiabrasil-api/.ruby-version)
+
+```
+Make sure you're using the correct gemset. Run:
+```
+rbenv gemset active
+```
+It should return:
+```
+.gems global
+```
+
+If both are ok, run:
 ```
 $ gem install bundler
 ```
+Verify that the bundler was installed inside `materiabrasil-api/.gems` folder.
 
 #### Use local bundler to install the other gems
 Always use this command to ensure the gems are installed in `.gems`.
