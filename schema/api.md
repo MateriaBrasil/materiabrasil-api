@@ -1081,6 +1081,52 @@ null
 ```
 
 
+## <a name="resource-topic">Topic</a>
+
+Stability: `prototype`
+
+A topic is created by a user to start a conversation
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **created_at** | *date-time* | when the topic was created | `"2015-01-01T12:00:00Z"` |
+| **id** | *integer* | unique identifier of the topic | `42` |
+| **subject** | *string* | the subject of the topic | `"example"` |
+| **text** | *string* | the text of the topic | `"example"` |
+| **updated_at** | *date-time* | when the topic was updated | `"2015-01-01T12:00:00Z"` |
+| **user** | *object* | the author of the topic |  |
+
+### <a name="link-GET-topic-/topics">Topic List</a>
+
+List topics.
+
+```
+GET /topics
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-user">User</a>
 
 Stability: `prototype`
