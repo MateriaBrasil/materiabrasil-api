@@ -148,7 +148,7 @@ POST /comments
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
-| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Topic"` | `"Material"` |
 | **text** | *string* | the text of the comment | `"example"` |
 
 
@@ -1111,6 +1111,72 @@ GET /topics
 
 ```bash
 $ curl -n https://api.materiabrasil.com/topics
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-POST-topic-/topics">Topic Create</a>
+
+Create a new topic.
+
+```
+POST /topics
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **subject** | *string* | the subject of the topic | `"example"` |
+| **text** | *string* | the text of the topic | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/topics \
+  -d '{
+  "subject": "example",
+  "text": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+### <a name="link-GET-topic-/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}/comments">Topic List comments</a>
+
+List comments on the topic.
+
+```
+GET /topics/{topic_id}/comments
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics/$TOPIC_ID/comments
  -G \
   -d 
 ```

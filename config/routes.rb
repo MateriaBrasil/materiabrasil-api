@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
-  resources :topics, only: %i[index]
+  resources :topics, only: %i[index create] do
+    get :comments, on: :member
+  end
   resources :reviews, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resources :users, only: %i[show update]
