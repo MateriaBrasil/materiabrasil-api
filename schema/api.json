@@ -2083,6 +2083,37 @@
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "Create a new topic.",
+          "href": "/topics",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "subject": {
+                "$ref": "#/definitions/topic/definitions/subject"
+              },
+              "text": {
+                "$ref": "#/definitions/topic/definitions/text"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/topic"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
         }
       ],
       "properties": {

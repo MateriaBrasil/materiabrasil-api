@@ -1126,6 +1126,44 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-POST-topic-/topics">Topic Create</a>
+
+Create a new topic.
+
+```
+POST /topics
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **subject** | *string* | the subject of the topic | `"example"` |
+| **text** | *string* | the text of the topic | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/topics \
+  -d '{
+  "subject": "example",
+  "text": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-user">User</a>
 
