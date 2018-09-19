@@ -8,6 +8,11 @@ class TopicsController < ApplicationController
     render json: topics
   end
 
+  def show
+    topic = Topic.find(params[:id])
+    render json: topic
+  end
+
   def create
     topic = Topic.create!(
       user: current_user,

@@ -56,6 +56,20 @@ links:
         $ref: /schemata/topic
     - $ref: /schemata/error
   title: List
+- description: Info for existing topic.
+  href: "/topics/{(%2Fschemata%2Ftopic%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/topic"
+    - "$ref": "/schemata/error"
+  title: Info
 - description: Create a new topic.
   href: "/topics"
   method: POST

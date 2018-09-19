@@ -2086,6 +2086,31 @@
           "title": "List"
         },
         {
+          "description": "Info for existing topic.",
+          "href": "/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/topic"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        },
+        {
           "description": "Create a new topic.",
           "href": "/topics",
           "method": "POST",

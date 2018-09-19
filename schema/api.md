@@ -1126,6 +1126,34 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-GET-topic-/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}">Topic Info</a>
+
+Info for existing topic.
+
+```
+GET /topics/{topic_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics/$TOPIC_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 ### <a name="link-POST-topic-/topics">Topic Create</a>
 
 Create a new topic.
