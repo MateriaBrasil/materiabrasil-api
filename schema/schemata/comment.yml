@@ -36,6 +36,7 @@ definitions:
     - string
     enum:
     - Material
+    - Topic
   identity:
     anyOf:
     - "$ref": "/schemata/comment#/definitions/id"

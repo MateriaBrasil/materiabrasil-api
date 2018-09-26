@@ -63,7 +63,11 @@ class Material < ApplicationRecord
       prizes: prizes,
       density: density,
       dimensions: dimensions,
-      availability: availability
+      availability: availability,
+      first_driver: first_driver,
+      second_driver: second_driver,
+      third_driver: third_driver,
+      fourth_driver: fourth_driver
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

@@ -148,7 +148,7 @@ POST /comments
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **commentable_id** | *integer* | the id of the material, product of service the comment is associated with | `42` |
-| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` | `"Material"` |
+| **commentable_type** | *string* | the type of object the comment is associated with<br/> **one of:**`"Material"` or `"Topic"` | `"Material"` |
 | **text** | *string* | the text of the comment | `"example"` |
 
 
@@ -325,6 +325,8 @@ A material is a raw material
 | **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
 | **dimensions** | *nullable string* | the dimensions of the material | `null` |
+| **first_driver** | *nullable number* | the first driver of the material | `null` |
+| **fourth_driver** | *nullable number* | the fourth driver of the material | `null` |
 | **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
@@ -335,10 +337,12 @@ A material is a raw material
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
+| **second_driver** | *nullable number* | the second driver of the material | `null` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
+| **third_driver** | *nullable number* | the third driver of the material | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
@@ -1111,6 +1115,100 @@ GET /topics
 
 ```bash
 $ curl -n https://api.materiabrasil.com/topics
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-GET-topic-/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}">Topic Info</a>
+
+Info for existing topic.
+
+```
+GET /topics/{topic_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics/$TOPIC_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-POST-topic-/topics">Topic Create</a>
+
+Create a new topic.
+
+```
+POST /topics
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **subject** | *string* | the subject of the topic | `"example"` |
+| **text** | *string* | the text of the topic | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/topics \
+  -d '{
+  "subject": "example",
+  "text": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+### <a name="link-GET-topic-/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}/comments">Topic List comments</a>
+
+List comments on the topic.
+
+```
+GET /topics/{topic_id}/comments
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/topics/$TOPIC_ID/comments
  -G \
   -d 
 ```

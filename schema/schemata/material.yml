@@ -131,6 +131,26 @@ definitions:
     - "null"
     items:
       type: string
+  first_driver:
+    description: the first driver of the material
+    type:
+    - number
+    - "null"
+  second_driver:
+    description: the second driver of the material
+    type:
+    - number
+    - "null"
+  third_driver:
+    description: the third driver of the material
+    type:
+    - number
+    - "null"
+  fourth_driver:
+    description: the fourth driver of the material
+    type:
+    - number
+    - "null"
   identity:
     anyOf:
     - $ref: /schemata/material#/definitions/id
@@ -380,6 +400,14 @@ properties:
     "$ref": "/schemata/material#/definitions/dimensions"
   availability:
     "$ref": "/schemata/material#/definitions/availability"
+  first_driver:
+    "$ref": "/schemata/material#/definitions/first_driver"
+  second_driver:
+    "$ref": "/schemata/material#/definitions/second_driver"
+  third_driver:
+    "$ref": "/schemata/material#/definitions/third_driver"
+  fourth_driver:
+    "$ref": "/schemata/material#/definitions/fourth_driver"
 required:
 - id
 - supplier_id
