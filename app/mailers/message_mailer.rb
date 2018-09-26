@@ -6,8 +6,8 @@ class MessageMailer < ApplicationMailer
   #
   #   en.message_mailer.email.subject
   #
-  def email(message)
-    @message = message
+  def email
+    @message = params[:message]
     @from = current_user
     mail to: @message.to.email, subject: 'Contato através do MateriaMundi'
   end
