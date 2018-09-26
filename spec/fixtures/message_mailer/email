@@ -1,0 +1,3 @@
+MessageMailer#email
+
+Hi, find me in app/views/message_mailer/email
