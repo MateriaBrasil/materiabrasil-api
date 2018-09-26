@@ -7,7 +7,7 @@ require_relative 'application'
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  user_name : 'Materiamundi',
+  user_name: 'Materiamundi',
   :password => '5LPh2XJwaT',
   :domain => 'https://materiamundi.netlify.com/',
   :address => 'smtp.sendgrid.net',
