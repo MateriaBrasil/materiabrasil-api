@@ -4,8 +4,6 @@ require 'rails_helper'
 
 RSpec.describe MessageMailer, type: :mailer do
   describe 'email' do
-    let(:mail) { MessageMailer.email }
-
     let(:supplier) do
       Supplier.create!(
         name: 'Foo Bar',
@@ -33,14 +31,18 @@ RSpec.describe MessageMailer, type: :mailer do
       )
     end
 
+    let(:mail) do
+      MessageMailer.with(message: message).email
+    end
+
     it 'renders the headers' do
-      expect(mail.subject).to eq(['Contato através do MateriaMundi'])
-      expect(mail.to).to eq(['rodrigo@seasoned.cc'])
+      expect(mail.subject).to eq('Contato através do MateriaMundi')
+      expect(mail.to).to eq([supplier.email])
       expect(mail.from).to eq([current_user.email])
     end
 
     it 'renders the body' do
-      expect(mail.body.encoded).to match('Hi')
+      expect(mail.body.encoded).to match(message.text)
     end
   end
 end

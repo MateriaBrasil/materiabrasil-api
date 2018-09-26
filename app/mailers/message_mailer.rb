@@ -9,6 +9,10 @@ class MessageMailer < ApplicationMailer
   def email
     @message = params[:message]
     @from = @message.from
-    mail to: @message.to.email, subject: 'Contato através do MateriaMundi'
+    mail(
+      to: @message.to.email,
+      subject: 'Contato através do MateriaMundi',
+      from: @from.email
+    )
   end
 end
