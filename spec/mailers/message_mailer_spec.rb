@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe MessageMailer, type: :mailer do
-  describe 'email' do
+  describe '#email' do
     let(:supplier) do
       Supplier.create!(
         name: 'Foo Bar',
         description: 'Foo description',
         website: 'http://foo',
-        email: 'rodrigo@seasoned.cc',
+        email: 'foo@bar.com',
         cnpj: '123456789',
         company_name: 'Foo Inc',
         municipal_subscription: 'does not apply',
@@ -27,7 +27,7 @@ RSpec.describe MessageMailer, type: :mailer do
       Message.create!(
         from: current_user,
         to: supplier,
-        text: 'Blablabla wiskas sache'
+        text: 'Foo text'
       )
     end
 
@@ -35,14 +35,9 @@ RSpec.describe MessageMailer, type: :mailer do
       MessageMailer.with(message: message).email
     end
 
-    it 'renders the headers' do
-      expect(mail.subject).to eq('Contato através do MateriaMundi')
-      expect(mail.to).to eq([supplier.email])
-      expect(mail.from).to eq([current_user.email])
-    end
-
-    it 'renders the body' do
-      expect(mail.body.encoded).to match(message.text)
-    end
+    it { expect(mail.subject).to eq('Contato através do MateriaMundi') }
+    it { expect(mail.to).to eq([supplier.email]) }
+    it { expect(mail.from).to eq([current_user.email]) }
+    it { expect(mail.body.encoded).to match(message.text) }
   end
 end
