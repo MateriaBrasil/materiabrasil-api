@@ -22,5 +22,4 @@ class Message < ApplicationRecord
   def send_email
     MessageMailer.email(self)
   end
-
 end
