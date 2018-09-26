@@ -84,7 +84,11 @@ RSpec.describe Material, type: :model do
         prizes: material.prizes,
         density: material.density,
         dimensions: material.dimensions,
-        availability: material.availability
+        availability: material.availability,
+        first_driver: material.first_driver,
+        second_driver: material.second_driver,
+        third_driver: material.third_driver,
+        fourth_driver: material.fourth_driver
       }
     end
 

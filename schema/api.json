@@ -757,6 +757,34 @@
             ]
           }
         },
+        "first_driver": {
+          "description": "the first driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "second_driver": {
+          "description": "the second driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "third_driver": {
+          "description": "the third driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fourth_driver": {
+          "description": "the fourth driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -1151,6 +1179,18 @@
         },
         "availability": {
           "$ref": "#/definitions/material/definitions/availability"
+        },
+        "first_driver": {
+          "$ref": "#/definitions/material/definitions/first_driver"
+        },
+        "second_driver": {
+          "$ref": "#/definitions/material/definitions/second_driver"
+        },
+        "third_driver": {
+          "$ref": "#/definitions/material/definitions/third_driver"
+        },
+        "fourth_driver": {
+          "$ref": "#/definitions/material/definitions/fourth_driver"
         }
       },
       "required": [
