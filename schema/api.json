@@ -312,7 +312,8 @@
             "string"
           ],
           "enum": [
-            "Material"
+            "Material",
+            "Topic"
           ]
         },
         "identity": {
@@ -756,6 +757,34 @@
             ]
           }
         },
+        "first_driver": {
+          "description": "the first driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "second_driver": {
+          "description": "the second driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "third_driver": {
+          "description": "the third driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fourth_driver": {
+          "description": "the fourth driver of the material",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -1150,6 +1179,18 @@
         },
         "availability": {
           "$ref": "#/definitions/material/definitions/availability"
+        },
+        "first_driver": {
+          "$ref": "#/definitions/material/definitions/first_driver"
+        },
+        "second_driver": {
+          "$ref": "#/definitions/material/definitions/second_driver"
+        },
+        "third_driver": {
+          "$ref": "#/definitions/material/definitions/third_driver"
+        },
+        "fourth_driver": {
+          "$ref": "#/definitions/material/definitions/fourth_driver"
         }
       },
       "required": [
@@ -2083,6 +2124,92 @@
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "Info for existing topic.",
+          "href": "/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/topic"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Create a new topic.",
+          "href": "/topics",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "subject": {
+                "$ref": "#/definitions/topic/definitions/subject"
+              },
+              "text": {
+                "$ref": "#/definitions/topic/definitions/text"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/topic"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "List comments on the topic.",
+          "href": "/topics/{(%23%2Fdefinitions%2Ftopic%2Fdefinitions%2Fidentity)}/comments",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/comment"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List comments"
         }
       ],
       "properties": {

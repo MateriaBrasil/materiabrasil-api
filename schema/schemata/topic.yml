@@ -53,9 +53,60 @@ links:
     anyOf:
     - type: array
       items:
-        "$ref": "/schemata/topic"
-    - "$ref": "/schemata/error"
+        $ref: /schemata/topic
+    - $ref: /schemata/error
   title: List
+- description: Info for existing topic.
+  href: "/topics/{(%2Fschemata%2Ftopic%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/topic"
+    - "$ref": "/schemata/error"
+  title: Info
+- description: Create a new topic.
+  href: "/topics"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties:
+      subject:
+        $ref: /schemata/topic#/definitions/subject
+      text:
+        $ref: /schemata/topic#/definitions/text
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/topic"
+    - "$ref": "/schemata/error"
+  title: Create
+- description: List comments on the topic.
+  href: "/topics/{(%2Fschemata%2Ftopic%23%2Fdefinitions%2Fidentity)}/comments"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - {
+        "type": "array",
+        "items": {
+          "$ref": "/schemata/comment"
+        }
+      }
+    - "$ref": "/schemata/error"
+  title: List comments
 properties:
   id:
     "$ref": "/schemata/topic#/definitions/id"
