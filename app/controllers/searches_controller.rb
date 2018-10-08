@@ -3,6 +3,7 @@
 class SearchesController < ApplicationController
   include PgSearch
   PgSearch.multisearch_options = {
+    using: %i[tsearch trigram],
     ignoring: :accents
   }
 

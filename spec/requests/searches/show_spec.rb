@@ -24,7 +24,7 @@ describe 'GET /search', type: :request do
     )
   end
 
-  let!(:material) do
+  let!(:quu_material) do
     Material.create!(
       name: 'quu',
       image_url: 'http://foo.bar',
@@ -36,7 +36,7 @@ describe 'GET /search', type: :request do
     )
   end
 
-  let!(:material_with_accent) do
+  let!(:foo_material) do
     Material.create!(
       name: 'fóo bâr',
       image_url: 'http://foo.bar',
@@ -75,7 +75,7 @@ describe 'GET /search', type: :request do
       before { get '/search', params: params }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(response.body).to eq([material].to_json) }
+      it { expect(response.body).to eq([quu_material].to_json) }
     end
 
     context 'with material with accent' do
@@ -84,7 +84,7 @@ describe 'GET /search', type: :request do
       before { get '/search', params: params }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(response.body).to eq([material_with_accent].to_json) }
+      it { expect(response.body).to eq([foo_material].to_json) }
     end
 
     context 'with term with accent and material without it' do
@@ -93,7 +93,16 @@ describe 'GET /search', type: :request do
       before { get '/search', params: params }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(response.body).to eq([material].to_json) }
+      it { expect(response.body).to eq([quu_material].to_json) }
+    end
+
+    context 'with similar term' do
+      let(:term) { 'ar' }
+
+      before { get '/search', params: params }
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq([foo_material].to_json) }
     end
   end
 
@@ -109,7 +118,7 @@ describe 'GET /search', type: :request do
     let(:term) { 'Find Me' }
 
     before do
-      MaterialCategory.create!(material: material, category: category)
+      MaterialCategory.create!(material: quu_material, category: category)
       Material.create!(
         name: 'Foo',
         image_url: 'http://foo.bar',
@@ -123,7 +132,7 @@ describe 'GET /search', type: :request do
     end
 
     it { expect(response).to have_http_status(:ok) }
-    it { expect(response.body).to eq([material].to_json) }
+    it { expect(response.body).to eq([quu_material].to_json) }
   end
 
   context 'with wrong params' do
