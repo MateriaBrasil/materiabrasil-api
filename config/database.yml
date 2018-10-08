@@ -17,15 +17,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV.fetch("POSTGRES_HOST") { nil } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { nil } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { nil } %>
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  host: <%= ENV.fetch("POSTGRES_HOST") { nil } %>
-  username: <%= ENV.fetch("POSTGRES_USER") { nil } %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { nil } %>
   database: materiabrasil-api_development
 
   # The specified database role being used to connect to postgres.
