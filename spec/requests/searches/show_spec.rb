@@ -38,7 +38,7 @@ describe 'GET /search', type: :request do
 
   let!(:foo_material) do
     Material.create!(
-      name: 'fóo bâr',
+      name: 'algodao reciclável',
       image_url: 'http://foo.bar',
       description: 'FóóBâr',
       average_price: 'R$ 111,00',
@@ -70,7 +70,7 @@ describe 'GET /search', type: :request do
 
   describe 'with content found' do
     context 'with material without accent' do
-      let(:term) { 'Find me' }
+      let(:term) { 'quu' }
 
       before { get '/search', params: params }
 
@@ -79,7 +79,7 @@ describe 'GET /search', type: :request do
     end
 
     context 'with material with accent' do
-      let(:term) { 'foo bar' }
+      let(:term) { 'reciclavel' }
 
       before { get '/search', params: params }
 
@@ -97,7 +97,7 @@ describe 'GET /search', type: :request do
     end
 
     context 'with similar term' do
-      let(:term) { 'ar' }
+      let(:term) { 'algdao' }
 
       before { get '/search', params: params }
 
