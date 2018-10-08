@@ -36,6 +36,18 @@ describe 'GET /search', type: :request do
     )
   end
 
+  let!(:material_with_accent) do
+    Material.create!(
+      name: 'fóo bâr',
+      image_url: 'http://foo.bar',
+      description: 'Find me',
+      average_price: 'R$ 111,00',
+      code: '1234',
+      technical_specification_url: 'http://foo',
+      supplier: supplier
+    )
+  end
+
   let(:category) do
     Category.create!(
       name: 'Some Category'
@@ -56,13 +68,25 @@ describe 'GET /search', type: :request do
     end
   end
 
-  context 'with content found' do
-    let(:term) { 'Find me' }
+  describe 'with content found' do
+    context 'with material without accent' do
+      let(:term) { 'Find me' }
 
-    before { get '/search', params: params }
+      before { get '/search', params: params }
 
-    it { expect(response).to have_http_status(:ok) }
-    it { expect(response.body).to eq([material].to_json) }
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq([material].to_json) }
+    end
+
+    context 'with material with accent' do
+      let(:term) { 'foo bar' }
+
+      before { get '/search', params: params }
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq([material_with_accent].to_json) }
+    end
+
   end
 
   context 'without content found' do
