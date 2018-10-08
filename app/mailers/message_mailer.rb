@@ -12,7 +12,8 @@ class MessageMailer < ApplicationMailer
     mail(
       to: @message.to.email,
       subject: 'Contato através do MateriaMundi',
-      from: @from.email
+      from: 'cadastro@materiabrasil.net',
+      reply_to: @from.email
     )
   end
 end

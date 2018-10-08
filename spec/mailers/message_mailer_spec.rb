@@ -37,7 +37,7 @@ RSpec.describe MessageMailer, type: :mailer do
 
     it { expect(mail.subject).to eq('Contato através do MateriaMundi') }
     it { expect(mail.to).to eq([supplier.email]) }
-    it { expect(mail.from).to eq([current_user.email]) }
+    it { expect(mail.from).to eq(['cadastro@materiabrasil.net']) }
     it { expect(mail.body.encoded).to match(message.text) }
   end
 end
