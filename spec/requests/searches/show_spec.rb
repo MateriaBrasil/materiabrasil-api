@@ -40,7 +40,7 @@ describe 'GET /search', type: :request do
     Material.create!(
       name: 'fóo bâr',
       image_url: 'http://foo.bar',
-      description: 'Find me',
+      description: 'FóóBâr',
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
