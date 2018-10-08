@@ -3,6 +3,12 @@
 class SearchesController < ApplicationController
   include PgSearch
   PgSearch.multisearch_options = {
+    using: {
+      trigram: {
+        threshold: 0.03
+      },
+      tsearch: { any_word: true, prefix: true }
+    },
     ignoring: :accents
   }
 
