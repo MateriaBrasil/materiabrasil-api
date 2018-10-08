@@ -20,6 +20,6 @@ class Message < ApplicationRecord
   private
 
   def send_email
-    MessageMailer.with(message: self).email.deliver_later
+    MessageMailer.with(message: self).email.deliver_now
   end
 end
