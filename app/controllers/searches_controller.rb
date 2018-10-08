@@ -2,6 +2,9 @@
 
 class SearchesController < ApplicationController
   include PgSearch
+  PgSearch.multisearch_options = {
+    ignoring: :accents
+  }
 
   def show
     search = PgSearch.multisearch(params[:term])
