@@ -1355,7 +1355,14 @@
             "object"
           ],
           "targetSchema": {
-            "$ref": "#/definitions/supplier"
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/supplier"
+              }
+            ]
           }
         },
         "created_at": {
@@ -1377,7 +1384,8 @@
             "string"
           ],
           "enum": [
-            "Supplier"
+            "Supplier",
+            "User"
           ]
         },
         "identity": {

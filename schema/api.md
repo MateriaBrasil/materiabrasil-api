@@ -747,7 +747,7 @@ POST /messages
 | ------- | ------- | ------- | ------- |
 | **text** | *string* | the text of the message | `"example"` |
 | **to_id** | *integer* | the id of the supplier to which the message is sent | `42` |
-| **to_type** | *string* | the type of object to which the message is sent<br/> **one of:**`"Supplier"` | `"Supplier"` |
+| **to_type** | *string* | the type of object to which the message is sent<br/> **one of:**`"Supplier"` or `"User"` | `"Supplier"` |
 
 
 #### Curl Example
