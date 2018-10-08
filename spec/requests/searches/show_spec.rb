@@ -86,6 +86,15 @@ describe 'GET /search', type: :request do
       it { expect(response).to have_http_status(:ok) }
       it { expect(response.body).to eq([material_with_accent].to_json) }
     end
+
+    context 'with term with accent and material without it' do
+      let(:term) { 'qúú' }
+
+      before { get '/search', params: params }
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq([material].to_json) }
+    end
   end
 
   context 'without content found' do
