@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_144951) do
+ActiveRecord::Schema.define(version: 2018_10_09_182914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -38,6 +38,19 @@ ActiveRecord::Schema.define(version: 2018_10_08_144951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_albums_on_user_id"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string "about_type", null: false
+    t.bigint "about_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_type", "about_id", "question_id"], name: "index_answers_on_about_type_and_about_id_and_question_id", unique: true
+    t.index ["about_type", "about_id"], name: "index_answers_on_about_type_and_about_id"
+    t.index ["option_id"], name: "index_answers_on_option_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -122,6 +135,15 @@ ActiveRecord::Schema.define(version: 2018_10_08_144951) do
     t.index ["to_type", "to_id"], name: "index_messages_on_to_type_and_to_id"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.text "description", null: false
+    t.integer "value", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -129,6 +151,24 @@ ActiveRecord::Schema.define(version: 2018_10_08_144951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "questionnaires", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "about_type", null: false
+    t.string "driver", null: false
+    t.integer "sorting", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "questionnaire_id", null: false
+    t.text "description", null: false
+    t.integer "sorting", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -213,11 +253,15 @@ ActiveRecord::Schema.define(version: 2018_10_08_144951) do
 
   add_foreign_key "addresses", "suppliers"
   add_foreign_key "albums", "users"
+  add_foreign_key "answers", "options"
+  add_foreign_key "answers", "questions"
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "albums"
   add_foreign_key "material_categories", "categories"
   add_foreign_key "material_categories", "materials"
   add_foreign_key "materials", "suppliers"
+  add_foreign_key "options", "questions"
+  add_foreign_key "questions", "questionnaires"
   add_foreign_key "reviews", "users"
   add_foreign_key "suppliers", "users"
   add_foreign_key "topics", "users"
