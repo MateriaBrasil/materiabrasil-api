@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-
+    email = user_params['email']
+    params = email.present? ? user_params.merge(uid: email) : user_params
+    current_user.update(params)
     render json: current_user
   end
 
