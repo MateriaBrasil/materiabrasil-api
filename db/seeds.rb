@@ -49,7 +49,7 @@ supplier2 = Supplier.create!(
   image_url: 'http://foo-image'
 )
 
-Material.create(
+Material.create!(
   name: 'Tecido lona algodão reciclado',
   supplier: supplier1,
   image_url: 'https://image.ibb.co/bPMTky/tecido.jpg',
@@ -66,7 +66,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Madeira Serrada Certificada',
   supplier: supplier1,
   image_url: 'https://image.ibb.co/ddazsd/madeira.jpg',
@@ -78,7 +78,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Matü quadrado',
   supplier: supplier1,
   image_url: 'https://image.ibb.co/jmdKsd/matu.jpg',
@@ -90,7 +90,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Papel semente',
   supplier: supplier2,
   image_url: 'https://image.ibb.co/fiazsd/papel_semente.jpg',
@@ -110,7 +110,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Pastilhas de PET reciclado',
   supplier: supplier2,
   image_url: 'https://image.ibb.co/dRGHdJ/pastilhas.jpg',
@@ -126,7 +126,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Piso Fibonacci',
   supplier: supplier2,
   image_url: 'https://image.ibb.co/cnj3JJ/piso.jpg',
@@ -143,7 +143,7 @@ Material.create(
     'testfiles/resources/pdf/dummy.pdf'
 )
 
-Material.create(
+Material.create!(
   name: 'Telhas Ecológicas',
   supplier: supplier2,
   image_url: 'https://image.ibb.co/fmkoky/telhas.jpg',
@@ -371,3 +371,315 @@ category7.children.create!(name: 'Iluminação')
 category7.children.create!(name: 'Preenchimento')
 category7.children.create!(name: 'Brinquedos infantis')
 category7.children.create!(name: 'Outro')
+
+questionnaire = Questionnaire.create!(
+  name: 'Humano Social - Para fora',
+  about_type: 'Supplier',
+  driver: 'first_driver',
+  sorting: 1
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Sua empresa busca formular políticas junto a outros atores ' \
+    'economicos (incluindo concorrentes) para desenvolver ou defender uma ' \
+    'maior adoção de padrões sociais e ambientais ou práticas voluntárias em ' \
+    'seu setor?',
+  sorting: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Não há nenhuma pratica vigente no momento',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, a empresa forneceu tempo de trabalho de seus ' \
+    'funcionários ou apoio financeiro',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, a empresa realizou esforços ativamente para aprimorar ' \
+    'os padrões atuais, seja fazendo recomendações e fornecendo expertise ' \
+    'ou criando e comprovando novos padrões',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, a empresa já trabalhou com outros atores do setor em ' \
+    'uma iniciativa conjunta',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, e os esforços resultaram em uma reforma institucional, ' \
+    'setorial ou regulatória específica',
+  value: 5
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Existe política de Patrocínio/doação para iniciativas ou ' \
+    'organizações de impacto positivo?',
+  sorting: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Não há',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, apoiamos causas mas não há politica estabelecida',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim, apoiamos regularmente e temos uma política de apoio a ' \
+    'causas sociais e ambientais que é revisada anualmente',
+  value: 3
+)
+
+questionnaire = Questionnaire.create!(
+  name: 'Humano Social - Para dentro',
+  about_type: 'Supplier',
+  driver: 'second_driver',
+  sorting: 2
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Qual a proporção de mulheres na empresa?',
+  sorting: 1
+)
+
+Option.create!(
+  question: question,
+  description: '0-10%',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: '10-20%',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: '20-30%',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: '30-40%',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: 'Mais que 50%',
+  value: 5
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Sobre o processo de recrutamento e seleção da suea empresa: ' \
+    'existem práticas voltadas para a equidade de gênero?',
+  sorting: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Não.',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'A empresa não possui política específica de equidade de ' \
+    'gênero em relação à seleção de pessoas, mas os resultados dos ' \
+    'processos seletivos passam por processo de justificativa e ' \
+    'documentação formal.',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'A empresa monitora a proporção de homens e mulheres ' \
+    'contratados.',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: 'Os resultados dos processos seletivos passam por processo ' \
+    'de justificativa e documentação formal e a empresa monitora a ' \
+    'proporção de homens e mulheres contratados.',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: 'Os resultados dos processos seletivos passam por processo ' \
+    'de justificativa e documentação formal, a empresa monitora a proporção ' \
+    'de homens e mulheres contratados e possui percentual mínimo ' \
+    'determinado para a contratação de mulheres.',
+  value: 5
+)
+
+questionnaire = Questionnaire.create!(
+  name: 'Circularidade - Materia Prima',
+  about_type: 'Material',
+  driver: 'third_driver',
+  sorting: 1
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Como voce caracteriza a sua materia-prima quanto a sua ' \
+    'natureza?',
+  sorting: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Sintético',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Artificial',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Mineral',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: 'Animal',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: 'Vegetal',
+  value: 5
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Há substâncias tóxicas ou contaminantes na composição da ' \
+    'sua matéria-prima ou produto final?',
+  sorting: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Sim',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Não',
+  value: 5
+)
+
+questionnaire = Questionnaire.create!(
+  name: 'Circularidade - Processos',
+  about_type: 'Material',
+  driver: 'fourth_driver',
+  sorting: 2
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'Como você define a sua matriz energética?',
+  sorting: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Fonte fóssil não renovável (Carvão, gás, diesel)',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Rede elétrica municipal (fontes desconhecidas/não renováveis)',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Rede elétrica municipal (ao menos 10% da energia é oriunda ' \
+    'de fontes renováveis tais como energia solar, eólica)',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: '100% de fontes renováveis (Eólica, solar, hidrelétricas de ' \
+    'pequeno porte ou sem barragens, Biomassa...)',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: '100% de fontes renováveis autosuficientes (produção própria)',
+  value: 5
+)
+
+question = Question.create!(
+  questionnaire: questionnaire,
+  description: 'A sua empresa implementou algum dos seguintes métodos de ' \
+    'conservação de água no seu processo produtivo',
+  sorting: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Não monitoro meu consumo',
+  value: 1
+)
+
+Option.create!(
+  question: question,
+  description: 'Monitoro meu consumo',
+  value: 2
+)
+
+Option.create!(
+  question: question,
+  description: 'Monitoro e tenho metas de redução',
+  value: 3
+)
+
+Option.create!(
+  question: question,
+  description: 'Já implementamos processos e tecnologias que visam a ' \
+    'redução do consumo',
+  value: 4
+)
+
+Option.create!(
+  question: question,
+  description: 'Processo produtivo isento de água',
+  value: 5
+)
