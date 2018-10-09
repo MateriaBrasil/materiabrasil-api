@@ -1295,6 +1295,7 @@ PUT /users/{user_id}
 | **city** | *nullable string* | the city of the user | `null` |
 | **company** | *nullable string* | the company where the user works | `null` |
 | **country** | *nullable string* | the country of the user | `null` |
+| **email** | *email* | the email of the user | `"username@example.com"` |
 | **first_name** | *string* | the first name of the user | `"example"` |
 | **image_url** | *nullable string* | a link to the profile image of the user | `null` |
 | **last_name** | *string* | the last name of the user | `"example"` |
@@ -1317,7 +1318,8 @@ $ curl -n -X PUT https://api.materiabrasil.com/users/$USER_ID \
   "bio": "example",
   "company": "example",
   "work_title": "example",
-  "website": "example"
+  "website": "example",
+  "email": "username@example.com"
 }' \
   -H "Content-Type: application/json"
 ```

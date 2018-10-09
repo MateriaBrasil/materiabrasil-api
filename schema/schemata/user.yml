@@ -130,6 +130,8 @@ links:
         "$ref": "/schemata/user#/definitions/work_title"
       website:
         "$ref": "/schemata/user#/definitions/website"
+      email:
+        "$ref": "/schemata/user#/definitions/email"
     type:
     - object
   targetSchema:

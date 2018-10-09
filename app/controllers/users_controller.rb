@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(user_params)
-
+    current_user.update(uid: user_params['email']) if user_params['email'].present?
     render json: current_user
   end
 

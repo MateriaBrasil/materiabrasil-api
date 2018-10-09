@@ -2435,6 +2435,9 @@
               },
               "website": {
                 "$ref": "#/definitions/user/definitions/website"
+              },
+              "email": {
+                "$ref": "#/definitions/user/definitions/email"
               }
             },
             "type": [

@@ -13,7 +13,8 @@ RSpec.describe 'PUT /users/:id', type: :request do
       bio: 'Lorem ipsum foo bar',
       company: 'Foo company',
       work_title: 'Foo title',
-      website: 'http://bar'
+      website: 'http://bar',
+      email: 'foo@bar.com'
     }
   end
 
@@ -39,6 +40,7 @@ RSpec.describe 'PUT /users/:id', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
       it { expect(response.body).to eq(current_user.reload.to_json) }
+      it { expect(current_user.reload.uid).to eq('foo@bar.com') }
     end
 
     context 'with only one param' do
