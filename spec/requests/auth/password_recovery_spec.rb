@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'PUT /auth/password', type: :request do
   let(:headers) do
     token_header = current_user.create_new_auth_token
-    
+
     { 'uid': current_user.email,
       'client': token_header['client'],
       'access-token': token_header['access-token'] }
@@ -41,7 +41,8 @@ describe 'PUT /auth/password', type: :request do
     it {
       expect(JSON.parse(response.body)['message']).to eq(
         'Senha atualizada com sucesso.'
-      ) }
+      )
+    }
   end
 
   def param_error
