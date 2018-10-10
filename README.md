@@ -87,6 +87,15 @@ $ bin/rails s
 
 You can check that it worked by browsing `localhost:3000/materials`. You should see a json file.
 
+## Using Mailcatcher
+
+After starting the server, you can access on the following URL (works with Docker):
+
+```
+$ localhost:8080
+```
+
+For Docker, use this
 
 ## Tests
 ```

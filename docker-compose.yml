@@ -10,6 +10,7 @@ services:
       - .:/app
     links:
       - postgres
+      - mailcatcher
     ports:
       - "3000:3000"
     expose:
@@ -25,3 +26,12 @@ services:
       - "5432:5432"
     expose:
       - "5432"
+
+  mailcatcher:
+    image: instructure/mailcatcher
+    ports:
+      - 1025:1025
+      - 1080:1080
+      - 8080:8080
+    expose:
+      - 8080
