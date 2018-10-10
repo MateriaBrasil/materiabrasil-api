@@ -3,22 +3,63 @@
 require 'rails_helper'
 
 describe 'PUT /auth/password', type: :request do
-  let(:headers) do
-    token_header = current_user.create_new_auth_token
-
-    { 'uid': current_user.email,
-      'client': token_header['client'],
-      'access-token': token_header['access-token'] }
+  let(:reset_headers) do
+    { 'uid': '', 'client': '', 'access-token': '' }
   end
 
-  let(:params) do
+  let(:correct_params) do
     { password: 'new_password',
-      password_confirmation: 'new_password' }
+      password_confirmation: 'new_password',
+      reset_password_token: reset_tokens[0] }
+  end
+
+  let(:incorrect_params) do
+    { reset_password_token: reset_tokens[0] }
+  end
+
+  let!(:reset_tokens) do
+    Devise.token_generator.generate(User, :reset_password_token)
+  end
+
+  before do
+    current_user.update(
+      reset_password_sent_at: 1.minute.ago,
+      reset_password_token: reset_tokens[1]
+    )
+  end
+
+  context 'with edit page being accessed' do
+    before do
+      get '/auth/password/edit', params: {
+        redirect_url: 'redirect.com',
+        reset_password_token: reset_tokens[0]
+      }
+    end
+
+    it { expect(response).to have_http_status(:found) }
+    it { expect(response.body).to include('You are being') }
+    it { expect(response.body).to include('redirect.com?access-token=') }
   end
 
   context 'without params' do
     before do
-      put '/auth/password', params: {}.to_json, headers: headers
+      put '/auth/password', params: {}.to_json, headers: reset_headers
+    end
+
+    it { expect(response).to have_http_status(:unauthorized) }
+
+    it 'returns the correct error' do
+      expect(response.body).to eq({
+        success: false,
+        errors: ['Unauthorized']
+      }.to_json)
+    end
+  end
+
+  context 'with incorrect params' do
+    before do
+      put '/auth/password', params: incorrect_params.to_json,
+                            headers: reset_headers
     end
 
     it { expect(response).to have_http_status(:unprocessable_entity) }
@@ -31,9 +72,48 @@ describe 'PUT /auth/password', type: :request do
     end
   end
 
+  context 'with incorrect reset token' do
+    before do
+      get '/auth/password/edit', params: {
+        redirect_url: 'redirect.com',
+        reset_password_token: 'wrong_token'
+      }
+    end
+
+    it { expect(response).to have_http_status(:not_found) }
+
+    it 'returns the correct error' do
+      expect(response.body).to eq({
+        success: false,
+        message: expired_message
+      }.to_json)
+    end
+  end
+
+  context 'with expired reset token' do
+    before do
+      current_user.update(
+        reset_password_sent_at: Devise.reset_password_within.ago.utc - 1.second
+      )
+
+      put '/auth/password', params: correct_params.to_json,
+                            headers: reset_headers
+    end
+
+    it { expect(response).to have_http_status(:unauthorized) }
+
+    it 'returns the correct error' do
+      expect(response.body).to eq({
+        success: false,
+        message: expired_message
+      }.to_json)
+    end
+  end
+
   context 'with correct params' do
     before do
-      put '/auth/password', params: params.to_json, headers: headers
+      put '/auth/password', params: correct_params.to_json,
+                            headers: reset_headers
     end
 
     it { expect(response).to have_http_status(:ok) }
@@ -43,5 +123,11 @@ describe 'PUT /auth/password', type: :request do
         'Senha atualizada com sucesso.'
       )
     }
+  end
+
+  private
+
+  def expired_message
+    'O pedido de troca de senha expirou, por favor, tente novamente.'
   end
 end
