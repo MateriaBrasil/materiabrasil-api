@@ -21,12 +21,12 @@ describe 'PUT /auth/password', type: :request do
       put '/auth/password', params: {}.to_json, headers: headers
     end
 
-    it { expect(response).to have_http_status(:unauthorized) }
+    it { expect(response).to have_http_status(:unprocessable_entity) }
 
     it 'returns the correct error' do
       expect(response.body).to eq({
         success: false,
-        errors: param_error
+        errors: ['Preencha a senha e a confirmação de senha.']
       }.to_json)
     end
   end
@@ -43,9 +43,5 @@ describe 'PUT /auth/password', type: :request do
         'Senha atualizada com sucesso.'
       )
     }
-  end
-
-  def param_error
-    ['Unauthorized']
   end
 end

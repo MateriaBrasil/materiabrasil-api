@@ -33,13 +33,16 @@ describe 'POST /auth/password', type: :request do
     it 'returns the success message' do
       expect(response.body).to eq({
         success: true,
-        message: 'Você receberá um e-mail com instruções \
-        sobre como redefinir sua senha.'
+        message: success_message
       }.to_json)
     end
   end
 
   def param_error
     ['Informe o endereço de e-mail.']
+  end
+
+  def success_message
+    'Você receberá um e-mail com instruções sobre como redefinir sua senha.'
   end
 end
