@@ -24,6 +24,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
+  gem 'mailcatcher'
   gem 'rspec-rails', '~> 3.7'
   gem 'rspec_junit_formatter'
   gem 'rubocop', '~> 0.52.0', require: false
