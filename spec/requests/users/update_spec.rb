@@ -14,7 +14,7 @@ RSpec.describe 'PUT /users/:id', type: :request do
       company: 'Foo company',
       work_title: 'Foo title',
       website: 'http://bar',
-      email: 'foo@bar.com'
+      email: 'bar@bar.com'
     }
   end
 
@@ -40,7 +40,7 @@ RSpec.describe 'PUT /users/:id', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
       it { expect(response.body).to eq(current_user.reload.to_json) }
-      it { expect(current_user.reload.uid).to eq('foo@bar.com') }
+      it { expect(current_user.reload.uid).to eq('bar@bar.com') }
     end
 
     context 'with only one param' do
@@ -54,6 +54,34 @@ RSpec.describe 'PUT /users/:id', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
       it { expect(response.body).to eq(current_user.reload.to_json) }
+    end
+
+    context 'with email already in use' do
+      let(:create_user) do
+        User.create!(
+          email: 'bar@bar.com',
+          first_name: 'Foo',
+          last_name: 'Bar',
+          password: 'foobarfoo'
+        )
+      end
+
+      let(:error_response) do
+        {
+          id: 'used_email',
+          message: 'Este e-mail já está em uso. Escolha outro e-mail por favor.'
+        }.to_json
+      end
+
+      before do
+        create_user
+        put "/users/#{current_user.id}",
+          headers: headers,
+          params: params.to_json
+      end
+
+      it { expect(response).to have_http_status(:conflict) }
+      it { expect(response.body).to eq(error_response) }
     end
   end
 
