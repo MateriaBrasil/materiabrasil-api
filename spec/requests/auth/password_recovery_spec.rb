@@ -85,7 +85,7 @@ describe 'PUT /auth/password', type: :request do
     it 'returns the correct error' do
       expect(response.body).to eq({
         success: false,
-        message: expired_message
+        message: not_found_message
       }.to_json)
     end
   end
@@ -129,5 +129,9 @@ describe 'PUT /auth/password', type: :request do
 
   def expired_message
     'O pedido de troca de senha expirou, por favor, tente novamente.'
+  end
+
+  def not_found_message
+    'Não foi encontrado usuário para o pedido de senha.'
   end
 end

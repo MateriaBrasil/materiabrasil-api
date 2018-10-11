@@ -10,51 +10,34 @@ module Auth
     end
 
     def edit
-      # if a user is not found, return nil
-      @resource = User.with_reset_password_token(
-        resource_params[:reset_password_token]
-      )
-      if @resource&.reset_password_period_valid?
-        client_id, token = @resource.create_token
+      client_id, token = @resource.create_token
+      # ensure that user is confirmed
+      @resource.skip_confirmation! if confirmable?
+      # allow user to change password once without current_password
+      @resource.update(allow_password_change: true) if recoverable_enabled?
 
-        # ensure that user is confirmed
-        @resource.skip_confirmation! if confirmable_enabled? && !@resource.confirmed_at
-
-        # allow user to change password once without current_password
-        @resource.allow_password_change = true if recoverable_enabled?
-
-        @resource.save!
-
-        yield @resource if block_given?
-
-        redirect_header_options = {
-          reset_password: true,
-          reset_password_token: resource_params[:reset_password_token]
-        }
-        redirect_headers = build_redirect_headers(token,
-          client_id,
-          redirect_header_options)
-        redirect_to(@resource.build_auth_url(params[:redirect_url],
-          redirect_headers))
-      else
-        render_edit_error
-      end
-    end
-
-    def set_user_by_reset_token
-      return if resource_params[:reset_password_token].nil?
-      @resource = User.with_reset_password_token(
-        resource_params[:reset_password_token]
-      )
-
-      if @resource&.reset_password_period_valid?
-        bypass_sign_in(@resource)
-      else
-        render_expired_error
-      end
+      build_redirect(params[:redirect_url], redirect_headers(
+        token, client_id,
+        redirect_header_options
+      ))
     end
 
     private
+
+    def set_user_by_reset_token
+      token = resource_params[:reset_password_token]
+      return if token.nil?
+
+      @resource = User.with_reset_password_token(token)
+
+      if !@resource
+        render_not_found
+      elsif @resource && !@resource.reset_password_period_valid?
+        render_expired_error
+      else
+        bypass_sign_in(@resource)
+      end
+    end
 
     def render_expired_error
       render json: {
@@ -63,15 +46,40 @@ module Auth
       }, status: :unauthorized
     end
 
-    def render_edit_error
+    def render_not_found
       render json: {
         success: false,
-        message: expired_message
+        message: not_found_message
       }, status: :not_found
     end
 
     def expired_message
       'O pedido de troca de senha expirou, por favor, tente novamente.'
+    end
+
+    def not_found_message
+      'Não foi encontrado usuário para o pedido de senha.'
+    end
+
+    def redirect_header_options
+      { reset_password: true,
+        reset_password_token: resource_params[:reset_password_token] }
+    end
+
+    def redirect_headers(token, client_id, redirect_header_options)
+      build_redirect_headers(
+        token, client_id, redirect_header_options
+      )
+    end
+
+    def build_redirect(redirect_url, headers)
+      redirect_to(
+        @resource.build_auth_url(redirect_url, headers)
+      )
+    end
+
+    def confirmable?
+      confirmable_enabled? && !@resource.confirmed_at
     end
   end
 end
