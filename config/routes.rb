@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    passwords: 'auth/passwords'
+  }
 
   resources :materials, only: %i[index show create update] do
     get 'comments', on: :member
     get 'reviews', on: :member
     get 'categories', on: :member
   end
+
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
 
@@ -26,11 +30,10 @@ Rails.application.routes.draw do
   resources :albums, only: %i[] do
     get 'favorites', on: :member
   end
+
   resource :search, only: %i[show]
-
   resources :categories, only: %i[index]
-
   resources :material_categories, only: %i[create destroy]
-
   resources :messages, only: %i[create]
 end
+# rubocop:enable Metrics/BlockLength
