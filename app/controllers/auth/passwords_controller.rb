@@ -11,7 +11,9 @@ module Auth
 
     def edit
       # if a user is not found, return nil
-      @resource = with_reset_password_token(resource_params[:reset_password_token])
+      @resource = User.with_reset_password_token(
+        resource_params[:reset_password_token]
+      )
       if @resource&.reset_password_period_valid?
         client_id, token = @resource.create_token
 
@@ -41,7 +43,9 @@ module Auth
 
     def set_user_by_reset_token
       return if resource_params[:reset_password_token].nil?
-      @resource = with_reset_password_token(resource_params[:reset_password_token])
+      @resource = User.with_reset_password_token(
+        resource_params[:reset_password_token]
+      )
 
       if @resource&.reset_password_period_valid?
         bypass_sign_in(@resource)
