@@ -20,7 +20,7 @@ describe 'GET /topics', type: :request do
 
     it { expect(response).to have_http_status(:ok) }
     it { expect(response.body).to eq(topics.reverse.to_json) }
-    it { expect(JSON.parse(response.body).length).to be(3) }
+    it { expect(JSON.parse(response.body).length).to eq(3) }
   end
 
   context 'with incorrect request' do

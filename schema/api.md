@@ -787,7 +787,7 @@ A questionnaire is created by a user to start a conversation
 | **about_type** | *string* | the about_type of the questionnaire | `"example"` |
 | **driver** | *string* | the driver of the questionnaire | `"example"` |
 | **name** | *string* | the name of the questionnaire | `"example"` |
-| **questions** | *array* | the questions of the questionnaire |  |
+| **questions** | *array* | the questions of the questionnaire | `[null]` |
 | **sorting** | *integer* | the sorting of the questionnaire | `42` |
 
 ### <a name="link-GET-questionnaire-/questionnaires">questionnaire List</a>

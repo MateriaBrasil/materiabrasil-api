@@ -1495,7 +1495,12 @@
           "description": "the questions of the questionnaire",
           "type": [
             "array"
-          ]
+          ],
+          "items": {
+            "type": [
+              "object"
+            ]
+          }
         },
         "identity": {
           "anyOf": [

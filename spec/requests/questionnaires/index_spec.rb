@@ -5,12 +5,13 @@ require 'rails_helper'
 describe 'GET /questionnaires', type: :request do
   before do
     %w[foo bar baz].each_with_index do |text, index|
-      Questionnaire.create!(
+      q = Questionnaire.create!(
         name: text,
         about_type: 'Supplier',
         driver: 'first_driver',
         sorting: index
       )
+      q.questions.create!(description: text, sorting: 123)
     end
     Questionnaire.create!(
       name: 'barfoo',
@@ -24,11 +25,12 @@ describe 'GET /questionnaires', type: :request do
     before { get '/questionnaires', params: { about_type: 'Supplier' } }
 
     it { expect(response).to have_http_status(:ok) }
-    it do 
-      expect(response.body)
-      .to eq(Questionnaire.where(about_type: 'Supplier').order(:sorting).to_json)
+    it do
+      expect(response.body).to eq(
+        Questionnaire.where(about_type: 'Supplier').order(:sorting).to_json
+      )
     end
-    it { expect(JSON.parse(response.body).length).to be(3) }
+    it { expect(JSON.parse(response.body).length).to eq(3) }
   end
 
   context 'with incorrect request' do

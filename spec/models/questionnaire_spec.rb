@@ -12,7 +12,7 @@ RSpec.describe Questionnaire, type: :model do
     )
   end
 
-  let!(:questions) do 
+  let(:create_questions) do
     %w[foo bar baz].each_with_index do |text, index|
       Question.create!(
         questionnaire: questionnaire,
@@ -28,13 +28,17 @@ RSpec.describe Questionnaire, type: :model do
   it { is_expected.to validate_presence_of :sorting }
 
   describe '#as_json' do
+    before do
+      create_questions
+    end
+
     let(:json) do
       {
         name: questionnaire.name,
         about_type: questionnaire.about_type,
         driver: questionnaire.driver,
         sorting: questionnaire.sorting,
-        questions: Question.all.order(:sorting).to_json
+        questions: Question.all.order(:sorting).as_json
       }
     end
 

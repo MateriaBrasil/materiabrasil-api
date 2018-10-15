@@ -31,6 +31,9 @@ definitions:
     description: the questions of the questionnaire
     type:
     - array
+    items:
+      type:
+      - object
   identity:
     anyOf:
     - "$ref": "/schemata/questionnaire#/definitions/id"
@@ -53,7 +56,6 @@ links:
         $ref: /schemata/questionnaire
     - $ref: /schemata/error
   title: List
-
 properties:
   name:
     "$ref": "/schemata/questionnaire#/definitions/name"

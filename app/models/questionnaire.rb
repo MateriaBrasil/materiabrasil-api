@@ -6,11 +6,11 @@ class Questionnaire < ApplicationRecord
 
   def as_json(_options = {})
     {
-      name: name, 
-      about_type: about_type, 
-      driver: driver, 
-      sorting: sorting, 
-      questions: questions.order(:sorting).to_json
+      name: name,
+      about_type: about_type,
+      driver: driver,
+      sorting: sorting,
+      questions: questions.order(:sorting).as_json
     }
   end
 end
