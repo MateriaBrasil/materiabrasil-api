@@ -4,11 +4,18 @@ require 'rails_helper'
 
 RSpec.describe Question, type: :model do
   subject(:question) do
-    described_class.new(
+    question = described_class.create!(
       questionnaire: questionnaire,
       description: 'Foo bar',
       sorting: 123
     )
+    %w[foo bar].each_with_index do |text, index|
+      question.options.create!(
+        description: text,
+        value: index
+      )
+    end
+    question
   end
 
   let(:questionnaire) do
@@ -21,8 +28,18 @@ RSpec.describe Question, type: :model do
   end
 
   it { is_expected.to belong_to :questionnaire }
-
   it { is_expected.to validate_presence_of :questionnaire }
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :sorting }
+
+  describe '#as_json' do
+    let(:json) do
+      {
+        description: 'Foo bar',
+        options: Option.order(:value).as_json
+      }
+    end
+
+    it { expect(question.as_json).to eq(json) }
+  end
 end

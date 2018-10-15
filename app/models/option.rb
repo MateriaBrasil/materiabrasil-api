@@ -4,4 +4,11 @@ class Option < ApplicationRecord
   validates :question, :description, :value, presence: true
 
   belongs_to :question
+
+  def as_json(_options = {})
+    {
+      description: description,
+      value: value
+    }
+  end
 end
