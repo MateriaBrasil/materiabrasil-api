@@ -5,13 +5,16 @@ require 'rails_helper'
 describe 'GET /questionnaires', type: :request do
   before do
     %w[foo bar baz].each_with_index do |text, index|
-      q = Questionnaire.create!(
+      questionnaire = Questionnaire.create!(
         name: text,
         about_type: 'Supplier',
         driver: 'first_driver',
         sorting: index
       )
-      q.questions.create!(description: text, sorting: 123)
+      question = questionnaire.questions.create!(
+        description: text, sorting: 123
+      )
+      question.options.create!(description: 'foobar', value: 132)
     end
     Questionnaire.create!(
       name: 'barfoo',
