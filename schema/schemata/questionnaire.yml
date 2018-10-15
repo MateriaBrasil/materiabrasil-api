@@ -1,7 +1,7 @@
 ---
 "$schema": http://json-schema.org/draft-04/hyper-schema
 title: MateriaBrasil - questionnaire
-description: A questionnaire is created by a user to start a conversation
+description: A questionnaire is a list of questions of a subject
 stability: prototype
 type:
 - object
@@ -32,8 +32,8 @@ definitions:
     type:
     - array
     items:
-      type:
-      - object
+      targetSchema:
+        "$ref": "/schemata/question"
   identity:
     anyOf:
     - "$ref": "/schemata/questionnaire#/definitions/id"

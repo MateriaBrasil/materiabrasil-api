@@ -1451,10 +1451,111 @@
       },
       "additionalProperties": false
     },
+    "option": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Option",
+      "description": "An option of a question",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the option",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "description": {
+          "description": "the description of the option",
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "description": "the options of the option",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/option/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/option/definitions/description"
+        },
+        "value": {
+          "$ref": "#/definitions/option/definitions/value"
+        }
+      },
+      "additionalProperties": false
+    },
+    "question": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - question",
+      "description": "A question of a questionnaire",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the question",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "description": {
+          "description": "the description of the question",
+          "type": [
+            "string"
+          ]
+        },
+        "options": {
+          "description": "the options of the question",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "targetSchema": {
+              "$ref": "#/definitions/option"
+            }
+          }
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/question/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/question/definitions/description"
+        },
+        "options": {
+          "$ref": "#/definitions/question/definitions/options"
+        }
+      },
+      "additionalProperties": false
+    },
     "questionnaire": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - questionnaire",
-      "description": "A questionnaire is created by a user to start a conversation",
+      "description": "A questionnaire is a list of questions of a subject",
       "stability": "prototype",
       "type": [
         "object"
@@ -1497,9 +1598,9 @@
             "array"
           ],
           "items": {
-            "type": [
-              "object"
-            ]
+            "targetSchema": {
+              "$ref": "#/definitions/question"
+            }
           }
         },
         "identity": {
@@ -2659,6 +2760,12 @@
     },
     "message": {
       "$ref": "#/definitions/message"
+    },
+    "option": {
+      "$ref": "#/definitions/option"
+    },
+    "question": {
+      "$ref": "#/definitions/question"
     },
     "questionnaire": {
       "$ref": "#/definitions/questionnaire"

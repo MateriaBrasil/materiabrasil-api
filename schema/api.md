@@ -774,11 +774,39 @@ null
 ```
 
 
+## <a name="resource-option">Option</a>
+
+Stability: `prototype`
+
+An option of a question
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **description** | *string* | the description of the option | `"example"` |
+| **value** | *integer* | the options of the option | `42` |
+
+
+## <a name="resource-question">question</a>
+
+Stability: `prototype`
+
+A question of a questionnaire
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **description** | *string* | the description of the question | `"example"` |
+| **options** | *array* | the options of the question | `[null]` |
+
+
 ## <a name="resource-questionnaire">questionnaire</a>
 
 Stability: `prototype`
 
-A questionnaire is created by a user to start a conversation
+A questionnaire is a list of questions of a subject
 
 ### Attributes
 
