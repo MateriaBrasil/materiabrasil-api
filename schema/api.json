@@ -1451,6 +1451,220 @@
       },
       "additionalProperties": false
     },
+    "option": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Option",
+      "description": "An option of a question",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the option",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "description": {
+          "description": "the description of the option",
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "description": "the options of the option",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/option/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/option/definitions/description"
+        },
+        "value": {
+          "$ref": "#/definitions/option/definitions/value"
+        }
+      },
+      "additionalProperties": false
+    },
+    "question": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - question",
+      "description": "A question of a questionnaire",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the question",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "description": {
+          "description": "the description of the question",
+          "type": [
+            "string"
+          ]
+        },
+        "options": {
+          "description": "the options of the question",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "targetSchema": {
+              "$ref": "#/definitions/option"
+            }
+          }
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/question/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/question/definitions/description"
+        },
+        "options": {
+          "$ref": "#/definitions/question/definitions/options"
+        }
+      },
+      "additionalProperties": false
+    },
+    "questionnaire": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - questionnaire",
+      "description": "A questionnaire is a list of questions of a subject",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the questionnaire",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "the name of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "about_type": {
+          "description": "the about_type of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "driver": {
+          "description": "the driver of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "sorting": {
+          "description": "the sorting of the questionnaire",
+          "type": [
+            "integer"
+          ]
+        },
+        "questions": {
+          "description": "the questions of the questionnaire",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "targetSchema": {
+              "$ref": "#/definitions/question"
+            }
+          }
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/questionnaire/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List questionnaires.",
+          "href": "/questionnaires",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "about_type": {
+                "$ref": "#/definitions/questionnaire/definitions/about_type"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/questionnaire"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/questionnaire/definitions/name"
+        },
+        "about_type": {
+          "$ref": "#/definitions/questionnaire/definitions/about_type"
+        },
+        "driver": {
+          "$ref": "#/definitions/questionnaire/definitions/driver"
+        },
+        "sorting": {
+          "$ref": "#/definitions/questionnaire/definitions/sorting"
+        },
+        "questions": {
+          "$ref": "#/definitions/questionnaire/definitions/questions"
+        }
+      },
+      "additionalProperties": false
+    },
     "review": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Review",
@@ -2546,6 +2760,15 @@
     },
     "message": {
       "$ref": "#/definitions/message"
+    },
+    "option": {
+      "$ref": "#/definitions/option"
+    },
+    "question": {
+      "$ref": "#/definitions/question"
+    },
+    "questionnaire": {
+      "$ref": "#/definitions/questionnaire"
     },
     "review": {
       "$ref": "#/definitions/review"
