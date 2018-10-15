@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index]
   resources :material_categories, only: %i[create destroy]
   resources :messages, only: %i[create]
+  resources :questionnaires, only: %i[index]
 end
 # rubocop:enable Metrics/BlockLength

@@ -1,0 +1,69 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - questionnaire
+description: A questionnaire is created by a user to start a conversation
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the questionnaire
+    readOnly: true
+    type:
+    - integer
+  name:
+    description: the name of the questionnaire
+    type:
+    - string
+  about_type:
+    description: the about_type of the questionnaire
+    type:
+    - string
+  driver:
+    description: the driver of the questionnaire
+    type:
+    - string
+  sorting:
+    description: the sorting of the questionnaire
+    type:
+    - integer
+  questions:
+    description: the questions of the questionnaire
+    type:
+    - array
+  identity:
+    anyOf:
+    - "$ref": "/schemata/questionnaire#/definitions/id"
+links:
+- description: List questionnaires.
+  href: "/questionnaires"
+  method: GET
+  rel: index
+  schema:
+    strictProperties: true
+    properties:
+      about_type:
+        "$ref": "/schemata/questionnaire#/definitions/about_type"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+    - type: array
+      items:
+        $ref: /schemata/questionnaire
+    - $ref: /schemata/error
+  title: List
+
+properties:
+  name:
+    "$ref": "/schemata/questionnaire#/definitions/name"
+  about_type:
+    "$ref": "/schemata/questionnaire#/definitions/about_type"
+  driver:
+    "$ref": "/schemata/questionnaire#/definitions/driver"
+  sorting:
+    "$ref": "/schemata/questionnaire#/definitions/sorting"
+  questions:
+    "$ref": "/schemata/questionnaire#/definitions/questions"
+additionalProperties: false
+id: schemata/questionnaire

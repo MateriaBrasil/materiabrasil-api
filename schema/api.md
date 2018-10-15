@@ -774,6 +774,57 @@ null
 ```
 
 
+## <a name="resource-questionnaire">questionnaire</a>
+
+Stability: `prototype`
+
+A questionnaire is created by a user to start a conversation
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **about_type** | *string* | the about_type of the questionnaire | `"example"` |
+| **driver** | *string* | the driver of the questionnaire | `"example"` |
+| **name** | *string* | the name of the questionnaire | `"example"` |
+| **questions** | *array* | the questions of the questionnaire |  |
+| **sorting** | *integer* | the sorting of the questionnaire | `42` |
+
+### <a name="link-GET-questionnaire-/questionnaires">questionnaire List</a>
+
+List questionnaires.
+
+```
+GET /questionnaires
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **about_type** | *string* | the about_type of the questionnaire | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.materiabrasil.com/questionnaires
+ -G \
+  -d about_type=example
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-review">Review</a>
 
 Stability: `prototype`

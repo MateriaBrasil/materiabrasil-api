@@ -1451,6 +1451,114 @@
       },
       "additionalProperties": false
     },
+    "questionnaire": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - questionnaire",
+      "description": "A questionnaire is created by a user to start a conversation",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the questionnaire",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "the name of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "about_type": {
+          "description": "the about_type of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "driver": {
+          "description": "the driver of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
+        "sorting": {
+          "description": "the sorting of the questionnaire",
+          "type": [
+            "integer"
+          ]
+        },
+        "questions": {
+          "description": "the questions of the questionnaire",
+          "type": [
+            "array"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/questionnaire/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List questionnaires.",
+          "href": "/questionnaires",
+          "method": "GET",
+          "rel": "index",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "about_type": {
+                "$ref": "#/definitions/questionnaire/definitions/about_type"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/questionnaire"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/questionnaire/definitions/name"
+        },
+        "about_type": {
+          "$ref": "#/definitions/questionnaire/definitions/about_type"
+        },
+        "driver": {
+          "$ref": "#/definitions/questionnaire/definitions/driver"
+        },
+        "sorting": {
+          "$ref": "#/definitions/questionnaire/definitions/sorting"
+        },
+        "questions": {
+          "$ref": "#/definitions/questionnaire/definitions/questions"
+        }
+      },
+      "additionalProperties": false
+    },
     "review": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Review",
@@ -2546,6 +2654,9 @@
     },
     "message": {
       "$ref": "#/definitions/message"
+    },
+    "questionnaire": {
+      "$ref": "#/definitions/questionnaire"
     },
     "review": {
       "$ref": "#/definitions/review"
