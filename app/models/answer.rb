@@ -9,4 +9,13 @@ class Answer < ApplicationRecord
   belongs_to :about, polymorphic: true
   belongs_to :question
   belongs_to :option
+
+  def as_json(_options = {})
+    {
+      about_id: about_id,
+      about_type: about_type,
+      question_id: question_id,
+      option_id: option_id
+    }
+  end
 end
