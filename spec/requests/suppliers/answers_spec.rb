@@ -25,7 +25,6 @@ describe 'GET /suppliers/:id/answers', type: :request do
   end
 
   let(:id) { supplier.id }
-  let(:params) { nil }
 
   let(:option) do
     Option.create(
@@ -34,6 +33,15 @@ describe 'GET /suppliers/:id/answers', type: :request do
       value: 123
     )
   end
+
+  let(:another_option) do
+    Option.create(
+      question: another_question,
+      description: 'Foo bar foo',
+      value: 321
+    )
+  end
+
   let(:question) do
     Question.create(
       questionnaire: questionnaire,
@@ -42,19 +50,11 @@ describe 'GET /suppliers/:id/answers', type: :request do
     )
   end
 
-  let(:option2) do
-    Option.create(
-      question: question,
-      description: 'Foo bar foo',
-      value: 123
-    )
-  end
-
-  let(:question2) do
+  let(:another_question) do
     Question.create(
       questionnaire: questionnaire,
       description: 'Foo bar foo',
-      sorting: 123
+      sorting: 321
     )
   end
 
@@ -73,8 +73,13 @@ describe 'GET /suppliers/:id/answers', type: :request do
       question: question,
       option: option
     )
+    Answer.create!(
+      about: supplier,
+      question: another_question,
+      option: another_option
+    )
 
-    get "/suppliers/#{id}/answers", params: params
+    get "/suppliers/#{id}/answers"
   end
 
   context 'with supplier not found' do
@@ -85,15 +90,9 @@ describe 'GET /suppliers/:id/answers', type: :request do
     end
   end
 
-  # context 'with supplier found' do
-  #   it { expect(response).to have_http_status(:ok) }
-  #   it { is_expected.to eq(JSON.parse(supplier.answers.to_json)) }
-  #   it { expect(body.length).to eq(3) }
-  # end
-
-  # context 'with bad request' do
-  #   let(:params) { { foo: 'bar' } }
-
-  #   it { expect(response).to have_http_status(:bad_request) }
-  # end
+  context 'with supplier found' do
+    it { expect(response).to have_http_status(:ok) }
+    it { is_expected.to eq(JSON.parse(supplier.answers.to_json)) }
+    it { expect(body.length).to eq(2) }
+  end
 end
