@@ -67,4 +67,19 @@ RSpec.describe Answer, type: :model do
       .scoped_to(%i[about_type about_id])
       .with_message 'já respondeu.'
   end
+
+  describe '#as_json' do
+    let(:json) do
+      {
+        about_id: answer.about_id,
+        about_type: answer.about_type,
+        question_id: answer.question_id,
+        option_id: answer.option_id
+      }
+    end
+
+    it 'returns only the necessary attributes' do
+      expect(answer.as_json).to eq(json)
+    end
+  end
 end
