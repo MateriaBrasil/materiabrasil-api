@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
+  resources :answers, only: %i[create destroy]
 
   resources :topics, only: %i[index show create] do
     get :comments, on: :member
