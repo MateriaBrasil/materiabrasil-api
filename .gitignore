@@ -32,6 +32,3 @@ tmp/
 *.dump
 *.gem
 .byebug_history
-
-# Ignore verage file generated from "rspec -coverage"
-verage
