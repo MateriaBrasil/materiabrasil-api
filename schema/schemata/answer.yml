@@ -12,7 +12,7 @@ definitions:
     type:
     - integer
   about_id:
-    description: the suppliers or users id who created the response
+    description: the id of the supplier or material the answer belongs to
     type:
       - integer
   about_type:
@@ -21,7 +21,7 @@ definitions:
       - string
     enum:
       - Supplier
-      - User
+      - Material
   question_id:
     description: the related question id
     type:
@@ -39,7 +39,7 @@ links:
   method: POST
   rel: create
   schema:
-    additioProperties: false
+    strictProperties: true
     properties:
       about_id:
         "$ref": "/schemata/answer#/definitions/about_id"
@@ -49,11 +49,6 @@ links:
         "$ref": "/schemata/answer#/definitions/question_id"
       option_id:
         "$ref": "/schemata/answer#/definitions/option_id"
-    required:
-      - about_id
-      - about_type
-      - question_id
-      - option_id
     type:
     - object
   targetSchema:
@@ -70,5 +65,10 @@ properties:
     "$ref": "/schemata/answer#/definitions/question_id"
   option_id:
     "$ref": "/schemata/answer#/definitions/option_id"
+  required:
+    - about_id
+    - about_type
+    - question_id
+    - option_id
 additionalProperties: false
 id: schemata/answer
