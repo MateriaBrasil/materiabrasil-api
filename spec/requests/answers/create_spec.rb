@@ -1,105 +1,82 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
-# require 'rails_helper'
+require 'rails_helper'
 
-# describe 'POST /answers', type: :request do
-#   let(:answer) { Answer.first }
-#   let(:headers) { {} }
-#   let(:params) do
-#     {
-#       favoritable_id: material.id,
-#       favoritable_type: 'Material',
-#       album_id: 0
-#     }
-#   end
+describe 'POST /answers', type: :request do
+  let(:answer) { Answer.first }
+  let(:headers) { {} }
 
-#   let(:supplier) do
-#     Supplier.create!(
-#       user: current_user,
-#       name: 'Foo Bar',
-#       description: 'Foo description',
-#       website: 'http://foo',
-#       email: 'foo@company.com',
-#       cnpj: '123456789',
-#       company_name: 'Foo Inc',
-#       municipal_subscription: 'does not apply',
-#       state_subscription: '987654321',
-#       phone: '5551987654321',
-#       company_revenue: '100000000',
-#       number_of_employees: 1000,
-#       reach: 'country',
-#       image_url: 'http://foo-image'
-#     )
-#   end
+  let(:params) do
+    {
+      about: supplier,
+      question: question,
+      option: option
+    }
+  end
 
-#   let(:material) do
-#     Material.create!(
-#       name: 'Foo',
-#       image_url: 'http://foo.bar',
-#       description: 'Some description',
-#       average_price: 'R$ 111,00',
-#       code: '1234',
-#       technical_specification_url: 'http://foo',
-#       supplier: supplier
-#     )
-#   end
+  let(:supplier) do
+    Supplier.create!(
+      user: current_user,
+      name: 'Foo Bar',
+      description: 'Foo description',
+      website: 'http://foo',
+      email: 'foo@company.com',
+      cnpj: '123456789',
+      company_name: 'Foo Inc',
+      municipal_subscription: 'does not apply',
+      state_subscription: '987654321',
+      phone: '5551987654321',
+      company_revenue: '100000000',
+      number_of_employees: 1000,
+      reach: 'country',
+      image_url: 'http://foo-image'
+    )
+  end
 
-#   context 'with incorrect params' do
-#     let(:params) { { foo: 'bar' } }
+  let(:option) do
+    Option.create(
+      question: question,
+      description: 'Foo bar',
+      value: 123
+    )
+  end
+  
+  let(:question) do
+    Question.create(
+      questionnaire: questionnaire,
+      description: 'Foo bar',
+      sorting: 123
+    )
+  end
 
-#     before { post '/answers', headers: headers, params: params.to_json }
+  let(:questionnaire) do
+    Questionnaire.create(
+      name: 'Foo',
+      about_type: 'Supplier',
+      driver: 'first_driver',
+      sorting: 123
+    )
+  end
 
-#     it { expect(response).to have_http_status(:bad_request) }
-#   end
+  before do
+    post '/answers', headers: headers, params: params.to_json
+  end
 
-#   context 'without current_user' do
-#     let(:headers) { { 'access-token' => nil } }
+  # context 'with incorrect params' do
+  #   let(:params) { { foo: 'bar' } }
 
-#     before { post '/answers', headers: headers, params: params.to_json }
+  #   it { expect(response).to have_http_status(:bad_request) }
+  # end
 
-#     it { expect(response).to have_http_status(:unauthorized) }
-#   end
+  context 'without current_user' do
+    let(:headers) { { 'access-token' => nil } }
 
-#   context 'with current_user' do
-#     context 'without album_id, when user has no albums' do
-#       before { post '/answers', headers: headers, params: params.to_json }
+    it { expect(response).to have_http_status(:unauthorized) }
+  end
 
-#       it { expect(response).to have_http_status(:created) }
-#       it { expect(response.body).to eq(answer.to_json) }
-#       it { expect(answer.favoritable).to eq(material) }
-#       it { expect(answer.album).to eq(Album.first) }
-#       it { expect(answer.album.default).to be(true) }
-#     end
-
-#     context 'without album_id, when user has a default album' do
-#       before do
-#         Album.create!(user: current_user, name: 'Foo Album', default: true)
-#         post '/answers', headers: headers, params: params.to_json
-#       end
-
-#       it { expect(response).to have_http_status(:created) }
-#       it { expect(response.body).to eq(answer.to_json) }
-#       it { expect(answer.album.name).to eq('Foo Album') }
-#     end
-
-#     context 'with album_id' do
-#       let(:album) { Album.create!(user: current_user, name: 'Bar Album') }
-#       let(:params) do
-#         {
-#           favoritable_id: material.id,
-#           favoritable_type: 'Material',
-#           album_id: album.id
-#         }
-#       end
-
-#       before do
-#         Album.create!(user: current_user, name: 'Foo Album', default: true)
-#         post '/answers', headers: headers, params: params.to_json
-#       end
-
-#       it { expect(response).to have_http_status(:created) }
-#       it { expect(response.body).to eq(answer.to_json) }
-#       it { expect(answer.album).to eq(album) }
-#     end
-#   end
-# end
+  context 'with current_user' do
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer.supplier).to eq(supplier) }
+  end
+end
