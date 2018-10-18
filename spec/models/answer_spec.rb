@@ -37,7 +37,7 @@ RSpec.describe Answer, type: :model do
       value: 123
     )
   end
-  
+
   let(:question) do
     Question.create(
       questionnaire: questionnaire,

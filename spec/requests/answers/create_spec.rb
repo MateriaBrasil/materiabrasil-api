@@ -8,9 +8,10 @@ describe 'POST /answers', type: :request do
 
   let(:params) do
     {
-      about: supplier,
-      question: question,
-      option: option
+      about_id: supplier.id,
+      about_type: 'Supplier',
+      question_id: question.id,
+      option_id: option.id
     }
   end
 
@@ -40,7 +41,7 @@ describe 'POST /answers', type: :request do
       value: 123
     )
   end
-  
+
   let(:question) do
     Question.create(
       questionnaire: questionnaire,
@@ -62,11 +63,11 @@ describe 'POST /answers', type: :request do
     post '/answers', headers: headers, params: params.to_json
   end
 
-  # context 'with incorrect params' do
-  #   let(:params) { { foo: 'bar' } }
+  context 'with incorrect params' do
+    let(:params) { { foo: 'bar' } }
 
-  #   it { expect(response).to have_http_status(:bad_request) }
-  # end
+    it { expect(response).to have_http_status(:bad_request) }
+  end
 
   context 'without current_user' do
     let(:headers) { { 'access-token' => nil } }
@@ -77,6 +78,6 @@ describe 'POST /answers', type: :request do
   context 'with current_user' do
     it { expect(response).to have_http_status(:created) }
     it { expect(response.body).to eq(answer.to_json) }
-    it { expect(answer.supplier).to eq(supplier) }
+    it { expect(answer).to eq(answer) }
   end
 end

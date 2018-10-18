@@ -1,104 +1,105 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
-# require 'rails_helper'
+require 'rails_helper'
 
-# describe 'DELETE /favorites/:id', type: :request do
-#   let(:supplier) do
-#     Supplier.create!(
-#       user: current_user,
-#       name: 'Foo Bar',
-#       description: 'Foo description',
-#       website: 'http://foo',
-#       email: 'foo@company.com',
-#       cnpj: '123456789',
-#       company_name: 'Foo Inc',
-#       municipal_subscription: 'does not apply',
-#       state_subscription: '987654321',
-#       phone: '5551987654321',
-#       company_revenue: '100000000',
-#       number_of_employees: 1000,
-#       reach: 'country',
-#       image_url: 'http://foo-image'
-#     )
-#   end
+describe 'DELETE /answers/:id', type: :request do
+  let(:questionnaire) do
+    Questionnaire.create(
+      name: 'Foo',
+      about_type: 'Supplier',
+      driver: 'first_driver',
+      sorting: 123
+    )
+  end
 
-#   let(:material) do
-#     Material.create!(
-#       name: 'Foo',
-#       image_url: 'http://foo.bar',
-#       description: 'Some description',
-#       average_price: 'R$ 111,00',
-#       code: '1234',
-#       technical_specification_url: 'http://foo',
-#       supplier: supplier
-#     )
-#   end
+  let(:question) do
+    Question.create(
+      questionnaire: questionnaire,
+      description: 'Foo bar',
+      sorting: 123
+    )
+  end
 
-#   let(:album) do
-#     Album.create!(
-#       name: 'foo',
-#       user: current_user,
-#       default: true
-#     )
-#   end
+  let(:option) do
+    Option.create(
+      question: question,
+      description: 'Foo bar',
+      value: 123
+    )
+  end
 
-#   let(:favorite) do
-#     Favorite.create!(
-#       favoritable_id: material.id,
-#       favoritable_type: 'Material',
-#       album_id: album.id
-#     )
-#   end
+  let(:supplier) do
+    Supplier.create!(
+      user: current_user,
+      name: 'Foo Bar',
+      description: 'Foo description',
+      website: 'http://foo',
+      email: 'foo@company.com',
+      cnpj: '123456789',
+      company_name: 'Foo Inc',
+      municipal_subscription: 'does not apply',
+      state_subscription: '987654321',
+      phone: '5551987654321',
+      company_revenue: '100000000',
+      number_of_employees: 1000,
+      reach: 'country',
+      image_url: 'http://foo-image'
+    )
+  end
 
-#   let(:id) { favorite.id }
-#   let(:params) { nil }
+  let(:user) { current_user }
 
-#   context 'with favorite not found' do
-#     let(:id) { favorite.id + 1 }
+  let(:answer) do
+    Answer.create!(
+      about_id: user.id,
+      about_type: 'User',
+      question_id: question.id,
+      option_id: option.id
+    )
+  end
 
-#     before { delete "/favorites/#{id}", params: params }
+  let(:id) { answer.id }
+  let(:params) { nil }
+  let(:headers) { {} }
 
-#     it { expect(response).to have_http_status(:not_found) }
-#   end
+  context 'with answer not found' do
+    let(:id) { answer.id + 1 }
 
-#   context 'with favorite found' do
-#     context 'when it belongs to current_user' do
-#       before { delete "/favorites/#{id}", params: params }
+    before { delete "/answers/#{id}", params: params }
 
-#       it { expect(response).to have_http_status(:ok) }
-#       it { expect(response.body).to eq(favorite.to_json) }
-#       it { expect(Favorite.find_by(id: favorite.id)).to be(nil) }
-#     end
+    it { expect(response).to have_http_status(:not_found) }
+  end
 
-#     context 'when it belongs to another user' do
-#       let(:user) do
-#         User.create!(
-#           email: 'bar@foo.com',
-#           first_name: 'Foo',
-#           last_name: 'Bar',
-#           password: 'foobarfoo'
-#         )
-#       end
+  context 'with answer found' do
+    context 'when it belongs to current_user' do
+      before { delete "/answers/#{id}", params: params }
 
-#       let(:album) do
-#         Album.create!(
-#           name: 'foo',
-#           user: user,
-#           default: true
-#         )
-#       end
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(answer.to_json) }
+      it { expect(Answer.find_by(id: answer.id)).to be(nil) }
+    end
 
-#       before { delete "/favorites/#{id}", params: params }
+    context 'when it belongs to another user' do
+      let(:user) do
+        User.create!(
+          email: 'bar@foo.com',
+          first_name: 'Foo',
+          last_name: 'Bar',
+          password: 'foobarfoo'
+        )
+      end
 
-#       it { expect(response).to have_http_status(:forbidden) }
-#     end
-#   end
+      before { delete "/answers/#{id}", params: params }
 
-#   context 'with incorrect request' do
-#     let(:params) { { foo: 'bar' } }
+      it { expect(response).to have_http_status(:forbidden) }
+    end
+  end
 
-#     before { delete "/favorites/#{id}", params: params }
+  context 'with incorrect request' do
+    let(:params) { { foo: 'bar' } }
 
-#     it { expect(response).to have_http_status(:bad_request) }
-#   end
-# end
+    before { delete "/answers/#{id}", params: params }
+
+    it { expect(response).to have_http_status(:bad_request) }
+  end
+end
