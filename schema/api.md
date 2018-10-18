@@ -130,8 +130,9 @@ It is an answer to a question
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **about_id** | *integer* | the suppliers or users id who created the response | `42` |
-| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"User"` | `"Supplier"` |
+| **about_id** | *integer* | the id of the supplier or material the answer belongs to | `42` |
+| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"Material"` | `"Supplier"` |
+| **id** | *integer* | unique identifier of the answer | `42` |
 | **option_id** | *integer* | the related option id | `42` |
 | **question_id** | *integer* | the related question id | `42` |
 
@@ -143,15 +144,14 @@ Create a new answer.
 POST /answers
 ```
 
-#### Required Parameters
+#### Optional Parameters
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **about_id** | *integer* | the suppliers or users id who created the response | `42` |
-| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"User"` | `"Supplier"` |
+| **about_id** | *integer* | the id of the supplier or material the answer belongs to | `42` |
+| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"Material"` | `"Supplier"` |
 | **option_id** | *integer* | the related option id | `42` |
 | **question_id** | *integer* | the related question id | `42` |
-
 
 
 #### Curl Example

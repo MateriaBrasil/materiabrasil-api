@@ -57,6 +57,8 @@ links:
     - "$ref": "/schemata/error"
   title: Create
 properties:
+  id:
+      "$ref": "/schemata/answer#/definitions/id"
   about_id:
     "$ref": "/schemata/answer#/definitions/about_id"
   about_type:
@@ -65,10 +67,10 @@ properties:
     "$ref": "/schemata/answer#/definitions/question_id"
   option_id:
     "$ref": "/schemata/answer#/definitions/option_id"
-  required:
-    - about_id
-    - about_type
-    - question_id
-    - option_id
+required:
+  - about_id
+  - about_type
+  - question_id
+  - option_id
 additionalProperties: false
 id: schemata/answer

@@ -279,7 +279,7 @@
           ]
         },
         "about_id": {
-          "description": "the suppliers or users id who created the response",
+          "description": "the id of the supplier or material the answer belongs to",
           "type": [
             "integer"
           ]
@@ -291,7 +291,7 @@
           ],
           "enum": [
             "Supplier",
-            "User"
+            "Material"
           ]
         },
         "question_id": {
@@ -321,7 +321,7 @@
           "method": "POST",
           "rel": "create",
           "schema": {
-            "additioProperties": false,
+            "strictProperties": true,
             "properties": {
               "about_id": {
                 "$ref": "#/definitions/answer/definitions/about_id"
@@ -336,12 +336,6 @@
                 "$ref": "#/definitions/answer/definitions/option_id"
               }
             },
-            "required": [
-              "about_id",
-              "about_type",
-              "question_id",
-              "option_id"
-            ],
             "type": [
               "object"
             ]
@@ -360,6 +354,9 @@
         }
       ],
       "properties": {
+        "id": {
+          "$ref": "#/definitions/answer/definitions/id"
+        },
         "about_id": {
           "$ref": "#/definitions/answer/definitions/about_id"
         },
@@ -373,6 +370,12 @@
           "$ref": "#/definitions/answer/definitions/option_id"
         }
       },
+      "required": [
+        "about_id",
+        "about_type",
+        "question_id",
+        "option_id"
+      ],
       "additionalProperties": false
     },
     "comment": {

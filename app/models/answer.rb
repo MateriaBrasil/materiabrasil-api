@@ -12,6 +12,7 @@ class Answer < ApplicationRecord
 
   def as_json(_options = {})
     {
+      id: id,
       about_id: about_id,
       about_type: about_type,
       question_id: question_id,
