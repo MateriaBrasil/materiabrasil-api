@@ -262,6 +262,122 @@
       },
       "additionalProperties": false
     },
+    "answer": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Answer",
+      "description": "It is an answer to a question",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the answer",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "about_id": {
+          "description": "the id of the supplier or material the answer belongs to",
+          "type": [
+            "integer"
+          ]
+        },
+        "about_type": {
+          "description": "the type of object that created the response",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "Supplier",
+            "Material"
+          ]
+        },
+        "question_id": {
+          "description": "the related question id",
+          "type": [
+            "integer"
+          ]
+        },
+        "option_id": {
+          "description": "the related option id",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/answer/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new answer.",
+          "href": "/answers",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "about_id": {
+                "$ref": "#/definitions/answer/definitions/about_id"
+              },
+              "about_type": {
+                "$ref": "#/definitions/answer/definitions/about_type"
+              },
+              "question_id": {
+                "$ref": "#/definitions/answer/definitions/question_id"
+              },
+              "option_id": {
+                "$ref": "#/definitions/answer/definitions/option_id"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/answer"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/answer/definitions/id"
+        },
+        "about_id": {
+          "$ref": "#/definitions/answer/definitions/about_id"
+        },
+        "about_type": {
+          "$ref": "#/definitions/answer/definitions/about_type"
+        },
+        "question_id": {
+          "$ref": "#/definitions/answer/definitions/question_id"
+        },
+        "option_id": {
+          "$ref": "#/definitions/answer/definitions/option_id"
+        }
+      },
+      "required": [
+        "about_id",
+        "about_type",
+        "question_id",
+        "option_id"
+      ],
+      "additionalProperties": false
+    },
     "comment": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Comment",
@@ -2742,6 +2858,9 @@
     },
     "album": {
       "$ref": "#/definitions/album"
+    },
+    "answer": {
+      "$ref": "#/definitions/answer"
     },
     "comment": {
       "$ref": "#/definitions/comment"

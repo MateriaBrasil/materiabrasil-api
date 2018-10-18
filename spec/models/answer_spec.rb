@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
   subject(:answer) do
-    described_class.new(
+    described_class.create!(
       about: supplier,
       question: question,
       option: option
@@ -37,6 +37,7 @@ RSpec.describe Answer, type: :model do
       value: 123
     )
   end
+
   let(:question) do
     Question.create(
       questionnaire: questionnaire,
@@ -66,5 +67,21 @@ RSpec.describe Answer, type: :model do
     is_expected.to validate_uniqueness_of(:question_id)
       .scoped_to(%i[about_type about_id])
       .with_message 'já respondeu.'
+  end
+
+  describe '#as_json' do
+    let(:json) do
+      {
+        id: answer.id,
+        about_id: answer.about_id,
+        about_type: answer.about_type,
+        question_id: answer.question_id,
+        option_id: answer.option_id
+      }
+    end
+
+    it 'returns only the necessary attributes' do
+      expect(answer.as_json).to eq(json)
+    end
   end
 end
