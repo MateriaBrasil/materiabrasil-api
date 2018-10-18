@@ -78,7 +78,7 @@ describe 'POST /answers', type: :request do
     let(:answer) { Answer.first }
 
     it { expect(response).to have_http_status(:created) }
-    # it { expect(response.body).to eq(answer.to_json) }
-    # it { expect(answer).to eq(answer) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer).to eq(answer) }
   end
 end
