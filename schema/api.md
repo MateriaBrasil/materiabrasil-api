@@ -120,6 +120,65 @@ null
 ```
 
 
+## <a name="resource-answer">Answer</a>
+
+Stability: `prototype`
+
+It is an answer to a question
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **about_id** | *integer* | the suppliers or users id who created the response | `42` |
+| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"User"` | `"Supplier"` |
+| **option_id** | *integer* | the related option id | `42` |
+| **question_id** | *integer* | the related question id | `42` |
+
+### <a name="link-POST-answer-/answers">Answer Create</a>
+
+Create a new answer.
+
+```
+POST /answers
+```
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **about_id** | *integer* | the suppliers or users id who created the response | `42` |
+| **about_type** | *string* | the type of object that created the response<br/> **one of:**`"Supplier"` or `"User"` | `"Supplier"` |
+| **option_id** | *integer* | the related option id | `42` |
+| **question_id** | *integer* | the related question id | `42` |
+
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/answers \
+  -d '{
+  "about_id": 42,
+  "about_type": "Supplier",
+  "question_id": 42,
+  "option_id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-comment">Comment</a>
 
 Stability: `prototype`

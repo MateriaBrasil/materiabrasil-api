@@ -1,0 +1,74 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Answer
+description: It is an answer to a question
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the answer
+    readOnly: true
+    type:
+    - integer
+  about_id:
+    description: the suppliers or users id who created the response
+    type:
+      - integer
+  about_type:
+    description: the type of object that created the response
+    type:
+      - string
+    enum:
+      - Supplier
+      - User
+  question_id:
+    description: the related question id
+    type:
+    - integer
+  option_id:
+    description: the related option id
+    type:
+    - integer
+  identity:
+    anyOf:
+      - "$ref": "/schemata/answer#/definitions/id"
+links:
+- description: Create a new answer.
+  href: "/answers"
+  method: POST
+  rel: create
+  schema:
+    additioProperties: false
+    properties:
+      about_id:
+        "$ref": "/schemata/answer#/definitions/about_id"
+      about_type:
+        "$ref": "/schemata/answer#/definitions/about_type"
+      question_id:
+        "$ref": "/schemata/answer#/definitions/question_id"
+      option_id:
+        "$ref": "/schemata/answer#/definitions/option_id"
+    required:
+      - about_id
+      - about_type
+      - question_id
+      - option_id
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/answer"
+    - "$ref": "/schemata/error"
+  title: Create
+properties:
+  about_id:
+    "$ref": "/schemata/answer#/definitions/about_id"
+  about_type:
+    "$ref": "/schemata/answer#/definitions/about_type"
+  question_id:
+    "$ref": "/schemata/answer#/definitions/question_id"
+  option_id:
+    "$ref": "/schemata/answer#/definitions/option_id"
+additionalProperties: false
+id: schemata/answer
