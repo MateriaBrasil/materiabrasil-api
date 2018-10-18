@@ -2,12 +2,7 @@
 
 class AnswerPolicy < ApplicationPolicy
   def destroy?
-    if record.about_type == 'Supplier'
-      record.about.user.id == user.id
-    elsif record.about_type == 'Material'
-      record.about.supplier.user.id == user.id
-    else
-      false
-    end
+    record_user = record.about&.user || record.about&.supplier&.user
+    record_user.id == user.id
   end
 end

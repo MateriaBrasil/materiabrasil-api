@@ -30,7 +30,7 @@ describe 'DELETE /answers/:id', type: :request do
 
   let(:supplier) do
     Supplier.create!(
-      user: current_user,
+      user: user,
       name: 'Foo Bar',
       description: 'Foo description',
       website: 'http://foo',
@@ -51,8 +51,8 @@ describe 'DELETE /answers/:id', type: :request do
 
   let(:answer) do
     Answer.create!(
-      about_id: user.id,
-      about_type: 'User',
+      about_id: supplier.id,
+      about_type: 'Supplier',
       question_id: question.id,
       option_id: option.id
     )

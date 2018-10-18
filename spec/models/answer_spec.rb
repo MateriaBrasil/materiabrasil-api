@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
   subject(:answer) do
-    described_class.new(
+    described_class.create!(
       about: supplier,
       question: question,
       option: option
@@ -72,6 +72,7 @@ RSpec.describe Answer, type: :model do
   describe '#as_json' do
     let(:json) do
       {
+        id: answer.id,
         about_id: answer.about_id,
         about_type: answer.about_type,
         question_id: answer.question_id,
