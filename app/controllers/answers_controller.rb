@@ -10,7 +10,9 @@ class AnswersController < ApplicationController
 
   def destroy
     answer = Answer.find(params[:id])
+    authorize answer
     answer.destroy!
+
     render status: :ok, json: answer
   end
 
