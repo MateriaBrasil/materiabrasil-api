@@ -118,6 +118,8 @@ workflows:
           filters:
             branches:
               only: master
+            tags:
+              ignore: /.*/
           requires:
             - test
 
@@ -128,5 +130,3 @@ workflows:
               only: /v[0-9]+/
             branches:
               ignore: /.*/
-          requires:
-            - test
