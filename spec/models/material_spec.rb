@@ -88,7 +88,8 @@ RSpec.describe Material, type: :model do
         first_driver: material.first_driver,
         second_driver: material.second_driver,
         third_driver: material.third_driver,
-        fourth_driver: material.fourth_driver
+        fourth_driver: material.fourth_driver,
+        visible: false
       }
     end
 
