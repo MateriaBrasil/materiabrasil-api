@@ -4,7 +4,9 @@ class MaterialsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update]
 
   def index
-    materials = Material.all.order(highlighted: :desc, created_at: :desc)
+    materials = Material
+      .where(visible: true)
+      .order(highlighted: :desc, created_at: :desc)
 
     categories = params[:categories]
     materials = materials.with_categories(categories) if categories

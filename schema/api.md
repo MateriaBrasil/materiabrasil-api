@@ -403,6 +403,7 @@ A material is a raw material
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **third_driver** | *nullable number* | the third driver of the material | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
+| **visible** | *boolean* | whether the material is visible at the material list | `true` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
 
@@ -566,6 +567,7 @@ PUT /materials/{supplier_id}
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
+| **visible** | *boolean* | whether the material is visible at the material list | `true` |
 
 
 #### Curl Example
@@ -593,7 +595,8 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "prizes": "example",
   "density": "example",
   "dimensions": "example",
-  "availability": "example"
+  "availability": "example",
+  "visible": true
 }' \
   -H "Content-Type: application/json"
 ```

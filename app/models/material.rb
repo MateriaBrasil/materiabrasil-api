@@ -67,7 +67,8 @@ class Material < ApplicationRecord
       first_driver: first_driver,
       second_driver: second_driver,
       third_driver: third_driver,
-      fourth_driver: fourth_driver
+      fourth_driver: fourth_driver,
+      visible: visible
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

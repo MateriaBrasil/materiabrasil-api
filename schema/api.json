@@ -901,6 +901,12 @@
             "null"
           ]
         },
+        "visible": {
+          "description": "whether the material is visible at the material list",
+          "type": [
+            "boolean"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -1111,6 +1117,9 @@
               },
               "availability": {
                 "$ref": "#/definitions/material/definitions/availability"
+              },
+              "visible": {
+                "$ref": "#/definitions/material/definitions/visible"
               }
             },
             "type": [
@@ -1307,6 +1316,9 @@
         },
         "fourth_driver": {
           "$ref": "#/definitions/material/definitions/fourth_driver"
+        },
+        "visible": {
+          "$ref": "#/definitions/material/definitions/visible"
         }
       },
       "required": [

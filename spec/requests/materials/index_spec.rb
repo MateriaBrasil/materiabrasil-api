@@ -23,7 +23,7 @@ describe 'GET /materials', type: :request do
   end
 
   let(:materials) do
-    Material.all
+    Material.where(visible: true)
   end
 
   before do
@@ -35,9 +35,19 @@ describe 'GET /materials', type: :request do
         average_price: 'R$ 111,00',
         code: '1234',
         technical_specification_url: 'http://foo',
-        supplier: supplier
+        supplier: supplier,
+        visible: true
       )
     end
+    Material.create!(
+      name: 'quu',
+      image_url: 'http://foo.bar',
+      description: 'Some description',
+      average_price: 'R$ 111,00',
+      code: '1234',
+      technical_specification_url: 'http://foo',
+      supplier: supplier
+    )
   end
 
   context 'with materials' do
