@@ -384,24 +384,24 @@ A material is a raw material
 | **density** | *nullable string* | the density of the material | `null` |
 | **description** | *string* | the description of the material | `"example"` |
 | **dimensions** | *nullable string* | the dimensions of the material | `null` |
-| **first_driver** | *nullable number* | the first driver of the material | `null` |
-| **fourth_driver** | *nullable number* | the fourth driver of the material | `null` |
 | **highlight_image_url** | *nullable string* | a link to the optional highlight image of the material | `null` |
 | **highlighted** | *boolean* | indicates if the material should be highlighted on the list | `true` |
 | **id** | *integer* | unique identifier of the material | `42` |
 | **image_url** | *nullable string* | a link to the default image of the material | `null` |
 | **list_image_url** | *nullable string* | a link to the optional list image of the material | `null` |
+| **management_driver** | *nullable number* | the third driver of the material | `null` |
+| **manufacture_driver** | *nullable number* | the second driver of the material | `null` |
+| **materiality_driver** | *nullable number* | the first driver of the material | `null` |
 | **maximum_purchase_quantity** | *nullable integer* | the maximum amount needed to order the material | `null` |
 | **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
-| **second_driver** | *nullable number* | the second driver of the material | `null` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
+| **social_driver** | *nullable number* | the fourth driver of the material | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
-| **third_driver** | *nullable number* | the third driver of the material | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
 | **visible** | *boolean* | whether the material is visible at the material list | `true` |
 

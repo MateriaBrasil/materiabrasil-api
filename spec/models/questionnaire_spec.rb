@@ -7,7 +7,7 @@ RSpec.describe Questionnaire, type: :model do
     described_class.new(
       name: 'Foo',
       about_type: 'Supplier',
-      driver: 'first_driver',
+      driver: 'materiality_driver',
       sorting: 123
     )
   end

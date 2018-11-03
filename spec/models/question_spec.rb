@@ -22,7 +22,7 @@ RSpec.describe Question, type: :model do
     Questionnaire.create(
       name: 'Foo',
       about_type: 'Supplier',
-      driver: 'first_driver',
+      driver: 'materiality_driver',
       sorting: 123
     )
   end

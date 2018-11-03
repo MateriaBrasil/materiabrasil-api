@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_194231) do
+ActiveRecord::Schema.define(version: 2018_11_03_192055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -116,10 +116,10 @@ ActiveRecord::Schema.define(version: 2018_11_02_194231) do
     t.string "dimensions"
     t.string "availability"
     t.string "certifications_url"
-    t.decimal "first_driver"
-    t.decimal "second_driver"
-    t.decimal "third_driver"
-    t.decimal "fourth_driver"
+    t.decimal "materiality_driver"
+    t.decimal "manufacture_driver"
+    t.decimal "management_driver"
+    t.decimal "social_driver"
     t.boolean "visible", default: false
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end

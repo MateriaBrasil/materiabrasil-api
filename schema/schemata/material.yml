@@ -131,22 +131,22 @@ definitions:
     - "null"
     items:
       type: string
-  first_driver:
+  materiality_driver:
     description: the first driver of the material
     type:
     - number
     - "null"
-  second_driver:
+  manufacture_driver:
     description: the second driver of the material
     type:
     - number
     - "null"
-  third_driver:
+  management_driver:
     description: the third driver of the material
     type:
     - number
     - "null"
-  fourth_driver:
+  social_driver:
     description: the fourth driver of the material
     type:
     - number
@@ -405,14 +405,14 @@ properties:
     "$ref": "/schemata/material#/definitions/dimensions"
   availability:
     "$ref": "/schemata/material#/definitions/availability"
-  first_driver:
-    "$ref": "/schemata/material#/definitions/first_driver"
-  second_driver:
-    "$ref": "/schemata/material#/definitions/second_driver"
-  third_driver:
-    "$ref": "/schemata/material#/definitions/third_driver"
-  fourth_driver:
-    "$ref": "/schemata/material#/definitions/fourth_driver"
+  materiality_driver:
+    "$ref": "/schemata/material#/definitions/materiality_driver"
+  manufacture_driver:
+    "$ref": "/schemata/material#/definitions/manufacture_driver"
+  management_driver:
+    "$ref": "/schemata/material#/definitions/management_driver"
+  social_driver:
+    "$ref": "/schemata/material#/definitions/social_driver"
   visible:
     "$ref": "/schemata/material#/definitions/visible"
 required:
