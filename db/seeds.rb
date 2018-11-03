@@ -375,7 +375,7 @@ category7.children.create!(name: 'Outro')
 questionnaire = Questionnaire.create!(
   name: 'Humano Social - Para fora',
   about_type: 'Supplier',
-  driver: 'first_driver',
+  driver: 'materiality_driver',
   sorting: 1
 )
 
@@ -452,7 +452,7 @@ Option.create!(
 questionnaire = Questionnaire.create!(
   name: 'Humano Social - Para dentro',
   about_type: 'Supplier',
-  driver: 'second_driver',
+  driver: 'manufacture_driver',
   sorting: 2
 )
 
@@ -541,7 +541,7 @@ Option.create!(
 questionnaire = Questionnaire.create!(
   name: 'Circularidade - Materia Prima',
   about_type: 'Material',
-  driver: 'third_driver',
+  driver: 'management_driver',
   sorting: 1
 )
 
@@ -604,7 +604,7 @@ Option.create!(
 questionnaire = Questionnaire.create!(
   name: 'Circularidade - Processos',
   about_type: 'Material',
-  driver: 'fourth_driver',
+  driver: 'social_driver',
   sorting: 2
 )
 

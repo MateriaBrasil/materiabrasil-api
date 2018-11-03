@@ -873,28 +873,28 @@
             ]
           }
         },
-        "first_driver": {
+        "materiality_driver": {
           "description": "the first driver of the material",
           "type": [
             "number",
             "null"
           ]
         },
-        "second_driver": {
+        "manufacture_driver": {
           "description": "the second driver of the material",
           "type": [
             "number",
             "null"
           ]
         },
-        "third_driver": {
+        "management_driver": {
           "description": "the third driver of the material",
           "type": [
             "number",
             "null"
           ]
         },
-        "fourth_driver": {
+        "social_driver": {
           "description": "the fourth driver of the material",
           "type": [
             "number",
@@ -1305,17 +1305,17 @@
         "availability": {
           "$ref": "#/definitions/material/definitions/availability"
         },
-        "first_driver": {
-          "$ref": "#/definitions/material/definitions/first_driver"
+        "materiality_driver": {
+          "$ref": "#/definitions/material/definitions/materiality_driver"
         },
-        "second_driver": {
-          "$ref": "#/definitions/material/definitions/second_driver"
+        "manufacture_driver": {
+          "$ref": "#/definitions/material/definitions/manufacture_driver"
         },
-        "third_driver": {
-          "$ref": "#/definitions/material/definitions/third_driver"
+        "management_driver": {
+          "$ref": "#/definitions/material/definitions/management_driver"
         },
-        "fourth_driver": {
-          "$ref": "#/definitions/material/definitions/fourth_driver"
+        "social_driver": {
+          "$ref": "#/definitions/material/definitions/social_driver"
         },
         "visible": {
           "$ref": "#/definitions/material/definitions/visible"

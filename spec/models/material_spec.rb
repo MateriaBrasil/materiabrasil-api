@@ -85,10 +85,10 @@ RSpec.describe Material, type: :model do
         density: material.density,
         dimensions: material.dimensions,
         availability: material.availability,
-        first_driver: material.first_driver,
-        second_driver: material.second_driver,
-        third_driver: material.third_driver,
-        fourth_driver: material.fourth_driver,
+        materiality_driver: material.materiality_driver,
+        manufacture_driver: material.manufacture_driver,
+        management_driver: material.management_driver,
+        social_driver: material.social_driver,
         visible: false
       }
     end

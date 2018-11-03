@@ -64,10 +64,10 @@ class Material < ApplicationRecord
       density: density,
       dimensions: dimensions,
       availability: availability,
-      first_driver: first_driver,
-      second_driver: second_driver,
-      third_driver: third_driver,
-      fourth_driver: fourth_driver,
+      materiality_driver: materiality_driver,
+      manufacture_driver: manufacture_driver,
+      management_driver: management_driver,
+      social_driver: social_driver,
       visible: visible
     }
   end

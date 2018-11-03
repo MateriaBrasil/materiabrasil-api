@@ -8,7 +8,7 @@ describe 'GET /questionnaires', type: :request do
       questionnaire = Questionnaire.create!(
         name: text,
         about_type: 'Supplier',
-        driver: 'first_driver',
+        driver: 'materiality_driver',
         sorting: index
       )
       question = questionnaire.questions.create!(
@@ -19,7 +19,7 @@ describe 'GET /questionnaires', type: :request do
     Questionnaire.create!(
       name: 'barfoo',
       about_type: 'Foobar',
-      driver: 'second_driver',
+      driver: 'manufacture_driver',
       sorting: 123
     )
   end
