@@ -63,7 +63,8 @@ Material.create!(
   code: '00672',
   highlighted: true,
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -75,7 +76,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00647',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -87,7 +89,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00668',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -107,7 +110,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -123,7 +127,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -140,7 +145,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 Material.create!(
@@ -160,7 +166,8 @@ Material.create!(
   average_price: 'R$ 111,00',
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
-    'testfiles/resources/pdf/dummy.pdf'
+    'testfiles/resources/pdf/dummy.pdf',
+  visible: true
 )
 
 category1 = Category.create!(name: 'Classificação', multiple_choice: false)
