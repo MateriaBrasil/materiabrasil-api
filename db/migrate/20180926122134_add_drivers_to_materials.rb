@@ -2,9 +2,9 @@
 
 class AddDriversToMaterials < ActiveRecord::Migration[5.2]
   def change
-    add_column :materials, :materiality_driver, :decimal
-    add_column :materials, :manufacture_driver, :decimal
-    add_column :materials, :management_driver, :decimal
-    add_column :materials, :social_driver, :decimal
+    add_column :materials, :first_driver, :decimal
+    add_column :materials, :second_driver, :decimal
+    add_column :materials, :third_driver, :decimal
+    add_column :materials, :fourth_driver, :decimal
   end
 end
