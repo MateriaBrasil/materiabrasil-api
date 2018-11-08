@@ -192,6 +192,7 @@ cat1_child3_child3.children.create!(name: 'Sintéticos')
 category1_child4 = category1.children.create!(name: 'Metálicos')
 category1_child4.children.create!(name: 'Ferrosos')
 category1_child4.children.create!(name: 'Não Ferrosos')
+category1.children.create!(name: 'Têxtil')
 
 category2 = Category.create!(name: 'Processos de manufatura')
 cat2_child1 = category2.children.create!(name: 'Fabricação digital')
