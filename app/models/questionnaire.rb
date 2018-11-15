@@ -6,6 +6,7 @@ class Questionnaire < ApplicationRecord
 
   def as_json(_options = {})
     {
+      id: id,
       name: name,
       about_type: about_type,
       driver: driver,

@@ -876,6 +876,7 @@ A questionnaire is a list of questions of a subject
 | ------- | ------- | ------- | ------- |
 | **about_type** | *string* | the about_type of the questionnaire | `"example"` |
 | **driver** | *string* | the driver of the questionnaire | `"example"` |
+| **id** | *integer* | unique identifier of the questionnaire | `42` |
 | **name** | *string* | the name of the questionnaire | `"example"` |
 | **questions** | *array* | the questions of the questionnaire | `[null]` |
 | **sorting** | *integer* | the sorting of the questionnaire | `42` |

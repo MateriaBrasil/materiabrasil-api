@@ -8,6 +8,7 @@ class Question < ApplicationRecord
 
   def as_json(_options = {})
     {
+      id: id,
       description: description,
       options: options.order(:value).as_json
     }

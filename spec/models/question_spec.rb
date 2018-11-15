@@ -35,6 +35,7 @@ RSpec.describe Question, type: :model do
   describe '#as_json' do
     let(:json) do
       {
+        id: question.id,
         description: 'Foo bar',
         options: Option.order(:value).as_json
       }
