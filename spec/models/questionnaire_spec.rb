@@ -34,6 +34,7 @@ RSpec.describe Questionnaire, type: :model do
 
     let(:json) do
       {
+        id: questionnaire.id,
         name: questionnaire.name,
         about_type: questionnaire.about_type,
         driver: questionnaire.driver,

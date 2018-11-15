@@ -36,6 +36,7 @@ RSpec.describe Option, type: :model do
   describe '#as_json' do
     let(:json) do
       {
+        id: option.id,
         description: 'Foo bar',
         value: 123
       }
