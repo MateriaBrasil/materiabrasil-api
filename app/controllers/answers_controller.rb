@@ -4,7 +4,11 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    Answer.where(about_type: 'Supplier', about_id: params[:about_id], question_id: params[:question_id]).delete_all
+    Answer.where(
+      about_type: 'Supplier',
+      about_id: params[:about_id],
+      question_id: params[:question_id]
+    ).delete_all
 
     answer = Answer.create!(answer_params)
     render status: :created, json: answer
