@@ -49,6 +49,23 @@ describe 'POST /answers', type: :request do
     )
   end
 
+  let(:option2) do
+    Option.create(
+      question: question,
+      description: 'Foo bar',
+      value: 123
+    )
+  end
+
+  let(:existingAnswer) do
+    Answer.create(
+      question_id: question.id,
+      option_id: option2.id,
+      about_type: 'Supplier',
+      about_id: supplier.id
+    )
+  end
+
   let(:params) do
     {
       about_id: supplier.id,
@@ -76,9 +93,11 @@ describe 'POST /answers', type: :request do
 
   context 'with current_user' do
     let(:answer) { Answer.first }
+    let(:answer2) { Answer.second }
 
     it { expect(response).to have_http_status(:created) }
     it { expect(response.body).to eq(answer.to_json) }
     it { expect(answer).to eq(answer) }
+    it { expect(answer2).to be(nil) }
   end
 end
