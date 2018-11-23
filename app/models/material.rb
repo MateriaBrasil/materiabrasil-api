@@ -27,6 +27,11 @@ class Material < ApplicationRecord
   has_many :material_categories, dependent: :destroy
   has_many :categories, through: 'material_categories'
 
+  has_many :answers,
+    as: :about,
+    inverse_of: :about,
+    dependent: :destroy
+
   belongs_to :supplier
 
   def self.with_categories(ids)
