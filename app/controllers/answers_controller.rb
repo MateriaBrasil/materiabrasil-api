@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
 
   def create
     Answer.where(
-      about_type: 'Supplier',
+      about_type: params[:about_type],
       about_id: params[:about_id],
       question_id: params[:question_id]
     ).delete_all
