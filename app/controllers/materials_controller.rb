@@ -46,6 +46,11 @@ class MaterialsController < ApplicationController
     render json: material.material_categories
   end
 
+  def answers
+    material = Material.find(params[:id])
+    render json: material.answers
+  end
+
   private
 
   def material_params

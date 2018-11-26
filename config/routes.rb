@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'comments', on: :member
     get 'reviews', on: :member
     get 'categories', on: :member
+    get 'answers', on: :member
   end
 
   resources :addresses, only: %i[create]
