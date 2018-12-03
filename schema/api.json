@@ -901,8 +901,8 @@
             "null"
           ]
         },
-        "visible": {
-          "description": "whether the material is visible at the material list",
+        "published": {
+          "description": "whether the material is published at the material list",
           "type": [
             "boolean"
           ]
@@ -1118,8 +1118,8 @@
               "availability": {
                 "$ref": "#/definitions/material/definitions/availability"
               },
-              "visible": {
-                "$ref": "#/definitions/material/definitions/visible"
+              "published": {
+                "$ref": "#/definitions/material/definitions/published"
               }
             },
             "type": [
@@ -1317,8 +1317,8 @@
         "social_driver": {
           "$ref": "#/definitions/material/definitions/social_driver"
         },
-        "visible": {
-          "$ref": "#/definitions/material/definitions/visible"
+        "published": {
+          "$ref": "#/definitions/material/definitions/published"
         }
       },
       "required": [

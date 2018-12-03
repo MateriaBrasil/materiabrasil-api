@@ -1,359 +1,341 @@
----
 "$schema": http://json-schema.org/draft-04/hyper-schema
 title: MateriaBrasil - Material
 description: A material is a raw material
 stability: prototype
 type:
-- object
+  - object
 definitions:
   id:
     description: unique identifier of the material
     readOnly: true
     type:
-    - integer
+      - integer
   supplier_id:
     description: the unique identifier of the supplier the material belongs to
     type:
-    - integer
+      - integer
   supplier_name:
     description: the name of the supplier the material belongs to
     type:
-    - string
+      - string
   name:
     description: the name of the material
     type:
-    - string
+      - string
   image_url:
     description: a link to the default image of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   cover_image_url:
     description: a link to the optional cover image of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   highlight_image_url:
     description: a link to the optional highlight image of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   list_image_url:
     description: a link to the optional list image of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   description:
     description: the description of the material
     type:
-    - string
+      - string
   average_price:
     description: the average price of the material
     type:
-    - string
+      - string
   code:
     description: the code of the material
     type:
-    - string
+      - string
   technical_specification_url:
     description: a link to the pdf file with the material's specifications
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   average_rating:
     description: the average rating of the reviews of the material
     type:
-    - number
-    - "null"
+      - number
+      - "null"
   highlighted:
     description: indicates if the material should be highlighted on the list
     type:
-    - boolean
+      - boolean
   unit_of_sale:
     description: indicates the quantity/scale in which the material is sold
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   minimum_purchase_quantity:
     description: the minimum amount needed to order the material
     type:
-    - integer
-    - "null"
+      - integer
+      - "null"
   maximum_purchase_quantity:
     description: the maximum amount needed to order the material
     type:
-    - integer
-    - "null"
+      - integer
+      - "null"
   ncm_code:
     description: classification code of the material according to ncm
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   sh_code:
     description: classification code of the material according to sh
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   certifications:
     description: the certifications of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   certifications_url:
     description: a link to the file with the material's certifications
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   prizes:
     description: the prizes of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   density:
     description: the density of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   dimensions:
     description: the dimensions of the material
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   availability:
     description: the states and/or countries where the material is available for purchase
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   categories:
     description: ids of categories to filter list
     type:
-    - array
-    - "null"
+      - array
+      - "null"
     items:
       type: string
   materiality_driver:
     description: the first driver of the material
     type:
-    - number
-    - "null"
+      - number
+      - "null"
   manufacture_driver:
     description: the second driver of the material
     type:
-    - number
-    - "null"
+      - number
+      - "null"
   management_driver:
     description: the third driver of the material
     type:
-    - number
-    - "null"
+      - number
+      - "null"
   social_driver:
     description: the fourth driver of the material
     type:
-    - number
-    - "null"
-  visible:
-    description: whether the material is visible at the material list
+      - number
+      - "null"
+  published:
+    description: whether the material is published at the material list
     type: boolean
   identity:
     anyOf:
-    - $ref: /schemata/material#/definitions/id
+      - $ref: /schemata/material#/definitions/id
 links:
-- description: List materials.
-  href: "/materials"
-  method: GET
-  rel: index
-  schema:
-    additionalProperties: false
-    properties:
-      categories:
-        "$ref": "/schemata/material#/definitions/categories"
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - {
-        "type": "array",
-        "items": {
-          "$ref": "/schemata/material"
-        }
-      }
-    - "$ref": "/schemata/error"
-  title: List
-- description: Info for existing material.
-  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}"
-  method: GET
-  rel: self
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - "$ref": "/schemata/material"
-    - "$ref": "/schemata/error"
-  title: Info
-- description: Create a new material.
-  href: "/materials"
-  method: POST
-  rel: create
-  schema:
-    additionalProperties: false
-    properties:
-      supplier_id:
-        "$ref": "/schemata/material#/definitions/supplier_id"
-      name:
-        "$ref": "/schemata/material#/definitions/name"
-      description:
-        "$ref": "/schemata/material#/definitions/description"
-      code:
-        "$ref": "/schemata/material#/definitions/code"
-      average_price:
-        "$ref": "/schemata/material#/definitions/average_price"
-      unit_of_sale:
-        "$ref": "/schemata/material#/definitions/unit_of_sale"
-      minimum_purchase_quantity:
-        "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
-      maximum_purchase_quantity:
-        "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
-      ncm_code:
-        "$ref": "/schemata/material#/definitions/ncm_code"
-      sh_code:
-        "$ref": "/schemata/material#/definitions/sh_code"
-      certifications:
-        "$ref": "/schemata/material#/definitions/certifications"
-      certifications_url:
-        "$ref": "/schemata/material#/definitions/certifications_url"
-      prizes:
-        "$ref": "/schemata/material#/definitions/prizes"
-      density:
-        "$ref": "/schemata/material#/definitions/density"
-      dimensions:
-        "$ref": "/schemata/material#/definitions/dimensions"
-      availability:
-        "$ref": "/schemata/material#/definitions/availability"
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - "$ref": "/schemata/material"
-    - "$ref": "/schemata/error"
-  title: Create
-- description: Update a material.
-  href: "/materials/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
-  method: PUT
-  rel: self
-  schema:
-    additionalProperties: false
-    properties:
-      name:
-        "$ref": "/schemata/material#/definitions/name"
-      image_url:
-        "$ref": "/schemata/material#/definitions/image_url"
-      cover_image_url:
-        "$ref": "/schemata/material#/definitions/cover_image_url"
-      highlight_image_url:
-        "$ref": "/schemata/material#/definitions/highlight_image_url"
-      list_image_url:
-        "$ref": "/schemata/material#/definitions/list_image_url"
-      description:
-        "$ref": "/schemata/material#/definitions/description"
-      code:
-        "$ref": "/schemata/material#/definitions/code"
-      average_price:
-        "$ref": "/schemata/material#/definitions/average_price"
-      technical_specification_url:
-        "$ref": "/schemata/material#/definitions/technical_specification_url"
-      average_rating:
-        "$ref": "/schemata/material#/definitions/average_rating"
-      unit_of_sale:
-        "$ref": "/schemata/material#/definitions/unit_of_sale"
-      minimum_purchase_quantity:
-        "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
-      maximum_purchase_quantity:
-        "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
-      ncm_code:
-        "$ref": "/schemata/material#/definitions/ncm_code"
-      sh_code:
-        "$ref": "/schemata/material#/definitions/sh_code"
-      certifications:
-        "$ref": "/schemata/material#/definitions/certifications"
-      certifications_url:
-        "$ref": "/schemata/material#/definitions/certifications_url"
-      prizes:
-        "$ref": "/schemata/material#/definitions/prizes"
-      density:
-        "$ref": "/schemata/material#/definitions/density"
-      dimensions:
-        "$ref": "/schemata/material#/definitions/dimensions"
-      availability:
-        "$ref": "/schemata/material#/definitions/availability"
-      visible:
-        "$ref": "/schemata/material#/definitions/visible"
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - "$ref": "/schemata/material"
-    - "$ref": "/schemata/error"
-  title: Update
-- description: List comments on the material.
-  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/comments"
-  method: GET
-  rel: index
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - {
-        "type": "array",
-        "items": {
-          "$ref": "/schemata/comment"
-        }
-      }
-    - "$ref": "/schemata/error"
-  title: List comments
-- description: List reviews on the material.
-  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/reviews"
-  method: GET
-  rel: index
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - {
-        "type": "array",
-        "items": {
-          "$ref": "/schemata/review"
-        }
-      }
-    - "$ref": "/schemata/error"
-  title: List reviews
-- description: List material's categories
-  href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/categories"
-  method: GET
-  rel: index
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - {
-        "type": "array",
-        "items": {
-          "$ref": "/schemata/material_category"
-        }
-      }
-    - "$ref": "/schemata/error"
-  title: List categories
+  - description: List materials.
+    href: "/materials"
+    method: GET
+    rel: index
+    schema:
+      additionalProperties: false
+      properties:
+        categories:
+          "$ref": "/schemata/material#/definitions/categories"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - { "type": "array", "items": { "$ref": "/schemata/material" } }
+        - "$ref": "/schemata/error"
+    title: List
+  - description: Info for existing material.
+    href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}"
+    method: GET
+    rel: self
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/material"
+        - "$ref": "/schemata/error"
+    title: Info
+  - description: Create a new material.
+    href: "/materials"
+    method: POST
+    rel: create
+    schema:
+      additionalProperties: false
+      properties:
+        supplier_id:
+          "$ref": "/schemata/material#/definitions/supplier_id"
+        name:
+          "$ref": "/schemata/material#/definitions/name"
+        description:
+          "$ref": "/schemata/material#/definitions/description"
+        code:
+          "$ref": "/schemata/material#/definitions/code"
+        average_price:
+          "$ref": "/schemata/material#/definitions/average_price"
+        unit_of_sale:
+          "$ref": "/schemata/material#/definitions/unit_of_sale"
+        minimum_purchase_quantity:
+          "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
+        maximum_purchase_quantity:
+          "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
+        ncm_code:
+          "$ref": "/schemata/material#/definitions/ncm_code"
+        sh_code:
+          "$ref": "/schemata/material#/definitions/sh_code"
+        certifications:
+          "$ref": "/schemata/material#/definitions/certifications"
+        certifications_url:
+          "$ref": "/schemata/material#/definitions/certifications_url"
+        prizes:
+          "$ref": "/schemata/material#/definitions/prizes"
+        density:
+          "$ref": "/schemata/material#/definitions/density"
+        dimensions:
+          "$ref": "/schemata/material#/definitions/dimensions"
+        availability:
+          "$ref": "/schemata/material#/definitions/availability"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/material"
+        - "$ref": "/schemata/error"
+    title: Create
+  - description: Update a material.
+    href: "/materials/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+    method: PUT
+    rel: self
+    schema:
+      additionalProperties: false
+      properties:
+        name:
+          "$ref": "/schemata/material#/definitions/name"
+        image_url:
+          "$ref": "/schemata/material#/definitions/image_url"
+        cover_image_url:
+          "$ref": "/schemata/material#/definitions/cover_image_url"
+        highlight_image_url:
+          "$ref": "/schemata/material#/definitions/highlight_image_url"
+        list_image_url:
+          "$ref": "/schemata/material#/definitions/list_image_url"
+        description:
+          "$ref": "/schemata/material#/definitions/description"
+        code:
+          "$ref": "/schemata/material#/definitions/code"
+        average_price:
+          "$ref": "/schemata/material#/definitions/average_price"
+        technical_specification_url:
+          "$ref": "/schemata/material#/definitions/technical_specification_url"
+        average_rating:
+          "$ref": "/schemata/material#/definitions/average_rating"
+        unit_of_sale:
+          "$ref": "/schemata/material#/definitions/unit_of_sale"
+        minimum_purchase_quantity:
+          "$ref": "/schemata/material#/definitions/minimum_purchase_quantity"
+        maximum_purchase_quantity:
+          "$ref": "/schemata/material#/definitions/maximum_purchase_quantity"
+        ncm_code:
+          "$ref": "/schemata/material#/definitions/ncm_code"
+        sh_code:
+          "$ref": "/schemata/material#/definitions/sh_code"
+        certifications:
+          "$ref": "/schemata/material#/definitions/certifications"
+        certifications_url:
+          "$ref": "/schemata/material#/definitions/certifications_url"
+        prizes:
+          "$ref": "/schemata/material#/definitions/prizes"
+        density:
+          "$ref": "/schemata/material#/definitions/density"
+        dimensions:
+          "$ref": "/schemata/material#/definitions/dimensions"
+        availability:
+          "$ref": "/schemata/material#/definitions/availability"
+        published:
+          "$ref": "/schemata/material#/definitions/published"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/material"
+        - "$ref": "/schemata/error"
+    title: Update
+  - description: List comments on the material.
+    href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/comments"
+    method: GET
+    rel: index
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - { "type": "array", "items": { "$ref": "/schemata/comment" } }
+        - "$ref": "/schemata/error"
+    title: List comments
+  - description: List reviews on the material.
+    href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/reviews"
+    method: GET
+    rel: index
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - { "type": "array", "items": { "$ref": "/schemata/review" } }
+        - "$ref": "/schemata/error"
+    title: List reviews
+  - description: List material's categories
+    href: "/materials/{(%2Fschemata%2Fmaterial%23%2Fdefinitions%2Fidentity)}/categories"
+    method: GET
+    rel: index
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - {
+            "type": "array",
+            "items": { "$ref": "/schemata/material_category" },
+          }
+        - "$ref": "/schemata/error"
+    title: List categories
 properties:
   id:
     "$ref": "/schemata/material#/definitions/id"
@@ -413,19 +395,19 @@ properties:
     "$ref": "/schemata/material#/definitions/management_driver"
   social_driver:
     "$ref": "/schemata/material#/definitions/social_driver"
-  visible:
-    "$ref": "/schemata/material#/definitions/visible"
+  published:
+    "$ref": "/schemata/material#/definitions/published"
 required:
-- id
-- supplier_id
-- supplier_name
-- name
-- image_url
-- description
-- average_price
-- code
-- technical_specification_url
-- average_rating
-- highlighted
+  - id
+  - supplier_id
+  - supplier_name
+  - name
+  - image_url
+  - description
+  - average_price
+  - code
+  - technical_specification_url
+  - average_rating
+  - highlighted
 additionalProperties: false
 id: schemata/material

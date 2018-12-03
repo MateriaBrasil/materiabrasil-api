@@ -73,7 +73,7 @@ class Material < ApplicationRecord
       manufacture_driver: manufacture_driver,
       management_driver: management_driver,
       social_driver: social_driver,
-      visible: visible
+      published: published
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

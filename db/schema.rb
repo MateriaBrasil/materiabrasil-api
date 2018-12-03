@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_192055) do
+ActiveRecord::Schema.define(version: 2018_12_03_185057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_192055) do
     t.decimal "manufacture_driver"
     t.decimal "management_driver"
     t.decimal "social_driver"
-    t.boolean "visible", default: false
+    t.boolean "published", default: false
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end
 
