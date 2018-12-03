@@ -64,7 +64,7 @@ Material.create!(
   highlighted: true,
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -77,7 +77,7 @@ Material.create!(
   code: '00647',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -90,7 +90,7 @@ Material.create!(
   code: '00668',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -111,7 +111,7 @@ Material.create!(
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -128,7 +128,7 @@ Material.create!(
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -146,7 +146,7 @@ Material.create!(
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 Material.create!(
@@ -167,7 +167,7 @@ Material.create!(
   code: '00666',
   technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
     'testfiles/resources/pdf/dummy.pdf',
-  visible: true
+  published: true
 )
 
 category1 = Category.create!(name: 'Classificação', multiple_choice: false)
