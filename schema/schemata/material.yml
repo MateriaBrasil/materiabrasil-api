@@ -156,6 +156,9 @@ definitions:
   questionnaires_completed:
     description: whether the questionnaires for this material are completed or not
     type: boolean
+  category:
+    description: whether the questionnaires for this material are completed or not
+    type: boolean
   identity:
     anyOf:
       - $ref: /schemata/material#/definitions/id
@@ -402,6 +405,8 @@ properties:
     "$ref": "/schemata/material#/definitions/published"
   questionnaires_completed:
     "$ref": "/schemata/material#/definitions/questionnaires_completed"
+  category:
+    "$ref": "/schemata/material#/definitions/category"
 required:
   - id
   - supplier_id

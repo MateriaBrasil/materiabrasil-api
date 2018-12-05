@@ -90,7 +90,8 @@ RSpec.describe Material, type: :model do
         management_driver: material.management_driver,
         social_driver: material.social_driver,
         published: false,
-        questionnaires_completed: true
+        questionnaires_completed: true,
+        category: false
       }
     end
 

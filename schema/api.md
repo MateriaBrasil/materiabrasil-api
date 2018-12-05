@@ -377,6 +377,7 @@ A material is a raw material
 | **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
+| **category** | *boolean* | whether the questionnaires for this material are completed or not | `true` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
 | **certifications_url** | *nullable string* | a link to the file with the material's certifications | `null` |
 | **code** | *string* | the code of the material | `"example"` |

@@ -49,6 +49,10 @@ class Material < ApplicationRecord
     answers == questions
   end
 
+  def category(id)
+    MaterialCategory.where(material_id: id).count.positive?
+  end
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {
@@ -82,7 +86,8 @@ class Material < ApplicationRecord
       management_driver: management_driver,
       social_driver: social_driver,
       published: published,
-      questionnaires_completed: are_questionnaires_completed(id)
+      questionnaires_completed: are_questionnaires_completed(id),
+      category: category(id)
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

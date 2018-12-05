@@ -913,6 +913,12 @@
             "boolean"
           ]
         },
+        "category": {
+          "description": "whether the questionnaires for this material are completed or not",
+          "type": [
+            "boolean"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -1328,6 +1334,9 @@
         },
         "questionnaires_completed": {
           "$ref": "#/definitions/material/definitions/questionnaires_completed"
+        },
+        "category": {
+          "$ref": "#/definitions/material/definitions/category"
         }
       },
       "required": [
