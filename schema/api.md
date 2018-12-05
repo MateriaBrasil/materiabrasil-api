@@ -398,6 +398,7 @@ A material is a raw material
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
 | **published** | *boolean* | whether the material is published at the material list | `true` |
+| **questionnaires_completed** | *boolean* | whether the questionnaires for this material are completed or not | `true` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **social_driver** | *nullable number* | the fourth driver of the material | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
