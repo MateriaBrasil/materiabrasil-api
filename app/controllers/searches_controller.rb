@@ -19,7 +19,9 @@ class SearchesController < ApplicationController
     return not_found if search.empty?
 
     results = search.map(&:searchable)
-    render json: results
+    filtered = results.select{ |material| material.published == true }
+
+    render json: filtered
   end
 
   private
