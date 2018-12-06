@@ -23,7 +23,7 @@ describe 'GET /materials', type: :request do
   end
 
   let(:materials) do
-    Material.where(visible: true)
+    Material.where(published: true)
   end
 
   before do
@@ -36,7 +36,7 @@ describe 'GET /materials', type: :request do
         code: '1234',
         technical_specification_url: 'http://foo',
         supplier: supplier,
-        visible: true
+        published: true
       )
     end
     Material.create!(

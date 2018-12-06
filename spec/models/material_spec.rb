@@ -89,7 +89,9 @@ RSpec.describe Material, type: :model do
         manufacture_driver: material.manufacture_driver,
         management_driver: material.management_driver,
         social_driver: material.social_driver,
-        visible: false
+        published: false,
+        questionnaires_completed: true,
+        category: false
       }
     end
 

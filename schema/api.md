@@ -377,6 +377,7 @@ A material is a raw material
 | **availability** | *nullable string* | the states and/or countries where the material is available for purchase | `null` |
 | **average_price** | *string* | the average price of the material | `"example"` |
 | **average_rating** | *nullable number* | the average rating of the reviews of the material | `null` |
+| **category** | *boolean* | whether the questionnaires for this material are completed or not | `true` |
 | **certifications** | *nullable string* | the certifications of the material | `null` |
 | **certifications_url** | *nullable string* | a link to the file with the material's certifications | `null` |
 | **code** | *string* | the code of the material | `"example"` |
@@ -397,13 +398,14 @@ A material is a raw material
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
+| **published** | *boolean* | whether the material is published at the material list | `true` |
+| **questionnaires_completed** | *boolean* | whether the questionnaires for this material are completed or not | `true` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **social_driver** | *nullable number* | the fourth driver of the material | `null` |
 | **supplier_id** | *integer* | the unique identifier of the supplier the material belongs to | `42` |
 | **supplier_name** | *string* | the name of the supplier the material belongs to | `"example"` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
-| **visible** | *boolean* | whether the material is visible at the material list | `true` |
 
 ### <a name="link-GET-material-/materials">Material List</a>
 
@@ -564,10 +566,10 @@ PUT /materials/{supplier_id}
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
+| **published** | *boolean* | whether the material is published at the material list | `true` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
 | **technical_specification_url** | *nullable string* | a link to the pdf file with the material's specifications | `null` |
 | **unit_of_sale** | *nullable string* | indicates the quantity/scale in which the material is sold | `null` |
-| **visible** | *boolean* | whether the material is visible at the material list | `true` |
 
 
 #### Curl Example
@@ -596,7 +598,7 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "density": "example",
   "dimensions": "example",
   "availability": "example",
-  "visible": true
+  "published": true
 }' \
   -H "Content-Type: application/json"
 ```

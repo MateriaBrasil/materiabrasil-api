@@ -41,6 +41,18 @@ class Material < ApplicationRecord
     )
   end
 
+  def questionnaires_answered
+    answers = Answer.where(about_type: 'Material', about_id: id).count
+    questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
+    questions = Question.where(questionnaire_id: questionnaire_ids).count
+
+    answers == questions
+  end
+
+  def category
+    MaterialCategory.where(material_id: id).count.positive?
+  end
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {
@@ -73,7 +85,9 @@ class Material < ApplicationRecord
       manufacture_driver: manufacture_driver,
       management_driver: management_driver,
       social_driver: social_driver,
-      visible: visible
+      published: published,
+      questionnaires_completed: questionnaires_answered,
+      category: category
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

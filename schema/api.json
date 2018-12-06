@@ -901,8 +901,20 @@
             "null"
           ]
         },
-        "visible": {
-          "description": "whether the material is visible at the material list",
+        "published": {
+          "description": "whether the material is published at the material list",
+          "type": [
+            "boolean"
+          ]
+        },
+        "questionnaires_completed": {
+          "description": "whether the questionnaires for this material are completed or not",
+          "type": [
+            "boolean"
+          ]
+        },
+        "category": {
+          "description": "whether the questionnaires for this material are completed or not",
           "type": [
             "boolean"
           ]
@@ -1118,8 +1130,8 @@
               "availability": {
                 "$ref": "#/definitions/material/definitions/availability"
               },
-              "visible": {
-                "$ref": "#/definitions/material/definitions/visible"
+              "published": {
+                "$ref": "#/definitions/material/definitions/published"
               }
             },
             "type": [
@@ -1317,8 +1329,14 @@
         "social_driver": {
           "$ref": "#/definitions/material/definitions/social_driver"
         },
-        "visible": {
-          "$ref": "#/definitions/material/definitions/visible"
+        "published": {
+          "$ref": "#/definitions/material/definitions/published"
+        },
+        "questionnaires_completed": {
+          "$ref": "#/definitions/material/definitions/questionnaires_completed"
+        },
+        "category": {
+          "$ref": "#/definitions/material/definitions/category"
         }
       },
       "required": [

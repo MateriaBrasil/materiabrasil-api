@@ -32,7 +32,8 @@ describe 'GET /search', type: :request do
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
-      supplier: supplier
+      supplier: supplier,
+      published: true
     )
   end
 
@@ -44,7 +45,21 @@ describe 'GET /search', type: :request do
       average_price: 'R$ 111,00',
       code: '1234',
       technical_specification_url: 'http://foo',
-      supplier: supplier
+      supplier: supplier,
+      published: true
+    )
+  end
+
+  let(:not_published_material) do
+    Material.create!(
+      name: 'greeee',
+      image_url: 'http://foo.bar',
+      description: 'not published',
+      average_price: 'R$ 111,00',
+      code: '1234',
+      technical_specification_url: 'http://foo',
+      supplier: supplier,
+      published: false
     )
   end
 
@@ -63,7 +78,8 @@ describe 'GET /search', type: :request do
         average_price: 'R$ 111,00',
         code: '1234',
         technical_specification_url: 'http://foo',
-        supplier: supplier
+        supplier: supplier,
+        published: true
       )
     end
   end
@@ -108,6 +124,14 @@ describe 'GET /search', type: :request do
 
   context 'without content found' do
     let(:term) { 'Something else' }
+
+    before { get '/search', params: params }
+
+    it { expect(response).to have_http_status(:not_found) }
+  end
+
+  context 'without content found because not published' do
+    let(:term) { 'greeee' }
 
     before { get '/search', params: params }
 

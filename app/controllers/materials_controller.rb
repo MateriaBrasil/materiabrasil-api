@@ -5,7 +5,7 @@ class MaterialsController < ApplicationController
 
   def index
     materials = Material
-      .where(visible: true)
+      .where(published: true)
       .order(highlighted: :desc, created_at: :desc)
 
     categories = params[:categories]
