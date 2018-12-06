@@ -41,7 +41,7 @@ class Material < ApplicationRecord
     )
   end
 
-  def are_questionnaires_completed(id)
+  def questionnaires_answered
     answers = Answer.where(about_type: 'Material', about_id: id).count
     questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
     questions = Question.where(questionnaire_id: questionnaire_ids).count
@@ -49,7 +49,7 @@ class Material < ApplicationRecord
     answers == questions
   end
 
-  def category(id)
+  def category
     MaterialCategory.where(material_id: id).count.positive?
   end
 
@@ -86,8 +86,8 @@ class Material < ApplicationRecord
       management_driver: management_driver,
       social_driver: social_driver,
       published: published,
-      questionnaires_completed: are_questionnaires_completed(id),
-      category: category(id)
+      questionnaires_completed: questionnaires_answered,
+      category: category
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
