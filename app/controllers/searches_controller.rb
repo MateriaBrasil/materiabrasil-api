@@ -12,15 +12,13 @@ class SearchesController < ApplicationController
     ignoring: :accents
   }
 
-  def filter(results)
-    results.select { |material| material.published == true }
-  end
-
   def show
     search = PgSearch.multisearch(params[:term])
     search = with_categories(search, params[:categories]) if params[:categories]
 
-    results = filter(search.map(&:searchable))
+    return not_found if search.empty?
+
+    results = filter_published(search)
 
     return not_found if results.empty?
 
@@ -28,6 +26,11 @@ class SearchesController < ApplicationController
   end
 
   private
+
+  def filter_published(results)
+    results = results.map(&:searchable).compact
+    results.select { |material| material.published == true }
+  end
 
   def with_categories(search, ids)
     search.where(
