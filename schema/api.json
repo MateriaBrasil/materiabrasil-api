@@ -243,7 +243,35 @@
               }
             ]
           },
-          "title": "List comments"
+          "title": "List favorites"
+        },
+        {
+          "description": "Create a new album.",
+          "href": "/albums",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/album/definitions/name"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/album"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
         }
       ],
       "properties": {
