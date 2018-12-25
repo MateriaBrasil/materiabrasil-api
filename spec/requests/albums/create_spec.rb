@@ -7,7 +7,7 @@ describe 'POST /albums', type: :request do
   let(:headers) { {} }
   let(:params) do
     {
-      name: 'foo bar',
+      name: 'foo bar'
     }
   end
 
