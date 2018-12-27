@@ -2,7 +2,7 @@
 
 class AlbumsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def favorites
     album = Album.find(params[:id])
     render json: album.favorites
