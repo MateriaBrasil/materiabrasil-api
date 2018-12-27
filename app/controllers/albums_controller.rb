@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class AlbumsController < ApplicationController
+  before_action :authenticate_user!
+  
   def favorites
     album = Album.find(params[:id])
     render json: album.favorites
   end
-
-  before_action :authenticate_user!
 
   def create
     album = Album.create!(
