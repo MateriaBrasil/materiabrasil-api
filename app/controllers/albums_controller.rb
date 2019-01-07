@@ -10,17 +10,11 @@ class AlbumsController < ApplicationController
 
   def create
     album = Album.create!(
-      name: album_params[:name],
+      name: params[:name],
       user: current_user,
       default: false
     )
 
     render status: :created, json: album
-  end
-
-  private
-
-  def album_params
-    params.require(:album).permit!
   end
 end

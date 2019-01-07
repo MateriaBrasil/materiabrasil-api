@@ -38,7 +38,9 @@ links:
         - object
     targetSchema:
       anyOf:
-        - { "type": "array", "items": { "$ref": "/schemata/favorite" } }
+        - type: "array"
+          items:
+            "$ref": "/schemata/favorite"
         - "$ref": "/schemata/error"
     title: List favorites
   - description: Create a new album.
