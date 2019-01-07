@@ -4,48 +4,61 @@ title: MateriaBrasil - Album
 description: An album is a collection of favorites
 stability: prototype
 type:
-- object
+  - object
 definitions:
   id:
     description: unique identifier of the album
     readOnly: true
     type:
-    - integer
+      - integer
   user_id:
     description: the unique identifier of the user the album belongs to
     type:
-    - integer
+      - integer
   name:
     description: the name of the album
     type:
-    - string
+      - string
   default:
     description: indicates if this album is the user's default one
     type:
-    - boolean
+      - boolean
   identity:
     anyOf:
-    - "$ref": "/schemata/album#/definitions/id"
+      - "$ref": "/schemata/album#/definitions/id"
 links:
-- description: List favorites on the album.
-  href: "/albums/{(%2Fschemata%2Falbum%23%2Fdefinitions%2Fidentity)}/favorites"
-  method: GET
-  rel: index
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - {
-        "type": "array",
-        "items": {
-          "$ref": "/schemata/favorite"
-        }
-      }
-    - "$ref": "/schemata/error"
-  title: List comments
+  - description: List favorites on the album.
+    href: "/albums/{(%2Fschemata%2Falbum%23%2Fdefinitions%2Fidentity)}/favorites"
+    method: GET
+    rel: index
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - type: "array"
+          items:
+            "$ref": "/schemata/favorite"
+        - "$ref": "/schemata/error"
+    title: List favorites
+  - description: Create a new album.
+    href: "/albums"
+    method: POST
+    rel: create
+    schema:
+      strictProperties: true
+      properties:
+        name:
+          "$ref": "/schemata/album#/definitions/name"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/album"
+        - "$ref": "/schemata/error"
+    title: Create
 properties:
   id:
     "$ref": "/schemata/album#/definitions/id"

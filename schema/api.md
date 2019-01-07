@@ -91,7 +91,7 @@ An album is a collection of favorites
 | **name** | *string* | the name of the album | `"example"` |
 | **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
 
-### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites">Album List comments</a>
+### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites">Album List favorites</a>
 
 List favorites on the album.
 
@@ -113,6 +113,42 @@ $ curl -n https://api.materiabrasil.com/albums/$ALBUM_ID/favorites
 
 ```
 HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-POST-album-/albums">Album Create</a>
+
+Create a new album.
+
+```
+POST /albums
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **name** | *string* | the name of the album | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/albums \
+  -d '{
+  "name": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
 ```
 
 ```json
