@@ -48,7 +48,6 @@ describe 'GET /albums/:id', type: :request do
     it { expect(response.body).to eq(album.to_json) }
   end
 
-  
   context 'with incorrect request' do
     let(:params) { { foo: 'bar' } }
 
