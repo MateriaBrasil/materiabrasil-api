@@ -119,6 +119,42 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-PUT-album-/albums/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Album Update</a>
+
+Update a album.
+
+```
+PUT /albums/{supplier_id}
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **private** | *boolean* | indicates if this album is private | `true` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://api.materiabrasil.com/albums/$SUPPLIER_ID \
+  -d '{
+  "private": true
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 ### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites">Album List favorites</a>
 
 List favorites on the album.

@@ -11,7 +11,8 @@ class Album < ApplicationRecord
       id: id,
       user_id: user.id,
       name: name,
-      default: default
+      default: default,
+      private: private
     }
   end
 end

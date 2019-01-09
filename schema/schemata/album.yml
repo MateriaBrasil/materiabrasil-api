@@ -23,6 +23,10 @@ definitions:
     description: indicates if this album is the user's default one
     type:
       - boolean
+  private:
+    description: indicates if this album is private
+    type:
+      - boolean
   identity:
     anyOf:
       - "$ref": "/schemata/album#/definitions/id"
@@ -41,6 +45,22 @@ links:
         - "$ref": "/schemata/album"
         - "$ref": "/schemata/error"
     title: Info
+  - description: Update a album.
+    href: "/albums/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+    method: PUT
+    rel: self
+    schema:
+      additionalProperties: false
+      properties:
+        private:
+          "$ref": "/schemata/album#/definitions/private"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/album"
+        - "$ref": "/schemata/error"
+    title: Update
   - description: List favorites on the album.
     href: "/albums/{(%2Fschemata%2Falbum%23%2Fdefinitions%2Fidentity)}/favorites"
     method: GET

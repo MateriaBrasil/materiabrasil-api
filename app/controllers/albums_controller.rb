@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create favorites]
+  before_action :authenticate_user!, only: %i[create favorites update]
 
   def favorites
     album = Album.find(params[:id])
@@ -11,6 +11,13 @@ class AlbumsController < ApplicationController
   def show
     album = Album.find(params[:id])
     render json: album
+  end
+
+  def update
+    material = Material.find(params[:id])
+    material.update(material_params)
+
+    render json: material
   end
 
   def create
