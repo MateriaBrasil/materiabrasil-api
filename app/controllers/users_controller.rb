@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     authorize user
 
-    render json: user
+    render json: user.as_json(only_public_albums: true)
   end
 
   def update

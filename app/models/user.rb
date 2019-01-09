@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :suppliers, dependent: :restrict_with_exception
 
   # rubocop:disable Metrics/MethodLength
-  def as_json(_options = {})
+  def as_json(options = {})
     {
       id: id,
       email: email,
@@ -30,7 +30,7 @@ class User < ApplicationRecord
       company: company,
       work_title: work_title,
       website: website,
-      albums: albums,
+      albums: options[:only_public_albums] ? albums.public : albums,
       suppliers: suppliers,
       public_profile: public_profile
     }

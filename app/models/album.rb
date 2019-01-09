@@ -6,6 +6,10 @@ class Album < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :restrict_with_exception
 
+  def self.public
+    where(private: false)
+  end
+
   def as_json(_options = {})
     {
       id: id,

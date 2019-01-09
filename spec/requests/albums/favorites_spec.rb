@@ -24,11 +24,21 @@ describe 'GET /albums/:id/favorites', type: :request do
     )
   end
 
+  let(:other_user) do
+    User.create!(
+      email: 'bar@foo.com',
+      first_name: 'Foo',
+      last_name: 'Bar',
+      password: 'foobarfoo'
+    )
+  end
+
   let(:album) do
     Album.create!(
       name: 'foo',
       user: current_user,
-      default: true
+      default: true,
+      private: false
     )
   end
 
@@ -82,5 +92,36 @@ describe 'GET /albums/:id/favorites', type: :request do
     before { get "/albums/#{id}/favorites", params: params }
 
     it { expect(response).to have_http_status(:bad_request) }
+  end
+
+  context 'with private album and other user' do
+    let(:album) do
+      Album.create!(
+        name: 'foo',
+        user: other_user,
+        default: true,
+        private: true
+      )
+    end
+
+    before { get "/albums/#{id}/favorites", params: params }
+
+    it { expect(response).to have_http_status(:unauthorized) }
+  end
+
+  context 'with private album and current user' do
+    let(:album) do
+      Album.create!(
+        name: 'foo',
+        user: current_user,
+        default: true,
+        private: true
+      )
+    end
+
+    before { get "/albums/#{id}/favorites", params: params }
+
+    it { expect(response).to have_http_status(:ok) }
+    it { is_expected.to eq(JSON.parse(album.favorites.to_json)) }
   end
 end
