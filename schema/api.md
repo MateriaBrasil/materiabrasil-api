@@ -89,6 +89,7 @@ An album is a collection of favorites
 | **default** | *boolean* | indicates if this album is the user's default one | `true` |
 | **id** | *integer* | unique identifier of the album | `42` |
 | **name** | *string* | the name of the album | `"example"` |
+| **private** | *nullable boolean* | indicates if this album is private | `null` |
 | **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
 
 ### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}">Album Info</a>
@@ -119,25 +120,25 @@ HTTP/1.1 200 OK
 null
 ```
 
-### <a name="link-PUT-album-/albums/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}">Album Update</a>
+### <a name="link-PUT-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}">Album Update</a>
 
 Update a album.
 
 ```
-PUT /albums/{supplier_id}
+PUT /albums/{album_id}
 ```
 
 #### Optional Parameters
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **private** | *boolean* | indicates if this album is private | `true` |
+| **private** | *nullable boolean* | indicates if this album is private | `null` |
 
 
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://api.materiabrasil.com/albums/$SUPPLIER_ID \
+$ curl -n -X PUT https://api.materiabrasil.com/albums/$ALBUM_ID \
   -d '{
   "private": true
 }' \

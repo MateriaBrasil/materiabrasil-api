@@ -209,7 +209,8 @@
         "private": {
           "description": "indicates if this album is private",
           "type": [
-            "boolean"
+            "boolean",
+            "null"
           ]
         },
         "identity": {
@@ -248,7 +249,7 @@
         },
         {
           "description": "Update a album.",
-          "href": "/albums/{(%23%2Fdefinitions%2Fsupplier%2Fdefinitions%2Fidentity)}",
+          "href": "/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}",
           "method": "PUT",
           "rel": "self",
           "schema": {
@@ -345,6 +346,9 @@
         },
         "default": {
           "$ref": "#/definitions/album/definitions/default"
+        },
+        "private": {
+          "$ref": "#/definitions/album/definitions/private"
         }
       },
       "additionalProperties": false

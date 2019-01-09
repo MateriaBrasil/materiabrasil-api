@@ -27,6 +27,7 @@ definitions:
     description: indicates if this album is private
     type:
       - boolean
+      - "null"
   identity:
     anyOf:
       - "$ref": "/schemata/album#/definitions/id"
@@ -46,7 +47,7 @@ links:
         - "$ref": "/schemata/error"
     title: Info
   - description: Update a album.
-    href: "/albums/{(%2Fschemata%2Fsupplier%23%2Fdefinitions%2Fidentity)}"
+    href: "/albums/{(%2Fschemata%2Falbum%23%2Fdefinitions%2Fidentity)}"
     method: PUT
     rel: self
     schema:
@@ -102,5 +103,7 @@ properties:
     "$ref": "/schemata/album#/definitions/name"
   default:
     "$ref": "/schemata/album#/definitions/default"
+  private:
+    "$ref": "/schemata/album#/definitions/private"
 additionalProperties: false
 id: schemata/album

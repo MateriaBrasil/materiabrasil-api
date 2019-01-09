@@ -14,19 +14,26 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    material = Material.find(params[:id])
-    material.update(material_params)
+    album = Album.find(params[:id])
+    album.update(album_params)
 
-    render json: material
+    render json: album
   end
 
   def create
     album = Album.create!(
       name: params[:name],
       user: current_user,
-      default: false
+      default: false,
+      private: false
     )
 
     render status: :created, json: album
+  end
+
+  private
+
+  def album_params
+    params.require(:album).permit!
   end
 end
