@@ -6,7 +6,7 @@ RSpec.describe 'PUT /album/:id', type: :request do
   let(:headers) { {} }
   let(:params) do
     {
-      private: true,
+      private: true
     }
   end
 
