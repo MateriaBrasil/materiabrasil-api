@@ -5,28 +5,14 @@ class AlbumsController < ApplicationController
 
   def favorites
     album = Album.find(params[:id])
-    is_owner = current_user == album.user
-
-    if !album.private
-      render json: album.favorites
-    elsif album.private && is_owner
-      render json: album.favorites
-    else
-      render_unauthorized_error
-    end
+    authorize album
+    render json: album.favorites
   end
 
   def show
     album = Album.find(params[:id])
-    is_owner = current_user == album.user
-
-    if !album.private
-      render json: album
-    elsif album.private && is_owner
-      render json: album
-    else
-      render_unauthorized_error
-    end
+    authorize album
+    render json: album
   end
 
   def update
@@ -45,13 +31,6 @@ class AlbumsController < ApplicationController
     )
 
     render status: :created, json: album
-  end
-
-  def render_unauthorized_error
-    render json: {
-      success: false,
-      message: 'Você não tem autorização para ver esse álbum'
-    }, status: :unauthorized
   end
 
   private

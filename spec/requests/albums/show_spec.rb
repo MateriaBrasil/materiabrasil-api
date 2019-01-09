@@ -78,7 +78,7 @@ describe 'GET /albums/:id', type: :request do
 
     before { get "/albums/#{id}", params: params }
 
-    it { expect(response).to have_http_status(:unauthorized) }
+    it { expect(response).to have_http_status(:forbidden) }
   end
 
   context 'with private album and current user' do
