@@ -7,7 +7,8 @@ RSpec.describe Album, type: :model do
     Album.create(
       name: 'foo',
       user: current_user,
-      default: true
+      default: true,
+      private: true
     )
   end
 
@@ -23,7 +24,8 @@ RSpec.describe Album, type: :model do
         id: album.id,
         user_id: current_user.id,
         name: album.name,
-        default: album.default
+        default: album.default,
+        private: album.private
       }
     end
 
