@@ -5,11 +5,11 @@ class AlbumsController < ApplicationController
 
   def favorites
     album = Album.find(params[:id])
-    isOwner = current_user == album.user
+    is_owner = current_user == album.user
 
     if !album.private
       render json: album.favorites
-    elsif album.private && isOwner
+    elsif album.private && is_owner
       render json: album.favorites
     else
       render_unauthorized_error
@@ -18,11 +18,11 @@ class AlbumsController < ApplicationController
 
   def show
     album = Album.find(params[:id])
-    isOwner = current_user == album.user
+    is_owner = current_user == album.user
 
     if !album.private
       render json: album
-    elsif album.private && isOwner
+    elsif album.private && is_owner
       render json: album
     else
       render_unauthorized_error
