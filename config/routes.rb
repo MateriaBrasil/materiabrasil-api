@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'answers', on: :member
   end
 
-  resources :albums, only: %i[create] do
+  resources :albums, only: %i[show create] do
     get 'favorites', on: :member
   end
 

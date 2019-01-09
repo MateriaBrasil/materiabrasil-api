@@ -216,6 +216,31 @@
       },
       "links": [
         {
+          "description": "Info for existing album.",
+          "href": "/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/album"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Info"
+        },
+        {
           "description": "List favorites on the album.",
           "href": "/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}/favorites",
           "method": "GET",
