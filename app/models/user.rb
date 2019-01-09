@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :albums, dependent: :restrict_with_exception
   has_many :suppliers, dependent: :restrict_with_exception
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(options = {})
     {
       id: id,
@@ -35,7 +35,7 @@ class User < ApplicationRecord
       public_profile: public_profile
     }
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def tokens_has_json_column_type?
     false
