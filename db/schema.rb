@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_165504) do
+ActiveRecord::Schema.define(version: 2019_01_10_190205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -185,6 +185,16 @@ ActiveRecord::Schema.define(version: 2019_01_09_165504) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "state", default: "pending", null: false
+    t.string "payment_method"
+    t.datetime "activated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
@@ -265,6 +275,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_165504) do
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "questionnaires"
   add_foreign_key "reviews", "users"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "suppliers", "users"
   add_foreign_key "topics", "users"
 end

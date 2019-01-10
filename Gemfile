@@ -15,6 +15,7 @@ gem 'prmd'
 gem 'puma', '~> 3.11'
 gem 'pundit'
 gem 'rack-cors', require: 'rack/cors'
+gem 'state_machines-activerecord'
 gem 'rails', '~> 5.2.0'
 gem 'rails-i18n', '~> 5.1.1'
 
