@@ -8,4 +8,8 @@ class AlbumPolicy < ApplicationPolicy
   def favorites?
     record.user == user ? true : !record.private
   end
+
+  def update?
+    record.user == user
+  end
 end
