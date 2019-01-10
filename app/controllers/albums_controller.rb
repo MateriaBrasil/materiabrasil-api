@@ -17,6 +17,7 @@ class AlbumsController < ApplicationController
 
   def update
     album = Album.find(params[:id])
+    authorize album
     album.update(album_params)
 
     render json: album
