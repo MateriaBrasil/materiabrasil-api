@@ -89,6 +89,7 @@ An album is a collection of favorites
 | **default** | *boolean* | indicates if this album is the user's default one | `true` |
 | **id** | *integer* | unique identifier of the album | `42` |
 | **name** | *string* | the name of the album | `"example"` |
+| **private** | *nullable boolean* | indicates if this album is private | `null` |
 | **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
 
 ### <a name="link-GET-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}">Album Info</a>
@@ -106,6 +107,42 @@ GET /albums/{album_id}
 $ curl -n https://api.materiabrasil.com/albums/$ALBUM_ID
  -G \
   -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-PUT-album-/albums/{(%23%2Fdefinitions%2Falbum%2Fdefinitions%2Fidentity)}">Album Update</a>
+
+Update a album.
+
+```
+PUT /albums/{album_id}
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **private** | *nullable boolean* | indicates if this album is private | `null` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://api.materiabrasil.com/albums/$ALBUM_ID \
+  -d '{
+  "private": true
+}' \
+  -H "Content-Type: application/json"
 ```
 
 
