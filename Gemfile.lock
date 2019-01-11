@@ -88,6 +88,7 @@ GEM
     erubi (1.7.1)
     erubis (2.7.0)
     eventmachine (1.2.7)
+    excon (0.62.0)
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -287,6 +288,7 @@ DEPENDENCIES
   devise-i18n
   devise_token_auth
   dotenv-rails
+  excon
   listen (>= 3.0.5, < 3.2)
   mailcatcher
   pg (>= 0.18, < 2.0)
