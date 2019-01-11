@@ -15,6 +15,12 @@ user2 = User.create!(
   public_profile: false
 )
 
+Subscription.create!(
+  user: user1,
+  state: 'active',
+  iugu_id: '1'
+)
+
 supplier1 = Supplier.create!(
   user: user1,
   name: 'First supplier',
