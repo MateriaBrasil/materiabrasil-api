@@ -1,4 +1,4 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
 # require 'rails_helper'
 
@@ -44,7 +44,7 @@
 #       stub_payment_request(200)
 #       stub_subscription_request(status: 500)
 #       # sign_in user
-#       post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
+#       post '/subscriptions', params: { subscription: { } }
 #     end
 
 #     it { is_expected.to redirect_to(root_path) }
@@ -60,7 +60,7 @@
 #         stub_subscription_request(status: 200, body: { id: '1' }.to_json)
 #         # sign_in user
 #         post '/subscriptions', params: {
-#           subscription: { recurrence: 'monthly' }
+#           subscription: { }
 #         }
 #       end
 

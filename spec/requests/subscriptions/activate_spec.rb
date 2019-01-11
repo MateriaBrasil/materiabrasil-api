@@ -6,9 +6,9 @@ RSpec.describe 'POST /subscriptions/activate', type: :request do
   subject { response }
 
   let(:params) do
-    { 
-      data: { 
-        id: '1' 
+    {
+      data: {
+        id: '1'
       }
     }.to_json
   end
@@ -19,7 +19,7 @@ RSpec.describe 'POST /subscriptions/activate', type: :request do
       first_name: 'jane',
       last_name: 'doe',
       password: '12345678',
-      iugu_id: '1',
+      iugu_id: '1'
     )
   end
 

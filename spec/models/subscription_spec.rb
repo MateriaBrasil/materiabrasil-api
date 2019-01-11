@@ -28,7 +28,7 @@ RSpec.describe Subscription, recurrence: :model do
 
   describe 'activate' do
     it 'updates activated at timestamp' do
-      expect { subscription.activate! }.to change { subscription.activated_at }
+      expect { subscription.activate! }.to change(subscription, :activated_at)
         .from(nil).to(anything)
     end
   end

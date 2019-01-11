@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIuguIdToSubscriptions < ActiveRecord::Migration[5.2]
   def change
     add_column :subscriptions, :iugu_id, :string
