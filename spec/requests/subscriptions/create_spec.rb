@@ -27,17 +27,18 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
     before do
       stub_payment_request(200)
       stub_subscription_request(status: 500)
-      post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
+      post '/subscriptions'
     end
 
     let(:error_response) do
       {
-      id: 'bad_request',
-      message: "Request body wasn\'t valid JSON."
+      id: 'error',
+      message: "Ooops, alguma coisa deu errado com sua assinatura no Iugu. " \
+      'Por favor, tente novamente mais tarde.'
       }.to_json
     end
 
-    it { expect(response).to have_http_status(400) }
+    it { expect(response).to have_http_status(:error) }
     it { expect(response.body).to eq(error_response) }
   end
 
