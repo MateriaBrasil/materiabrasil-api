@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
     iugu_subscription = create_iugu_subscription(iugu)
     return render_error('sua assinatura') unless iugu_subscription
     subscription = create_subscription(iugu_subscription['id'])
-    redirect_to subscription
+    render status: :created, json: subscription
   end
 
   def show
@@ -24,6 +24,14 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def render_error(message)
+    render status: :error, json: {
+      id: 'error',
+      message: "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
+        'Por favor, tente novamente mais tarde.'
+    }
+  end
 
   def create_subscription(iugu_id)
     Subscription.create!(
@@ -46,12 +54,5 @@ class SubscriptionsController < ApplicationController
     )
     return unless response.success?
     response.json
-  end
-
-  def render_error(message)
-    # flash[:failure] =
-    #   "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
-    #   'Por favor, tente novamente mais tarde.'
-    # redirect_to root_path
   end
 end

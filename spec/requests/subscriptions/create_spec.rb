@@ -13,7 +13,8 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
       post '/subscriptions', params: { subscription: {} }
     end
 
-    it { is_expected.to redirect_to(current_user.subscription) }
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(subscription.reload.to_json) }
 
     subject(:subscription) { Subscription.first }
 
