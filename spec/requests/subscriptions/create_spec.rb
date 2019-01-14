@@ -10,7 +10,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
       stub_payment_request(200)
       stub_subscription_request(status: 200, body: { id: '1' }.to_json)
       # sign_in user
-      post '/subscriptions', params: { subscription: { } }
+      post '/subscriptions', params: { subscription: {} }
     end
 
     it { is_expected.to redirect_to(current_user.subscription) }

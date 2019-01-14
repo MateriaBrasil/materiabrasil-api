@@ -32,7 +32,7 @@ RSpec.describe 'POST /subscriptions/activate', type: :request do
       post '/subscriptions/activate', params: params
     end
 
-    it { is_expected.to have_http_status(204) }
+    it { is_expected.to have_http_status(:no_content) }
 
     it 'activates the subscription' do
       expect(subscription.reload.state).to eq('active')

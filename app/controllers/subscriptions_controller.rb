@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "awesome_print"
-
 class SubscriptionsController < ApplicationController
   def create
     authorize Subscription
@@ -28,10 +26,10 @@ class SubscriptionsController < ApplicationController
   private
 
   def create_subscription(iugu_id)
-    Subscription.create!({
+    Subscription.create!(
       user: current_user,
       iugu_id: iugu_id
-    })
+    )
   end
 
   def create_payment_method(iugu)
