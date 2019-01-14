@@ -56,7 +56,7 @@ end
 def headers
   {
     'Accept' => 'application/json',
-    'Authorization' => /Basic YjcxZjA3OGEwYzRkNzc0MTI5MDlmZjMxMmVhNzU4ODM6/,
+    'Authorization' => /Basic .+/,
     'Content-Type' => 'application/json',
     'Host' => 'api.iugu.com:443'
   }
