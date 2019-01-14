@@ -5,11 +5,46 @@ require 'rails_helper'
 RSpec.describe 'POST /subscriptions/create', type: :request do
   subject { response }
 
+  context 'when api payment method fails' do
+    before do
+      stub_payment_request(500)
+      post '/subscriptions'
+    end
+
+    let(:error_response) do
+      {
+      id: 'error',
+      message: "Ooops, alguma coisa deu errado com seu pagamento no Iugu. " \
+        'Por favor, tente novamente mais tarde.'
+      }.to_json
+    end
+
+    it { expect(response).to have_http_status(:error) }
+    it { expect(response.body).to eq(error_response) }
+  end
+
+  context 'when api subscription fails' do
+    before do
+      stub_payment_request(200)
+      stub_subscription_request(status: 500)
+      post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
+    end
+
+    let(:error_response) do
+      {
+      id: 'bad_request',
+      message: "Request body wasn\'t valid JSON."
+      }.to_json
+    end
+
+    it { expect(response).to have_http_status(400) }
+    it { expect(response.body).to eq(error_response) }
+  end
+
   context 'when subscription is created' do
     before do
       stub_payment_request(200)
       stub_subscription_request(status: 200, body: { id: '1' }.to_json)
-      # sign_in user
       post '/subscriptions', params: { subscription: {} }
     end
 
