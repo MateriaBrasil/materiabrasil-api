@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :messages, only: %i[create]
   resources :questionnaires, only: %i[index]
 
-  resources :subscriptions, only: %i[new create show] do
+  resources :subscriptions, only: %i[create show] do
     post :activate, on: :collection
   end
 end

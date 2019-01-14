@@ -3,13 +3,6 @@
 require "awesome_print"
 
 class SubscriptionsController < ApplicationController
-  def new
-    authorize Subscription
-    return unless current_user
-    subscription = current_user.subscription
-    redirect_to subscription if subscription
-  end
-
   def create
     authorize Subscription
     iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
@@ -21,8 +14,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    @subscription = Subscription.find(params[:id])
-    authorize @subscription
+    subscription = Subscription.find(params[:id])
+    authorize subscription
+    render json: subscription
   end
 
   def activate

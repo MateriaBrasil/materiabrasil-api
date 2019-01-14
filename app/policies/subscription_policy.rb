@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SubscriptionPolicy < ApplicationPolicy
-  def new?
+  def show?
     true
   end
 
