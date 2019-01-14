@@ -6,8 +6,7 @@ RSpec.shared_context 'with current_user' do
       email: 'foo@bar.com',
       first_name: 'Foo',
       last_name: 'Bar',
-      password: 'foobarfoo',
-      iugu_id: '1'
+      password: 'foobarfoo'
     )
   end
 end
