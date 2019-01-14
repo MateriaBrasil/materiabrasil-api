@@ -13,8 +13,8 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
 
     let(:error_response) do
       {
-      id: 'error',
-      message: "Ooops, alguma coisa deu errado com seu pagamento no Iugu. " \
+        id: 'error',
+        message: 'Ooops, alguma coisa deu errado com seu pagamento no Iugu. ' \
         'Por favor, tente novamente mais tarde.'
       }.to_json
     end
@@ -32,8 +32,8 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
 
     let(:error_response) do
       {
-      id: 'error',
-      message: "Ooops, alguma coisa deu errado com sua assinatura no Iugu. " \
+        id: 'error',
+        message: 'Ooops, alguma coisa deu errado com sua assinatura no Iugu. ' \
       'Por favor, tente novamente mais tarde.'
       }.to_json
     end
