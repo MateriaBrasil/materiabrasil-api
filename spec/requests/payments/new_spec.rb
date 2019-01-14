@@ -8,6 +8,7 @@ RSpec.describe 'GET /payments/new', type: :request do
   context 'with logged in user' do
     context 'with successful api request' do
       before do
+        current_user.iugu_id = nil
         headers = {
           'Accept' => 'application/json',
           'Authorization' => /Basic .+/,
@@ -32,6 +33,7 @@ RSpec.describe 'GET /payments/new', type: :request do
 
     context 'with failed api request' do
       before do
+        current_user.iugu_id = nil
         headers = {
           'Accept' => 'application/json',
           'Authorization' => /Basic .+/,
