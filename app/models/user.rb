@@ -31,6 +31,7 @@ class User < ApplicationRecord
       company: company,
       work_title: work_title,
       website: website,
+      iugu_id: iugu_id,
       albums: options[:only_public_albums] ? albums.public : albums,
       suppliers: suppliers,
       public_profile: public_profile
