@@ -18,7 +18,7 @@ gem 'pundit'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.0'
 gem 'rails-i18n', '~> 5.1.1'
-gem 'state_machines-activerecord'
+gem 'state_machines-activerecord', '~> 0.5.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
