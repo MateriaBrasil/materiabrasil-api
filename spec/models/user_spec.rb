@@ -29,6 +29,7 @@ RSpec.describe User, type: :model do
         first_name: user.first_name,
         last_name: user.last_name,
         image_url: user.image_url,
+        iugu_id: user.iugu_id,
         city: user.city,
         state: user.state,
         country: user.country,

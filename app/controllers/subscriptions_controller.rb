@@ -6,11 +6,7 @@ class SubscriptionsController < ApplicationController
 
     iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
 
-    if current_user.iugu_id.blank?
-      response = create_user(iugu)
-      return render_error('criação usuário') unless response.success?
-      current_user.update! iugu_id: response.json['id']
-    end
+    create_iugu_user(iugu) unless current_user.iugu_id
 
     return render_error('seu pagamento') unless create_payment_method(iugu)
     iugu_subscription = create_iugu_subscription(iugu)
@@ -34,6 +30,12 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def create_iugu_user(iugu)
+    response = create_user(iugu)
+    return render_error('criação usuário') unless response.success?
+    current_user.update! iugu_id: response.json['id']
+  end
 
   def create_user(iugu)
     iugu.customer.create(

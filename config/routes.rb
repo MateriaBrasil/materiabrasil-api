@@ -43,6 +43,5 @@ Rails.application.routes.draw do
   resources :subscriptions, only: %i[create show] do
     post :activate, on: :collection
   end
-  resources :payments, only: %i[new]
 end
 # rubocop:enable Metrics/BlockLength
