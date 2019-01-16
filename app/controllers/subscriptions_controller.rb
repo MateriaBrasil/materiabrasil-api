@@ -12,9 +12,7 @@ class SubscriptionsController < ApplicationController
     iugu_subscription = create_iugu_subscription(iugu)
 
     return render_error('sua assinatura') unless iugu_subscription
-    subscription = create_subscription(iugu_subscription['id'])
-
-    render status: :created, json: subscription
+    render status: :created, json: create_subscription(iugu_subscription['id'])
   end
 
   def show
