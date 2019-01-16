@@ -2,11 +2,10 @@
 
 class SubscriptionsController < ApplicationController
   before_action :instance_iugu, only: %i[create]
+  before_action :create_user, if: :user_dont_have_iugu_id, only: %i[create]
 
   def create
     authorize Subscription
-
-    create_iugu_user unless current_user.iugu_id
 
     return render_error('seu pagamento') unless create_payment_method
     iugu_subscription = create_iugu_subscription
@@ -29,21 +28,22 @@ class SubscriptionsController < ApplicationController
 
   private
 
+  def user_dont_have_iugu_id
+    current_user.iugu_id.nil?
+  end
+
   def instance_iugu
     @iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
   end
 
-  def create_iugu_user
-    response = create_user
-    return render_error('criação usuário') unless response.success?
-    current_user.update! iugu_id: response.json['id']
-  end
-
   def create_user
-    @iugu.customer.create(
+    response = @iugu.customer.create(
       email: current_user.email,
       name: name
     )
+
+    return render_error('criação usuário') unless response.success?
+    current_user.update! iugu_id: response.json['id']
   end
 
   def name
