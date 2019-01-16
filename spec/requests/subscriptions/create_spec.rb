@@ -19,7 +19,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
       }.to_json
     end
 
-    it { expect(response).to have_http_status(500) }
+    it { expect(response).to have_http_status(:internal_server_error) }
     it { expect(response.body).to eq(error_response) }
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
       }.to_json
     end
 
-    it { expect(response).to have_http_status(500) }
+    it { expect(response).to have_http_status(:internal_server_error) }
     it { expect(response.body).to eq(error_response) }
   end
 
@@ -74,7 +74,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
           body: { id: '1' }.to_json,
           headers: {}
         )
-      current_user.iugu_id = nil  
+      current_user.iugu_id = nil
       post '/subscriptions', params: { subscription: {} }
     end
 
