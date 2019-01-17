@@ -4,141 +4,149 @@ title: MateriaBrasil - User
 description: A user is a person registered in the platform
 stability: prototype
 type:
-- object
+  - object
 definitions:
   id:
     description: unique identifier of the user
     readOnly: true
     type:
-    - integer
+      - integer
   email:
     description: the email of the user
     format: email
     type:
-    - string
+      - string
   first_name:
     description: the first name of the user
     type:
-    - string
+      - string
   last_name:
     description: the last name of the user
     type:
-    - string
+      - string
   image_url:
     description: a link to the profile image of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   city:
     description: the city of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   state:
     description: the state of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   country:
     description: the country of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   bio:
     description: a short biography of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   company:
     description: the company where the user works
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   work_title:
     description: the work title of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
   website:
     description: the website of the user
     type:
-    - string
-    - "null"
+      - string
+      - "null"
+    format: uri
+  iugu_id:
+    description: iugu id
+    type:
+      - string
+      - "null"
     format: uri
   albums:
     description: the albums that belong to the user
     type:
-    - array
+      - array
     targetSchema:
       "$ref": "/schemata/album"
   suppliers:
     description: the suppliers that belong to the user
     type:
-    - array
+      - array
     targetSchema:
       "$ref": "/schemata/supplier"
   public_profile:
     description: indicates if the user profile is public
     type:
-    - boolean
+      - boolean
   newsletter:
     description: indicates if the user is subscribed to the newsletter
     type:
-    - boolean
+      - boolean
   identity:
     anyOf:
-    - "$ref": "/schemata/user#/definitions/id"
+      - "$ref": "/schemata/user#/definitions/id"
 links:
-- description: Info for existing user.
-  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
-  method: GET
-  rel: self
-  schema:
-    strictProperties: true
-    properties: {}
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - "$ref": "/schemata/user"
-    - "$ref": "/schemata/error"
-  title: Info
-- description: Update existing user.
-  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
-  method: PUT
-  rel: self
-  schema:
-    additionalProperties: false
-    properties:
-      image_url:
-        "$ref": "/schemata/user#/definitions/image_url"
-      first_name:
-        "$ref": "/schemata/user#/definitions/first_name"
-      last_name:
-        "$ref": "/schemata/user#/definitions/last_name"
-      city:
-        "$ref": "/schemata/user#/definitions/city"
-      state:
-        "$ref": "/schemata/user#/definitions/state"
-      country:
-        "$ref": "/schemata/user#/definitions/country"
-      bio:
-        "$ref": "/schemata/user#/definitions/bio"
-      company:
-        "$ref": "/schemata/user#/definitions/company"
-      work_title:
-        "$ref": "/schemata/user#/definitions/work_title"
-      website:
-        "$ref": "/schemata/user#/definitions/website"
-      email:
-        "$ref": "/schemata/user#/definitions/email"
-    type:
-    - object
-  targetSchema:
-    anyOf:
-    - "$ref": "/schemata/user"
-    - "$ref": "/schemata/error"
-  title: Update
+  - description: Info for existing user.
+    href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
+    method: GET
+    rel: self
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/user"
+        - "$ref": "/schemata/error"
+    title: Info
+  - description: Update existing user.
+    href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
+    method: PUT
+    rel: self
+    schema:
+      additionalProperties: false
+      properties:
+        image_url:
+          "$ref": "/schemata/user#/definitions/image_url"
+        first_name:
+          "$ref": "/schemata/user#/definitions/first_name"
+        last_name:
+          "$ref": "/schemata/user#/definitions/last_name"
+        city:
+          "$ref": "/schemata/user#/definitions/city"
+        state:
+          "$ref": "/schemata/user#/definitions/state"
+        country:
+          "$ref": "/schemata/user#/definitions/country"
+        bio:
+          "$ref": "/schemata/user#/definitions/bio"
+        company:
+          "$ref": "/schemata/user#/definitions/company"
+        iugu_id:
+          "$ref": "/schemata/user#/definitions/iugu_id"
+        work_title:
+          "$ref": "/schemata/user#/definitions/work_title"
+        website:
+          "$ref": "/schemata/user#/definitions/website"
+        email:
+          "$ref": "/schemata/user#/definitions/email"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/user"
+        - "$ref": "/schemata/error"
+    title: Update
 properties:
   id:
     "$ref": "/schemata/user#/definitions/id"
@@ -164,6 +172,8 @@ properties:
     "$ref": "/schemata/user#/definitions/work_title"
   website:
     "$ref": "/schemata/user#/definitions/website"
+  iugu_id:
+    "$ref": "/schemata/user#/definitions/iugu_id"
   albums:
     "$ref": "/schemata/user#/definitions/albums"
   suppliers:
@@ -171,18 +181,19 @@ properties:
   public_profile:
     "$ref": "/schemata/user#/definitions/public_profile"
 required:
-- id
-- email
-- first_name
-- last_name
-- city
-- state
-- country
-- bio
-- company
-- work_title
-- website
-- albums
-- public_profile
+  - id
+  - email
+  - first_name
+  - last_name
+  - city
+  - state
+  - country
+  - bio
+  - company
+  - work_title
+  - website
+  - iugu_id
+  - albums
+  - public_profile
 additionalProperties: false
 id: schemata/user

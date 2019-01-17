@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :restrict_with_exception
   has_many :albums, dependent: :restrict_with_exception
   has_many :suppliers, dependent: :restrict_with_exception
+  has_many :subscriptions, dependent: :restrict_with_exception
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(options = {})
@@ -30,12 +31,21 @@ class User < ApplicationRecord
       company: company,
       work_title: work_title,
       website: website,
+      iugu_id: iugu_id,
       albums: options[:only_public_albums] ? albums.public : albums,
       suppliers: suppliers,
       public_profile: public_profile
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+
+  def subscribed?
+    @subscribed ||= subscriptions.with_state(:active).count.positive?
+  end
+
+  def subscription
+    subscriptions.order(:created_at).last
+  end
 
   def tokens_has_json_column_type?
     false

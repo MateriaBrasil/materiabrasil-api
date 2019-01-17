@@ -2788,6 +2788,14 @@
           ],
           "format": "uri"
         },
+        "iugu_id": {
+          "description": "iugu id",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
         "albums": {
           "description": "the albums that belong to the user",
           "type": [
@@ -2884,6 +2892,9 @@
               "company": {
                 "$ref": "#/definitions/user/definitions/company"
               },
+              "iugu_id": {
+                "$ref": "#/definitions/user/definitions/iugu_id"
+              },
               "work_title": {
                 "$ref": "#/definitions/user/definitions/work_title"
               },
@@ -2948,6 +2959,9 @@
         "website": {
           "$ref": "#/definitions/user/definitions/website"
         },
+        "iugu_id": {
+          "$ref": "#/definitions/user/definitions/iugu_id"
+        },
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
         },
@@ -2970,6 +2984,7 @@
         "company",
         "work_title",
         "website",
+        "iugu_id",
         "albums",
         "public_profile"
       ],

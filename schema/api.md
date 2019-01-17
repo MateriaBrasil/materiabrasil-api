@@ -1489,6 +1489,7 @@ A user is a person registered in the platform
 | **first_name** | *string* | the first name of the user | `"example"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **image_url** | *nullable string* | a link to the profile image of the user | `null` |
+| **iugu_id** | *nullable uri* | iugu id | `null` |
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |
 | **state** | *nullable string* | the state of the user | `null` |
@@ -1543,6 +1544,7 @@ PUT /users/{user_id}
 | **email** | *email* | the email of the user | `"username@example.com"` |
 | **first_name** | *string* | the first name of the user | `"example"` |
 | **image_url** | *nullable string* | a link to the profile image of the user | `null` |
+| **iugu_id** | *nullable uri* | iugu id | `null` |
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **state** | *nullable string* | the state of the user | `null` |
 | **website** | *nullable uri* | the website of the user | `null` |
@@ -1562,6 +1564,7 @@ $ curl -n -X PUT https://api.materiabrasil.com/users/$USER_ID \
   "country": "example",
   "bio": "example",
   "company": "example",
+  "iugu_id": "example",
   "work_title": "example",
   "website": "example",
   "email": "username@example.com"
