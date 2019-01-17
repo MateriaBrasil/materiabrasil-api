@@ -34,13 +34,19 @@ class User < ApplicationRecord
       iugu_id: iugu_id,
       albums: options[:only_public_albums] ? albums.public : albums,
       suppliers: suppliers,
-      public_profile: public_profile
+      public_profile: public_profile,
+      subscribed: subscribed,
+      pending_subscription: pending_subscription
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
-  def subscribed?
+  def subscribed
     @subscribed ||= subscriptions.with_state(:active).count.positive?
+  end
+
+  def pending_subscription
+    @pending ||= subscriptions.with_state(:pending).count.positive?
   end
 
   def subscription
