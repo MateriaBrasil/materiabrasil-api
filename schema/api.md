@@ -1134,27 +1134,29 @@ Stability: `prototype`
 
 Subscription
 
-### <a name="link-POST-subscription-/activate">Subscription Activate</a>
+### <a name="link-POST-subscription-/subscriptions/activate">Subscription Activate</a>
 
 Activate subscription
 
 ```
-POST /activate
+POST /subscriptions/activate
 ```
 
 #### Optional Parameters
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **id** | *integer* | unique identifier of the association | `42` |
+| **data:id** | *string* | unique identifier of iugu | `"example"` |
 
 
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://api.materiabrasil.com/activate \
+$ curl -n -X POST https://api.materiabrasil.com/subscriptions/activate \
   -d '{
-  "id": 42
+  "data": {
+    "id": "example"
+  }
 }' \
   -H "Content-Type: application/json"
 ```

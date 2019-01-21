@@ -11,28 +11,32 @@ definitions:
     readOnly: true
     type:
       - integer
-  user_id:
-    description: the unique identifier of the user the album belongs to
-    type:
-      - integer
   iugu_id:
     description: unique identifier of iugu
     readOnly: true
     type:
-      - integer
+      - string
+  data:
+    description: object data with id
+    readOnly: true
+    properties:
+      id:
+        "$ref": "/schemata/subscription#/definitions/iugu_id"
+    type:
+      - object
   identity:
     anyOf:
       - "$ref": "/schemata/subscription#/definitions/id"
 links:
   - description: Activate subscription
-    href: "/activate"
+    href: "/subscriptions/activate"
     method: POST
     rel: activate
     schema:
       additionalProperties: false
       properties:
-        id:
-          "$ref": "/schemata/subscription#/definitions/id"
+        data:
+          "$ref": "/schemata/subscription#/definitions/data"
       type:
         - object
     targetSchema:
