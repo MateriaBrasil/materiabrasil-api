@@ -1,0 +1,49 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - Subscription
+description: Subscription
+stability: prototype
+type:
+  - object
+definitions:
+  id:
+    description: unique identifier of the association
+    readOnly: true
+    type:
+      - integer
+  iugu_id:
+    description: unique identifier of iugu
+    readOnly: true
+    type:
+      - string
+  data:
+    description: object data with id
+    readOnly: true
+    properties:
+      id:
+        "$ref": "/schemata/subscription#/definitions/iugu_id"
+    type:
+      - object
+  identity:
+    anyOf:
+      - "$ref": "/schemata/subscription#/definitions/id"
+links:
+  - description: Activate subscription
+    href: "/subscriptions/activate"
+    method: POST
+    rel: activate
+    schema:
+      additionalProperties: false
+      properties:
+        data:
+          "$ref": "/schemata/subscription#/definitions/data"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/subscription"
+        - "$ref": "/schemata/error"
+    title: Activate
+properties: {}
+additionalProperties: false
+id: schemata/subscription
