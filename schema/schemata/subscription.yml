@@ -40,16 +40,6 @@ links:
         - "$ref": "/schemata/subscription"
         - "$ref": "/schemata/error"
     title: Activate
-properties:
-  id:
-    "$ref": "/schemata/subscription#/definitions/id"
-  user_id:
-    "$ref": "/schemata/subscription#/definitions/user_id"
-  iugu_id:
-    "$ref": "/schemata/subscription#/definitions/iugu_id"
+properties: {}
 additionalProperties: false
-required:
-  - id
-  - user_id
-  - iugu_id
 id: schemata/subscription

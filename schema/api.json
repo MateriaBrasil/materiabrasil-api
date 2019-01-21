@@ -2188,22 +2188,8 @@
         }
       ],
       "properties": {
-        "id": {
-          "$ref": "#/definitions/subscription/definitions/id"
-        },
-        "user_id": {
-          "$ref": "#/definitions/subscription/definitions/user_id"
-        },
-        "iugu_id": {
-          "$ref": "#/definitions/subscription/definitions/iugu_id"
-        }
       },
-      "additionalProperties": false,
-      "required": [
-        "id",
-        "user_id",
-        "iugu_id"
-      ]
+      "additionalProperties": false
     },
     "supplier": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",

@@ -1134,14 +1134,6 @@ Stability: `prototype`
 
 Subscription
 
-### Attributes
-
-| Name | Type | Description | Example |
-| ------- | ------- | ------- | ------- |
-| **id** | *integer* | unique identifier of the association | `42` |
-| **iugu_id** | *integer* | unique identifier of iugu | `42` |
-| **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
-
 ### <a name="link-POST-subscription-/activate">Subscription Activate</a>
 
 Activate subscription
