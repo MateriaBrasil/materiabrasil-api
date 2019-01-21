@@ -71,6 +71,14 @@ definitions:
       - string
       - "null"
     format: uri
+  subscribed:
+    description: if user is subscribed or not
+    type:
+      - boolean
+  pending_subscription:
+    description: if user has pending subscription or not
+    type:
+      - boolean
   albums:
     description: the albums that belong to the user
     type:
@@ -134,6 +142,10 @@ links:
           "$ref": "/schemata/user#/definitions/company"
         iugu_id:
           "$ref": "/schemata/user#/definitions/iugu_id"
+        subscribed:
+          "$ref": "/schemata/user#/definitions/subscribed"
+        pending_subscription:
+          "$ref": "/schemata/user#/definitions/pending_subscription"
         work_title:
           "$ref": "/schemata/user#/definitions/work_title"
         website:
@@ -174,6 +186,10 @@ properties:
     "$ref": "/schemata/user#/definitions/website"
   iugu_id:
     "$ref": "/schemata/user#/definitions/iugu_id"
+  subscribed:
+    "$ref": "/schemata/user#/definitions/subscribed"
+  pending_subscription:
+    "$ref": "/schemata/user#/definitions/pending_subscription"
   albums:
     "$ref": "/schemata/user#/definitions/albums"
   suppliers:
@@ -193,6 +209,8 @@ required:
   - work_title
   - website
   - iugu_id
+  - subscribed
+  - pending_subscription
   - albums
   - public_profile
 additionalProperties: false

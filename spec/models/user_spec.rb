@@ -28,10 +28,12 @@ RSpec.describe User, type: :model do
         email: user.email,
         first_name: user.first_name,
         last_name: user.last_name,
+        pending_subscription: user.pending_subscription,
         image_url: user.image_url,
         iugu_id: user.iugu_id,
         city: user.city,
         state: user.state,
+        subscribed: user.subscribed,
         country: user.country,
         bio: user.bio,
         company: user.company,
@@ -49,7 +51,7 @@ RSpec.describe User, type: :model do
   it { expect(user.tokens_has_json_column_type?).to be(false) }
 
   describe 'subscribed?' do
-    subject { user.subscribed? }
+    subject { user.subscribed }
 
     context 'with an active subscription' do
       before do

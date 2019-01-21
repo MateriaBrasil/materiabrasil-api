@@ -2796,6 +2796,18 @@
           ],
           "format": "uri"
         },
+        "subscribed": {
+          "description": "if user is subscribed or not",
+          "type": [
+            "boolean"
+          ]
+        },
+        "pending_subscription": {
+          "description": "if user has pending subscription or not",
+          "type": [
+            "boolean"
+          ]
+        },
         "albums": {
           "description": "the albums that belong to the user",
           "type": [
@@ -2895,6 +2907,12 @@
               "iugu_id": {
                 "$ref": "#/definitions/user/definitions/iugu_id"
               },
+              "subscribed": {
+                "$ref": "#/definitions/user/definitions/subscribed"
+              },
+              "pending_subscription": {
+                "$ref": "#/definitions/user/definitions/pending_subscription"
+              },
               "work_title": {
                 "$ref": "#/definitions/user/definitions/work_title"
               },
@@ -2962,6 +2980,12 @@
         "iugu_id": {
           "$ref": "#/definitions/user/definitions/iugu_id"
         },
+        "subscribed": {
+          "$ref": "#/definitions/user/definitions/subscribed"
+        },
+        "pending_subscription": {
+          "$ref": "#/definitions/user/definitions/pending_subscription"
+        },
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
         },
@@ -2985,6 +3009,8 @@
         "work_title",
         "website",
         "iugu_id",
+        "subscribed",
+        "pending_subscription",
         "albums",
         "public_profile"
       ],
