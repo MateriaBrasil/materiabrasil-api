@@ -2120,6 +2120,86 @@
         }
       }
     },
+    "subscription": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - Subscription",
+      "description": "Subscription",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the association",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "user_id": {
+          "description": "the unique identifier of the user the album belongs to",
+          "type": [
+            "integer"
+          ]
+        },
+        "iugu_id": {
+          "description": "unique identifier of iugu",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/subscription/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Activate subscription",
+          "href": "/activate",
+          "method": "POST",
+          "rel": "activate",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/subscription/definitions/id"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/subscription"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Activate"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/subscription/definitions/id"
+        },
+        "user_id": {
+          "$ref": "#/definitions/subscription/definitions/user_id"
+        },
+        "iugu_id": {
+          "$ref": "#/definitions/subscription/definitions/iugu_id"
+        }
+      },
+      "additionalProperties": false
+    },
     "supplier": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Supplier",
@@ -3059,6 +3139,9 @@
     },
     "search": {
       "$ref": "#/definitions/search"
+    },
+    "subscription": {
+      "$ref": "#/definitions/subscription"
     },
     "supplier": {
       "$ref": "#/definitions/supplier"

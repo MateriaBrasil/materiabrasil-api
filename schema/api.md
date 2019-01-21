@@ -1128,6 +1128,57 @@ null
 ```
 
 
+## <a name="resource-subscription">Subscription</a>
+
+Stability: `prototype`
+
+Subscription
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the association | `42` |
+| **iugu_id** | *integer* | unique identifier of iugu | `42` |
+| **user_id** | *integer* | the unique identifier of the user the album belongs to | `42` |
+
+### <a name="link-POST-subscription-/activate">Subscription Activate</a>
+
+Activate subscription
+
+```
+POST /activate
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the association | `42` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/activate \
+  -d '{
+  "id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-supplier">Supplier</a>
 
 Stability: `prototype`
