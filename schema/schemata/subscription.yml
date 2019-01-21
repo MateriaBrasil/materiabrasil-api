@@ -48,4 +48,8 @@ properties:
   iugu_id:
     "$ref": "/schemata/subscription#/definitions/iugu_id"
 additionalProperties: false
+required:
+  - id
+  - user_id
+  - iugu_id
 id: schemata/subscription
