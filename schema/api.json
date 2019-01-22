@@ -2164,34 +2164,6 @@
         }
       },
       "links": [
-        {
-          "description": "Activate subscription",
-          "href": "/subscriptions/activate",
-          "method": "POST",
-          "rel": "activate",
-          "schema": {
-            "additionalProperties": false,
-            "properties": {
-              "data": {
-                "$ref": "#/definitions/subscription/definitions/data"
-              }
-            },
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/subscription"
-              },
-              {
-                "$ref": "#/definitions/error"
-              }
-            ]
-          },
-          "title": "Activate"
-        }
       ],
       "properties": {
       },
