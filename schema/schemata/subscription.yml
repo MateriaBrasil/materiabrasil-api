@@ -27,23 +27,7 @@ definitions:
   identity:
     anyOf:
       - "$ref": "/schemata/subscription#/definitions/id"
-links:
-  - description: Activate subscription
-    href: "/subscriptions/activate"
-    method: POST
-    rel: activate
-    schema:
-      additionalProperties: false
-      properties:
-        data:
-          "$ref": "/schemata/subscription#/definitions/data"
-      type:
-        - object
-    targetSchema:
-      anyOf:
-        - "$ref": "/schemata/subscription"
-        - "$ref": "/schemata/error"
-    title: Activate
+links: []
 properties: {}
 additionalProperties: false
 id: schemata/subscription

@@ -55,7 +55,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
     subject(:subscription) { Subscription.first }
 
     it { expect(subscription.user).to eq(current_user) }
-    it { expect(subscription.state).to eq('pending') }
+    it { expect(subscription.state).to eq('active') }
     it { expect(subscription.payment_method).to be(nil) }
     it { expect(subscription.activated_at).to be(nil) }
   end
@@ -84,7 +84,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
     subject(:subscription) { Subscription.first }
 
     it { expect(subscription.user).to eq(current_user) }
-    it { expect(subscription.state).to eq('pending') }
+    it { expect(subscription.state).to eq('active') }
     it { expect(subscription.payment_method).to be(nil) }
     it { expect(subscription.activated_at).to be(nil) }
   end
@@ -109,7 +109,8 @@ def stub_subscription_request(to_return)
       body: {
         credits_based: false,
         plan_identifier: 'monthly',
-        customer_id: current_user.iugu_id
+        customer_id: current_user.iugu_id,
+        only_on_charge_success: true
       }.to_json,
       headers: headers
     ).to_return(to_return)

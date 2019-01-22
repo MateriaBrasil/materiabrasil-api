@@ -61,7 +61,8 @@ class SubscriptionsController < ApplicationController
   def create_subscription(iugu_id)
     Subscription.create!(
       user: current_user,
-      iugu_id: iugu_id
+      iugu_id: iugu_id,
+      state: 'active'
     )
   end
 
@@ -75,7 +76,8 @@ class SubscriptionsController < ApplicationController
   def create_iugu_subscription
     response = @iugu.subscription.create(
       plan_identifier: 'monthly',
-      customer_id: current_user.iugu_id
+      customer_id: current_user.iugu_id,
+      only_on_charge_success: true
     )
     return unless response.success?
     response.json
