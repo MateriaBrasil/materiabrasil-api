@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
 
+  has_and_belongs_to_many :albums
   has_many :comments, dependent: :restrict_with_exception
   has_many :reviews, dependent: :restrict_with_exception
   has_many :albums, dependent: :restrict_with_exception
