@@ -64,12 +64,19 @@ describe 'POST /album_users', type: :request do
       }
     end
 
+    let(:error_response) do
+      {
+        id: 'not_found',
+        message: 'Couldn\'t find User'
+      }.to_json
+    end
+
     before do
       post '/album_users', headers: headers, params: params.to_json
     end
 
     it { expect(response).to have_http_status(:not_found) }
-    it { expect(response.body).to eq("{\"id\":\"not_found\",\"message\":\"Couldn't find User\"}") }
+    it { expect(response.body).to eq(error_response) }
   end
 
   context 'with incorrect params' do
