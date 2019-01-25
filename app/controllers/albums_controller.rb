@@ -23,15 +23,6 @@ class AlbumsController < ApplicationController
     render json: album
   end
 
-  # def member
-  #   user = User.find_by!(email: params[:user_email])
-  #   album = Album.find(params[:album_id])
-  #   authorize album
-  #   album.update(album_params)
-
-  #   render json: album
-  # end
-
   def create
     album = Album.create!(
       name: params[:name],
@@ -44,14 +35,6 @@ class AlbumsController < ApplicationController
   end
 
   private
-
-  # def render_error(message)
-  #   render status: :error, json: {
-  #     id: 'error',
-  #     message: "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
-  #       'Por favor, tente novamente mais tarde.'
-  #   }
-  # end
 
   def album_params
     params.require(:album).permit!

@@ -221,6 +221,59 @@ null
 ```
 
 
+## <a name="resource-album_user">AlbumUser</a>
+
+Stability: `prototype`
+
+An association between a album and a user
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | the unique identifier of the album to be associated | `42` |
+| **id** | *integer* | unique identifier of the association | `42` |
+| **user_email** | *string* | the unique identifier of the user to be associated | `"example"` |
+
+### <a name="link-POST-album_user-/album_users">AlbumUser Create</a>
+
+Create a new association between a album and an user
+
+```
+POST /album_users
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | the unique identifier of the album to be associated | `42` |
+| **user_email** | *string* | the unique identifier of the user to be associated | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/album_users \
+  -d '{
+  "album_id": 42,
+  "user_email": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-answer">Answer</a>
 
 Stability: `prototype`
