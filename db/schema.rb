@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019_01_24_201602) do
     t.index ["supplier_id"], name: "index_addresses_on_supplier_id"
   end
 
+  create_table "album_users", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_album_users_on_album_id"
+    t.index ["user_id"], name: "index_album_users_on_user_id"
+  end
+
   create_table "albums", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
@@ -39,13 +48,6 @@ ActiveRecord::Schema.define(version: 2019_01_24_201602) do
     t.datetime "updated_at", null: false
     t.boolean "private", default: false
     t.index ["user_id"], name: "index_albums_on_user_id"
-  end
-
-  create_table "albums_users", id: false, force: :cascade do |t|
-    t.bigint "album_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["album_id"], name: "index_albums_users_on_album_id"
-    t.index ["user_id"], name: "index_albums_users_on_user_id"
   end
 
   create_table "answers", force: :cascade do |t|
@@ -274,6 +276,8 @@ ActiveRecord::Schema.define(version: 2019_01_24_201602) do
   end
 
   add_foreign_key "addresses", "suppliers"
+  add_foreign_key "album_users", "albums"
+  add_foreign_key "album_users", "users"
   add_foreign_key "albums", "users"
   add_foreign_key "answers", "options"
   add_foreign_key "answers", "questions"
