@@ -56,6 +56,22 @@ describe 'POST /album_users', type: :request do
     it { expect(response.body).to eq(AlbumUser.last.to_json) }
   end
 
+  context 'with non existing user' do
+    let(:params) do
+      {
+        album_id: album.id,
+        user_email: 'foo@mail.com'
+      }
+    end
+
+    before do
+      post '/album_users', headers: headers, params: params.to_json
+    end
+
+    it { expect(response).to have_http_status(:not_found) }
+    it { expect(response.body).to eq("{\"id\":\"not_found\",\"message\":\"Couldn't find User\"}") }
+  end
+
   context 'with incorrect params' do
     let(:params) { { foo: 'bar' } }
 
