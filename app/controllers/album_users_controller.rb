@@ -5,8 +5,6 @@ class AlbumUsersController < ApplicationController
 
   def create
     user = User.find_by!(email: params[:user_email])
-    return render_error('Usuário não encontrado na plataforma.') unless user
-
     album = Album.find(params[:album_id])
 
     album_user = AlbumUser.create!(
@@ -15,14 +13,5 @@ class AlbumUsersController < ApplicationController
     )
 
     render status: :created, json: album_user
-  end
-
-  private
-
-  def render_error(message)
-    render status: :error, json: {
-      id: 'error',
-      message: message
-    }
   end
 end
