@@ -8,7 +8,7 @@ describe 'POST /album_users', type: :request do
   let(:params) do
     {
       album_id: album.id,
-      user_email: current_user.email    
+      user_email: current_user.email
     }
   end
 
