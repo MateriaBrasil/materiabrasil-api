@@ -375,6 +375,12 @@
             "integer"
           ]
         },
+        "user_id": {
+          "description": "the unique identifier of the user to be associated",
+          "type": [
+            "integer"
+          ]
+        },
         "user_email": {
           "description": "the unique identifier of the user to be associated",
           "type": [
@@ -428,6 +434,9 @@
         },
         "user_email": {
           "$ref": "#/definitions/album_user/definitions/user_email"
+        },
+        "user_id": {
+          "$ref": "#/definitions/album_user/definitions/user_id"
         },
         "album_id": {
           "$ref": "#/definitions/album_user/definitions/album_id"

@@ -15,6 +15,10 @@ definitions:
     description: the unique identifier of the album to be associated
     type:
       - integer
+  user_id:
+    description: the unique identifier of the user to be associated
+    type:
+      - integer
   user_email:
     description: the unique identifier of the user to be associated
     type:
@@ -46,6 +50,8 @@ properties:
     "$ref": "/schemata/album_user#/definitions/id"
   user_email:
     "$ref": "/schemata/album_user#/definitions/user_email"
+  user_id:
+    "$ref": "/schemata/album_user#/definitions/user_id"
   album_id:
     "$ref": "/schemata/album_user#/definitions/album_id"
 additionalProperties: false

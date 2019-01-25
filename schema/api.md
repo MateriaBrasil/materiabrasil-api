@@ -234,6 +234,7 @@ An association between a album and a user
 | **album_id** | *integer* | the unique identifier of the album to be associated | `42` |
 | **id** | *integer* | unique identifier of the association | `42` |
 | **user_email** | *string* | the unique identifier of the user to be associated | `"example"` |
+| **user_id** | *integer* | the unique identifier of the user to be associated | `42` |
 
 ### <a name="link-POST-album_user-/album_users">AlbumUser Create</a>
 
