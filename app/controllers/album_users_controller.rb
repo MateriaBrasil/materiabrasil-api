@@ -14,7 +14,7 @@ class AlbumUsersController < ApplicationController
       album: album
     )
 
-    render status: :ok, json: album_user
+    render status: :created, json: album_user
   end
 
   private
