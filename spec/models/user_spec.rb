@@ -40,6 +40,7 @@ RSpec.describe User, type: :model do
         work_title: user.work_title,
         website: user.website,
         albums: user.albums,
+        shared_albums: user.shared_albums,
         suppliers: user.suppliers,
         public_profile: user.public_profile
       }

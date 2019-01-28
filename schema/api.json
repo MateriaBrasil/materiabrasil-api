@@ -2957,6 +2957,15 @@
             "$ref": "#/definitions/album"
           }
         },
+        "shared_albums": {
+          "description": "the shared_albums that belong to the user",
+          "type": [
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/album"
+          }
+        },
         "suppliers": {
           "description": "the suppliers that belong to the user",
           "type": [
@@ -3129,6 +3138,9 @@
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
         },
+        "shared_albums": {
+          "$ref": "#/definitions/user/definitions/shared_albums"
+        },
         "suppliers": {
           "$ref": "#/definitions/user/definitions/suppliers"
         },
@@ -3152,6 +3164,7 @@
         "subscribed",
         "pending_subscription",
         "albums",
+        "shared_albums",
         "public_profile"
       ],
       "additionalProperties": false

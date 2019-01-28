@@ -1554,6 +1554,7 @@ A user is a person registered in the platform
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **pending_subscription** | *boolean* | if user has pending subscription or not | `true` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |
+| **shared_albums** | *array* | the shared_albums that belong to the user |  |
 | **state** | *nullable string* | the state of the user | `null` |
 | **subscribed** | *boolean* | if user is subscribed or not | `true` |
 | **suppliers** | *array* | the suppliers that belong to the user |  |
