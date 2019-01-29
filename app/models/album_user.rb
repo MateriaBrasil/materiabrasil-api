@@ -6,6 +6,7 @@ class AlbumUser < ApplicationRecord
 
   validates :user, presence: true
   validates :album, presence: true
+  validates :user, uniqueness: { scope: :album }
 
   def as_json(_options = {})
     {
