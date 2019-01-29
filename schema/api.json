@@ -353,6 +353,97 @@
       },
       "additionalProperties": false
     },
+    "album_user": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "MateriaBrasil - AlbumUser",
+      "description": "An association between a album and a user",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the association",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "album_id": {
+          "description": "the unique identifier of the album to be associated",
+          "type": [
+            "integer"
+          ]
+        },
+        "user_id": {
+          "description": "the unique identifier of the user to be associated",
+          "type": [
+            "integer"
+          ]
+        },
+        "user_email": {
+          "description": "the unique identifier of the user to be associated",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/album_user/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "Create",
+          "description": "Create a new association between a album and an user",
+          "href": "/album_users",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+              "album_id": {
+                "$ref": "#/definitions/album_user/definitions/album_id"
+              },
+              "user_email": {
+                "$ref": "#/definitions/album_user/definitions/user_email"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/album_user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/album_user/definitions/id"
+        },
+        "user_email": {
+          "$ref": "#/definitions/album_user/definitions/user_email"
+        },
+        "user_id": {
+          "$ref": "#/definitions/album_user/definitions/user_id"
+        },
+        "album_id": {
+          "$ref": "#/definitions/album_user/definitions/album_id"
+        }
+      },
+      "additionalProperties": false
+    },
     "answer": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "MateriaBrasil - Answer",
@@ -2866,6 +2957,15 @@
             "$ref": "#/definitions/album"
           }
         },
+        "shared_albums": {
+          "description": "the shared_albums that belong to the user",
+          "type": [
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/album"
+          }
+        },
         "suppliers": {
           "description": "the suppliers that belong to the user",
           "type": [
@@ -3038,6 +3138,9 @@
         "albums": {
           "$ref": "#/definitions/user/definitions/albums"
         },
+        "shared_albums": {
+          "$ref": "#/definitions/user/definitions/shared_albums"
+        },
         "suppliers": {
           "$ref": "#/definitions/user/definitions/suppliers"
         },
@@ -3061,6 +3164,7 @@
         "subscribed",
         "pending_subscription",
         "albums",
+        "shared_albums",
         "public_profile"
       ],
       "additionalProperties": false
@@ -3072,6 +3176,9 @@
     },
     "album": {
       "$ref": "#/definitions/album"
+    },
+    "album_user": {
+      "$ref": "#/definitions/album_user"
     },
     "answer": {
       "$ref": "#/definitions/answer"

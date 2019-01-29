@@ -1,0 +1,58 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: MateriaBrasil - AlbumUser
+description: An association between a album and a user
+stability: prototype
+type:
+  - object
+definitions:
+  id:
+    description: unique identifier of the association
+    readOnly: true
+    type:
+      - integer
+  album_id:
+    description: the unique identifier of the album to be associated
+    type:
+      - integer
+  user_id:
+    description: the unique identifier of the user to be associated
+    type:
+      - integer
+  user_email:
+    description: the unique identifier of the user to be associated
+    type:
+      - string
+  identity:
+    anyOf:
+      - "$ref": "/schemata/album_user#/definitions/id"
+links:
+  - title: Create
+    description: Create a new association between a album and an user
+    href: "/album_users"
+    method: POST
+    rel: create
+    schema:
+      strictProperties: true
+      properties:
+        album_id:
+          "$ref": "/schemata/album_user#/definitions/album_id"
+        user_email:
+          "$ref": "/schemata/album_user#/definitions/user_email"
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - "$ref": "/schemata/album_user"
+        - "$ref": "/schemata/error"
+properties:
+  id:
+    "$ref": "/schemata/album_user#/definitions/id"
+  user_email:
+    "$ref": "/schemata/album_user#/definitions/user_email"
+  user_id:
+    "$ref": "/schemata/album_user#/definitions/user_id"
+  album_id:
+    "$ref": "/schemata/album_user#/definitions/album_id"
+additionalProperties: false
+id: schemata/album_user

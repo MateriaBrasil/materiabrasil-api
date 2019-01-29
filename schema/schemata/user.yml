@@ -85,6 +85,12 @@ definitions:
       - array
     targetSchema:
       "$ref": "/schemata/album"
+  shared_albums:
+    description: the shared_albums that belong to the user
+    type:
+      - array
+    targetSchema:
+      "$ref": "/schemata/album"
   suppliers:
     description: the suppliers that belong to the user
     type:
@@ -192,6 +198,8 @@ properties:
     "$ref": "/schemata/user#/definitions/pending_subscription"
   albums:
     "$ref": "/schemata/user#/definitions/albums"
+  shared_albums:
+    "$ref": "/schemata/user#/definitions/shared_albums"
   suppliers:
     "$ref": "/schemata/user#/definitions/suppliers"
   public_profile:
@@ -212,6 +220,7 @@ required:
   - subscribed
   - pending_subscription
   - albums
+  - shared_albums
   - public_profile
 additionalProperties: false
 id: schemata/user

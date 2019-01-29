@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resource :search, only: %i[show]
   resources :categories, only: %i[index]
   resources :material_categories, only: %i[create destroy]
+  resources :album_users, only: %i[create]
   resources :messages, only: %i[create]
   resources :questionnaires, only: %i[index]
 

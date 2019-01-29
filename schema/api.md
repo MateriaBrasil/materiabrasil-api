@@ -221,6 +221,60 @@ null
 ```
 
 
+## <a name="resource-album_user">AlbumUser</a>
+
+Stability: `prototype`
+
+An association between a album and a user
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | the unique identifier of the album to be associated | `42` |
+| **id** | *integer* | unique identifier of the association | `42` |
+| **user_email** | *string* | the unique identifier of the user to be associated | `"example"` |
+| **user_id** | *integer* | the unique identifier of the user to be associated | `42` |
+
+### <a name="link-POST-album_user-/album_users">AlbumUser Create</a>
+
+Create a new association between a album and an user
+
+```
+POST /album_users
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **album_id** | *integer* | the unique identifier of the album to be associated | `42` |
+| **user_email** | *string* | the unique identifier of the user to be associated | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/album_users \
+  -d '{
+  "album_id": 42,
+  "user_email": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-answer">Answer</a>
 
 Stability: `prototype`
@@ -1500,6 +1554,7 @@ A user is a person registered in the platform
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **pending_subscription** | *boolean* | if user has pending subscription or not | `true` |
 | **public_profile** | *boolean* | indicates if the user profile is public | `true` |
+| **shared_albums** | *array* | the shared_albums that belong to the user |  |
 | **state** | *nullable string* | the state of the user | `null` |
 | **subscribed** | *boolean* | if user is subscribed or not | `true` |
 | **suppliers** | *array* | the suppliers that belong to the user |  |
