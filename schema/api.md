@@ -1611,6 +1611,7 @@ PUT /users/{user_id}
 | **iugu_id** | *nullable uri* | iugu id | `null` |
 | **last_name** | *string* | the last name of the user | `"example"` |
 | **pending_subscription** | *boolean* | if user has pending subscription or not | `true` |
+| **public_profile** | *boolean* | indicates if the user profile is public | `true` |
 | **state** | *nullable string* | the state of the user | `null` |
 | **subscribed** | *boolean* | if user is subscribed or not | `true` |
 | **website** | *nullable uri* | the website of the user | `null` |
@@ -1635,7 +1636,8 @@ $ curl -n -X PUT https://api.materiabrasil.com/users/$USER_ID \
   "pending_subscription": true,
   "work_title": "example",
   "website": "example",
-  "email": "username@example.com"
+  "email": "username@example.com",
+  "public_profile": true
 }' \
   -H "Content-Type: application/json"
 ```

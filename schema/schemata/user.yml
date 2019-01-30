@@ -158,6 +158,8 @@ links:
           "$ref": "/schemata/user#/definitions/website"
         email:
           "$ref": "/schemata/user#/definitions/email"
+        public_profile:
+          "$ref": "/schemata/user#/definitions/public_profile"
       type:
         - object
     targetSchema:
