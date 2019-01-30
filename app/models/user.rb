@@ -10,13 +10,13 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
 
-  has_many :albums, dependent: :restrict_with_exception
   has_many :comments, dependent: :restrict_with_exception
   has_many :reviews, dependent: :restrict_with_exception
-  has_many :albums, dependent: :restrict_with_exception
   has_many :suppliers, dependent: :restrict_with_exception
   has_many :subscriptions, dependent: :restrict_with_exception
-  has_many :album_user, dependent: :destroy
+  has_many :album_users, dependent: :restrict_with_exception
+  has_many :albums, dependent: :restrict_with_exception
+  has_many :shared_albums, source: :album, through: :album_users
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(options = {})
@@ -43,10 +43,6 @@ class User < ApplicationRecord
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
-
-  def shared_albums
-    Album.find(AlbumUser.where(user_id: id).pluck(:album_id))
-  end
 
   def subscribed
     @subscribed ||= subscriptions.with_state(:active).count.positive?

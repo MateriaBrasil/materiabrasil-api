@@ -17,6 +17,8 @@ RSpec.describe Album, type: :model do
 
   it { is_expected.to belong_to :user }
   it { is_expected.to have_many :favorites }
+  it { is_expected.to have_many(:users).through(:album_users) }
+  it { is_expected.to have_many :album_users }
 
   describe '#as_json' do
     let(:json) do
