@@ -3070,6 +3070,9 @@
               },
               "email": {
                 "$ref": "#/definitions/user/definitions/email"
+              },
+              "public_profile": {
+                "$ref": "#/definitions/user/definitions/public_profile"
               }
             },
             "type": [
