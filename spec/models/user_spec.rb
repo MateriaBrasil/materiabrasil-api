@@ -18,6 +18,8 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many :comments }
   it { is_expected.to have_many :albums }
+  it { is_expected.to have_many(:shared_albums).through(:album_users) }
+  it { is_expected.to have_many :album_users }
   it { is_expected.to have_many :suppliers }
   it { is_expected.to have_many(:subscriptions) }
 
