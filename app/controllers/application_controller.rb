@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
   def forbidden
     render status: :forbidden, json: {
       id: 'forbidden',
-      message: 'You are not allowed to access this resource.'
+      message: 'Você não tem acesso a este recurso.'
     }
   end
 
