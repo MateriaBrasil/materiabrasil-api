@@ -19,10 +19,10 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def forbidden(exception)
+  def forbidden
     render status: :forbidden, json: {
       id: 'forbidden',
-      message: exception.message
+      message: 'You are not allowed to access this resource.'
     }
   end
 
