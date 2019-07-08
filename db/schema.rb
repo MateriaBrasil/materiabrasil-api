@@ -179,6 +179,10 @@ ActiveRecord::Schema.define(version: 2019_07_10_203415) do
     t.integer "sorting", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "weight_for_small_companies", default: 0
+    t.integer "weight_for_medium_companies", default: 0
+    t.integer "weight_for_large_companies", default: 0
+    t.integer "weight_for_service_companies", default: 0
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
