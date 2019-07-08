@@ -15,6 +15,7 @@ class SuppliersController < ApplicationController
 
   def update
     supplier = Supplier.find(params[:id])
+    authorize supplier
     supplier.update(supplier_params)
 
     render json: supplier

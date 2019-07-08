@@ -13,8 +13,8 @@ class ApplicationPolicy
   def admin?
     user.try(:admin?) || false
   end
-  
+
   def owner_or_admin?
-    record.user == user || admin?
+    admin? || record.user == user
   end
 end

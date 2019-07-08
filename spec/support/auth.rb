@@ -14,7 +14,7 @@ RSpec.shared_context 'with current_user' do
 end
 
 RSpec.shared_context 'with current_admin' do
-  let!(:admin) do
+  let!(:current_admin) do
     User.create!(
       email: 'admin@bar.com',
       first_name: 'admin',
