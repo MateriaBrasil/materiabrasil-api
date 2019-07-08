@@ -44,7 +44,8 @@ RSpec.describe User, type: :model do
         albums: user.albums,
         shared_albums: user.shared_albums,
         suppliers: user.suppliers,
-        public_profile: user.public_profile
+        public_profile: user.public_profile,
+        admin: false
       }
     end
 

@@ -105,6 +105,10 @@ definitions:
     description: indicates if the user is subscribed to the newsletter
     type:
       - boolean
+  admin:
+    description: indicates if the user is admin or not
+    type:
+      - boolean
   identity:
     anyOf:
       - "$ref": "/schemata/user#/definitions/id"
@@ -206,6 +210,8 @@ properties:
     "$ref": "/schemata/user#/definitions/suppliers"
   public_profile:
     "$ref": "/schemata/user#/definitions/public_profile"
+  admin:
+    "$ref": "/schemata/user#/definitions/admin"
 required:
   - id
   - email

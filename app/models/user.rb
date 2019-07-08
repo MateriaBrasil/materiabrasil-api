@@ -39,7 +39,8 @@ class User < ApplicationRecord
       suppliers: suppliers,
       public_profile: public_profile,
       subscribed: subscribed,
-      pending_subscription: pending_subscription
+      pending_subscription: pending_subscription,
+      admin: admin
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
