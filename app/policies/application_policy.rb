@@ -7,4 +7,14 @@ class ApplicationPolicy
     @user = user
     @record = record
   end
+
+  protected
+
+  def admin?
+    user.try(:admin?) || false
+  end
+  
+  def owner_or_admin?
+    record.user == user || admin?
+  end
 end
