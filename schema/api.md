@@ -1541,6 +1541,7 @@ A user is a person registered in the platform
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **admin** | *boolean* | indicates if the user is admin or not | `true` |
 | **albums** | *array* | the albums that belong to the user |  |
 | **bio** | *nullable string* | a short biography of the user | `null` |
 | **city** | *nullable string* | the city of the user | `null` |

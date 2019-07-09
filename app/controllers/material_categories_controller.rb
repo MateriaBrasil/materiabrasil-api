@@ -3,27 +3,32 @@
 class MaterialCategoriesController < ApplicationController
   before_action :authenticate_user!
 
+  # rubocop:disable Metrics/MethodLength
   def create
     material = Material.find(params[:material_id])
     category = Category.find(params[:category_id])
+    material_category = MaterialCategory.new(
+      material: material, category: category
+    )
+
+    authorize(material_category)
+
     root = root_category(category)
     single_choice = !root.multiple_choice
 
     delete_children(material, root) if single_choice
 
-    material_category = MaterialCategory.create!(
-      material: material,
-      category: category
-    )
-
+    material_category.save!
     render status: :created, json: material_category
   end
+  # rubocop:enable Metrics/MethodLength
 
   def destroy
-    association = MaterialCategory.find(params[:id])
-    association.destroy!
+    material_category = MaterialCategory.find(params[:id])
+    authorize(material_category)
+    material_category.destroy!
 
-    render status: :ok, json: association
+    render status: :ok, json: material_category
   end
 
   private

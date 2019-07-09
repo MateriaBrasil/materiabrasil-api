@@ -2987,6 +2987,12 @@
             "boolean"
           ]
         },
+        "admin": {
+          "description": "indicates if the user is admin or not",
+          "type": [
+            "boolean"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -3149,6 +3155,9 @@
         },
         "public_profile": {
           "$ref": "#/definitions/user/definitions/public_profile"
+        },
+        "admin": {
+          "$ref": "#/definitions/user/definitions/admin"
         }
       },
       "required": [

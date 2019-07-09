@@ -34,6 +34,8 @@ class Material < ApplicationRecord
 
   belongs_to :supplier
 
+  delegate :user, to: :supplier
+
   def self.with_categories(ids)
     where(
       'id IN (SELECT material_id FROM material_categories WHERE category_id ' \

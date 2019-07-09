@@ -110,4 +110,13 @@ describe 'POST /answers', type: :request do
     it { expect(response.body).to eq(answer.to_json) }
     it { expect(answer).to eq(answer) }
   end
+
+  context 'with current_admin' do
+    include_context 'with current_admin'
+    let(:answer) { Answer.first }
+
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer).to eq(answer) }
+  end
 end

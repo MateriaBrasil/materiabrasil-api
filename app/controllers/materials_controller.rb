@@ -26,6 +26,7 @@ class MaterialsController < ApplicationController
 
   def update
     material = Material.find(params[:id])
+    authorize material
     material.update(material_params)
 
     render json: material

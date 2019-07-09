@@ -53,6 +53,8 @@ RSpec.describe Material, type: :model do
   it { is_expected.to validate_presence_of :average_price }
   it { is_expected.to validate_presence_of :code }
 
+  it { is_expected.to delegate_method(:user).to(:supplier) }
+
   it { is_expected.to have_many :comments }
   it { is_expected.to belong_to :supplier }
   it { is_expected.to have_many(:categories).through(:material_categories) }

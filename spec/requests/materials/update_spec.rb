@@ -93,6 +93,35 @@ RSpec.describe 'PUT /material/:id', type: :request do
     end
   end
 
+  context 'with current_admin' do
+    include_context 'with current_admin'
+
+    context 'with all params' do
+      before do
+        put "/materials/#{material.id}",
+          headers: headers,
+          params: params.to_json
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(material.reload.to_json) }
+      it { expect(response.headers['uid']).to eq(current_admin.email) }
+    end
+
+    context 'with only one param' do
+      let(:params) { { image_url: 'http://another-image' } }
+
+      before do
+        put "/materials/#{material.id}",
+          headers: headers,
+          params: params.to_json
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(material.reload.to_json) }
+    end
+  end
+
   context 'with incorrect request' do
     let(:params) { { foo: 'bar' } }
 

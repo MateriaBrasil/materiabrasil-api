@@ -4,13 +4,16 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    answer = Answer.new(answer_params)
+    authorize answer
+
     Answer.where(
       about_type: params[:about_type],
       about_id: params[:about_id],
       question_id: params[:question_id]
     ).delete_all
 
-    answer = Answer.create!(answer_params)
+    answer.save!
     render status: :created, json: answer
   end
 

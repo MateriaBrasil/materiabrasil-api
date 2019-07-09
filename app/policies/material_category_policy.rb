@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AnswerPolicy < ApplicationPolicy
+class MaterialCategoryPolicy < ApplicationPolicy
   def create?
     owner_or_admin?
   end
@@ -12,7 +12,6 @@ class AnswerPolicy < ApplicationPolicy
   protected
 
   def owner_or_admin?
-    record_user = record.about&.user || record.about&.supplier&.user
-    record_user.id == user.id || admin?
+    admin? || record.material.user == user
   end
 end
