@@ -81,6 +81,18 @@ describe 'POST /material_categories', type: :request do
     it { expect(response).to have_http_status(:bad_request) }
   end
 
+  context 'with current_admin' do
+    include_context 'with current_admin'
+
+    before do
+      post '/material_categories', headers: headers, params: params.to_json
+    end
+
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(MaterialCategory.last.to_json) }
+    it { expect(response.headers['uid']).to eq(current_admin.email) }
+  end
+
   context 'without current_user' do
     let(:headers) { { 'access-token' => nil } }
 

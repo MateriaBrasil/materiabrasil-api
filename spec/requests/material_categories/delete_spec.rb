@@ -81,4 +81,19 @@ describe 'DELETE /material_categories/:id', type: :request do
 
     it { expect(response).to have_http_status(:unauthorized) }
   end
+
+  context 'with current_admin' do
+    include_context 'with current_admin'
+
+    before do
+      delete "/material_categories/#{material_category.id}",
+        headers: headers,
+        params: params.to_json
+    end
+
+    it { expect(response).to have_http_status(:ok) }
+    it { expect(response.body).to eq(material_category.to_json) }
+    it { expect(MaterialCategory.find_by(id: material_category.id)).to be(nil) }
+    it { expect(response.headers['uid']).to eq(current_admin.email) }
+  end
 end
