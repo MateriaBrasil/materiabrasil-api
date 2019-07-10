@@ -25,7 +25,7 @@ describe 'POST /material_categories', type: :request do
       state_subscription: '987654321',
       phone: '5551987654321',
       company_revenue: '100000000',
-      number_of_employees: 1000,
+      type_of_company: 1,
       reach: 'country',
       image_url: 'http://foo-image'
     )

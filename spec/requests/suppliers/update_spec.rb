@@ -17,7 +17,7 @@ RSpec.describe 'PUT /supplier/:id', type: :request do
       phone: '5551123456789',
       reach: 'global',
       company_revenue: '100000000',
-      number_of_employees: 1000,
+      type_of_company: 1,
       image_url: 'http://foo'
     }
   end

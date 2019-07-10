@@ -62,6 +62,12 @@ definitions:
     type:
     - integer
     - "null"
+  type_of_company:
+    description: the type of company (small, medium, large, service)
+    type:
+    - integer
+    minimum: 1
+    maximum: 4
   image_url:
     description:  a link to the profile image of the supplier
     type:
@@ -128,8 +134,8 @@ links:
         "$ref": "/schemata/supplier#/definitions/phone"
       company_revenue:
         "$ref": "/schemata/supplier#/definitions/company_revenue"
-      number_of_employees:
-        "$ref": "/schemata/supplier#/definitions/number_of_employees"
+      type_of_company:
+        "$ref": "/schemata/supplier#/definitions/type_of_company"
       reach:
         "$ref": "/schemata/supplier#/definitions/reach"
     type:
@@ -166,8 +172,8 @@ links:
         "$ref": "/schemata/supplier#/definitions/phone"
       company_revenue:
         "$ref": "/schemata/supplier#/definitions/company_revenue"
-      number_of_employees:
-        "$ref": "/schemata/supplier#/definitions/number_of_employees"
+      type_of_company:
+        "$ref": "/schemata/supplier#/definitions/type_of_company"
       reach:
         "$ref": "/schemata/supplier#/definitions/reach"
       image_url:
@@ -223,8 +229,8 @@ properties:
     "$ref": "/schemata/supplier#/definitions/phone"
   company_revenue:
     "$ref": "/schemata/supplier#/definitions/company_revenue"
-  number_of_employees:
-    "$ref": "/schemata/supplier#/definitions/number_of_employees"
+  type_of_company:
+    "$ref": "/schemata/supplier#/definitions/type_of_company"
   reach:
     "$ref": "/schemata/supplier#/definitions/reach"
   image_url:
@@ -242,7 +248,7 @@ required:
 - state_subscription
 - phone
 - company_revenue
-- number_of_employees
+- type_of_company
 - reach
 additionalProperties: false
 id: schemata/supplier

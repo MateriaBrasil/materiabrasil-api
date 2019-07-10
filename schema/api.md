@@ -1209,10 +1209,10 @@ A supplier is a company that offers materials, products or services
 | **materials** | *array* | the materials that belong to the supplier |  |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
-| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **type_of_company** | *integer* | the type of company (small, medium, large, service)<br/> **Range:** `1 <= value <= 4` | `42` |
 | **user_id** | *integer* | the unique identifier of the user the supplier belongs to | `42` |
 | **website** | *string* | the website of the supplier | `"example"` |
 
@@ -1263,10 +1263,10 @@ POST /suppliers
 | **email** | *email* | the email of the supplier | `"username@example.com"` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
-| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **type_of_company** | *integer* | the type of company (small, medium, large, service)<br/> **Range:** `1 <= value <= 4` | `42` |
 | **website** | *string* | the website of the supplier | `"example"` |
 
 
@@ -1285,7 +1285,7 @@ $ curl -n -X POST https://api.materiabrasil.com/suppliers \
   "state_subscription": "example",
   "phone": "example",
   "company_revenue": "example",
-  "number_of_employees": 42,
+  "type_of_company": 42,
   "reach": "city"
 }' \
   -H "Content-Type: application/json"
@@ -1322,10 +1322,10 @@ PUT /suppliers/{supplier_id}
 | **image_url** | *nullable string* | a link to the profile image of the supplier | `null` |
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
-| **number_of_employees** | *nullable integer* | the number of employees of the supplier | `null` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
+| **type_of_company** | *integer* | the type of company (small, medium, large, service)<br/> **Range:** `1 <= value <= 4` | `42` |
 | **website** | *string* | the website of the supplier | `"example"` |
 
 
@@ -1344,7 +1344,7 @@ $ curl -n -X PUT https://api.materiabrasil.com/suppliers/$SUPPLIER_ID \
   "state_subscription": "example",
   "phone": "example",
   "company_revenue": "example",
-  "number_of_employees": 42,
+  "type_of_company": 42,
   "reach": "city",
   "image_url": "example"
 }' \
