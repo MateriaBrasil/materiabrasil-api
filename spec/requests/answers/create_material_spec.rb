@@ -119,4 +119,21 @@ describe 'POST /answers', type: :request do
     it { expect(response.body).to eq(answer.to_json) }
     it { expect(answer).to eq(answer) }
   end
+
+  context 'with another user' do
+    let(:another_user) do
+      User.create!(
+        email: 'another@bar.com',
+        first_name: 'another',
+        last_name: 'Bar',
+        password: 'anotherbaranother',
+        iugu_id: '1',
+        admin: false
+      )
+    end
+
+    let(:headers) { another_user.create_new_auth_token }
+
+    it { expect(response).to have_http_status(:forbidden) }
+  end
 end
