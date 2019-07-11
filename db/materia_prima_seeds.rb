@@ -2,6 +2,7 @@
 
 # rubocop:disable Metrics/LineLength
 questionnaire = Questionnaire.create!(
+  id: 4,
   name: 'Matéria Prima',
   about_type: 'Material',
   driver: 'raw_material',
@@ -18,7 +19,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Como voce caracteriza a sua materia-prima quanto a sua natureza?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Sintético'
@@ -49,7 +50,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Qual a característica da fonte de sua principal materia-prima?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Matéria Prima Importada'
@@ -80,7 +81,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Há substâncias tóxicas ou contaminantes na composição da sua matéria-prima ou produto final?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'sim'
@@ -99,7 +100,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Existem regulações, normas e certificações associadas a produção das suas materias primas',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não possui'
@@ -130,7 +131,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Qual o percentual de materia Prima renovável na composição final do seu produto?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'De 0% à 20%'
@@ -161,7 +162,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: ' Qual o percentual de matéria prima reciclável na composição final do seu produto?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'De 0% à 20%'
@@ -192,7 +193,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Qual o percentual de materia Prima reciclada na composição final do seu produto?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'De 0% à 20%'
@@ -223,7 +224,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Qual a característica da fonte de sua materia-prima reciclada',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Resíduos industriais de pré consumo'
@@ -254,7 +255,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'O número / diversidade de materiais / componentes é o mínimo possível ?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Trabalhamos com matérias primas diversas de acordo com as exigências técnicas'
@@ -281,7 +282,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'A configuração do seu produto permite a separação de materiais e componentes?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Materiais e componentes não são passíveis de separação'
@@ -312,7 +313,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'As peças são rotuladas para fácil identificação dos materiais?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -335,7 +336,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Você oferece produto pra reuso ou remanufaturado?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não, nossos produtos são de uso único e não permitem re uso'
@@ -366,7 +367,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 2,
       description: 'O seu produto ou serviço atende e se adapta a diferentes necessidades?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não, meu produto atende a uma função única definida'
@@ -385,7 +386,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Qual a vida útil do seu produto com relação à média de mercado? Menos que a média, igual, mais etc?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Meu produto é descartável'
@@ -416,7 +417,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Possui um manual de uso com instruções de montagem e desmontagem, assim como recomendações para o encaminhamento ambientalmente adequado?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não possui manual'
@@ -439,7 +440,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Sua empresa disponibiliza peças de reposição?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -462,7 +463,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Existem políticas e práticas voltadas para a redução do impacto ambiental associado à sua embalagem?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -481,7 +482,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Os materiais utilizados na sua embalagem são reciclados e recicláveis?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -504,7 +505,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Há integração de serviço para garantir a qualidade do produto que você oferece? Quanto?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não ofereço serviço'
@@ -535,7 +536,7 @@ Question.create!(
       weight_for_large_companies: 1,
       weight_for_service_companies: 3,
       description: 'Existem serviços ou funções específicas que são atendidas por via digital?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -554,7 +555,7 @@ Question.create!(
       weight_for_large_companies: 2,
       weight_for_service_companies: 2,
       description: 'Você oferece alguma forma de compartilhamento de seu produto ou serviço?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -573,7 +574,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Como é o planejamento da produção do seu produto ou da oferta do seu serviço?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Produção ininterrupta de larga escala'
@@ -596,7 +597,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Há comunicação dos aspectos e impactos ambientais do seu produto?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'

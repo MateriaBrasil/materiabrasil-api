@@ -2,6 +2,7 @@
 
 # rubocop:disable Metrics/LineLength
 questionnaire = Questionnaire.create!(
+  id: 3,
   name: 'Processo',
   about_type: 'Material',
   driver: 'process',
@@ -18,7 +19,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 2,
       description: 'Como você define a sua matriz energética?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Fonte fóssil não renovável (Carvão, gás, diesel)'
@@ -49,7 +50,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de água no seu pocesso produtivo?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não monitoro meu consumo'
@@ -80,7 +81,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de água nos seus escritórios e áreas administrativas?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não monitoro meu consumo'
@@ -111,7 +112,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Há substâncias tóxicas usadas como insumos em seus processos de produção?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Sim'
@@ -130,7 +131,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Qual é a destinação final dos resíduos de seus processos de produção?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Incinerado/queimado no local (não certificado) Coletado por Terceira parte  (não certificado) '
@@ -161,7 +162,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Qual porcentagem de resíduos perigosos/contaminantes foi eliminada com responsabilidade, com uma terceira parte documentada? resíduos perigosos incluem: pilhas, rejeitos médicos, equipamentos eletrônicos, solventes, óleos, pigmentos sintéticos, metais pesados, etcQual porcentagem de resíduos perigosos/contaminantes foi eliminada com responsabilidade, com uma terceira parte documentada? resíduos perigosos incluem: pilhas, rejeitos médicos, equipamentos eletrônicos, solventes, óleos, pigmentos sintéticos, metais pesados, etc',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: '< 80%'
@@ -192,7 +193,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Há programa de eliminação ou redução dos resíduos gerados de seus processos de produção?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -223,7 +224,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'Há programa de reuso ou reciclagem dos resíduos gerados de seus processos de produção?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não'
@@ -254,7 +255,7 @@ Question.create!(
       weight_for_large_companies: 2,
       weight_for_service_companies: 2,
       description: 'Os processos da sua cadeia de valor/ciclo de vida são realizados através de colaborações com outras organizações ou indivíduos?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não, produto exclusivo, tecnologia própria e patenteada. Toda a cadeia controlda por um único grupo comercial.'
@@ -281,7 +282,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'Há processos de reciclagem para seu produto? ',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'O meu produto não possui tecnologia que permita sua reciclagem'
@@ -312,7 +313,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 0,
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de energia no seu processo produtivo',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não monitoro meu consumo'
@@ -343,7 +344,7 @@ Question.create!(
       weight_for_large_companies: 3,
       weight_for_service_companies: 3,
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de energia ou eficiência energética nos seus escritórios e áreas administrativas?',
-      options: [
+      options_attributes: [
         {
           value: 1,
           description: 'Não monitoro'
