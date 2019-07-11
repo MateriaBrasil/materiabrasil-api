@@ -2351,6 +2351,14 @@
             "null"
           ]
         },
+        "type_of_company": {
+          "description": "the type of company (small, medium, large, service)",
+          "type": [
+            "integer"
+          ],
+          "minimum": 1,
+          "maximum": 4
+        },
         "image_url": {
           "description": "a link to the profile image of the supplier",
           "type": [
@@ -2452,8 +2460,8 @@
               "company_revenue": {
                 "$ref": "#/definitions/supplier/definitions/company_revenue"
               },
-              "number_of_employees": {
-                "$ref": "#/definitions/supplier/definitions/number_of_employees"
+              "type_of_company": {
+                "$ref": "#/definitions/supplier/definitions/type_of_company"
               },
               "reach": {
                 "$ref": "#/definitions/supplier/definitions/reach"
@@ -2513,8 +2521,8 @@
               "company_revenue": {
                 "$ref": "#/definitions/supplier/definitions/company_revenue"
               },
-              "number_of_employees": {
-                "$ref": "#/definitions/supplier/definitions/number_of_employees"
+              "type_of_company": {
+                "$ref": "#/definitions/supplier/definitions/type_of_company"
               },
               "reach": {
                 "$ref": "#/definitions/supplier/definitions/reach"
@@ -2607,8 +2615,8 @@
         "company_revenue": {
           "$ref": "#/definitions/supplier/definitions/company_revenue"
         },
-        "number_of_employees": {
-          "$ref": "#/definitions/supplier/definitions/number_of_employees"
+        "type_of_company": {
+          "$ref": "#/definitions/supplier/definitions/type_of_company"
         },
         "reach": {
           "$ref": "#/definitions/supplier/definitions/reach"
@@ -2631,7 +2639,7 @@
         "state_subscription",
         "phone",
         "company_revenue",
-        "number_of_employees",
+        "type_of_company",
         "reach"
       ],
       "additionalProperties": false

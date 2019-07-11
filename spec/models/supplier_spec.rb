@@ -15,7 +15,7 @@ RSpec.describe Supplier, type: :model do
       state_subscription: '987654321',
       phone: '5551987654321',
       company_revenue: '100000000',
-      number_of_employees: 1000,
+      type_of_company: 1,
       reach: 'country',
       image_url: 'http://foo-image',
       user: current_user
@@ -32,6 +32,12 @@ RSpec.describe Supplier, type: :model do
   it { is_expected.to validate_presence_of :state_subscription }
   it { is_expected.to validate_presence_of :phone }
   it { is_expected.to validate_presence_of :reach }
+  it do
+    is_expected.to validate_numericality_of(:type_of_company)
+      .is_greater_than_or_equal_to(1)
+      .is_less_than_or_equal_to(4)
+      .only_integer
+  end
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to have_many(:addresses) }
@@ -51,11 +57,11 @@ RSpec.describe Supplier, type: :model do
         state_subscription: supplier.state_subscription,
         phone: supplier.phone,
         company_revenue: supplier.company_revenue,
-        number_of_employees: supplier.number_of_employees,
         reach: supplier.reach,
         user_id: supplier.user_id,
         image_url: supplier.image_url,
-        materials: supplier.materials
+        materials: supplier.materials,
+        type_of_company: 1
       }
     end
 

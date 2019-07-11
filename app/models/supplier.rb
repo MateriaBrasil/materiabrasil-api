@@ -4,6 +4,12 @@ class Supplier < ApplicationRecord
   validates :name, :description, :website, :email, :cnpj, :company_name,
     :municipal_subscription, :state_subscription, :phone, :reach, presence: true
 
+  validates :type_of_company, numericality: {
+    greater_than_or_equal_to: 1,
+    less_than_or_equal_to: 4,
+    only_integer: true
+  }
+
   belongs_to :user
   has_many :addresses, dependent: :restrict_with_exception
   has_many :materials, dependent: :restrict_with_exception
@@ -24,11 +30,11 @@ class Supplier < ApplicationRecord
       state_subscription: state_subscription,
       phone: phone,
       company_revenue: company_revenue,
-      number_of_employees: number_of_employees,
       reach: reach,
       image_url: image_url,
       user_id: user.id,
-      materials: materials
+      materials: materials,
+      type_of_company: type_of_company
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
