@@ -12,6 +12,7 @@ Question.create!(
   [
     {
       questionnaire: questionnaire,
+      sorting: 1,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -20,6 +21,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 2,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -28,6 +30,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 3,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -36,6 +39,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 4,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -44,6 +48,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 5,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -52,6 +57,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 6,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -60,6 +66,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 7,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -68,6 +75,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 8,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -76,6 +84,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 9,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -84,6 +93,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 10,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -92,6 +102,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 11,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 2,
       weight_for_large_companies: 3,
@@ -100,6 +111,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 12,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -108,6 +120,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 13,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -116,6 +129,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 14,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -124,6 +138,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 15,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -132,6 +147,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 16,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -140,6 +156,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 17,
       weight_for_small_companies: 2,
       weight_for_medium_companies: 2,
       weight_for_large_companies: 3,
@@ -148,6 +165,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 18,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -156,6 +174,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 19,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -164,6 +183,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 20,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -172,6 +192,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 21,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -180,6 +201,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 22,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -188,6 +210,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 23,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -196,6 +219,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 24,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -204,6 +228,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 25,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -212,6 +237,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 26,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -220,6 +246,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 27,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -228,6 +255,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 28,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -236,6 +264,7 @@ Question.create!(
     },
     {
       questionnaire: questionnaire,
+      sorting: 29,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
