@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/LineLength
+questionnaire = Questionnaire.create!(
+  name: 'Gestão e Governança',
+  about_type: 'Supplier',
+  driver: 'management_and_governance',
+  sorting: 2
+)
+
 Question.create!(
   [
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -11,6 +19,7 @@ Question.create!(
       description: 'Qual a proporção de mulheres na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -18,6 +27,7 @@ Question.create!(
       description: 'Qual a proporção de mulheres nos cargos de decisão na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -25,6 +35,7 @@ Question.create!(
       description: 'Sobre o processo de recrutamento e seleção: a empresa possui políticas de equidade de gênero?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -32,6 +43,7 @@ Question.create!(
       description: 'A empresa possui alguma instância responsável por promover e supervisionar a implementação de ações de promoção da equidade de gênero?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -39,6 +51,7 @@ Question.create!(
       description: 'A empresa possui práticas ou políticas para combater o preconceito e a violência de gênero?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -46,6 +59,7 @@ Question.create!(
       description: 'A empresa possui práticas ou políticas para promover e garantir a liberdade, equidade e diversidade sexual?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -53,6 +67,7 @@ Question.create!(
       description: 'Qual a proporção de mulheres negras na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -60,6 +75,7 @@ Question.create!(
       description: 'Qual a proporção de mulheres negras nos cargos de decisão na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -67,6 +83,7 @@ Question.create!(
       description: 'Qual a proporção de pessoas com deficiência (PCD) na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -74,6 +91,7 @@ Question.create!(
       description: 'A empresa promove ações e campanhas intrenas de sensibilização para fomentar um ambiente inclusivo onde as pessoas com deficiência são envolvidas e participam do diálogo das ações inclusivas?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 2,
       weight_for_large_companies: 3,
@@ -81,6 +99,7 @@ Question.create!(
       description: 'Em relação à licença-maternidade e paternidade, qual a política da empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -88,6 +107,7 @@ Question.create!(
       description: 'A empresa oferece plano de saúde para os empregados?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -95,6 +115,7 @@ Question.create!(
       description: 'A empresa oferece benefícios de alimentação para o empregado?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -102,6 +123,7 @@ Question.create!(
       description: 'Com relação ao desenvolvimento técnico profissional'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -109,6 +131,7 @@ Question.create!(
       description: 'Com relação ao desenvolvimento comportamental'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -116,6 +139,7 @@ Question.create!(
       description: 'A empresa possui processo de avaliação do desempenho dos empregados?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 2,
       weight_for_medium_companies: 2,
       weight_for_large_companies: 3,
@@ -123,6 +147,7 @@ Question.create!(
       description: 'Os funcionários tem um canal de feeback e sugestões de melhorias?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -130,6 +155,7 @@ Question.create!(
       description: 'A empresa possui registro de funcionários no e-social?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -137,6 +163,7 @@ Question.create!(
       description: 'A empresa possui PCMSO e PPRA atualizados?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -144,6 +171,7 @@ Question.create!(
       description: 'A empresa realiza e mantém os atestados de saúde ocupacional atualizados?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -151,6 +179,7 @@ Question.create!(
       description: 'A empresa oferece EPIs adequados para a realização das atividades para todos os funcionários?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -158,6 +187,7 @@ Question.create!(
       description: 'Os equipamentos e mobiliários utilizados pelos funcionários são analisados ergonomicamente?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -165,6 +195,7 @@ Question.create!(
       description: 'Há política de gestão de resíduos dentro da empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -172,6 +203,7 @@ Question.create!(
       description: 'Qual a proporção de negros na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -179,6 +211,7 @@ Question.create!(
       description: 'Qual a proporção de negros nos cargos de decisão na empresa?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -186,6 +219,7 @@ Question.create!(
       description: 'Sobre o processo de recrutamento e seleção: a empresa possui políticas de equidade de raça?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 1,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -193,6 +227,7 @@ Question.create!(
       description: 'A empresa possui alguma instância responsável por promover e supervisionar a implementação de ações de promoção da diversidade e equidade de raça?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
@@ -200,6 +235,7 @@ Question.create!(
       description: 'A empresa possui práticas ou políticas para combater o preconceito e a violência de raça?'
     },
     {
+      questionnaire: questionnaire,
       weight_for_small_companies: 3,
       weight_for_medium_companies: 3,
       weight_for_large_companies: 3,
