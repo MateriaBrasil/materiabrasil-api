@@ -20,11 +20,11 @@ Question.create!(
       description: 'Como voce caracteriza a sua materia-prima quanto a sua natureza?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Sintético'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Artificial'
         },
         {
@@ -51,11 +51,11 @@ Question.create!(
       description: 'Qual a característica da fonte de sua principal materia-prima?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Matéria Prima Importada'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Produção industrial'
         },
         {
@@ -82,7 +82,7 @@ Question.create!(
       description: 'Há substâncias tóxicas ou contaminantes na composição da sua matéria-prima ou produto final?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'sim'
         },
         {
@@ -101,11 +101,11 @@ Question.create!(
       description: 'Existem regulações, normas e certificações associadas a produção das suas materias primas',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não possui'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Industrial'
         },
         {
@@ -132,11 +132,11 @@ Question.create!(
       description: 'Qual o percentual de materia Prima renovável na composição final do seu produto?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'De 0% à 20%'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'De 20% à 40%'
         },
         {
@@ -163,11 +163,11 @@ Question.create!(
       description: ' Qual o percentual de matéria prima reciclável na composição final do seu produto?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'De 0% à 20%'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'De 20% à 40%'
         },
         {
@@ -194,11 +194,11 @@ Question.create!(
       description: 'Qual o percentual de materia Prima reciclada na composição final do seu produto?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'De 0% à 20%'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'De 20% à 40%'
         },
         {
@@ -225,11 +225,11 @@ Question.create!(
       description: 'Qual a característica da fonte de sua materia-prima reciclada',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Resíduos industriais de pré consumo'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Resíduos de produção de terceiros'
         },
         {
@@ -256,7 +256,7 @@ Question.create!(
       description: 'O número / diversidade de materiais / componentes é o mínimo possível ?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Trabalhamos com matérias primas diversas de acordo com as exigências técnicas'
         },
         {
@@ -283,11 +283,11 @@ Question.create!(
       description: 'A configuração do seu produto permite a separação de materiais e componentes?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Materiais e componentes não são passíveis de separação'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Os materiais podem ser separados para a reciclagem, mas não há separação de componentes para reuso, reparo e manutenção'
         },
         {
@@ -314,7 +314,7 @@ Question.create!(
       description: 'As peças são rotuladas para fácil identificação dos materiais?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -337,11 +337,11 @@ Question.create!(
       description: 'Você oferece produto pra reuso ou remanufaturado?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não, nossos produtos são de uso único e não permitem re uso'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Nosso produto pode ser re utilizado, mas não há cadeia estabelecida e nós não oferecemos nenhum serviço associado a esse re uso'
         },
         {
@@ -368,7 +368,7 @@ Question.create!(
       description: 'O seu produto ou serviço atende e se adapta a diferentes necessidades?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não, meu produto atende a uma função única definida'
         },
         {
@@ -387,11 +387,11 @@ Question.create!(
       description: 'Qual a vida útil do seu produto com relação à média de mercado? Menos que a média, igual, mais etc?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Meu produto é descartável'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Menor que a média do mercado'
         },
         {
@@ -418,7 +418,7 @@ Question.create!(
       description: 'Possui um manual de uso com instruções de montagem e desmontagem, assim como recomendações para o encaminhamento ambientalmente adequado?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não possui manual'
         },
         {
@@ -441,7 +441,7 @@ Question.create!(
       description: 'Sua empresa disponibiliza peças de reposição?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -464,7 +464,7 @@ Question.create!(
       description: 'Existem políticas e práticas voltadas para a redução do impacto ambiental associado à sua embalagem?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -483,7 +483,7 @@ Question.create!(
       description: 'Os materiais utilizados na sua embalagem são reciclados e recicláveis?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -506,11 +506,11 @@ Question.create!(
       description: 'Há integração de serviço para garantir a qualidade do produto que você oferece? Quanto?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não ofereço serviço'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Manutenção somente durante a garantia'
         },
         {
@@ -537,7 +537,7 @@ Question.create!(
       description: 'Existem serviços ou funções específicas que são atendidas por via digital?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -553,10 +553,10 @@ Question.create!(
       weight_for_medium_companies: 1,
       weight_for_large_companies: 2,
       weight_for_service_companies: 2,
-      description: 'Você oferece alguma forma de compartilhamento de seu produto ou serviço?'
+      description: 'Você oferece alguma forma de compartilhamento de seu produto ou serviço?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
@@ -575,7 +575,7 @@ Question.create!(
       description: 'Como é o planejamento da produção do seu produto ou da oferta do seu serviço?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Produção ininterrupta de larga escala'
         },
         {
@@ -598,11 +598,11 @@ Question.create!(
       description: 'Há comunicação dos aspectos e impactos ambientais do seu produto?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Comunicamos sobre as características do produto, mas não possuímos normas ou processos específicos'
         },
         {

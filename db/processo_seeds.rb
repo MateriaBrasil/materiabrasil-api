@@ -20,11 +20,11 @@ Question.create!(
       description: 'Como você define a sua matriz energética?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Fonte fóssil não renovável (Carvão, gás, diesel)'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Rede elétrica municipal (fontes desconhecidas/não renováveis)'
         },
         {
@@ -51,11 +51,11 @@ Question.create!(
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de água no seu pocesso produtivo?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não monitoro meu consumo'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Monitoro meu consumo'
         },
         {
@@ -82,11 +82,11 @@ Question.create!(
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de água nos seus escritórios e áreas administrativas?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não monitoro meu consumo'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Monitoro meu consumo'
         },
         {
@@ -113,13 +113,13 @@ Question.create!(
       description: 'Há substâncias tóxicas usadas como insumos em seus processos de produção?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Sim'
         },
         {
-          value: 5, 
+          value: 5,
           description: 'Não'
-        },
+        }
       ]
     },
     {
@@ -132,11 +132,11 @@ Question.create!(
       description: 'Qual é a destinação final dos resíduos de seus processos de produção?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Incinerado/queimado no local (não certificado) Coletado por Terceira parte  (não certificado) '
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Coleta de lixo municipal sem separação'
         },
         {
@@ -163,11 +163,11 @@ Question.create!(
       description: 'Qual porcentagem de resíduos perigosos/contaminantes foi eliminada com responsabilidade, com uma terceira parte documentada? resíduos perigosos incluem: pilhas, rejeitos médicos, equipamentos eletrônicos, solventes, óleos, pigmentos sintéticos, metais pesados, etcQual porcentagem de resíduos perigosos/contaminantes foi eliminada com responsabilidade, com uma terceira parte documentada? resíduos perigosos incluem: pilhas, rejeitos médicos, equipamentos eletrônicos, solventes, óleos, pigmentos sintéticos, metais pesados, etc',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: '< 80%'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'De 80% à 90%'
         },
         {
@@ -194,11 +194,11 @@ Question.create!(
       description: 'Há programa de eliminação ou redução dos resíduos gerados de seus processos de produção?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Existem metas por setor/ processo'
         },
         {
@@ -225,11 +225,11 @@ Question.create!(
       description: 'Há programa de reuso ou reciclagem dos resíduos gerados de seus processos de produção?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Existem metas por setor/ processo'
         },
         {
@@ -256,11 +256,11 @@ Question.create!(
       description: 'Os processos da sua cadeia de valor/ciclo de vida são realizados através de colaborações com outras organizações ou indivíduos?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não, produto exclusivo, tecnologia própria e patenteada. Toda a cadeia controlda por um único grupo comercial.'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Não, produto exclusivo, tecnologia própria e patenteada. Contrata  fornecedores e prestadores de serviço terceirizados quando necessário.'
         },
         {
@@ -283,11 +283,11 @@ Question.create!(
       description: 'Há processos de reciclagem para seu produto? ',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'O meu produto não possui tecnologia que permita sua reciclagem'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'o meu produto possui tecnologia que permite que ele seja reciclado, mas ela não está disponível no local onde o comercializo'
         },
         {
@@ -314,11 +314,11 @@ Question.create!(
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de energia no seu processo produtivo',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não monitoro meu consumo'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Monitoro meu consumo'
         },
         {
@@ -345,11 +345,11 @@ Question.create!(
       description: 'A sua empresa implementou algum dos seguintes métodos de conservação de energia ou eficiência energética nos seus escritórios e áreas administrativas?',
       options: [
         {
-          value: 1, 
+          value: 1,
           description: 'Não monitoro'
         },
         {
-          value: 2, 
+          value: 2,
           description: 'Monitoro meu consumo'
         },
         {
