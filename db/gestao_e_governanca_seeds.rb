@@ -357,7 +357,10 @@ Question.create!(
       description: 'Há política de gestão de resíduos dentro da empresa?',
       options_attributes: [
         { value: 1, description: 'não' },
-        { value: 5, description: 'sim' }
+        { value: 2, description: 'Existe programa interno de coleta seletiva.' },
+        { value: 3, description: 'Existe programa interno de coleta seletiva que é amparado ações informativas e periódicas de promoção da conscientização e o comprometimento de todos os profissionais da empresa com o programa.' },
+        { value: 4, description: 'Existe programa interno de coleta seletiva que é amparado ações informativas e treinamentos práticos periódicos de promoção da conscientização e o comprometimento de todos os profissionais da empresa com o programa.' },
+        { value: 5, description: 'Existe também um processo de supervisão da coleta seletiva.' }
       ]
     },
     {
