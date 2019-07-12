@@ -3,7 +3,7 @@
 # rubocop:disable Metrics/LineLength
 questionnaire = Questionnaire.create!(
   id: 2,
-  name: 'Gestão e Governança',
+  name: 'GESTAO E GOVERNANCA',
   about_type: 'Supplier',
   driver: 'management_and_governance',
   sorting: 2
