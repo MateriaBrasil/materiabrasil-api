@@ -2,6 +2,11 @@
 
 class Question < ApplicationRecord
   validates :questionnaire, :description, :sorting, presence: true
+  validates  :weight_for_small_companies, :weight_for_medium_companies,
+    :weight_for_large_companies, :weight_for_service_companies,
+    numericality: {
+      only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 3
+    }
 
   belongs_to :questionnaire
   has_many :options, dependent: :restrict_with_exception

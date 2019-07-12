@@ -32,6 +32,26 @@ RSpec.describe Question, type: :model do
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :sorting }
 
+  it {
+    is_expected.to validate_numericality_of(:weight_for_small_companies)
+      .is_greater_than_or_equal_to(0).is_less_than_or_equal_to(3)
+  }
+
+  it {
+    is_expected.to validate_numericality_of(:weight_for_medium_companies)
+      .is_greater_than_or_equal_to(0).is_less_than_or_equal_to(3)
+  }
+
+  it {
+    is_expected.to validate_numericality_of(:weight_for_large_companies)
+      .is_greater_than_or_equal_to(0).is_less_than_or_equal_to(3)
+  }
+
+  it {
+    is_expected.to validate_numericality_of(:weight_for_service_companies)
+      .is_greater_than_or_equal_to(0).is_less_than_or_equal_to(3)
+  }
+
   describe '#as_json' do
     let(:json) do
       {
