@@ -5,8 +5,12 @@ require 'rails_helper'
 describe Topsis::CalculateAnswerWeight do
   # Use before :all to not slow down the specs
   before do
-    Dir[Rails.root.join('db', '*_seeds.rb')].each do |file|
-      load file
+    ['gestao_e_governanca_seeds.rb',
+     'humano_social_seeds.rb',
+     'materia_prima_seeds.rb',
+     'processo_seeds.rb',
+     'supplier_answer_seeds.rb'].each do |seed_file|
+      load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
     end
   end
   # rubocop:enable RSpec/BeforeAfterAll
@@ -51,23 +55,24 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
-    # context 'with medium company' do
-    #   let(:supplier) do
-    #     Supplier.find_by(type_of_company: 2)
-    #   end
-    #
-    #   let(:excel_step_1) do
-    #     [0.176, 0.118, 0.294, 0.294, 0.235, 0.176, 0.176]
-    #   end
-    #
-    #   it do
-    #     expect(all_answers_weights).to eq(excel_step_1)
-    #   end
-    # end
+    context 'with medium company' do
+      let(:supplier) do
+        Supplier.find_by(type_of_company: 2)
+      end
+
+      let(:excel_step_1) do
+        [0.022, 0.044, 0.067, 0.067, 0.067, 0.067, 0.067, 0.067, 0.2, 0.2, 0.2,
+         0.333]
+      end
+
+      it do
+        expect(all_answers_weights).to match_array(excel_step_1)
+      end
+    end
 
     context 'with large company' do
       let(:supplier) do
@@ -79,7 +84,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
@@ -94,7 +99,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
   end
@@ -130,23 +135,25 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
-    # context 'with medium company' do
-    #   let(:supplier) do
-    #     Supplier.find_by(type_of_company: 2)
-    #   end
+    context 'with medium company' do
+      let(:supplier) do
+        Supplier.find_by(type_of_company: 2)
+      end
 
-    #   let(:excel_step_1) do
-    #     [0.176, 0.118, 0.294, 0.294, 0.235, 0.176, 0.176]
-    #   end
+      let(:excel_step_1) do
+        [0.024, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035,
+         0.047, 0.071, 0.071, 0.071, 0.106, 0.176, 0.176, 0.176, 0.176, 0.176,
+         0.176, 0.176]
+      end
 
-    #   it do
-    #     expect(all_answers_weights).to eq(excel_step_1)
-    #   end
-    # end
+      it do
+        expect(all_answers_weights).to match_array(excel_step_1)
+      end
+    end
 
     context 'with large company' do
       let(:supplier) do
@@ -160,7 +167,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
@@ -175,7 +182,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
   end
@@ -192,6 +199,7 @@ describe Topsis::CalculateAnswerWeight do
       question_ids = material.answers.joins(question: :questionnaire)
         .where(questionnaires: { driver: 'process' })
         .pluck('answers.question_id')
+
       Question.find(question_ids).each do |question|
         arr << described_class.execute(normalized_base, material, question)
       end
@@ -213,23 +221,27 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
-    # context 'with medium company' do
-    #   let(:supplier) do
-    #     Supplier.find_by(type_of_company: 2)
-    #   end
+    context 'with medium company' do
+      let(:supplier) do
+        Supplier.find_by(type_of_company: 2)
+      end
 
-    #   let(:excel_step_1) do
-    #     [0.176, 0.118, 0.294, 0.294, 0.235, 0.176, 0.176]
-    #   end
+      let(:material) do
+        supplier.materials.first
+      end
 
-    #   it do
-    #     expect(all_answers_weights).to eq(excel_step_1)
-    #   end
-    # end
+      let(:excel_step_1) do
+        [0.065, 0.194, 0.258, 0.484, 0.484, 0.484, 0.484, 0.484]
+      end
+
+      it do
+        expect(all_answers_weights).to match_array(excel_step_1)
+      end
+    end
 
     context 'with large company' do
       let(:supplier) do
@@ -245,7 +257,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
@@ -264,7 +276,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
   end
@@ -303,23 +315,28 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
-    # context 'with medium company' do
-    #   let(:supplier) do
-    #     Supplier.find_by(type_of_company: 2)
-    #   end
+    context 'with medium company' do
+      let(:supplier) do
+        Supplier.find_by(type_of_company: 2)
+      end
 
-    #   let(:excel_step_1) do
-    #     [0.176, 0.118, 0.294, 0.294, 0.235, 0.176, 0.176]
-    #   end
+      let(:material) do
+        supplier.materials.first
+      end
 
-    #   it do
-    #     expect(all_answers_weights).to eq(excel_step_1)
-    #   end
-    # end
+      let(:excel_step_1) do
+        [0.038, 0.094, 0.17, 0.189, 0.189, 0.226, 0.226, 0.283, 0.283, 0.283,
+         0.283]
+      end
+
+      it do
+        expect(all_answers_weights).to match_array(excel_step_1)
+      end
+    end
 
     context 'with large company' do
       let(:supplier) do
@@ -337,7 +354,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
 
@@ -356,7 +373,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to eq(excel_step_1)
+        expect(all_answers_weights).to match_array(excel_step_1)
       end
     end
   end
