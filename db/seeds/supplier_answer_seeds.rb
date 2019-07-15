@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 user1 = User.create!(
-  email: 'foo@bar.com',
+  email: 'supplier1@bar.com',
   first_name: 'Foo',
   last_name: 'Bar',
   password: '123456789'
 )
 
 user2 = User.create!(
-  email: 'bar@foo.com',
+  email: 'supplier2@foo.com',
   first_name: 'Foo',
   last_name: 'Bar',
   password: '123456789'
 )
 
 user3 = User.create!(
-  email: 'bar@bar.com',
+  email: 'supplier3@bar.com',
   first_name: 'Foo',
   last_name: 'Bar',
   password: '123456789'
