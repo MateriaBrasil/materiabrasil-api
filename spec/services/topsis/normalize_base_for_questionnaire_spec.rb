@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Topsis::NormalizeBaseForQuestionnaire do
   describe 'when questionnaire is social_human' do
     before do
-      load(Dir[Rails.root.join('db', 'humano_social_seeds.rb')][0])
+      load(Dir[Rails.root.join('db', 'seeds', 'humano_social_seeds.rb')][0])
     end
 
     context 'with small company' do
@@ -39,7 +39,9 @@ describe Topsis::NormalizeBaseForQuestionnaire do
 
   describe 'when questionnaire is management_and_governance' do
     before do
-      load(Dir[Rails.root.join('db', 'gestao_e_governanca_seeds.rb')][0])
+      load(
+        Dir[Rails.root.join('db', 'seeds', 'gestao_e_governanca_seeds.rb')][0]
+      )
     end
 
     context 'with small company' do
@@ -73,7 +75,7 @@ describe Topsis::NormalizeBaseForQuestionnaire do
 
   describe 'when questionnaire is process' do
     before do
-      load(Dir[Rails.root.join('db', 'processo_seeds.rb')][0])
+      load(Dir[Rails.root.join('db', 'seeds', 'processo_seeds.rb')][0])
     end
 
     context 'with small company' do
@@ -107,7 +109,7 @@ describe Topsis::NormalizeBaseForQuestionnaire do
 
   describe 'when questionnaire is raw_material' do
     before do
-      load(Dir[Rails.root.join('db', 'materia_prima_seeds.rb')][0])
+      load(Dir[Rails.root.join('db', 'seeds', 'materia_prima_seeds.rb')][0])
     end
 
     context 'with small company' do
