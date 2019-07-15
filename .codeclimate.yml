@@ -22,3 +22,4 @@ exclude_patterns:
 - db/migrate/
 - db/seeds.rb
 - db/schema.rb
+- db/seeds/
