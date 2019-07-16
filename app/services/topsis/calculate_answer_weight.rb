@@ -8,19 +8,30 @@ module Topsis
     end
 
     def initialize(normalized_base, supplier_material, question)
+      @question = question
       @normalized_base = normalized_base
       @supplier_material = supplier_material
-      @question = question
-      @answer = Answer.find_by(
-        about: supplier_material, question_id: question.id
-      )
     end
 
     def execute
-      (question_weight * @normalized_base * @answer.option.value).round(3)
+      @answer = Answer.find_by(
+        about: @supplier_material, question_id: @question.id
+      )
+
+      if @answer&.option&.value
+        { success: true, payload: calculation }
+      else
+        { success: true, errors: {
+          answer: 'there is not an answer for this question'
+        } }
+      end
     end
 
     private
+
+    def calculation
+      (question_weight * @normalized_base * @answer.option.value).round(3)
+    end
 
     def type_of_company
       if @supplier_material.is_a?(Material)

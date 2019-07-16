@@ -13,7 +13,6 @@ describe Topsis::CalculateAnswerWeight do
       load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
     end
   end
-  # rubocop:enable RSpec/BeforeAfterAll
 
   let(:questions) do
     questionnaire.questions
@@ -38,7 +37,9 @@ describe Topsis::CalculateAnswerWeight do
         .where(questionnaires: { driver: 'social_human' })
         .pluck('answers.question_id')
       Question.find(question_ids).each do |question|
-        arr << described_class.execute(normalized_base, supplier, question)
+        arr << described_class.execute(
+          normalized_base, supplier, question
+        )[:payload]
       end
 
       arr
@@ -117,7 +118,9 @@ describe Topsis::CalculateAnswerWeight do
         .where(questionnaires: { driver: 'management_and_governance' })
         .pluck('answers.question_id')
       Question.find(question_ids).each do |question|
-        arr << described_class.execute(normalized_base, supplier, question)
+        arr << described_class.execute(
+          normalized_base, supplier, question
+        )[:payload]
       end
 
       arr
@@ -201,7 +204,9 @@ describe Topsis::CalculateAnswerWeight do
         .pluck('answers.question_id')
 
       Question.find(question_ids).each do |question|
-        arr << described_class.execute(normalized_base, material, question)
+        arr << described_class.execute(
+          normalized_base, material, question
+        )[:payload]
       end
 
       arr
@@ -294,7 +299,9 @@ describe Topsis::CalculateAnswerWeight do
         .where(questionnaires: { driver: 'raw_material' })
         .pluck('answers.question_id')
       Question.find(question_ids).each do |question|
-        arr << described_class.execute(normalized_base, material, question)
+        arr << described_class.execute(
+          normalized_base, material, question
+        )[:payload]
       end
 
       arr
@@ -374,6 +381,45 @@ describe Topsis::CalculateAnswerWeight do
 
       it do
         expect(all_answers_weights).to match_array(excel_step_1)
+      end
+    end
+  end
+
+  describe 'when the answer is not found' do
+    let(:questionnaire) do
+      Questionnaire.find_by(driver: 'raw_material')
+    end
+
+    let(:calculation) do
+      question = Question.find(material.answers.joins(question: :questionnaire)
+        .where(questionnaires: { driver: 'raw_material' })
+        .limit(1)
+        .pluck('answers.question_id')
+        .first)
+
+      # Delete the answer to trigger the error
+      Answer.find_by(
+        about: material, question_id: question.id
+      ).destroy
+
+      described_class.execute(
+        normalized_base, material, question
+      )[:errors]
+    end
+
+    context 'with small company' do
+      let(:supplier) do
+        Supplier.find_by(type_of_company: 1)
+      end
+
+      let(:material) do
+        supplier.materials.first
+      end
+
+      it do
+        expect(calculation).to eq(
+          answer: 'there is not an answer for this question'
+        )
       end
     end
   end
