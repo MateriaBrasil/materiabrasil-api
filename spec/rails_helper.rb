@@ -58,4 +58,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.around do |example|
+    tables = ['public.users', 'public.questions', 'public.options',
+              'public.answers', 'public.questionnaires']
+    tables.each do |table|
+      ActiveRecord::Base.connection.execute "TRUNCATE TABLE #{table} CASCADE"
+    end
+    example.run
+  end
 end
