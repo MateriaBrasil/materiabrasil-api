@@ -20,8 +20,8 @@ describe Topsis::CalculateAnswerWeight do
 
   let(:normalized_base) do
     Topsis::NormalizeBaseForQuestionnaire.execute(
-      questionnaire.driver, supplier.type_of_company_index
-    )
+      questionnaire.driver, supplier.type_of_company
+    )[:payload]
   end
 
   describe 'when questionnaire is social_human' do

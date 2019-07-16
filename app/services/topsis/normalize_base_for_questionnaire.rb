@@ -13,21 +13,28 @@ module Topsis
     # This value will be used on the next steps of Topsis
 
     def initialize(questionnaire_driver, type_of_company)
-      @questionnaire = Questionnaire.find_by(driver: questionnaire_driver)
-      @questions = @questionnaire.questions
+      @questionnaire_driver = questionnaire_driver
       @type_of_company = type_of_company
     end
 
     def execute
-      if @type_of_company == 1
-        (1.0 / @questions.sum(:weight_for_small_companies))
-      elsif @type_of_company == 2
-        (1.0 / @questions.sum(:weight_for_medium_companies))
-      elsif @type_of_company == 3
-        (1.0 / @questions.sum(:weight_for_large_companies))
-      elsif @type_of_company == 4
-        (1.0 / @questions.sum(:weight_for_service_companies))
+      if questionnaire.blank?
+        { success: false, errors: { questionnaire: 'Questionnaire not found' } }
+      else
+        { success: true, payload: (
+          1.0 / questions.sum(:"weight_for_#{@type_of_company}_companies")
+        ) }
       end
+    end
+
+    private
+
+    def questionnaire
+      Questionnaire.find_by(driver: @questionnaire_driver)
+    end
+
+    def questions
+      questionnaire.questions
     end
   end
 end
