@@ -20,7 +20,7 @@ describe Topsis::CalculateAnswerWeight do
 
   let(:normalized_base) do
     Topsis::NormalizeBaseForQuestionnaire.execute(
-      questionnaire.driver, supplier.type_of_company
+      questionnaire.driver, supplier.type_of_company_index
     )
   end
 

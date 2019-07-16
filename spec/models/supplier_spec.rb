@@ -32,12 +32,7 @@ RSpec.describe Supplier, type: :model do
   it { is_expected.to validate_presence_of :state_subscription }
   it { is_expected.to validate_presence_of :phone }
   it { is_expected.to validate_presence_of :reach }
-  it do
-    is_expected.to validate_numericality_of(:type_of_company)
-      .is_greater_than_or_equal_to(1)
-      .is_less_than_or_equal_to(4)
-      .only_integer
-  end
+  it { is_expected.to define_enum_for(:type_of_company) }
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to have_many(:addresses) }
