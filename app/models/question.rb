@@ -17,6 +17,7 @@ class Question < ApplicationRecord
     {
       id: id,
       description: description,
+      helper_text: helper_text,
       options: options.order(:value).as_json
     }
   end

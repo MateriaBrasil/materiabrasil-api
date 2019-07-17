@@ -1018,6 +1018,7 @@ A question of a questionnaire
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **description** | *string* | the description of the question | `"example"` |
+| **helper_text** | *string* | the helper text of the question | `"example"` |
 | **options** | *array* | the options of the question | `[null]` |
 
 

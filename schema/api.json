@@ -1849,6 +1849,12 @@
             "string"
           ]
         },
+        "helper_text": {
+          "description": "the helper text of the question",
+          "type": [
+            "string"
+          ]
+        },
         "options": {
           "description": "the options of the question",
           "type": [
@@ -1873,6 +1879,9 @@
       "properties": {
         "description": {
           "$ref": "#/definitions/question/definitions/description"
+        },
+        "helper_text": {
+          "$ref": "#/definitions/question/definitions/helper_text"
         },
         "options": {
           "$ref": "#/definitions/question/definitions/options"

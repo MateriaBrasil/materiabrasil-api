@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_203415) do
+ActiveRecord::Schema.define(version: 2019_07_17_204105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -183,6 +183,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_203415) do
     t.integer "weight_for_medium_companies", default: 0
     t.integer "weight_for_large_companies", default: 0
     t.integer "weight_for_service_companies", default: 0
+    t.text "helper_text", default: ""
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
