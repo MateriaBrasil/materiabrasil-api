@@ -14,6 +14,10 @@ definitions:
     description: the description of the question
     type:
       - string
+  helper_text:
+    description: the helper text of the question
+    type:
+      - string
   options:
     description: the options of the question
     type:
@@ -28,6 +32,8 @@ links: []
 properties:
   description:
     "$ref": "/schemata/question#/definitions/description"
+  helper_text:
+    "$ref": "/schemata/question#/definitions/helper_text"
   options:
     "$ref": "/schemata/question#/definitions/options"
 additionalProperties: false

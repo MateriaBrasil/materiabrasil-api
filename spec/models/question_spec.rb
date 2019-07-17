@@ -6,6 +6,7 @@ RSpec.describe Question, type: :model do
   subject(:question) do
     question = described_class.create!(
       questionnaire: questionnaire,
+      helper_text: 'Foo Bar helper text',
       description: 'Foo bar',
       sorting: 123
     )
@@ -58,6 +59,7 @@ RSpec.describe Question, type: :model do
       {
         id: question.id,
         description: 'Foo bar',
+        helper_text: 'Foo Bar helper text',
         options: Option.order(:value).as_json
       }
     end
