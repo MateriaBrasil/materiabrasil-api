@@ -42,15 +42,7 @@ module Topsis
     end
 
     def question_weight
-      if type_of_company == 1
-        @question.weight_for_small_companies
-      elsif type_of_company == 2
-        @question.weight_for_medium_companies
-      elsif type_of_company == 3
-        @question.weight_for_large_companies
-      elsif type_of_company == 4
-        @question.weight_for_service_companies
-      end
+      @question.send(:"weight_for_#{type_of_company}_companies")
     end
   end
 end

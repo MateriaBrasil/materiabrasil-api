@@ -21,7 +21,7 @@ describe Topsis::CalculateAnswerWeight do
   let(:normalized_base) do
     Topsis::NormalizeBaseForQuestionnaire.execute(
       questionnaire.driver, supplier.type_of_company
-    )
+    )[:payload]
   end
 
   describe 'when questionnaire is social_human' do
@@ -36,7 +36,7 @@ describe Topsis::CalculateAnswerWeight do
       question_ids = supplier.answers.joins(question: :questionnaire)
         .where(questionnaires: { driver: 'social_human' })
         .pluck('answers.question_id')
-      Question.find(question_ids).each do |question|
+      Question.where(id: question_ids).order(sorting: :asc).each do |question|
         arr << described_class.execute(
           normalized_base, supplier, question
         )[:payload]
@@ -56,7 +56,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -66,12 +66,12 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       let(:excel_step_1) do
-        [0.022, 0.044, 0.067, 0.067, 0.067, 0.067, 0.067, 0.067, 0.2, 0.2, 0.2,
-         0.333]
+        [0.022, 0.044, 0.2, 0.067, 0.067, 0.333, 0.067, 0.067, 0.2, 0.067, 0.2,
+         0.067]
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -85,7 +85,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -100,7 +100,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
   end
@@ -117,7 +117,7 @@ describe Topsis::CalculateAnswerWeight do
       question_ids = supplier.answers.joins(question: :questionnaire)
         .where(questionnaires: { driver: 'management_and_governance' })
         .pluck('answers.question_id')
-      Question.find(question_ids).each do |question|
+      Question.where(id: question_ids).order(sorting: :asc).each do |question|
         arr << described_class.execute(
           normalized_base, supplier, question
         )[:payload]
@@ -138,7 +138,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -148,13 +148,13 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       let(:excel_step_1) do
-        [0.024, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035,
-         0.047, 0.071, 0.071, 0.071, 0.106, 0.176, 0.176, 0.176, 0.176, 0.176,
-         0.176, 0.176]
+        [0.071, 0.071, 0.035, 0.035, 0.035, 0.047, 0.035, 0.176, 0.035, 0.176,
+         0.024, 0.176, 0.176, 0.176, 0.176, 0.176, 0.071, 0.106, 0.035, 0.035,
+         0.035, 0.035]
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -170,7 +170,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -185,7 +185,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
   end
@@ -203,7 +203,7 @@ describe Topsis::CalculateAnswerWeight do
         .where(questionnaires: { driver: 'process' })
         .pluck('answers.question_id')
 
-      Question.find(question_ids).each do |question|
+      Question.where(id: question_ids).order(sorting: :asc).each do |question|
         arr << described_class.execute(
           normalized_base, material, question
         )[:payload]
@@ -226,7 +226,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -240,11 +240,11 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       let(:excel_step_1) do
-        [0.065, 0.194, 0.258, 0.484, 0.484, 0.484, 0.484, 0.484]
+        [0.258, 0.484, 0.484, 0.484, 0.484, 0.484, 0.194, 0.065]
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -262,7 +262,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -281,7 +281,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
   end
@@ -298,7 +298,7 @@ describe Topsis::CalculateAnswerWeight do
       question_ids = material.answers.joins(question: :questionnaire)
         .where(questionnaires: { driver: 'raw_material' })
         .pluck('answers.question_id')
-      Question.find(question_ids).each do |question|
+      Question.where(id: question_ids).order(sorting: :asc).each do |question|
         arr << described_class.execute(
           normalized_base, material, question
         )[:payload]
@@ -322,7 +322,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -336,12 +336,12 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       let(:excel_step_1) do
-        [0.038, 0.094, 0.17, 0.189, 0.189, 0.226, 0.226, 0.283, 0.283, 0.283,
+        [0.283, 0.17, 0.283, 0.226, 0.283, 0.189, 0.226, 0.038, 0.189, 0.094,
          0.283]
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -361,7 +361,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
 
@@ -380,7 +380,7 @@ describe Topsis::CalculateAnswerWeight do
       end
 
       it do
-        expect(all_answers_weights).to match_array(excel_step_1)
+        expect(all_answers_weights).to eq(excel_step_1)
       end
     end
   end
