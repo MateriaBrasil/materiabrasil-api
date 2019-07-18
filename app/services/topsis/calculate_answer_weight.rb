@@ -30,7 +30,7 @@ module Topsis
     private
 
     def calculation
-      (question_weight * @normalized_base * @answer.option.value).round(3)
+      (question_weight * @normalized_base * @answer.option.value)
     end
 
     def type_of_company
