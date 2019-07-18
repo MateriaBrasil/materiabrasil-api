@@ -21,7 +21,7 @@ module Topsis
       if @answer&.option&.value
         { success: true, payload: calculation }
       else
-        { success: true, errors: {
+        { success: false, errors: {
           answer: 'there is not an answer for this question'
         } }
       end
@@ -30,7 +30,7 @@ module Topsis
     private
 
     def calculation
-      (question_weight * @normalized_base * @answer.option.value).round(3)
+      (question_weight * @normalized_base * @answer.option.value)
     end
 
     def type_of_company

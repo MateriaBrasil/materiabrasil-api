@@ -13,8 +13,8 @@ module Topsis
 
     def execute
       normalized_question_weight = normalized_base * question_weight
-      best_scenario = (normalized_question_weight * 5).round(3)
-      worst_scenario = (normalized_question_weight * 1).round(3)
+      best_scenario = (normalized_question_weight * 5)
+      worst_scenario = (normalized_question_weight * 1)
 
       { success: true, payload: { min: worst_scenario, max: best_scenario } }
     end

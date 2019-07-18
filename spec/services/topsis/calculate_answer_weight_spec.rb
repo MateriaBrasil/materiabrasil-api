@@ -24,30 +24,34 @@ describe Topsis::CalculateAnswerWeight do
     )[:payload]
   end
 
+  let(:all_answers_weights) do
+    # This array will contain ALL answers' weights
+    # for a specific questionnaire and supplier and his answers
+    arr = []
+    question_ids = supplier_material.answers.joins(question: :questionnaire)
+      .where(questionnaires: { driver: questionnaire.driver })
+      .pluck('answers.question_id')
+    Question.where(id: question_ids).order(sorting: :asc).each do |question|
+      arr << described_class.execute(
+        normalized_base, supplier_material, question
+      )[:payload].round(3)
+    end
+
+    arr
+  end
+
   describe 'when questionnaire is social_human' do
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'social_human')
     end
 
-    let(:all_answers_weights) do
-      # This array will contain ALL answers' weights
-      # for a specific questionnaire and supplier and his answers
-      arr = []
-      question_ids = supplier.answers.joins(question: :questionnaire)
-        .where(questionnaires: { driver: 'social_human' })
-        .pluck('answers.question_id')
-      Question.where(id: question_ids).order(sorting: :asc).each do |question|
-        arr << described_class.execute(
-          normalized_base, supplier, question
-        )[:payload]
-      end
-
-      arr
-    end
-
     context 'with small company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 1)
+      end
+
+      let(:supplier_material) do
+        supplier
       end
 
       let(:excel_step_1) do
@@ -65,6 +69,10 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
+      let(:supplier_material) do
+        supplier
+      end
+
       let(:excel_step_1) do
         [0.022, 0.044, 0.2, 0.067, 0.067, 0.333, 0.067, 0.067, 0.2, 0.067, 0.2,
          0.067]
@@ -80,6 +88,10 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
+      let(:supplier_material) do
+        supplier
+      end
+
       let(:excel_step_1) do
         [0.176, 0.118, 0.294, 0.294, 0.235, 0.176, 0.176]
       end
@@ -92,6 +104,10 @@ describe Topsis::CalculateAnswerWeight do
     context 'with service company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 4)
+      end
+
+      let(:supplier_material) do
+        supplier
       end
 
       let(:excel_step_1) do
@@ -110,25 +126,13 @@ describe Topsis::CalculateAnswerWeight do
       Questionnaire.find_by(driver: 'management_and_governance')
     end
 
-    let(:all_answers_weights) do
-      # This array will contain ALL answers' weights
-      # for a specific questionnaire and supplier and his answers
-      arr = []
-      question_ids = supplier.answers.joins(question: :questionnaire)
-        .where(questionnaires: { driver: 'management_and_governance' })
-        .pluck('answers.question_id')
-      Question.where(id: question_ids).order(sorting: :asc).each do |question|
-        arr << described_class.execute(
-          normalized_base, supplier, question
-        )[:payload]
-      end
-
-      arr
-    end
-
     context 'with small company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 1)
+      end
+
+      let(:supplier_material) do
+        supplier
       end
 
       let(:excel_step_1) do
@@ -147,6 +151,10 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
+      let(:supplier_material) do
+        supplier
+      end
+
       let(:excel_step_1) do
         [0.071, 0.071, 0.035, 0.035, 0.035, 0.047, 0.035, 0.176, 0.035, 0.176,
          0.024, 0.176, 0.176, 0.176, 0.176, 0.176, 0.071, 0.106, 0.035, 0.035,
@@ -161,6 +169,10 @@ describe Topsis::CalculateAnswerWeight do
     context 'with large company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 3)
+      end
+
+      let(:supplier_material) do
+        supplier
       end
 
       let(:excel_step_1) do
@@ -179,6 +191,10 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
+      let(:supplier_material) do
+        supplier
+      end
+
       let(:excel_step_1) do
         [0.123, 0.205, 0.041, 0.082, 0.027, 0.137, 0.164, 0.082, 0.137, 0.137,
          0.082, 0.041, 0.027, 0.041]
@@ -195,29 +211,12 @@ describe Topsis::CalculateAnswerWeight do
       Questionnaire.find_by(driver: 'process')
     end
 
-    let(:all_answers_weights) do
-      # This array will contain ALL answers' weights
-      # for a specific questionnaire and supplier and his answers
-      arr = []
-      question_ids = material.answers.joins(question: :questionnaire)
-        .where(questionnaires: { driver: 'process' })
-        .pluck('answers.question_id')
-
-      Question.where(id: question_ids).order(sorting: :asc).each do |question|
-        arr << described_class.execute(
-          normalized_base, material, question
-        )[:payload]
-      end
-
-      arr
-    end
-
     context 'with small company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -235,7 +234,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -253,7 +252,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -271,7 +270,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -291,28 +290,12 @@ describe Topsis::CalculateAnswerWeight do
       Questionnaire.find_by(driver: 'raw_material')
     end
 
-    let(:all_answers_weights) do
-      # This array will contain ALL answers' weights
-      # for a specific questionnaire and supplier and his answers
-      arr = []
-      question_ids = material.answers.joins(question: :questionnaire)
-        .where(questionnaires: { driver: 'raw_material' })
-        .pluck('answers.question_id')
-      Question.where(id: question_ids).order(sorting: :asc).each do |question|
-        arr << described_class.execute(
-          normalized_base, material, question
-        )[:payload]
-      end
-
-      arr
-    end
-
     context 'with small company' do
       let(:supplier) do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -331,7 +314,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -350,7 +333,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 
@@ -370,7 +353,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:material) do
+      let(:supplier_material) do
         supplier.materials.first
       end
 

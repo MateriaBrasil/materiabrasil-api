@@ -21,8 +21,8 @@ describe Topsis::MinMaxScenarios do
         question, supplier.type_of_company
       )[:payload]
 
-      best_values << calculation[:max]
-      worst_values << calculation[:min]
+      best_values << calculation[:max].round(3)
+      worst_values << calculation[:min].round(3)
     end
 
     { min: worst_values, max: best_values }

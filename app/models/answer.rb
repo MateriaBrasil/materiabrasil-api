@@ -10,6 +10,12 @@ class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :option
 
+  scope :by_driver, ->(driver) do
+    joins(question: :questionnaire)
+      .where(questionnaires: { driver: driver })
+      .order('questions.sorting ASC')
+  end
+
   def as_json(_options = {})
     {
       id: id,
