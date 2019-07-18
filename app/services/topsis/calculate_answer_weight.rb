@@ -21,7 +21,7 @@ module Topsis
       if @answer&.option&.value
         { success: true, payload: calculation }
       else
-        { success: true, errors: {
+        { success: false, errors: {
           answer: 'there is not an answer for this question'
         } }
       end
