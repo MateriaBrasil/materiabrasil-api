@@ -6,15 +6,15 @@ module Topsis
       new(*args, &block).execute
     end
 
-    def initialize(driver, supplier_material)
-      @supplier_material = supplier_material
+    def initialize(driver, supplier_or_material)
+      @supplier_or_material = supplier_or_material
       @driver = driver
       @negative_sum = 0
       @positive_sum = 0
     end
 
     def execute
-      @supplier_material.answers.by_driver(@driver).each do |answer|
+      @supplier_or_material.answers.by_driver(@driver).each do |answer|
         distances = Topsis::MinMaxDistances.execute(answer, type_of_company)
         @negative_sum += distances[:payload][:negative]
         @positive_sum += distances[:payload][:positive]
@@ -28,10 +28,10 @@ module Topsis
     private
 
     def type_of_company
-      if @supplier_material.is_a?(Material)
-        @supplier_material.supplier.type_of_company
+      if @supplier_or_material.is_a?(Material)
+        @supplier_or_material.supplier.type_of_company
       else
-        @supplier_material.type_of_company
+        @supplier_or_material.type_of_company
       end
     end
   end

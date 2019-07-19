@@ -16,7 +16,7 @@ describe Topsis::MinMaxDistances do
   let(:all_distances) do
     best_values = []
     worst_values = []
-    supplier_material.answers.by_driver(driver)
+    supplier_or_material.answers.by_driver(driver)
       .each do |answer|
         calculation = described_class.execute(
           answer, type_of_company
@@ -32,11 +32,11 @@ describe Topsis::MinMaxDistances do
     let(:driver) { 'social_human' }
 
     let(:type_of_company) do
-      supplier_material.type_of_company
+      supplier_or_material.type_of_company
     end
 
     context 'with small company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 1)
       end
 
@@ -60,7 +60,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with medium company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 2)
       end
 
@@ -83,7 +83,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with large company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 3)
       end
 
@@ -105,7 +105,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with service company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 4)
       end
 
@@ -132,11 +132,11 @@ describe Topsis::MinMaxDistances do
   describe 'when questionnaire is management_and_governance' do
     let(:driver) { 'management_and_governance' }
     let(:type_of_company) do
-      supplier_material.type_of_company
+      supplier_or_material.type_of_company
     end
 
     context 'with small company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 1)
       end
 
@@ -162,7 +162,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with medium company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 2)
       end
 
@@ -186,7 +186,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with large company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 3)
       end
 
@@ -212,7 +212,7 @@ describe Topsis::MinMaxDistances do
     end
 
     context 'with service company' do
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         Supplier.find_by(type_of_company: 4)
       end
 
@@ -243,7 +243,7 @@ describe Topsis::MinMaxDistances do
       supplier.type_of_company
     end
 
-    let(:supplier_material) do
+    let(:supplier_or_material) do
       supplier.materials.first
     end
 
@@ -345,7 +345,7 @@ describe Topsis::MinMaxDistances do
       supplier.type_of_company
     end
 
-    let(:supplier_material) do
+    let(:supplier_or_material) do
       supplier.materials.first
     end
 

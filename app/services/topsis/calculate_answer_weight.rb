@@ -7,15 +7,15 @@ module Topsis
       new(*args, &block).execute
     end
 
-    def initialize(normalized_base, supplier_material, question)
+    def initialize(normalized_base, supplier_or_material, question)
       @question = question
       @normalized_base = normalized_base
-      @supplier_material = supplier_material
+      @supplier_or_material = supplier_or_material
     end
 
     def execute
       @answer = Answer.find_by(
-        about: @supplier_material, question_id: @question.id
+        about: @supplier_or_material, question_id: @question.id
       )
 
       if @answer&.option&.value
@@ -34,10 +34,10 @@ module Topsis
     end
 
     def type_of_company
-      if @supplier_material.is_a?(Material)
-        @supplier_material.supplier.type_of_company
+      if @supplier_or_material.is_a?(Material)
+        @supplier_or_material.supplier.type_of_company
       else
-        @supplier_material.type_of_company
+        @supplier_or_material.type_of_company
       end
     end
 
