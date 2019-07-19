@@ -3,17 +3,6 @@
 require 'rails_helper'
 
 describe Topsis::CalculateAnswerWeight do
-  # Use before :all to not slow down the specs
-  before do
-    ['gestao_e_governanca_seeds.rb',
-     'humano_social_seeds.rb',
-     'materia_prima_seeds.rb',
-     'processo_seeds.rb',
-     'supplier_answer_seeds.rb'].each do |seed_file|
-      load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
-    end
-  end
-
   let(:questions) do
     questionnaire.questions
   end
@@ -41,6 +30,13 @@ describe Topsis::CalculateAnswerWeight do
   end
 
   describe 'when questionnaire is social_human' do
+    before do
+      ['humano_social_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'social_human')
     end
@@ -122,6 +118,13 @@ describe Topsis::CalculateAnswerWeight do
   end
 
   describe 'when questionnaire is management_and_governance' do
+    before do
+      ['gestao_e_governanca_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'management_and_governance')
     end
@@ -207,6 +210,13 @@ describe Topsis::CalculateAnswerWeight do
   end
 
   describe 'when questionnaire is process' do
+    before do
+      ['processo_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'process')
     end
@@ -286,6 +296,13 @@ describe Topsis::CalculateAnswerWeight do
   end
 
   describe 'when questionnaire is raw_material' do
+    before do
+      ['materia_prima_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'raw_material')
     end
@@ -369,6 +386,13 @@ describe Topsis::CalculateAnswerWeight do
   end
 
   describe 'when the answer is not found' do
+    before do
+      ['materia_prima_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:questionnaire) do
       Questionnaire.find_by(driver: 'raw_material')
     end
