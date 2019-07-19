@@ -9,7 +9,7 @@ module Topsis
     def initialize(answer, type_of_company)
       @answer = answer
       @question = answer.question
-      @supplier_material = @answer.about
+      @supplier_or_material = @answer.about
       @type_of_company = type_of_company
     end
 
@@ -29,7 +29,7 @@ module Topsis
 
     def answer_weight
       Topsis::CalculateAnswerWeight.execute(
-        normalized_base, @supplier_material, @question
+        normalized_base, @supplier_or_material, @question
       )[:payload]
     end
 

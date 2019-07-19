@@ -28,12 +28,12 @@ describe Topsis::CalculateAnswerWeight do
     # This array will contain ALL answers' weights
     # for a specific questionnaire and supplier and his answers
     arr = []
-    question_ids = supplier_material.answers.joins(question: :questionnaire)
+    question_ids = supplier_or_material.answers.joins(question: :questionnaire)
       .where(questionnaires: { driver: questionnaire.driver })
       .pluck('answers.question_id')
     Question.where(id: question_ids).order(sorting: :asc).each do |question|
       arr << described_class.execute(
-        normalized_base, supplier_material, question
+        normalized_base, supplier_or_material, question
       )[:payload].round(3)
     end
 
@@ -50,7 +50,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -69,7 +69,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -88,7 +88,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -106,7 +106,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -131,7 +131,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -151,7 +151,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -171,7 +171,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -191,7 +191,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier
       end
 
@@ -216,7 +216,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -234,7 +234,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -252,7 +252,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -270,7 +270,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -295,7 +295,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 1)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -314,7 +314,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 2)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -333,7 +333,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 3)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
@@ -353,7 +353,7 @@ describe Topsis::CalculateAnswerWeight do
         Supplier.find_by(type_of_company: 4)
       end
 
-      let(:supplier_material) do
+      let(:supplier_or_material) do
         supplier.materials.first
       end
 
