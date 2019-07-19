@@ -3,17 +3,14 @@
 require 'rails_helper'
 
 describe Topsis::CalculateDriverPercentage do
-  before do
-    ['gestao_e_governanca_seeds.rb',
-     'humano_social_seeds.rb',
-     'materia_prima_seeds.rb',
-     'processo_seeds.rb',
-     'supplier_answer_seeds.rb'].each do |seed_file|
-      load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
-    end
-  end
-
   describe 'when questionnaire is social_human' do
+    before do
+      ['humano_social_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:driver) { 'social_human' }
 
     context 'with small company' do
@@ -58,6 +55,13 @@ describe Topsis::CalculateDriverPercentage do
   end
 
   describe 'when questionnaire is management_and_governance' do
+    before do
+      ['gestao_e_governanca_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:driver) { 'management_and_governance' }
 
     context 'with small company' do
@@ -102,6 +106,13 @@ describe Topsis::CalculateDriverPercentage do
   end
 
   describe 'when questionnaire is process' do
+    before do
+      ['processo_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:driver) { 'process' }
 
     context 'with small company' do
@@ -146,6 +157,13 @@ describe Topsis::CalculateDriverPercentage do
   end
 
   describe 'when questionnaire is raw_material' do
+    before do
+      ['materia_prima_seeds.rb',
+       'supplier_answer_seeds.rb'].each do |seed_file|
+        load(Dir[Rails.root.join('db', 'seeds', seed_file)][0])
+      end
+    end
+
     let(:driver) { 'raw_material' }
 
     context 'with small company' do

@@ -63,171 +63,6 @@ material1 = Material.create!(
   published: true
 )
 
-# HUMANO SOCIAL
-[
-  { questionnaire_id: 1, question_index: 1, option_value: 2 },
-  { questionnaire_id: 1, question_index: 2, option_value: 3 },
-  { questionnaire_id: 1, question_index: 3, option_value: 5 },
-  { questionnaire_id: 1, question_index: 4, option_value: 1 },
-  { questionnaire_id: 1, question_index: 5, option_value: 3 },
-  { questionnaire_id: 1, question_index: 6, option_value: 3 },
-  { questionnaire_id: 1, question_index: 7, option_value: 5 },
-  { questionnaire_id: 1, question_index: 8, option_value: 5 },
-  { questionnaire_id: 1, question_index: 9, option_value: 0 },
-  { questionnaire_id: 1, question_index: 10, option_value: 5 },
-  { questionnaire_id: 1, question_index: 11, option_value: 5 },
-  { questionnaire_id: 1, question_index: 12, option_value: 0 },
-  { questionnaire_id: 1, question_index: 13, option_value: 2 },
-  { questionnaire_id: 1, question_index: 14, option_value: 4 },
-  { questionnaire_id: 1, question_index: 15, option_value: 3 },
-  { questionnaire_id: 1, question_index: 16, option_value: 2 },
-  { questionnaire_id: 1, question_index: 17, option_value: 2 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier1,
-    question: question,
-    option: option
-  )
-end
-
-# GESTAO E GOVERNANCA
-[
-  { questionnaire_id: 2, question_index: 1, option_value: 3 },
-  { questionnaire_id: 2, question_index: 2, option_value: 5 },
-  { questionnaire_id: 2, question_index: 3, option_value: 0 },
-  { questionnaire_id: 2, question_index: 4, option_value: 1 },
-  { questionnaire_id: 2, question_index: 5, option_value: 2 },
-  { questionnaire_id: 2, question_index: 6, option_value: 1 },
-  { questionnaire_id: 2, question_index: 7, option_value: 0 },
-  { questionnaire_id: 2, question_index: 8, option_value: 0 },
-  { questionnaire_id: 2, question_index: 9, option_value: 0 },
-  { questionnaire_id: 2, question_index: 10, option_value: 0 },
-  { questionnaire_id: 2, question_index: 11, option_value: 5 },
-  { questionnaire_id: 2, question_index: 12, option_value: 0 },
-  { questionnaire_id: 2, question_index: 13, option_value: 0 },
-  { questionnaire_id: 2, question_index: 14, option_value: 4 },
-  { questionnaire_id: 2, question_index: 15, option_value: 2 },
-  { questionnaire_id: 2, question_index: 16, option_value: 0 },
-  { questionnaire_id: 2, question_index: 17, option_value: 0 },
-  { questionnaire_id: 2, question_index: 18, option_value: 0 },
-  { questionnaire_id: 2, question_index: 19, option_value: 0 },
-  { questionnaire_id: 2, question_index: 20, option_value: 0 },
-  { questionnaire_id: 2, question_index: 21, option_value: 5 },
-  { questionnaire_id: 2, question_index: 22, option_value: 5 },
-  { questionnaire_id: 2, question_index: 23, option_value: 2 },
-  { questionnaire_id: 2, question_index: 24, option_value: 1 },
-  { questionnaire_id: 2, question_index: 25, option_value: 0 },
-  { questionnaire_id: 2, question_index: 26, option_value: 0 },
-  { questionnaire_id: 2, question_index: 27, option_value: 1 },
-  { questionnaire_id: 2, question_index: 28, option_value: 1 },
-  { questionnaire_id: 2, question_index: 29, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier1,
-    question: question,
-    option: option
-  )
-end
-
-# PROCESSO
-[
-  { questionnaire_id: 3, question_index: 1, option_value: 2 },
-  { questionnaire_id: 3, question_index: 2, option_value: 2 },
-  { questionnaire_id: 3, question_index: 3, option_value: 5 },
-  { questionnaire_id: 3, question_index: 4, option_value: 5 },
-  { questionnaire_id: 3, question_index: 5, option_value: 5 },
-  { questionnaire_id: 3, question_index: 6, option_value: 5 },
-  { questionnaire_id: 3, question_index: 7, option_value: 0 },
-  { questionnaire_id: 3, question_index: 8, option_value: 5 },
-  { questionnaire_id: 3, question_index: 9, option_value: 1 },
-  { questionnaire_id: 3, question_index: 10, option_value: 5 },
-  { questionnaire_id: 3, question_index: 11, option_value: 2 },
-  { questionnaire_id: 3, question_index: 12, option_value: 2 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material1,
-    question: question,
-    option: option
-  )
-end
-
-# MATERIA PRIMA
-[
-  { questionnaire_id: 4, question_index: 1, option_value: 5 },
-  { questionnaire_id: 4, question_index: 2, option_value: 0 },
-  { questionnaire_id: 4, question_index: 3, option_value: 5 },
-  { questionnaire_id: 4, question_index: 4, option_value: 1 },
-  { questionnaire_id: 4, question_index: 5, option_value: 5 },
-  { questionnaire_id: 4, question_index: 6, option_value: 5 },
-  { questionnaire_id: 4, question_index: 7, option_value: 5 },
-  { questionnaire_id: 4, question_index: 8, option_value: 0 },
-  { questionnaire_id: 4, question_index: 9, option_value: 5 },
-  { questionnaire_id: 4, question_index: 10, option_value: 0 },
-  { questionnaire_id: 4, question_index: 11, option_value: 0 },
-  { questionnaire_id: 4, question_index: 12, option_value: 0 },
-  { questionnaire_id: 4, question_index: 13, option_value: 5 },
-  { questionnaire_id: 4, question_index: 14, option_value: 1 },
-  { questionnaire_id: 4, question_index: 15, option_value: 0 },
-  { questionnaire_id: 4, question_index: 16, option_value: 0 },
-  { questionnaire_id: 4, question_index: 17, option_value: 0 },
-  { questionnaire_id: 4, question_index: 18, option_value: 5 },
-  { questionnaire_id: 4, question_index: 19, option_value: 0 },
-  { questionnaire_id: 4, question_index: 20, option_value: 5 },
-  { questionnaire_id: 4, question_index: 21, option_value: 5 },
-  { questionnaire_id: 4, question_index: 22, option_value: 5 },
-  { questionnaire_id: 4, question_index: 23, option_value: 3 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material1,
-    question: question,
-    option: option
-  )
-end
-
 supplier2 = Supplier.create!(
   user: user2,
   name: 'FCC - INDÚSTRIA E COMÉRCIO LTDA.',
@@ -263,171 +98,6 @@ material2 = Material.create!(
   published: true
 )
 
-# HUMANO SOCIAL
-[
-  { questionnaire_id: 1, question_index: 1, option_value: 3 },
-  { questionnaire_id: 1, question_index: 2, option_value: 0 },
-  { questionnaire_id: 1, question_index: 3, option_value: 0 },
-  { questionnaire_id: 1, question_index: 4, option_value: 2 },
-  { questionnaire_id: 1, question_index: 5, option_value: 0 },
-  { questionnaire_id: 1, question_index: 6, option_value: 5 },
-  { questionnaire_id: 1, question_index: 7, option_value: 5 },
-  { questionnaire_id: 1, question_index: 8, option_value: 0 },
-  { questionnaire_id: 1, question_index: 9, option_value: 4 },
-  { questionnaire_id: 1, question_index: 10, option_value: 0 },
-  { questionnaire_id: 1, question_index: 11, option_value: 0 },
-  { questionnaire_id: 1, question_index: 12, option_value: 3 },
-  { questionnaire_id: 1, question_index: 13, option_value: 3 },
-  { questionnaire_id: 1, question_index: 14, option_value: 0 },
-  { questionnaire_id: 1, question_index: 15, option_value: 0 },
-  { questionnaire_id: 1, question_index: 16, option_value: 0 },
-  { questionnaire_id: 1, question_index: 17, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier2,
-    question: question,
-    option: option
-  )
-end
-
-# GESTAO E GOVERNANCA
-[
-  { questionnaire_id: 2, question_index: 1, option_value: 4 },
-  { questionnaire_id: 2, question_index: 2, option_value: 3 },
-  { questionnaire_id: 2, question_index: 3, option_value: 2 },
-  { questionnaire_id: 2, question_index: 4, option_value: 0 },
-  { questionnaire_id: 2, question_index: 5, option_value: 2 },
-  { questionnaire_id: 2, question_index: 6, option_value: 2 },
-  { questionnaire_id: 2, question_index: 7, option_value: 1 },
-  { questionnaire_id: 2, question_index: 8, option_value: 1 },
-  { questionnaire_id: 2, question_index: 9, option_value: 0 },
-  { questionnaire_id: 2, question_index: 10, option_value: 0 },
-  { questionnaire_id: 2, question_index: 11, option_value: 2 },
-  { questionnaire_id: 2, question_index: 12, option_value: 5 },
-  { questionnaire_id: 2, question_index: 13, option_value: 4 },
-  { questionnaire_id: 2, question_index: 14, option_value: 0 },
-  { questionnaire_id: 2, question_index: 15, option_value: 2 },
-  { questionnaire_id: 2, question_index: 16, option_value: 4 },
-  { questionnaire_id: 2, question_index: 17, option_value: 0 },
-  { questionnaire_id: 2, question_index: 18, option_value: 0 },
-  { questionnaire_id: 2, question_index: 19, option_value: 5 },
-  { questionnaire_id: 2, question_index: 20, option_value: 5 },
-  { questionnaire_id: 2, question_index: 21, option_value: 5 },
-  { questionnaire_id: 2, question_index: 22, option_value: 5 },
-  { questionnaire_id: 2, question_index: 23, option_value: 5 },
-  { questionnaire_id: 2, question_index: 24, option_value: 1 },
-  { questionnaire_id: 2, question_index: 25, option_value: 1 },
-  { questionnaire_id: 2, question_index: 26, option_value: 0 },
-  { questionnaire_id: 2, question_index: 27, option_value: 1 },
-  { questionnaire_id: 2, question_index: 28, option_value: 3 },
-  { questionnaire_id: 2, question_index: 29, option_value: 2 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier2,
-    question: question,
-    option: option
-  )
-end
-
-# PROCESSO
-[
-  { questionnaire_id: 3, question_index: 1, option_value: 2 },
-  { questionnaire_id: 3, question_index: 2, option_value: 3 },
-  { questionnaire_id: 3, question_index: 3, option_value: 3 },
-  { questionnaire_id: 3, question_index: 4, option_value: 5 },
-  { questionnaire_id: 3, question_index: 5, option_value: 0 },
-  { questionnaire_id: 3, question_index: 6, option_value: 5 },
-  { questionnaire_id: 3, question_index: 7, option_value: 0 },
-  { questionnaire_id: 3, question_index: 8, option_value: 0 },
-  { questionnaire_id: 3, question_index: 9, option_value: 3 },
-  { questionnaire_id: 3, question_index: 10, option_value: 1 },
-  { questionnaire_id: 3, question_index: 11, option_value: 3 },
-  { questionnaire_id: 3, question_index: 12, option_value: 3 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material2,
-    question: question,
-    option: option
-  )
-end
-
-# MATERIA PRIMA
-[
-  { questionnaire_id: 4, question_index: 1, option_value: 1 },
-  { questionnaire_id: 4, question_index: 2, option_value: 2 },
-  { questionnaire_id: 4, question_index: 3, option_value: 5 },
-  { questionnaire_id: 4, question_index: 4, option_value: 2 },
-  { questionnaire_id: 4, question_index: 5, option_value: 1 },
-  { questionnaire_id: 4, question_index: 6, option_value: 1 },
-  { questionnaire_id: 4, question_index: 7, option_value: 1 },
-  { questionnaire_id: 4, question_index: 8, option_value: 0 },
-  { questionnaire_id: 4, question_index: 9, option_value: 1 },
-  { questionnaire_id: 4, question_index: 10, option_value: 1 },
-  { questionnaire_id: 4, question_index: 11, option_value: 5 },
-  { questionnaire_id: 4, question_index: 12, option_value: 1 },
-  { questionnaire_id: 4, question_index: 13, option_value: 1 },
-  { questionnaire_id: 4, question_index: 14, option_value: 3 },
-  { questionnaire_id: 4, question_index: 15, option_value: 3 },
-  { questionnaire_id: 4, question_index: 16, option_value: 0 },
-  { questionnaire_id: 4, question_index: 17, option_value: 5 },
-  { questionnaire_id: 4, question_index: 18, option_value: 5 },
-  { questionnaire_id: 4, question_index: 19, option_value: 1 },
-  { questionnaire_id: 4, question_index: 20, option_value: 5 },
-  { questionnaire_id: 4, question_index: 21, option_value: 1 },
-  { questionnaire_id: 4, question_index: 22, option_value: 1 },
-  { questionnaire_id: 4, question_index: 23, option_value: 5 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material2,
-    question: question,
-    option: option
-  )
-end
-
 supplier3 = Supplier.create!(
   user: user3,
   name: 'Imperveg Polímeros Indústria E Comércio Ltda',
@@ -462,171 +132,6 @@ material3 = Material.create!(
     'testfiles/resources/pdf/dummy.pdf',
   published: true
 )
-
-# HUMANO SOCIAL
-[
-  { questionnaire_id: 1, question_index: 1, option_value: 1 },
-  { questionnaire_id: 1, question_index: 2, option_value: 2 },
-  { questionnaire_id: 1, question_index: 3, option_value: 3 },
-  { questionnaire_id: 1, question_index: 4, option_value: 1 },
-  { questionnaire_id: 1, question_index: 5, option_value: 1 },
-  { questionnaire_id: 1, question_index: 6, option_value: 5 },
-  { questionnaire_id: 1, question_index: 7, option_value: 0 },
-  { questionnaire_id: 1, question_index: 8, option_value: 1 },
-  { questionnaire_id: 1, question_index: 9, option_value: 1 },
-  { questionnaire_id: 1, question_index: 10, option_value: 3 },
-  { questionnaire_id: 1, question_index: 11, option_value: 1 },
-  { questionnaire_id: 1, question_index: 12, option_value: 3 },
-  { questionnaire_id: 1, question_index: 13, option_value: 0 },
-  { questionnaire_id: 1, question_index: 14, option_value: 0 },
-  { questionnaire_id: 1, question_index: 15, option_value: 1 },
-  { questionnaire_id: 1, question_index: 16, option_value: 0 },
-  { questionnaire_id: 1, question_index: 17, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier3,
-    question: question,
-    option: option
-  )
-end
-
-# GESTAO E GOVERNANCA
-[
-  { questionnaire_id: 2, question_index: 1, option_value: 2 },
-  { questionnaire_id: 2, question_index: 2, option_value: 2 },
-  { questionnaire_id: 2, question_index: 3, option_value: 0 },
-  { questionnaire_id: 2, question_index: 4, option_value: 1 },
-  { questionnaire_id: 2, question_index: 5, option_value: 1 },
-  { questionnaire_id: 2, question_index: 6, option_value: 1 },
-  { questionnaire_id: 2, question_index: 7, option_value: 0 },
-  { questionnaire_id: 2, question_index: 8, option_value: 0 },
-  { questionnaire_id: 2, question_index: 9, option_value: 0 },
-  { questionnaire_id: 2, question_index: 10, option_value: 0 },
-  { questionnaire_id: 2, question_index: 11, option_value: 2 },
-  { questionnaire_id: 2, question_index: 12, option_value: 0 },
-  { questionnaire_id: 2, question_index: 13, option_value: 1 },
-  { questionnaire_id: 2, question_index: 14, option_value: 5 },
-  { questionnaire_id: 2, question_index: 15, option_value: 1 },
-  { questionnaire_id: 2, question_index: 16, option_value: 5 },
-  { questionnaire_id: 2, question_index: 17, option_value: 1 },
-  { questionnaire_id: 2, question_index: 18, option_value: 5 },
-  { questionnaire_id: 2, question_index: 19, option_value: 5 },
-  { questionnaire_id: 2, question_index: 20, option_value: 5 },
-  { questionnaire_id: 2, question_index: 21, option_value: 5 },
-  { questionnaire_id: 2, question_index: 22, option_value: 5 },
-  { questionnaire_id: 2, question_index: 23, option_value: 2 },
-  { questionnaire_id: 2, question_index: 24, option_value: 3 },
-  { questionnaire_id: 2, question_index: 25, option_value: 1 },
-  { questionnaire_id: 2, question_index: 26, option_value: 1 },
-  { questionnaire_id: 2, question_index: 27, option_value: 1 },
-  { questionnaire_id: 2, question_index: 28, option_value: 1 },
-  { questionnaire_id: 2, question_index: 29, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: supplier3,
-    question: question,
-    option: option
-  )
-end
-
-# PROCESSO
-[
-  { questionnaire_id: 3, question_index: 1, option_value: 4 },
-  { questionnaire_id: 3, question_index: 2, option_value: 5 },
-  { questionnaire_id: 3, question_index: 3, option_value: 5 },
-  { questionnaire_id: 3, question_index: 4, option_value: 5 },
-  { questionnaire_id: 3, question_index: 5, option_value: 5 },
-  { questionnaire_id: 3, question_index: 6, option_value: 5 },
-  { questionnaire_id: 3, question_index: 7, option_value: 3 },
-  { questionnaire_id: 3, question_index: 8, option_value: 0 },
-  { questionnaire_id: 3, question_index: 9, option_value: 2 },
-  { questionnaire_id: 3, question_index: 10, option_value: 0 },
-  { questionnaire_id: 3, question_index: 11, option_value: 0 },
-  { questionnaire_id: 3, question_index: 12, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material3,
-    question: question,
-    option: option
-  )
-end
-
-# MATERIA PRIMA
-[
-  { questionnaire_id: 4, question_index: 1, option_value: 5 },
-  { questionnaire_id: 4, question_index: 2, option_value: 3 },
-  { questionnaire_id: 4, question_index: 3, option_value: 5 },
-  { questionnaire_id: 4, question_index: 4, option_value: 0 },
-  { questionnaire_id: 4, question_index: 5, option_value: 4 },
-  { questionnaire_id: 4, question_index: 6, option_value: 0 },
-  { questionnaire_id: 4, question_index: 7, option_value: 0 },
-  { questionnaire_id: 4, question_index: 8, option_value: 0 },
-  { questionnaire_id: 4, question_index: 9, option_value: 0 },
-  { questionnaire_id: 4, question_index: 10, option_value: 0 },
-  { questionnaire_id: 4, question_index: 11, option_value: 5 },
-  { questionnaire_id: 4, question_index: 12, option_value: 0 },
-  { questionnaire_id: 4, question_index: 13, option_value: 5 },
-  { questionnaire_id: 4, question_index: 14, option_value: 4 },
-  { questionnaire_id: 4, question_index: 15, option_value: 0 },
-  { questionnaire_id: 4, question_index: 16, option_value: 0 },
-  { questionnaire_id: 4, question_index: 17, option_value: 1 },
-  { questionnaire_id: 4, question_index: 18, option_value: 5 },
-  { questionnaire_id: 4, question_index: 19, option_value: 0 },
-  { questionnaire_id: 4, question_index: 20, option_value: 0 },
-  { questionnaire_id: 4, question_index: 21, option_value: 5 },
-  { questionnaire_id: 4, question_index: 22, option_value: 5 },
-  { questionnaire_id: 4, question_index: 23, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
-
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
-
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
-
-  Answer.create!(
-    about: material3,
-    question: question,
-    option: option
-  )
-end
 
 supplier4 = Supplier.create!(
   user: user4,
@@ -664,166 +169,657 @@ material4 = Material.create!(
 )
 
 # HUMANO SOCIAL
-[
-  { questionnaire_id: 1, question_index: 1, option_value: 1 },
-  { questionnaire_id: 1, question_index: 2, option_value: 2 },
-  { questionnaire_id: 1, question_index: 3, option_value: 3 },
-  { questionnaire_id: 1, question_index: 4, option_value: 1 },
-  { questionnaire_id: 1, question_index: 5, option_value: 1 },
-  { questionnaire_id: 1, question_index: 6, option_value: 5 },
-  { questionnaire_id: 1, question_index: 7, option_value: 0 },
-  { questionnaire_id: 1, question_index: 8, option_value: 1 },
-  { questionnaire_id: 1, question_index: 9, option_value: 1 },
-  { questionnaire_id: 1, question_index: 10, option_value: 3 },
-  { questionnaire_id: 1, question_index: 11, option_value: 1 },
-  { questionnaire_id: 1, question_index: 12, option_value: 3 },
-  { questionnaire_id: 1, question_index: 13, option_value: 0 },
-  { questionnaire_id: 1, question_index: 14, option_value: 0 },
-  { questionnaire_id: 1, question_index: 15, option_value: 1 },
-  { questionnaire_id: 1, question_index: 16, option_value: 0 },
-  { questionnaire_id: 1, question_index: 17, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
+if Questionnaire.exists?(driver: 'social_human')
+  [
+    { questionnaire_id: 1, question_index: 1, option_value: 2 },
+    { questionnaire_id: 1, question_index: 2, option_value: 3 },
+    { questionnaire_id: 1, question_index: 3, option_value: 5 },
+    { questionnaire_id: 1, question_index: 4, option_value: 1 },
+    { questionnaire_id: 1, question_index: 5, option_value: 3 },
+    { questionnaire_id: 1, question_index: 6, option_value: 3 },
+    { questionnaire_id: 1, question_index: 7, option_value: 5 },
+    { questionnaire_id: 1, question_index: 8, option_value: 5 },
+    { questionnaire_id: 1, question_index: 9, option_value: 0 },
+    { questionnaire_id: 1, question_index: 10, option_value: 5 },
+    { questionnaire_id: 1, question_index: 11, option_value: 5 },
+    { questionnaire_id: 1, question_index: 12, option_value: 0 },
+    { questionnaire_id: 1, question_index: 13, option_value: 2 },
+    { questionnaire_id: 1, question_index: 14, option_value: 4 },
+    { questionnaire_id: 1, question_index: 15, option_value: 3 },
+    { questionnaire_id: 1, question_index: 16, option_value: 2 },
+    { questionnaire_id: 1, question_index: 17, option_value: 2 }
+  ].each do |options|
+    next if options[:option_value].zero?
 
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
 
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
 
-  Answer.create!(
-    about: supplier4,
-    question: question,
-    option: option
-  )
+    Answer.create!(
+      about: supplier1,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 1, question_index: 1, option_value: 3 },
+    { questionnaire_id: 1, question_index: 2, option_value: 0 },
+    { questionnaire_id: 1, question_index: 3, option_value: 0 },
+    { questionnaire_id: 1, question_index: 4, option_value: 2 },
+    { questionnaire_id: 1, question_index: 5, option_value: 0 },
+    { questionnaire_id: 1, question_index: 6, option_value: 5 },
+    { questionnaire_id: 1, question_index: 7, option_value: 5 },
+    { questionnaire_id: 1, question_index: 8, option_value: 0 },
+    { questionnaire_id: 1, question_index: 9, option_value: 4 },
+    { questionnaire_id: 1, question_index: 10, option_value: 0 },
+    { questionnaire_id: 1, question_index: 11, option_value: 0 },
+    { questionnaire_id: 1, question_index: 12, option_value: 3 },
+    { questionnaire_id: 1, question_index: 13, option_value: 3 },
+    { questionnaire_id: 1, question_index: 14, option_value: 0 },
+    { questionnaire_id: 1, question_index: 15, option_value: 0 },
+    { questionnaire_id: 1, question_index: 16, option_value: 0 },
+    { questionnaire_id: 1, question_index: 17, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier2,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 1, question_index: 1, option_value: 1 },
+    { questionnaire_id: 1, question_index: 2, option_value: 2 },
+    { questionnaire_id: 1, question_index: 3, option_value: 3 },
+    { questionnaire_id: 1, question_index: 4, option_value: 1 },
+    { questionnaire_id: 1, question_index: 5, option_value: 1 },
+    { questionnaire_id: 1, question_index: 6, option_value: 5 },
+    { questionnaire_id: 1, question_index: 7, option_value: 0 },
+    { questionnaire_id: 1, question_index: 8, option_value: 1 },
+    { questionnaire_id: 1, question_index: 9, option_value: 1 },
+    { questionnaire_id: 1, question_index: 10, option_value: 3 },
+    { questionnaire_id: 1, question_index: 11, option_value: 1 },
+    { questionnaire_id: 1, question_index: 12, option_value: 3 },
+    { questionnaire_id: 1, question_index: 13, option_value: 0 },
+    { questionnaire_id: 1, question_index: 14, option_value: 0 },
+    { questionnaire_id: 1, question_index: 15, option_value: 1 },
+    { questionnaire_id: 1, question_index: 16, option_value: 0 },
+    { questionnaire_id: 1, question_index: 17, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier3,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 1, question_index: 1, option_value: 1 },
+    { questionnaire_id: 1, question_index: 2, option_value: 2 },
+    { questionnaire_id: 1, question_index: 3, option_value: 3 },
+    { questionnaire_id: 1, question_index: 4, option_value: 1 },
+    { questionnaire_id: 1, question_index: 5, option_value: 1 },
+    { questionnaire_id: 1, question_index: 6, option_value: 5 },
+    { questionnaire_id: 1, question_index: 7, option_value: 0 },
+    { questionnaire_id: 1, question_index: 8, option_value: 1 },
+    { questionnaire_id: 1, question_index: 9, option_value: 1 },
+    { questionnaire_id: 1, question_index: 10, option_value: 3 },
+    { questionnaire_id: 1, question_index: 11, option_value: 1 },
+    { questionnaire_id: 1, question_index: 12, option_value: 3 },
+    { questionnaire_id: 1, question_index: 13, option_value: 0 },
+    { questionnaire_id: 1, question_index: 14, option_value: 0 },
+    { questionnaire_id: 1, question_index: 15, option_value: 1 },
+    { questionnaire_id: 1, question_index: 16, option_value: 0 },
+    { questionnaire_id: 1, question_index: 17, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier4,
+      question: question,
+      option: option
+    )
+  end
 end
 
 # GESTAO E GOVERNANCA
-[
-  { questionnaire_id: 2, question_index: 1, option_value: 2 },
-  { questionnaire_id: 2, question_index: 2, option_value: 2 },
-  { questionnaire_id: 2, question_index: 3, option_value: 0 },
-  { questionnaire_id: 2, question_index: 4, option_value: 1 },
-  { questionnaire_id: 2, question_index: 5, option_value: 1 },
-  { questionnaire_id: 2, question_index: 6, option_value: 1 },
-  { questionnaire_id: 2, question_index: 7, option_value: 0 },
-  { questionnaire_id: 2, question_index: 8, option_value: 0 },
-  { questionnaire_id: 2, question_index: 9, option_value: 0 },
-  { questionnaire_id: 2, question_index: 10, option_value: 0 },
-  { questionnaire_id: 2, question_index: 11, option_value: 2 },
-  { questionnaire_id: 2, question_index: 12, option_value: 0 },
-  { questionnaire_id: 2, question_index: 13, option_value: 1 },
-  { questionnaire_id: 2, question_index: 14, option_value: 5 },
-  { questionnaire_id: 2, question_index: 15, option_value: 1 },
-  { questionnaire_id: 2, question_index: 16, option_value: 5 },
-  { questionnaire_id: 2, question_index: 17, option_value: 1 },
-  { questionnaire_id: 2, question_index: 18, option_value: 5 },
-  { questionnaire_id: 2, question_index: 19, option_value: 5 },
-  { questionnaire_id: 2, question_index: 20, option_value: 5 },
-  { questionnaire_id: 2, question_index: 21, option_value: 5 },
-  { questionnaire_id: 2, question_index: 22, option_value: 5 },
-  { questionnaire_id: 2, question_index: 23, option_value: 2 },
-  { questionnaire_id: 2, question_index: 24, option_value: 3 },
-  { questionnaire_id: 2, question_index: 25, option_value: 1 },
-  { questionnaire_id: 2, question_index: 26, option_value: 1 },
-  { questionnaire_id: 2, question_index: 27, option_value: 1 },
-  { questionnaire_id: 2, question_index: 28, option_value: 1 },
-  { questionnaire_id: 2, question_index: 29, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
+if Questionnaire.exists?(driver: 'management_and_governance')
+  [
+    { questionnaire_id: 2, question_index: 1, option_value: 3 },
+    { questionnaire_id: 2, question_index: 2, option_value: 5 },
+    { questionnaire_id: 2, question_index: 3, option_value: 0 },
+    { questionnaire_id: 2, question_index: 4, option_value: 1 },
+    { questionnaire_id: 2, question_index: 5, option_value: 2 },
+    { questionnaire_id: 2, question_index: 6, option_value: 1 },
+    { questionnaire_id: 2, question_index: 7, option_value: 0 },
+    { questionnaire_id: 2, question_index: 8, option_value: 0 },
+    { questionnaire_id: 2, question_index: 9, option_value: 0 },
+    { questionnaire_id: 2, question_index: 10, option_value: 0 },
+    { questionnaire_id: 2, question_index: 11, option_value: 5 },
+    { questionnaire_id: 2, question_index: 12, option_value: 0 },
+    { questionnaire_id: 2, question_index: 13, option_value: 0 },
+    { questionnaire_id: 2, question_index: 14, option_value: 4 },
+    { questionnaire_id: 2, question_index: 15, option_value: 2 },
+    { questionnaire_id: 2, question_index: 16, option_value: 0 },
+    { questionnaire_id: 2, question_index: 17, option_value: 0 },
+    { questionnaire_id: 2, question_index: 18, option_value: 0 },
+    { questionnaire_id: 2, question_index: 19, option_value: 0 },
+    { questionnaire_id: 2, question_index: 20, option_value: 0 },
+    { questionnaire_id: 2, question_index: 21, option_value: 5 },
+    { questionnaire_id: 2, question_index: 22, option_value: 5 },
+    { questionnaire_id: 2, question_index: 23, option_value: 2 },
+    { questionnaire_id: 2, question_index: 24, option_value: 1 },
+    { questionnaire_id: 2, question_index: 25, option_value: 0 },
+    { questionnaire_id: 2, question_index: 26, option_value: 0 },
+    { questionnaire_id: 2, question_index: 27, option_value: 1 },
+    { questionnaire_id: 2, question_index: 28, option_value: 1 },
+    { questionnaire_id: 2, question_index: 29, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
 
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
 
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
 
-  Answer.create!(
-    about: supplier4,
-    question: question,
-    option: option
-  )
+    Answer.create!(
+      about: supplier1,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 2, question_index: 1, option_value: 4 },
+    { questionnaire_id: 2, question_index: 2, option_value: 3 },
+    { questionnaire_id: 2, question_index: 3, option_value: 2 },
+    { questionnaire_id: 2, question_index: 4, option_value: 0 },
+    { questionnaire_id: 2, question_index: 5, option_value: 2 },
+    { questionnaire_id: 2, question_index: 6, option_value: 2 },
+    { questionnaire_id: 2, question_index: 7, option_value: 1 },
+    { questionnaire_id: 2, question_index: 8, option_value: 1 },
+    { questionnaire_id: 2, question_index: 9, option_value: 0 },
+    { questionnaire_id: 2, question_index: 10, option_value: 0 },
+    { questionnaire_id: 2, question_index: 11, option_value: 2 },
+    { questionnaire_id: 2, question_index: 12, option_value: 5 },
+    { questionnaire_id: 2, question_index: 13, option_value: 4 },
+    { questionnaire_id: 2, question_index: 14, option_value: 0 },
+    { questionnaire_id: 2, question_index: 15, option_value: 2 },
+    { questionnaire_id: 2, question_index: 16, option_value: 4 },
+    { questionnaire_id: 2, question_index: 17, option_value: 0 },
+    { questionnaire_id: 2, question_index: 18, option_value: 0 },
+    { questionnaire_id: 2, question_index: 19, option_value: 5 },
+    { questionnaire_id: 2, question_index: 20, option_value: 5 },
+    { questionnaire_id: 2, question_index: 21, option_value: 5 },
+    { questionnaire_id: 2, question_index: 22, option_value: 5 },
+    { questionnaire_id: 2, question_index: 23, option_value: 5 },
+    { questionnaire_id: 2, question_index: 24, option_value: 1 },
+    { questionnaire_id: 2, question_index: 25, option_value: 1 },
+    { questionnaire_id: 2, question_index: 26, option_value: 0 },
+    { questionnaire_id: 2, question_index: 27, option_value: 1 },
+    { questionnaire_id: 2, question_index: 28, option_value: 3 },
+    { questionnaire_id: 2, question_index: 29, option_value: 2 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier2,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 2, question_index: 1, option_value: 2 },
+    { questionnaire_id: 2, question_index: 2, option_value: 2 },
+    { questionnaire_id: 2, question_index: 3, option_value: 0 },
+    { questionnaire_id: 2, question_index: 4, option_value: 1 },
+    { questionnaire_id: 2, question_index: 5, option_value: 1 },
+    { questionnaire_id: 2, question_index: 6, option_value: 1 },
+    { questionnaire_id: 2, question_index: 7, option_value: 0 },
+    { questionnaire_id: 2, question_index: 8, option_value: 0 },
+    { questionnaire_id: 2, question_index: 9, option_value: 0 },
+    { questionnaire_id: 2, question_index: 10, option_value: 0 },
+    { questionnaire_id: 2, question_index: 11, option_value: 2 },
+    { questionnaire_id: 2, question_index: 12, option_value: 0 },
+    { questionnaire_id: 2, question_index: 13, option_value: 1 },
+    { questionnaire_id: 2, question_index: 14, option_value: 5 },
+    { questionnaire_id: 2, question_index: 15, option_value: 1 },
+    { questionnaire_id: 2, question_index: 16, option_value: 5 },
+    { questionnaire_id: 2, question_index: 17, option_value: 1 },
+    { questionnaire_id: 2, question_index: 18, option_value: 5 },
+    { questionnaire_id: 2, question_index: 19, option_value: 5 },
+    { questionnaire_id: 2, question_index: 20, option_value: 5 },
+    { questionnaire_id: 2, question_index: 21, option_value: 5 },
+    { questionnaire_id: 2, question_index: 22, option_value: 5 },
+    { questionnaire_id: 2, question_index: 23, option_value: 2 },
+    { questionnaire_id: 2, question_index: 24, option_value: 3 },
+    { questionnaire_id: 2, question_index: 25, option_value: 1 },
+    { questionnaire_id: 2, question_index: 26, option_value: 1 },
+    { questionnaire_id: 2, question_index: 27, option_value: 1 },
+    { questionnaire_id: 2, question_index: 28, option_value: 1 },
+    { questionnaire_id: 2, question_index: 29, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier3,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 2, question_index: 1, option_value: 2 },
+    { questionnaire_id: 2, question_index: 2, option_value: 2 },
+    { questionnaire_id: 2, question_index: 3, option_value: 0 },
+    { questionnaire_id: 2, question_index: 4, option_value: 1 },
+    { questionnaire_id: 2, question_index: 5, option_value: 1 },
+    { questionnaire_id: 2, question_index: 6, option_value: 1 },
+    { questionnaire_id: 2, question_index: 7, option_value: 0 },
+    { questionnaire_id: 2, question_index: 8, option_value: 0 },
+    { questionnaire_id: 2, question_index: 9, option_value: 0 },
+    { questionnaire_id: 2, question_index: 10, option_value: 0 },
+    { questionnaire_id: 2, question_index: 11, option_value: 2 },
+    { questionnaire_id: 2, question_index: 12, option_value: 0 },
+    { questionnaire_id: 2, question_index: 13, option_value: 1 },
+    { questionnaire_id: 2, question_index: 14, option_value: 5 },
+    { questionnaire_id: 2, question_index: 15, option_value: 1 },
+    { questionnaire_id: 2, question_index: 16, option_value: 5 },
+    { questionnaire_id: 2, question_index: 17, option_value: 1 },
+    { questionnaire_id: 2, question_index: 18, option_value: 5 },
+    { questionnaire_id: 2, question_index: 19, option_value: 5 },
+    { questionnaire_id: 2, question_index: 20, option_value: 5 },
+    { questionnaire_id: 2, question_index: 21, option_value: 5 },
+    { questionnaire_id: 2, question_index: 22, option_value: 5 },
+    { questionnaire_id: 2, question_index: 23, option_value: 2 },
+    { questionnaire_id: 2, question_index: 24, option_value: 3 },
+    { questionnaire_id: 2, question_index: 25, option_value: 1 },
+    { questionnaire_id: 2, question_index: 26, option_value: 1 },
+    { questionnaire_id: 2, question_index: 27, option_value: 1 },
+    { questionnaire_id: 2, question_index: 28, option_value: 1 },
+    { questionnaire_id: 2, question_index: 29, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: supplier4,
+      question: question,
+      option: option
+    )
+  end
 end
 
 # PROCESSO
-[
-  { questionnaire_id: 3, question_index: 1, option_value: 4 },
-  { questionnaire_id: 3, question_index: 2, option_value: 5 },
-  { questionnaire_id: 3, question_index: 3, option_value: 5 },
-  { questionnaire_id: 3, question_index: 4, option_value: 5 },
-  { questionnaire_id: 3, question_index: 5, option_value: 5 },
-  { questionnaire_id: 3, question_index: 6, option_value: 5 },
-  { questionnaire_id: 3, question_index: 7, option_value: 3 },
-  { questionnaire_id: 3, question_index: 8, option_value: 0 },
-  { questionnaire_id: 3, question_index: 9, option_value: 2 },
-  { questionnaire_id: 3, question_index: 10, option_value: 0 },
-  { questionnaire_id: 3, question_index: 11, option_value: 0 },
-  { questionnaire_id: 3, question_index: 12, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
+if Questionnaire.exists?(driver: 'process')
+  [
+    { questionnaire_id: 3, question_index: 1, option_value: 2 },
+    { questionnaire_id: 3, question_index: 2, option_value: 2 },
+    { questionnaire_id: 3, question_index: 3, option_value: 5 },
+    { questionnaire_id: 3, question_index: 4, option_value: 5 },
+    { questionnaire_id: 3, question_index: 5, option_value: 5 },
+    { questionnaire_id: 3, question_index: 6, option_value: 5 },
+    { questionnaire_id: 3, question_index: 7, option_value: 0 },
+    { questionnaire_id: 3, question_index: 8, option_value: 5 },
+    { questionnaire_id: 3, question_index: 9, option_value: 1 },
+    { questionnaire_id: 3, question_index: 10, option_value: 5 },
+    { questionnaire_id: 3, question_index: 11, option_value: 2 },
+    { questionnaire_id: 3, question_index: 12, option_value: 2 }
+  ].each do |options|
+    next if options[:option_value].zero?
 
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
 
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
 
-  Answer.create!(
-    about: material4,
-    question: question,
-    option: option
-  )
+    Answer.create!(
+      about: material1,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 3, question_index: 1, option_value: 2 },
+    { questionnaire_id: 3, question_index: 2, option_value: 3 },
+    { questionnaire_id: 3, question_index: 3, option_value: 3 },
+    { questionnaire_id: 3, question_index: 4, option_value: 5 },
+    { questionnaire_id: 3, question_index: 5, option_value: 0 },
+    { questionnaire_id: 3, question_index: 6, option_value: 5 },
+    { questionnaire_id: 3, question_index: 7, option_value: 0 },
+    { questionnaire_id: 3, question_index: 8, option_value: 0 },
+    { questionnaire_id: 3, question_index: 9, option_value: 3 },
+    { questionnaire_id: 3, question_index: 10, option_value: 1 },
+    { questionnaire_id: 3, question_index: 11, option_value: 3 },
+    { questionnaire_id: 3, question_index: 12, option_value: 3 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material2,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 3, question_index: 1, option_value: 4 },
+    { questionnaire_id: 3, question_index: 2, option_value: 5 },
+    { questionnaire_id: 3, question_index: 3, option_value: 5 },
+    { questionnaire_id: 3, question_index: 4, option_value: 5 },
+    { questionnaire_id: 3, question_index: 5, option_value: 5 },
+    { questionnaire_id: 3, question_index: 6, option_value: 5 },
+    { questionnaire_id: 3, question_index: 7, option_value: 3 },
+    { questionnaire_id: 3, question_index: 8, option_value: 0 },
+    { questionnaire_id: 3, question_index: 9, option_value: 2 },
+    { questionnaire_id: 3, question_index: 10, option_value: 0 },
+    { questionnaire_id: 3, question_index: 11, option_value: 0 },
+    { questionnaire_id: 3, question_index: 12, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material3,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 3, question_index: 1, option_value: 4 },
+    { questionnaire_id: 3, question_index: 2, option_value: 5 },
+    { questionnaire_id: 3, question_index: 3, option_value: 5 },
+    { questionnaire_id: 3, question_index: 4, option_value: 5 },
+    { questionnaire_id: 3, question_index: 5, option_value: 5 },
+    { questionnaire_id: 3, question_index: 6, option_value: 5 },
+    { questionnaire_id: 3, question_index: 7, option_value: 3 },
+    { questionnaire_id: 3, question_index: 8, option_value: 0 },
+    { questionnaire_id: 3, question_index: 9, option_value: 2 },
+    { questionnaire_id: 3, question_index: 10, option_value: 0 },
+    { questionnaire_id: 3, question_index: 11, option_value: 0 },
+    { questionnaire_id: 3, question_index: 12, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material4,
+      question: question,
+      option: option
+    )
+  end
 end
 
 # MATERIA PRIMA
-[
-  { questionnaire_id: 4, question_index: 1, option_value: 5 },
-  { questionnaire_id: 4, question_index: 2, option_value: 3 },
-  { questionnaire_id: 4, question_index: 3, option_value: 5 },
-  { questionnaire_id: 4, question_index: 4, option_value: 0 },
-  { questionnaire_id: 4, question_index: 5, option_value: 4 },
-  { questionnaire_id: 4, question_index: 6, option_value: 0 },
-  { questionnaire_id: 4, question_index: 7, option_value: 0 },
-  { questionnaire_id: 4, question_index: 8, option_value: 0 },
-  { questionnaire_id: 4, question_index: 9, option_value: 0 },
-  { questionnaire_id: 4, question_index: 10, option_value: 0 },
-  { questionnaire_id: 4, question_index: 11, option_value: 5 },
-  { questionnaire_id: 4, question_index: 12, option_value: 0 },
-  { questionnaire_id: 4, question_index: 13, option_value: 5 },
-  { questionnaire_id: 4, question_index: 14, option_value: 4 },
-  { questionnaire_id: 4, question_index: 15, option_value: 0 },
-  { questionnaire_id: 4, question_index: 16, option_value: 0 },
-  { questionnaire_id: 4, question_index: 17, option_value: 1 },
-  { questionnaire_id: 4, question_index: 18, option_value: 5 },
-  { questionnaire_id: 4, question_index: 19, option_value: 0 },
-  { questionnaire_id: 4, question_index: 20, option_value: 0 },
-  { questionnaire_id: 4, question_index: 21, option_value: 5 },
-  { questionnaire_id: 4, question_index: 22, option_value: 5 },
-  { questionnaire_id: 4, question_index: 23, option_value: 0 }
-].each do |options|
-  next if options[:option_value].zero?
+if Questionnaire.exists?(driver: 'raw_material')
+  [
+    { questionnaire_id: 4, question_index: 1, option_value: 5 },
+    { questionnaire_id: 4, question_index: 2, option_value: 0 },
+    { questionnaire_id: 4, question_index: 3, option_value: 5 },
+    { questionnaire_id: 4, question_index: 4, option_value: 1 },
+    { questionnaire_id: 4, question_index: 5, option_value: 5 },
+    { questionnaire_id: 4, question_index: 6, option_value: 5 },
+    { questionnaire_id: 4, question_index: 7, option_value: 5 },
+    { questionnaire_id: 4, question_index: 8, option_value: 0 },
+    { questionnaire_id: 4, question_index: 9, option_value: 5 },
+    { questionnaire_id: 4, question_index: 10, option_value: 0 },
+    { questionnaire_id: 4, question_index: 11, option_value: 0 },
+    { questionnaire_id: 4, question_index: 12, option_value: 0 },
+    { questionnaire_id: 4, question_index: 13, option_value: 5 },
+    { questionnaire_id: 4, question_index: 14, option_value: 1 },
+    { questionnaire_id: 4, question_index: 15, option_value: 0 },
+    { questionnaire_id: 4, question_index: 16, option_value: 0 },
+    { questionnaire_id: 4, question_index: 17, option_value: 0 },
+    { questionnaire_id: 4, question_index: 18, option_value: 5 },
+    { questionnaire_id: 4, question_index: 19, option_value: 0 },
+    { questionnaire_id: 4, question_index: 20, option_value: 5 },
+    { questionnaire_id: 4, question_index: 21, option_value: 5 },
+    { questionnaire_id: 4, question_index: 22, option_value: 5 },
+    { questionnaire_id: 4, question_index: 23, option_value: 3 }
+  ].each do |options|
+    next if options[:option_value].zero?
 
-  question = Question.find_by(
-    questionnaire_id: options[:questionnaire_id],
-    sorting: options[:question_index]
-  )
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
 
-  option = question.options.find_by(
-    value: options[:option_value]
-  )
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
 
-  Answer.create!(
-    about: material4,
-    question: question,
-    option: option
-  )
+    Answer.create!(
+      about: material1,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 4, question_index: 1, option_value: 1 },
+    { questionnaire_id: 4, question_index: 2, option_value: 2 },
+    { questionnaire_id: 4, question_index: 3, option_value: 5 },
+    { questionnaire_id: 4, question_index: 4, option_value: 2 },
+    { questionnaire_id: 4, question_index: 5, option_value: 1 },
+    { questionnaire_id: 4, question_index: 6, option_value: 1 },
+    { questionnaire_id: 4, question_index: 7, option_value: 1 },
+    { questionnaire_id: 4, question_index: 8, option_value: 0 },
+    { questionnaire_id: 4, question_index: 9, option_value: 1 },
+    { questionnaire_id: 4, question_index: 10, option_value: 1 },
+    { questionnaire_id: 4, question_index: 11, option_value: 5 },
+    { questionnaire_id: 4, question_index: 12, option_value: 1 },
+    { questionnaire_id: 4, question_index: 13, option_value: 1 },
+    { questionnaire_id: 4, question_index: 14, option_value: 3 },
+    { questionnaire_id: 4, question_index: 15, option_value: 3 },
+    { questionnaire_id: 4, question_index: 16, option_value: 0 },
+    { questionnaire_id: 4, question_index: 17, option_value: 5 },
+    { questionnaire_id: 4, question_index: 18, option_value: 5 },
+    { questionnaire_id: 4, question_index: 19, option_value: 1 },
+    { questionnaire_id: 4, question_index: 20, option_value: 5 },
+    { questionnaire_id: 4, question_index: 21, option_value: 1 },
+    { questionnaire_id: 4, question_index: 22, option_value: 1 },
+    { questionnaire_id: 4, question_index: 23, option_value: 5 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material2,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 4, question_index: 1, option_value: 5 },
+    { questionnaire_id: 4, question_index: 2, option_value: 3 },
+    { questionnaire_id: 4, question_index: 3, option_value: 5 },
+    { questionnaire_id: 4, question_index: 4, option_value: 0 },
+    { questionnaire_id: 4, question_index: 5, option_value: 4 },
+    { questionnaire_id: 4, question_index: 6, option_value: 0 },
+    { questionnaire_id: 4, question_index: 7, option_value: 0 },
+    { questionnaire_id: 4, question_index: 8, option_value: 0 },
+    { questionnaire_id: 4, question_index: 9, option_value: 0 },
+    { questionnaire_id: 4, question_index: 10, option_value: 0 },
+    { questionnaire_id: 4, question_index: 11, option_value: 5 },
+    { questionnaire_id: 4, question_index: 12, option_value: 0 },
+    { questionnaire_id: 4, question_index: 13, option_value: 5 },
+    { questionnaire_id: 4, question_index: 14, option_value: 4 },
+    { questionnaire_id: 4, question_index: 15, option_value: 0 },
+    { questionnaire_id: 4, question_index: 16, option_value: 0 },
+    { questionnaire_id: 4, question_index: 17, option_value: 1 },
+    { questionnaire_id: 4, question_index: 18, option_value: 5 },
+    { questionnaire_id: 4, question_index: 19, option_value: 0 },
+    { questionnaire_id: 4, question_index: 20, option_value: 0 },
+    { questionnaire_id: 4, question_index: 21, option_value: 5 },
+    { questionnaire_id: 4, question_index: 22, option_value: 5 },
+    { questionnaire_id: 4, question_index: 23, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material3,
+      question: question,
+      option: option
+    )
+  end
+
+  [
+    { questionnaire_id: 4, question_index: 1, option_value: 5 },
+    { questionnaire_id: 4, question_index: 2, option_value: 3 },
+    { questionnaire_id: 4, question_index: 3, option_value: 5 },
+    { questionnaire_id: 4, question_index: 4, option_value: 0 },
+    { questionnaire_id: 4, question_index: 5, option_value: 4 },
+    { questionnaire_id: 4, question_index: 6, option_value: 0 },
+    { questionnaire_id: 4, question_index: 7, option_value: 0 },
+    { questionnaire_id: 4, question_index: 8, option_value: 0 },
+    { questionnaire_id: 4, question_index: 9, option_value: 0 },
+    { questionnaire_id: 4, question_index: 10, option_value: 0 },
+    { questionnaire_id: 4, question_index: 11, option_value: 5 },
+    { questionnaire_id: 4, question_index: 12, option_value: 0 },
+    { questionnaire_id: 4, question_index: 13, option_value: 5 },
+    { questionnaire_id: 4, question_index: 14, option_value: 4 },
+    { questionnaire_id: 4, question_index: 15, option_value: 0 },
+    { questionnaire_id: 4, question_index: 16, option_value: 0 },
+    { questionnaire_id: 4, question_index: 17, option_value: 1 },
+    { questionnaire_id: 4, question_index: 18, option_value: 5 },
+    { questionnaire_id: 4, question_index: 19, option_value: 0 },
+    { questionnaire_id: 4, question_index: 20, option_value: 0 },
+    { questionnaire_id: 4, question_index: 21, option_value: 5 },
+    { questionnaire_id: 4, question_index: 22, option_value: 5 },
+    { questionnaire_id: 4, question_index: 23, option_value: 0 }
+  ].each do |options|
+    next if options[:option_value].zero?
+
+    question = Question.find_by(
+      questionnaire_id: options[:questionnaire_id],
+      sorting: options[:question_index]
+    )
+
+    option = question.options.find_by(
+      value: options[:option_value]
+    )
+
+    Answer.create!(
+      about: material4,
+      question: question,
+      option: option
+    )
+  end
 end
