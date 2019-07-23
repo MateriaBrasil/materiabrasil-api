@@ -30,10 +30,6 @@ describe 'GET /questionnaires', type: :request do
   end
 
   context 'when about_type AND about_id is present' do
-    before do
-      load(Dir[Rails.root.join('db', 'seeds', 'humano_social_seeds.rb')][0])
-    end
-
     context 'with company is small' do
       let(:questionnaire) do
         Questionnaire.find_by(driver: 'social_human')
@@ -46,6 +42,8 @@ describe 'GET /questionnaires', type: :request do
       end
 
       before do
+        load(Dir[Rails.root.join('db', 'seeds', 'humano_social_seeds.rb')][0])
+
         get '/questionnaires', params: {
           about_type: 'Supplier', about_id: supplier('small').id
         }
@@ -62,7 +60,7 @@ describe 'GET /questionnaires', type: :request do
 
     context 'with company is medium' do
       let(:questionnaire) do
-        Questionnaire.find_by(driver: 'social_human')
+        Questionnaire.find_by(driver: 'management_and_governance')
       end
 
       let(:expected_array) do
@@ -72,13 +70,17 @@ describe 'GET /questionnaires', type: :request do
       end
 
       before do
+        load(
+          Dir[Rails.root.join('db', 'seeds', 'gestao_e_governanca_seeds.rb')][0]
+        )
+
         get '/questionnaires', params: {
           about_type: 'Supplier', about_id: supplier('medium').id
         }
       end
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(17) }
+      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(29) }
       it do
         expect(JSON.parse(response.body)[0]['questions'].to_json).to eq(
           expected_array.to_json
@@ -88,7 +90,7 @@ describe 'GET /questionnaires', type: :request do
 
     context 'with company is large' do
       let(:questionnaire) do
-        Questionnaire.find_by(driver: 'social_human')
+        Questionnaire.find_by(driver: 'process')
       end
 
       let(:expected_array) do
@@ -98,13 +100,17 @@ describe 'GET /questionnaires', type: :request do
       end
 
       before do
+        load(
+          Dir[Rails.root.join('db', 'seeds', 'processo_seeds.rb')][0]
+        )
+
         get '/questionnaires', params: {
-          about_type: 'Supplier', about_id: supplier('large').id
+          about_type: 'Material', about_id: material('large').id
         }
       end
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(17) }
+      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(12) }
       it do
         expect(JSON.parse(response.body)[0]['questions'].to_json).to eq(
           expected_array.to_json
@@ -114,7 +120,7 @@ describe 'GET /questionnaires', type: :request do
 
     context 'with company is service' do
       let(:questionnaire) do
-        Questionnaire.find_by(driver: 'social_human')
+        Questionnaire.find_by(driver: 'raw_material')
       end
 
       let(:expected_array) do
@@ -124,13 +130,17 @@ describe 'GET /questionnaires', type: :request do
       end
 
       before do
+        load(
+          Dir[Rails.root.join('db', 'seeds', 'materia_prima_seeds.rb')][0]
+        )
+
         get '/questionnaires', params: {
-          about_type: 'Supplier', about_id: supplier('service').id
+          about_type: 'Material', about_id: material('service').id
         }
       end
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(17) }
+      it { expect(JSON.parse(response.body)[0]['questions'].count).to eq(8) }
       it do
         expect(JSON.parse(response.body)[0]['questions'].to_json).to eq(
           expected_array.to_json
@@ -189,6 +199,26 @@ describe 'GET /questionnaires', type: :request do
       type_of_company: size,
       reach: 'country',
       image_url: 'http://foo-image'
+    )
+  end
+
+  def material(size)
+    Material.create!(
+      name: 'Cartão de Bambu',
+      supplier: supplier(size),
+      image_url: 'https://image.ibb.co/bPMTky/tecido.jpg',
+      description: 'Lona com urdume de algodão natural, sem aplicação de '\
+      ' tingimento e trama de algodão reciclado. Foi desenvolvido com o'\
+      ' intuito de ser ecologicamente correto e orgânico, por isso em sua'\
+      ' composição foram utilizadas apenas fibras. A mescla de fios de'\
+      ' algodão novos com fios já reciclados garante um visual rústico e'\
+      ' exclusivo.',
+      average_price: 'R$ 30,00',
+      code: '00672',
+      highlighted: true,
+      technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+        'testfiles/resources/pdf/dummy.pdf',
+      published: true
     )
   end
   # rubocop:enable Metrics/MethodLength
