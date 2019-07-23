@@ -1032,6 +1032,7 @@ A questionnaire is a list of questions of a subject
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **about_id** | *string* | the about_id of the questionnaire | `"example"` |
 | **about_type** | *string* | the about_type of the questionnaire | `"example"` |
 | **driver** | *string* | the driver of the questionnaire | `"example"` |
 | **id** | *integer* | unique identifier of the questionnaire | `42` |
@@ -1051,6 +1052,7 @@ GET /questionnaires
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
+| **about_id** | *string* | the about_id of the questionnaire | `"example"` |
 | **about_type** | *string* | the about_type of the questionnaire | `"example"` |
 
 
@@ -1059,7 +1061,8 @@ GET /questionnaires
 ```bash
 $ curl -n https://api.materiabrasil.com/questionnaires
  -G \
-  -d about_type=example
+  -d about_type=example \
+  -d about_id=example
 ```
 
 

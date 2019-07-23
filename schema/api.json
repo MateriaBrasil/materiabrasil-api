@@ -1917,6 +1917,12 @@
             "string"
           ]
         },
+        "about_id": {
+          "description": "the about_id of the questionnaire",
+          "type": [
+            "string"
+          ]
+        },
         "driver": {
           "description": "the driver of the questionnaire",
           "type": [
@@ -1955,10 +1961,13 @@
           "method": "GET",
           "rel": "index",
           "schema": {
-            "strictProperties": true,
+            "additionalProperties": false,
             "properties": {
               "about_type": {
                 "$ref": "#/definitions/questionnaire/definitions/about_type"
+              },
+              "about_id": {
+                "$ref": "#/definitions/questionnaire/definitions/about_id"
               }
             },
             "type": [
@@ -1992,6 +2001,9 @@
         },
         "about_type": {
           "$ref": "#/definitions/questionnaire/definitions/about_type"
+        },
+        "about_id": {
+          "$ref": "#/definitions/questionnaire/definitions/about_id"
         },
         "driver": {
           "$ref": "#/definitions/questionnaire/definitions/driver"
