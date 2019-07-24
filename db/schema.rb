@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_204105) do
+ActiveRecord::Schema.define(version: 2019_07_24_194738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -286,15 +286,15 @@ ActiveRecord::Schema.define(version: 2019_07_17_204105) do
   add_foreign_key "album_users", "albums"
   add_foreign_key "album_users", "users"
   add_foreign_key "albums", "users"
-  add_foreign_key "answers", "options"
-  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "options", on_delete: :cascade
+  add_foreign_key "answers", "questions", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "albums"
   add_foreign_key "material_categories", "categories"
   add_foreign_key "material_categories", "materials"
   add_foreign_key "materials", "suppliers"
-  add_foreign_key "options", "questions"
-  add_foreign_key "questions", "questionnaires"
+  add_foreign_key "options", "questions", on_delete: :cascade
+  add_foreign_key "questions", "questionnaires", on_delete: :cascade
   add_foreign_key "reviews", "users"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "suppliers", "users"

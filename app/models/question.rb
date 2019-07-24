@@ -9,7 +9,7 @@ class Question < ApplicationRecord
     }
 
   belongs_to :questionnaire
-  has_many :options, dependent: :restrict_with_exception
+  has_many :options, dependent: :destroy
 
   accepts_nested_attributes_for :options
 
