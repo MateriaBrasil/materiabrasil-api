@@ -18,6 +18,10 @@ definitions:
     description: the about_type of the questionnaire
     type:
       - string
+  about_id:
+    description: the about_id of the questionnaire
+    type:
+      - string
   driver:
     description: the driver of the questionnaire
     type:
@@ -42,18 +46,23 @@ links:
     method: GET
     rel: index
     schema:
-      strictProperties: true
+      additionalProperties: false
       properties:
         about_type:
           "$ref": "/schemata/questionnaire#/definitions/about_type"
+        about_id:
+          "$ref": "/schemata/questionnaire#/definitions/about_id"
       type:
         - object
     targetSchema:
       anyOf:
-        - type: array
-          items:
-            $ref: /schemata/questionnaire
-        - $ref: /schemata/error
+        - {
+            "type": "array",
+            "items": {
+              "$ref": "/schemata/questionnaire"
+            }
+          }
+        - "$ref": "/schemata/error"
     title: List
 properties:
   id:
@@ -62,6 +71,8 @@ properties:
     "$ref": "/schemata/questionnaire#/definitions/name"
   about_type:
     "$ref": "/schemata/questionnaire#/definitions/about_type"
+  about_id:
+    "$ref": "/schemata/questionnaire#/definitions/about_id"
   driver:
     "$ref": "/schemata/questionnaire#/definitions/driver"
   sorting:

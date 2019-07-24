@@ -34,7 +34,7 @@ class Material < ApplicationRecord
 
   belongs_to :supplier
 
-  delegate :user, to: :supplier
+  delegate :user, :type_of_company, to: :supplier
 
   def self.with_categories(ids)
     where(

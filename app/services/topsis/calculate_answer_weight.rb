@@ -34,11 +34,7 @@ module Topsis
     end
 
     def type_of_company
-      if @supplier_or_material.is_a?(Material)
-        @supplier_or_material.supplier.type_of_company
-      else
-        @supplier_or_material.type_of_company
-      end
+      @supplier_or_material.type_of_company
     end
 
     def question_weight
