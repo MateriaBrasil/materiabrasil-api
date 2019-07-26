@@ -20,7 +20,7 @@ class CalculateAllTopsisJob < ApplicationJob
       CalculateTopsisJob.perform_later(questionnaire.driver, supplier)
     end
   end
-  
+
   def calculate_each_material(questionnaire)
     Material.find_each do |material|
       CalculateTopsisJob.perform_later(questionnaire.driver, material)

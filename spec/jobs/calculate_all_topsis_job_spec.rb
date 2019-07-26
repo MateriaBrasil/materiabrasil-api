@@ -18,7 +18,7 @@ describe CalculateAllTopsisJob, type: :job do
 
     it { expect(CalculateTopsisJob).to have_been_enqueued.exactly(16) }
   end
-  
+
   describe 'is in high queue' do
     it { expect(described_class.new.queue_name).to eq('high') }
   end
