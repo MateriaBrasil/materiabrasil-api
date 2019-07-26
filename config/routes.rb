@@ -44,5 +44,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: %i[create show] do
     post :activate, on: :collection
   end
+
+  post 'recalculate_topsis', to: 'questionnaires#recalculate_topsis'
 end
 # rubocop:enable Metrics/BlockLength

@@ -37,6 +37,13 @@ definitions:
     items:
       targetSchema:
         "$ref": "/schemata/question"
+  ok_response:
+    description: an empty response
+    type:
+      - object
+    properties:
+      ok:
+        type: boolean
   identity:
     anyOf:
       - "$ref": "/schemata/questionnaire#/definitions/id"
@@ -64,6 +71,20 @@ links:
           }
         - "$ref": "/schemata/error"
     title: List
+  - description: Recalculate TOPSIS for all Questionnaires.
+    href: "/recalculate_topsis"
+    method: POST
+    rel: create
+    schema:
+      strictProperties: true
+      properties: {}
+      type:
+      - object
+    targetSchema:
+      anyOf:
+      - "$ref": "/schemata/questionnaire#/definitions/ok_response"
+      - "$ref": "/schemata/error"
+  title: Create
 properties:
   id:
     "$ref": "/schemata/questionnaire#/definitions/id"
