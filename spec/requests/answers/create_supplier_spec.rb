@@ -37,7 +37,11 @@ describe 'POST /answers', type: :request do
     Question.create(
       questionnaire: questionnaire,
       description: 'Foo bar',
-      sorting: 123
+      sorting: 123,
+      weight_for_small_companies: 1,
+      weight_for_medium_companies: 1,
+      weight_for_large_companies: 1,
+      weight_for_service_companies: 1
     )
   end
 
@@ -116,5 +120,18 @@ describe 'POST /answers', type: :request do
     it { expect(response.body).to eq(answer.to_json) }
     it { expect(answer).to eq(answer) }
     it { expect(answer2).to be(nil) }
+  end
+
+  context 'with current_user AND answering all questions' do
+    let(:answer) { Answer.first }
+
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer).to eq(answer) }
+    it {
+      expect(CalculateTopsisJob).to have_been_enqueued.with(
+        questionnaire.driver, supplier
+      )
+    }
   end
 end
