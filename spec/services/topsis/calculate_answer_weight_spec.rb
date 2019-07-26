@@ -17,7 +17,8 @@ describe Topsis::CalculateAnswerWeight do
     # This array will contain ALL answers' weights
     # for a specific questionnaire and supplier and his answers
     arr = []
-    question_ids = supplier_or_material.answers.joins(question: :questionnaire)
+    answers = supplier_or_material.answers.not_zero
+    question_ids = answers.joins(question: :questionnaire)
       .where(questionnaires: { driver: questionnaire.driver })
       .pluck('answers.question_id')
     Question.where(id: question_ids).order(sorting: :asc).each do |question|

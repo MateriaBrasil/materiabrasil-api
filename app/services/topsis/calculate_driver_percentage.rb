@@ -14,7 +14,7 @@ module Topsis
     end
 
     def execute
-      @supplier_or_material.answers.by_driver(@driver).each do |answer|
+      @supplier_or_material.answers.not_zero.by_driver(@driver).each do |answer|
         distances = Topsis::MinMaxDistances.execute(answer, type_of_company)
         @negative_sum += distances[:payload][:negative]
         @positive_sum += distances[:payload][:positive]
