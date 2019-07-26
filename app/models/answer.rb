@@ -16,6 +16,10 @@ class Answer < ApplicationRecord
       .order('questions.sorting ASC')
   end
 
+  scope :not_zero, -> do
+    joins(:option).where.not(options: { value: 0 })
+  end
+
   def as_json(_options = {})
     {
       id: id,

@@ -6,7 +6,7 @@ describe Topsis::MinMaxDistances do
   let(:all_distances) do
     best_values = []
     worst_values = []
-    supplier_or_material.answers.by_driver(driver)
+    supplier_or_material.answers.not_zero.by_driver(driver)
       .each do |answer|
         calculation = described_class.execute(
           answer, type_of_company

@@ -3,7 +3,7 @@
 # rubocop:disable Metrics/LineLength
 questionnaire = Questionnaire.create!(
   id: 2,
-  name: 'GESTAO E GOVERNANCA',
+  name: 'Gestão e Governança',
   about_type: 'Supplier',
   driver: 'management_and_governance',
   sorting: 2
@@ -20,6 +20,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual a proporção de mulheres na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 10%' },
         { value: 2, description: 'De 10% à 20%' },
         { value: 3, description: 'De 20% à 30%' },
@@ -36,6 +37,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual a proporção de mulheres nos cargos de decisão na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 10%' },
         { value: 2, description: 'De 10% à 20%' },
         { value: 3, description: 'De 20% à 30%' },
@@ -52,6 +54,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Sobre o processo de recrutamento e seleção: a empresa possui políticas de equidade de gênero?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Não há' },
         { value: 2, description: 'A empresa não possui política específica de equidade de gênero em relação à seleção de pessoas, mas os resultados dos processos seletivos passam por processo de justificativa e documentação formal.' },
         { value: 3, description: 'A empresa monitora a proporção de homens e mulheres contratados.' },
@@ -68,6 +71,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'A empresa possui alguma instância responsável por promover e supervisionar a implementação de ações de promoção da equidade de gênero?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Não possui' },
         { value: 2, description: 'Sim, mas a empresa não possui orçamento próprio para este fim.' },
         { value: 3, description: 'Sim, e a empresa possui orçamento próprio para essa instância.' },
@@ -84,6 +88,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'A empresa possui práticas ou políticas para combater o preconceito e a violência de gênero?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não tem políticas oficiais para o tema.' },
         { value: 2, description: 'A empresa realiza campanhas internas de conscientização para aumentar a compreensão de colaboradores sobre a importância do combate ao preconceito e a violência de gênero e da valorização da força de trabalho com divresidade de gênero.' },
         { value: 3, description: 'A empresa realiza campanhas internas para a valorização da força de trabalho diversa. E possui código de conduta oficial que estabelece a proibição ao constrangimento ou discriminação em razão do gênero.' },
@@ -100,6 +105,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa possui práticas ou políticas para promover e garantir a liberdade, equidade e diversidade sexual?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não tem políticas oficiais para o tema.' },
         { value: 2, description: 'A empresa realiza campanhas internas de conscientização para aumentar a compreensão de colaboradores sobre a importância do combate ao preconceito e a violência em função da orientação sexual e a valorização da força de trabalho diversa.' },
         { value: 3, description: 'A empresa realiza campanhas internas para a valorização da força de trabalho diversa. E possui código de conduta oficial que estabelece a proibição ao constrangimento ou discriminação em razão da orientação sexual.' },
@@ -116,6 +122,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual a proporção de mulheres negras na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 5%' },
         { value: 2, description: 'De 5% à 10%' },
         { value: 3, description: 'De 10% à 20%' },
@@ -132,6 +139,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual a proporção de mulheres negras nos cargos de decisão na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 5%' },
         { value: 2, description: 'De 5% à 10%' },
         { value: 3, description: 'De 10% à 20%' },
@@ -148,6 +156,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'Qual a proporção de pessoas com deficiência (PCD) na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa possui mais de 100 funcionários e não atinge a cota legal de PCDs' },
         { value: 2, description: 'A empresa possui menos de 100 funcionários e não possui PCDs' },
         { value: 3, description: 'A empresa possui mais de 100 funcionários e atinge a cota mínima legal de PCDs' },
@@ -164,6 +173,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa promove ações e campanhas intrenas de sensibilização para fomentar um ambiente inclusivo onde as pessoas com deficiência são envolvidas e participam do diálogo das ações inclusivas?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa possui mais de 100 funcionários e não atinge a cota legal de PCDs' },
         { value: 2, description: 'A empresa possui menos de 100 funcionários e não possui PCDs' },
         { value: 3, description: '(A empresa possui menos de 100 funcionários e possui pelo menos um PCD / a empresa possui mais de 100 funcionários e atinge a cota legal de PCDs) e possui programas de desenvolvimento/palestras e(ou) treinamentos facultativos a fim de estabelecer uma cultura de respeito e valorização da diversidade na empresa' },
@@ -180,6 +190,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'Em relação à licença-maternidade e paternidade, qual a política da empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'nossos funcionários ou colaboradores não contam com este benefício' },
         { value: 2, description: 'a empresa oferece apenas o mínimo estabelecido por lei' },
         { value: 3, description: 'a empresa concede até 30 dias além do mínimo estabelecido por lei para a licença maternidade e oferece apenas o mínimo estabelecido por lei para a licença-paternidade' },
@@ -196,6 +207,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa oferece plano de saúde para os empregados?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Nossos funcionários ou colaboradores não contam com este benefício' },
         { value: 2, description: 'oferece plano de saúde somente para os cargos de gestão' },
         { value: 3, description: 'oferece plano de saúde diferenciado entre os empregados' },
@@ -212,6 +224,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa oferece benefícios de alimentação para o empregado?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não oferece ticket restaurante ou vale alimentação, nem alimentação em restaurante da empresa' },
         { value: 2, description: 'Oferece ticket/vale alimentação ou alimentação em restaurante da empresa com participação igual ou maior que 20% do custo facial do ticket ou do custo da alimentação' },
         { value: 3, description: 'oferece ticket restaurante/vale alimentação ou alimentação em restaurante da empresa, com participação entre 19,99% e 10% do custo facil do ticket ou do custo da alimentação' },
@@ -228,6 +241,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Com relação ao desenvolvimento técnico profissional',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não pratica ações de treinamento técnico profissional.' },
         { value: 2, description: 'A empresa pratica apenas os treinamentos práticos no próprio local de trabalho.' },
         { value: 3, description: 'A empresa pratica somente os treinamentos que atendem as exigências Legais.' },
@@ -244,6 +258,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Com relação ao desenvolvimento comportamental',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não pratica ações formais de desenvolvimento comportamental funcional.' },
         { value: 2, description: 'A empresa pratica apenas ações de treinamento interno para desenvolvimento comportamental funcional.' },
         { value: 3, description: 'A empresa pratica ações de treinamento interno ou externo para desenvolvimento comportamental funcional, mediante solicitação do gestor da área.' },
@@ -260,6 +275,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'A empresa possui processo de avaliação do desempenho dos empregados?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Não há processo de avaliação de desempenho dos empregados.' },
         { value: 2, description: 'O processo de avaliação dos empregados é feito pelos gestores, mas os empregados não conhecem os parâmetros e não conhecem os resultados.' },
         { value: 3, description: 'Há processo de avaliação dos empregados. Os empregados conhecem os parâmetros, mas não conhecem os resultados.' },
@@ -276,6 +292,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Os funcionários tem um canal de feeback e sugestões de melhorias?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Os funcionários tem um canal de feeback e sugestões de melhorias?' },
         { value: 2, description: 'A empresa aplica pesquisa de opinião, mas não divulga os resultados.' },
         { value: 3, description: 'A empresa aplica pesquisa de opinião e divulga os resultados.' },
@@ -291,6 +308,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa possui registro de funcionários no e-social?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 5, description: 'sim' }
       ]
@@ -304,6 +322,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa possui PCMSO e PPRA atualizados?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 5, description: 'sim' }
       ]
@@ -317,6 +336,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa realiza e mantém os atestados de saúde ocupacional atualizados?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 5, description: 'sim' }
       ]
@@ -330,6 +350,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa oferece EPIs adequados para a realização das atividades para todos os funcionários?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 5, description: 'sim' }
       ]
@@ -343,6 +364,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'Os equipamentos e mobiliários utilizados pelos funcionários são analisados ergonomicamente?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 5, description: 'sim' }
       ]
@@ -356,6 +378,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Há política de gestão de resíduos dentro da empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'não' },
         { value: 2, description: 'Existe programa interno de coleta seletiva.' },
         { value: 3, description: 'Existe programa interno de coleta seletiva que é amparado ações informativas e periódicas de promoção da conscientização e o comprometimento de todos os profissionais da empresa com o programa.' },
@@ -372,6 +395,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual a proporção de negros na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 10%' },
         { value: 2, description: 'De 10% à 20%' },
         { value: 3, description: 'De 20% à 30%' },
@@ -388,6 +412,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'Qual a proporção de negros nos cargos de decisão na empresa?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'De 0% à 10%' },
         { value: 2, description: 'De 10% à 20%' },
         { value: 3, description: 'De 20% à 30%' },
@@ -404,6 +429,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'Sobre o processo de recrutamento e seleção: a empresa possui políticas de equidade de raça?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Não possui' },
         { value: 2, description: 'A empresa não possui política específica de equidade de raça em relação à seleção de pessoas, mas os resultados dos processos seletivos passam por processo de justificativa e documentação formal.' },
         { value: 3, description: 'A empresa monitora a proporção de contratados com base em sua raça.' },
@@ -420,6 +446,7 @@ Question.create!(
       weight_for_service_companies: 2,
       description: 'A empresa possui alguma instância responsável por promover e supervisionar a implementação de ações de promoção da diversidade e equidade de raça?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não tem políticas oficiais para o tema.' },
         { value: 2, description: 'Sim, mas a empresa não possui orçamento próprio para essa instância.' },
         { value: 3, description: 'Sim, e a empresa possui orçamento próprio para essa instância.' },
@@ -436,6 +463,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'A empresa possui práticas ou políticas para combater o preconceito e a violência de raça?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'A empresa não tem políticas oficiais para o tema.' },
         { value: 2, description: 'A empresa realiza campanhas internas de conscientização para aumentar a compreensão de colaboradores sobre a importância do combate ao preconceito e a violência de raça e da valorização da força de trabalho com divresidade de raça' },
         { value: 3, description: 'A empresa realiza campanhas internas para a valorização da força de trabalho diversa. E possui código de conduta oficial que estabelece a proibição ao constrangimento ou discriminação em razão da raça.' },
@@ -452,6 +480,7 @@ Question.create!(
       weight_for_service_companies: 3,
       description: 'Qual o multiplicador de salário entre o menor e o maior salário da sua organização?',
       options_attributes: [
+        { value: 0, description: 'N/A' },
         { value: 1, description: 'Maior que 40x' },
         { value: 2, description: 'De 30 à 40' },
         { value: 3, description: 'De 20 à 30' },

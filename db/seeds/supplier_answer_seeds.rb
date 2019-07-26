@@ -189,8 +189,6 @@ if Questionnaire.exists?(driver: 'social_human')
     { questionnaire_id: 1, question_index: 16, option_value: 2 },
     { questionnaire_id: 1, question_index: 17, option_value: 2 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -226,8 +224,6 @@ if Questionnaire.exists?(driver: 'social_human')
     { questionnaire_id: 1, question_index: 16, option_value: 0 },
     { questionnaire_id: 1, question_index: 17, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -263,8 +259,6 @@ if Questionnaire.exists?(driver: 'social_human')
     { questionnaire_id: 1, question_index: 16, option_value: 0 },
     { questionnaire_id: 1, question_index: 17, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -300,8 +294,6 @@ if Questionnaire.exists?(driver: 'social_human')
     { questionnaire_id: 1, question_index: 16, option_value: 0 },
     { questionnaire_id: 1, question_index: 17, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -352,8 +344,6 @@ if Questionnaire.exists?(driver: 'management_and_governance')
     { questionnaire_id: 2, question_index: 28, option_value: 1 },
     { questionnaire_id: 2, question_index: 29, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -401,8 +391,6 @@ if Questionnaire.exists?(driver: 'management_and_governance')
     { questionnaire_id: 2, question_index: 28, option_value: 3 },
     { questionnaire_id: 2, question_index: 29, option_value: 2 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -450,8 +438,6 @@ if Questionnaire.exists?(driver: 'management_and_governance')
     { questionnaire_id: 2, question_index: 28, option_value: 1 },
     { questionnaire_id: 2, question_index: 29, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -499,8 +485,6 @@ if Questionnaire.exists?(driver: 'management_and_governance')
     { questionnaire_id: 2, question_index: 28, option_value: 1 },
     { questionnaire_id: 2, question_index: 29, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -534,8 +518,6 @@ if Questionnaire.exists?(driver: 'process')
     { questionnaire_id: 3, question_index: 11, option_value: 2 },
     { questionnaire_id: 3, question_index: 12, option_value: 2 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -566,8 +548,6 @@ if Questionnaire.exists?(driver: 'process')
     { questionnaire_id: 3, question_index: 11, option_value: 3 },
     { questionnaire_id: 3, question_index: 12, option_value: 3 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -598,8 +578,6 @@ if Questionnaire.exists?(driver: 'process')
     { questionnaire_id: 3, question_index: 11, option_value: 0 },
     { questionnaire_id: 3, question_index: 12, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -630,8 +608,6 @@ if Questionnaire.exists?(driver: 'process')
     { questionnaire_id: 3, question_index: 11, option_value: 0 },
     { questionnaire_id: 3, question_index: 12, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -676,8 +652,6 @@ if Questionnaire.exists?(driver: 'raw_material')
     { questionnaire_id: 4, question_index: 22, option_value: 5 },
     { questionnaire_id: 4, question_index: 23, option_value: 3 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -719,8 +693,6 @@ if Questionnaire.exists?(driver: 'raw_material')
     { questionnaire_id: 4, question_index: 22, option_value: 1 },
     { questionnaire_id: 4, question_index: 23, option_value: 5 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -762,8 +734,6 @@ if Questionnaire.exists?(driver: 'raw_material')
     { questionnaire_id: 4, question_index: 22, option_value: 5 },
     { questionnaire_id: 4, question_index: 23, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
@@ -805,8 +775,6 @@ if Questionnaire.exists?(driver: 'raw_material')
     { questionnaire_id: 4, question_index: 22, option_value: 5 },
     { questionnaire_id: 4, question_index: 23, option_value: 0 }
   ].each do |options|
-    next if options[:option_value].zero?
-
     question = Question.find_by(
       questionnaire_id: options[:questionnaire_id],
       sorting: options[:question_index]
