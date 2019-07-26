@@ -4,6 +4,8 @@ class CalculateTopsisJob < ApplicationJob
   queue_as :high
 
   def perform(driver, supplier_or_material)
+    questionnaire = Questionnaire.find_by(driver: driver)
+    return unless questionnaire.completed_by(supplier_or_material)
     result = Topsis::CalculateDriverPercentage.execute(
       driver, supplier_or_material
     )[:payload]
