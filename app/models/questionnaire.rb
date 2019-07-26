@@ -15,11 +15,21 @@ class Questionnaire < ApplicationRecord
     }
   end
 
+  def questions_by_company_type(type_of_company)
+    questions.where.not(:"weight_for_#{type_of_company}_companies" => 0)
+  end
+
+  def completed_by(supplier_or_material)
+    answers = supplier_or_material.answers.by_driver(driver)
+    questions = questions_by_company_type(supplier_or_material.type_of_company)
+    questions.count == answers.count
+  end
+
   private
 
   def filtered_questions(type_of_company)
     if type_of_company.present?
-      questions.where.not(:"weight_for_#{type_of_company}_companies" => 0)
+      questions_by_company_type(type_of_company)
     else
       questions
     end.order(:sorting).as_json

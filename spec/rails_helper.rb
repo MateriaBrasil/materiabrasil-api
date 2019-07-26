@@ -66,4 +66,9 @@ RSpec.configure do |config|
     end
     example.run
   end
+
+  config.after do
+    ActiveJob::Base.queue_adapter.enqueued_jobs = []
+    ActiveJob::Base.queue_adapter.performed_jobs = []
+  end
 end
