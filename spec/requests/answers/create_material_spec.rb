@@ -65,6 +65,18 @@ describe 'POST /answers', type: :request do
     )
   end
 
+  let(:question2) do
+    Question.create(
+      questionnaire: questionnaire,
+      description: 'Foo bar',
+      sorting: 123,
+      weight_for_small_companies: 1,
+      weight_for_medium_companies: 1,
+      weight_for_large_companies: 1,
+      weight_for_service_companies: 1
+    )
+  end
+
   let(:option) do
     Option.create(
       question: question,
@@ -91,23 +103,31 @@ describe 'POST /answers', type: :request do
     }
   end
 
-  before do
-    post '/answers', headers: headers, params: params.to_json
-  end
-
   context 'with incorrect params' do
+    before do
+      post '/answers', headers: headers, params: params.to_json
+    end
+
     let(:params) { { foo: 'bar' } }
 
     it { expect(response).to have_http_status(:bad_request) }
   end
 
   context 'without current_user' do
+    before do
+      post '/answers', headers: headers, params: params.to_json
+    end
+
     let(:headers) { { 'access-token' => nil } }
 
     it { expect(response).to have_http_status(:unauthorized) }
   end
 
-  context 'with current_user' do
+  context 'with current_user AND all questions answered' do
+    before do
+      post '/answers', headers: headers, params: params.to_json
+    end
+
     let(:answer) { Answer.first }
 
     it { expect(response).to have_http_status(:created) }
@@ -120,7 +140,29 @@ describe 'POST /answers', type: :request do
     }
   end
 
-  context 'with current_admin' do
+  context 'with current_user AND NOT all questions answered' do
+    before do
+      question2
+      post '/answers', headers: headers, params: params.to_json
+    end
+
+    let(:answer) { Answer.first }
+
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer).to eq(answer) }
+    it {
+      expect(CalculateTopsisJob).not_to have_been_enqueued.with(
+        questionnaire.driver, material
+      )
+    }
+  end
+
+  context 'with current_admin AND all questions answered' do
+    before do
+      post '/answers', headers: headers, params: params.to_json
+    end
+
     include_context 'with current_admin'
 
     let(:answer) { Answer.first }
@@ -135,7 +177,31 @@ describe 'POST /answers', type: :request do
     }
   end
 
+  context 'with current_admin AND NOT all questions answered' do
+    before do
+      question2
+      post '/answers', headers: headers, params: params.to_json
+    end
+
+    include_context 'with current_admin'
+
+    let(:answer) { Answer.first }
+
+    it { expect(response).to have_http_status(:created) }
+    it { expect(response.body).to eq(answer.to_json) }
+    it { expect(answer).to eq(answer) }
+    it {
+      expect(CalculateTopsisJob).not_to have_been_enqueued.with(
+        questionnaire.driver, material
+      )
+    }
+  end
+
   context 'with another user' do
+    before do
+      post '/answers', headers: headers, params: params.to_json
+    end
+
     let(:another_user) do
       User.create!(
         email: 'another@bar.com',
