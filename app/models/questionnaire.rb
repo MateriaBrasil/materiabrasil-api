@@ -2,7 +2,7 @@
 
 class Questionnaire < ApplicationRecord
   validates :name, :about_type, :driver, :sorting, presence: true
-  has_many :questions, dependent: :destroy
+  has_many :questions, dependent: :restrict_with_exception
 
   def as_json(options = {})
     {

@@ -6,7 +6,7 @@ class AddOnDeleteCascadeForQuestionnaires < ActiveRecord::Migration[5.2]
     remove_foreign_key :answers, :questions
     remove_foreign_key :options, :questions
     remove_foreign_key :answers, :options
-    add_foreign_key :questions, :questionnaires, on_delete: :cascade
+    add_foreign_key :questions, :questionnaires, on_delete: :restrict
     add_foreign_key :options, :questions, on_delete: :cascade
     add_foreign_key :answers, :questions, on_delete: :cascade
     add_foreign_key :answers, :options, on_delete: :cascade

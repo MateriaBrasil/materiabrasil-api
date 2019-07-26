@@ -294,7 +294,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_194738) do
   add_foreign_key "material_categories", "materials"
   add_foreign_key "materials", "suppliers"
   add_foreign_key "options", "questions", on_delete: :cascade
-  add_foreign_key "questions", "questionnaires", on_delete: :cascade
+  add_foreign_key "questions", "questionnaires", on_delete: :restrict
   add_foreign_key "reviews", "users"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "suppliers", "users"
