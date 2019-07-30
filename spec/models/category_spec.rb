@@ -59,6 +59,7 @@ RSpec.describe Category, type: :model do
           id: category.id,
           parent_id: category.parent_id,
           name: 'Some Category',
+          sorting: category.sorting,
           multiple_choice: true,
           children: []
         }
@@ -84,18 +85,21 @@ RSpec.describe Category, type: :model do
         {
           id: category.id,
           parent_id: category.parent_id,
+          sorting: category.sorting,
           name: 'Some Category',
           multiple_choice: true,
           children: [
             {
               id: child_category.id,
               parent_id: child_category.parent_id,
+              sorting: child_category.sorting,
               name: 'Child category',
               multiple_choice: false,
               children: [
                 {
                   id: grandchild_category.id,
                   parent_id: grandchild_category.parent_id,
+                  sorting: grandchild_category.sorting,
                   name: 'Grandchild category',
                   multiple_choice: true,
                   children: []

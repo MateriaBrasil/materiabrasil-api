@@ -19,14 +19,16 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   scope :root, -> { where(parent_id: nil).order(:created_at) }
+  scope :sorted, -> { order(sorting: :asc) }
 
   def as_json(_options = {})
     {
       parent_id: parent_id,
       id: id,
       name: name,
+      sorting: sorting,
       multiple_choice: multiple_choice,
-      children: children.as_json
+      children: children.sorted.as_json
     }
   end
 end
