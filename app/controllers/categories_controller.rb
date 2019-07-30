@@ -2,6 +2,6 @@
 
 class CategoriesController < ApplicationController
   def index
-    render json: Category.root.by_sorting
+    render json: Category.root.sorted
   end
 end
