@@ -24,6 +24,25 @@ describe 'GET /search', type: :request do
     )
   end
 
+  let(:another_supplier) do
+    Supplier.create!(
+      user: current_user,
+      name: 'My Company',
+      description: 'My company is very beautiful',
+      website: 'http://beautiful.company',
+      email: 'beautiful@company.com',
+      cnpj: '123456789',
+      company_name: 'Foo Inc',
+      municipal_subscription: 'does not apply',
+      state_subscription: '987654321',
+      phone: '5551987654321',
+      company_revenue: '100000000',
+      type_of_company: 1,
+      reach: 'country',
+      image_url: 'http://foo-image'
+    )
+  end
+
   let!(:quu_material) do
     Material.create!(
       name: 'quu',
@@ -128,6 +147,106 @@ describe 'GET /search', type: :request do
     before { get '/search', params: params }
 
     it { expect(response).to have_http_status(:not_found) }
+  end
+
+  describe 'with supplier found' do
+    let(:another_published_materials) do
+      %w[foo bar baz].each do |name|
+        Material.create!(
+          name: name,
+          image_url: 'http://foo.bar',
+          description: 'Not found',
+          average_price: 'R$ 111,00',
+          code: '1234',
+          technical_specification_url: 'http://foo',
+          supplier: another_supplier,
+          published: true
+        )
+      end
+    end
+
+    let(:another_unpublished_materials) do
+      %w[foo bar baz].each do |name|
+        Material.create!(
+          name: name,
+          image_url: 'http://foo.bar',
+          description: 'Not found',
+          average_price: 'R$ 111,00',
+          code: '1234',
+          technical_specification_url: 'http://foo',
+          supplier: another_supplier,
+          published: false
+        )
+      end
+    end
+
+    context 'when searching with correct name' do
+      let(:term) { 'beautiful' }
+
+      before do
+        another_published_materials
+        another_unpublished_materials
+        get '/search', params: params
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it {
+        expect(JSON.parse(response.body)).to match_array(
+          JSON.parse(Material.where(published: true).last(3).to_json)
+        )
+      }
+    end
+
+    context 'when searching with accent' do
+      let(:term) { 'beáutiful' }
+
+      before do
+        another_published_materials
+        another_unpublished_materials
+        get '/search', params: params
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it {
+        expect(JSON.parse(response.body)).to match_array(
+          JSON.parse(Material.where(published: true).last(3).to_json)
+        )
+      }
+    end
+
+    context 'when searching with similar term' do
+      let(:term) { 'biutiful' }
+
+      before do
+        another_published_materials
+        another_unpublished_materials
+        get '/search', params: params
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it {
+        expect(JSON.parse(response.body)).to match_array(
+          JSON.parse(Material.where(published: true).last(3).to_json)
+        )
+      }
+    end
+
+    context 'when searching for a non-existent material' do
+      let(:term) { 'nike' }
+
+      before do
+        another_published_materials
+        another_unpublished_materials
+        get '/search', params: params
+      end
+
+      it { expect(response).to have_http_status(:not_found) }
+      it {
+        expect(JSON.parse(response.body)).not_to match_array(
+          JSON.parse(Material.where(published: true).last(3).to_json)
+        )
+      }
+    end
   end
 
   context 'without content found because not published' do
