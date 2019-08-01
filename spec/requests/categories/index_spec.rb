@@ -7,19 +7,22 @@ describe 'GET /categories', type: :request do
     Category.create!(
       id: 3,
       name: 'Classificação 3',
-      sorting: 1
+      sorting: 1,
+      created_at: Time.zone.now
     )
 
     Category.create!(
       id: 2,
       name: 'Classificação 2',
-      sorting: 2
+      sorting: 2,
+      created_at: 2.minutes.from_now
     )
 
     Category.create!(
       id: 1,
       name: 'Classificação 1',
-      sorting: 3
+      sorting: 3,
+      created_at: 1.minute.from_now
     )
 
     3.times do |index|
