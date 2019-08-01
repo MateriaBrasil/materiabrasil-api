@@ -21,7 +21,10 @@ class Questionnaire < ApplicationRecord
 
   def completed_by(supplier_or_material)
     answers = supplier_or_material.answers.by_driver(driver)
-    questions.count == answers.count
+    questions = questions_by_company_type(
+      supplier_or_material.type_of_company
+    )
+    questions.count <= answers.count
   end
 
   private
