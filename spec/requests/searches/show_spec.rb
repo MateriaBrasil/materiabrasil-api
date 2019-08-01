@@ -242,8 +242,8 @@ describe 'GET /search', type: :request do
 
       it { expect(response).to have_http_status(:not_found) }
       it {
-        expect(JSON.parse(response.body)).not_to match_array(
-          JSON.parse(Material.where(published: true).last(3).to_json)
+        expect(JSON.parse(response.body)).to match_array(
+          [%w[id not_found], ['message', 'Nenhum resultado encontrado.']]
         )
       }
     end
