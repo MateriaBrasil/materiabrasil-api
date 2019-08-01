@@ -3,10 +3,6 @@
 class Material < ApplicationRecord
   include PgSearch
 
-  multisearchable against: %i[
-    name description code ncm_code sh_code density dimensions availability
-  ]
-
   validates :name, :description, :average_price, :code, presence: true
 
   has_many :comments,
@@ -36,11 +32,20 @@ class Material < ApplicationRecord
 
   delegate :user, :type_of_company, to: :supplier
 
+  pg_search_scope :search,
+    against: %i[name description code ncm_code sh_code density
+                dimensions availability],
+    associated_against: {
+      supplier: %i[name description website company_name]
+    },
+    using: {
+      tsearch: { any_word: true, prefix: true },
+      trigram: { threshold: 0.03 }
+    },
+    ignoring: :accents
+
   def self.with_categories(ids)
-    where(
-      'id IN (SELECT material_id FROM material_categories WHERE category_id ' \
-      "IN (#{ids.join(',')}))"
-    )
+    joins(:categories).where(categories: { id: ids })
   end
 
   def questionnaires_answered
