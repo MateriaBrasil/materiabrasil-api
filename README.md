@@ -31,7 +31,7 @@ If rbenv complains you don't have that ruby version, upgrade [ruby-build](https:
 
 ### Clone the repository
 ```
-$ git clone git@github.com:SeasonedSoftware/materiabrasil-api.git
+$ git clone git@github.com:MateriaBrasil/materiabrasil-api.git
 $ cd materiabrasil-api
 ```
 
