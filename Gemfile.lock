@@ -89,7 +89,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.7)
     excon (0.62.0)
-    ffi (1.9.23)
+    ffi (1.11.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
