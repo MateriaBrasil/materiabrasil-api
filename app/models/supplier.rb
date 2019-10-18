@@ -12,6 +12,14 @@ class Supplier < ApplicationRecord
   has_many :answers, as: :about, inverse_of: :about,
                      dependent: :destroy
 
+  def questionnaires_answered
+    answers = Answer.where(about_type: 'Supplier', about_id: id).count
+    questionnaire_ids = Questionnaire.where(about_type: 'Supplier').pluck(:id)
+    questions = Question.where(questionnaire_id: questionnaire_ids).count
+    
+    answers == questions
+  end
+
   def type_of_company_index
     Supplier.type_of_companies[type_of_company]
   end
@@ -34,8 +42,10 @@ class Supplier < ApplicationRecord
       image_url: image_url,
       user_id: user.id,
       materials: materials,
-      type_of_company: type_of_company_index
+      type_of_company: type_of_company_index,
+      # questionnaires_completed: questionnaires_answered
     }
   end
+
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 end
