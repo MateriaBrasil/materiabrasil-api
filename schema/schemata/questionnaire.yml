@@ -48,42 +48,42 @@ definitions:
     anyOf:
       - "$ref": "/schemata/questionnaire#/definitions/id"
 links:
-  - description: List questionnaires.
-    href: "/questionnaires"
-    method: GET
-    rel: index
-    schema:
-      additionalProperties: false
-      properties:
-        about_type:
-          "$ref": "/schemata/questionnaire#/definitions/about_type"
-        about_id:
-          "$ref": "/schemata/questionnaire#/definitions/about_id"
-      type:
-        - object
-    targetSchema:
-      anyOf:
-        - {
-            "type": "array",
-            "items": {
-              "$ref": "/schemata/questionnaire"
-            }
-          }
-        - "$ref": "/schemata/error"
-    title: List
-  - description: Recalculate TOPSIS for all Questionnaires.
-    href: "/recalculate_topsis"
-    method: POST
-    rel: create
-    schema:
-      strictProperties: true
-      properties: {}
-      type:
+- description: List questionnaires.
+  href: "/questionnaires"
+  method: GET
+  rel: index
+  schema:
+    additionalProperties: false
+    properties:
+      about_type:
+        "$ref": "/schemata/questionnaire#/definitions/about_type"
+      about_id:
+        "$ref": "/schemata/questionnaire#/definitions/about_id"
+    type:
       - object
-    targetSchema:
-      anyOf:
-      - "$ref": "/schemata/questionnaire#/definitions/ok_response"
+  targetSchema:
+    anyOf:
+      - {
+          "type": "array",
+          "items": {
+            "$ref": "/schemata/questionnaire"
+          }
+        }
       - "$ref": "/schemata/error"
+  title: List
+- description: Recalculate TOPSIS for all Questionnaires.
+  href: "/recalculate_topsis"
+  method: POST
+  rel: create
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+    - "$ref": "/schemata/questionnaire#/definitions/ok_response"
+    - "$ref": "/schemata/error"
   title: Create
 properties:
   id:

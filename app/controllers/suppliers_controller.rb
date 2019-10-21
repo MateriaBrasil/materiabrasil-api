@@ -31,12 +31,6 @@ class SuppliersController < ApplicationController
     render json: supplier.answers
   end
 
-  def todas_respondidas
-    supplier = Supplier.find(params[:id])
-    questionnaires_answered = supplier.questionnaires_answered
-    render json: questionnaires_answered
-  end
-
   private
 
   def supplier_params
