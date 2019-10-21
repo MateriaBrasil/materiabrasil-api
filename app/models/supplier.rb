@@ -16,6 +16,14 @@ class Supplier < ApplicationRecord
     Supplier.type_of_companies[type_of_company]
   end
 
+  def questionnaires_answered
+    answers = Answer.where(about_type: 'Material', about_id: self.id).count
+    questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
+    questions = Question.where(questionnaire_id: questionnaire_ids).count
+
+    answers == questions
+  end
+
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def as_json(_options = {})
     {

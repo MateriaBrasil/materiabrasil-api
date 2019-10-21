@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :suppliers, only: %i[show create update] do
     get 'addresses', on: :member
     get 'answers', on: :member
+    get 'todas_respondidas', on: :member
   end
 
   resources :albums, only: %i[show create update] do
