@@ -1076,6 +1076,35 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-POST-questionnaire-/recalculate_topsis">questionnaire Create</a>
+
+Recalculate TOPSIS for all Questionnaires.
+
+```
+POST /recalculate_topsis
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.materiabrasil.com/recalculate_topsis \
+  -d '{
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-review">Review</a>
 
@@ -1214,6 +1243,7 @@ A supplier is a company that offers materials, products or services
 | **municipal_subscription** | *string* | the city subscription of the supplier | `"example"` |
 | **name** | *string* | the name of the supplier | `"example"` |
 | **phone** | *string* | the phone of the supplier | `"example"` |
+| **questionnaires_completed** | *boolean* | whether the questionnaires for this supplier are completed or not | `true` |
 | **reach** | *string* | the reach of the supplier<br/> **one of:**`"city"` or `"state"` or `"country"` or `"continent"` or `"global"` | `"city"` |
 | **state_subscription** | *string* | the state subscription of the supplier | `"example"` |
 | **type_of_company** | *integer* | the type of company (small, medium, large, service)<br/> **Range:** `1 <= value <= 4` | `42` |

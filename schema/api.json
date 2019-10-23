@@ -1946,6 +1946,19 @@
             }
           }
         },
+        "ok_response": {
+          "description": "an empty response",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "ok": {
+              "type": [
+                "boolean"
+              ]
+            }
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -1990,6 +2003,31 @@
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "Recalculate TOPSIS for all Questionnaires.",
+          "href": "/recalculate_topsis",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/questionnaire/definitions/ok_response"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "Create"
         }
       ],
       "properties": {
@@ -2387,6 +2425,12 @@
             "null"
           ]
         },
+        "questionnaires_completed": {
+          "description": "whether the questionnaires for this supplier are completed or not",
+          "type": [
+            "boolean"
+          ]
+        },
         "materials": {
           "description": "the materials that belong to the supplier",
           "type": [
@@ -2647,6 +2691,9 @@
         },
         "materials": {
           "$ref": "#/definitions/supplier/definitions/materials"
+        },
+        "questionnaires_completed": {
+          "$ref": "#/definitions/supplier/definitions/questionnaires_completed"
         }
       },
       "required": [

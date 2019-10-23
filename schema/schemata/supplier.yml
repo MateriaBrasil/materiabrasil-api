@@ -73,6 +73,9 @@ definitions:
     type:
     - string
     - "null"
+  questionnaires_completed:
+    description: whether the questionnaires for this supplier are completed or not
+    type: boolean
   materials:
     description: the materials that belong to the supplier
     type:
@@ -237,6 +240,8 @@ properties:
     "$ref": "/schemata/supplier#/definitions/image_url"
   materials:
     "$ref": "/schemata/supplier#/definitions/materials"
+  questionnaires_completed:
+    "$ref": "/schemata/supplier#/definitions/questionnaires_completed"
 required:
 - id
 - name
