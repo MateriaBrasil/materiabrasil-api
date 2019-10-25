@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MaterialsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create update]
+  before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
     materials = Material
@@ -30,6 +30,11 @@ class MaterialsController < ApplicationController
     material.update(material_params)
 
     render json: material
+  end
+
+  def destroy
+    material = Material.find(params[:id])
+    material.destroy
   end
 
   def comments

@@ -25,8 +25,8 @@ class Supplier < ApplicationRecord
   end
 
   def questionnaires_answered
-    answers = Answer.where(about_type: 'Material', about_id: id).count
-    questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
+    answers = Answer.where(about_type: 'Supplier', about_id: id).count
+    questionnaire_ids = Questionnaire.where(about_type: 'Supplier').pluck(:id)
     questions = Question.where(questionnaire_id: questionnaire_ids).count
 
     answers == questions
@@ -52,7 +52,6 @@ class Supplier < ApplicationRecord
       questionnaires_completed: questionnaires_answered,
       materials: materials,
       type_of_company: type_of_company_index,
-      # questionnaires_completed: questionnaires_answered
     }
   end
 
