@@ -1089,6 +1089,12 @@
             "boolean"
           ]
         },
+        "pre_published": {
+          "description": "whether the material is pre_published at the material list",
+          "type": [
+            "boolean"
+          ]
+        },
         "questionnaires_completed": {
           "description": "whether the questionnaires for this material are completed or not",
           "type": [
@@ -1314,6 +1320,9 @@
               },
               "published": {
                 "$ref": "#/definitions/material/definitions/published"
+              },
+              "pre_published": {
+                "$ref": "#/definitions/material/definitions/pre_published"
               }
             },
             "type": [
@@ -1513,6 +1522,9 @@
         },
         "published": {
           "$ref": "#/definitions/material/definitions/published"
+        },
+        "pre_published": {
+          "$ref": "#/definitions/material/definitions/pre_published"
         },
         "questionnaires_completed": {
           "$ref": "#/definitions/material/definitions/questionnaires_completed"

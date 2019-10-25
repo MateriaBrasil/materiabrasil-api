@@ -552,6 +552,7 @@ A material is a raw material
 | **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
+| **pre_published** | *boolean* | whether the material is pre_published at the material list | `true` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
 | **published** | *boolean* | whether the material is published at the material list | `true` |
 | **questionnaires_completed** | *boolean* | whether the questionnaires for this material are completed or not | `true` |
@@ -720,6 +721,7 @@ PUT /materials/{supplier_id}
 | **minimum_purchase_quantity** | *nullable integer* | the minimum amount needed to order the material | `null` |
 | **name** | *string* | the name of the material | `"example"` |
 | **ncm_code** | *nullable string* | classification code of the material according to ncm | `null` |
+| **pre_published** | *boolean* | whether the material is pre_published at the material list | `true` |
 | **prizes** | *nullable string* | the prizes of the material | `null` |
 | **published** | *boolean* | whether the material is published at the material list | `true` |
 | **sh_code** | *nullable string* | classification code of the material according to sh | `null` |
@@ -753,7 +755,8 @@ $ curl -n -X PUT https://api.materiabrasil.com/materials/$SUPPLIER_ID \
   "density": "example",
   "dimensions": "example",
   "availability": "example",
-  "published": true
+  "published": true,
+  "pre_published": true
 }' \
   -H "Content-Type: application/json"
 ```

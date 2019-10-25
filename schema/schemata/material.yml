@@ -153,6 +153,9 @@ definitions:
   published:
     description: whether the material is published at the material list
     type: boolean
+  pre_published:
+    description: whether the material is pre_published at the material list
+    type: boolean
   questionnaires_completed:
     description: whether the questionnaires for this material are completed or not
     type: boolean
@@ -290,6 +293,8 @@ links:
           "$ref": "/schemata/material#/definitions/availability"
         published:
           "$ref": "/schemata/material#/definitions/published"
+        pre_published:
+          "$ref": "/schemata/material#/definitions/pre_published"
       type:
         - object
     targetSchema:
@@ -403,6 +408,8 @@ properties:
     "$ref": "/schemata/material#/definitions/social_driver"
   published:
     "$ref": "/schemata/material#/definitions/published"
+  pre_published:
+    "$ref": "/schemata/material#/definitions/pre_published"
   questionnaires_completed:
     "$ref": "/schemata/material#/definitions/questionnaires_completed"
   category:

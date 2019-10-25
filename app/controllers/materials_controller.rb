@@ -28,6 +28,8 @@ class MaterialsController < ApplicationController
     material = Material.find(params[:id])
     authorize material
     material.update(material_params)
+    # todo if pre_published is set to true send a email
+    Material.send_confirmation
 
     render json: material
   end

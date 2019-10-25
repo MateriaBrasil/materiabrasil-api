@@ -3,6 +3,9 @@
 class Material < ApplicationRecord
   include PgSearch
 
+  # after_update :send_confirmation
+
+
   validates :name, :description, :average_price, :code, presence: true
 
   has_many :comments,
@@ -93,6 +96,7 @@ class Material < ApplicationRecord
       management_driver: management_driver,
       social_driver: social_driver,
       published: published,
+      pre_published: pre_published,
       questionnaires_completed: questionnaires_answered,
       category: category
     }
@@ -102,5 +106,9 @@ class Material < ApplicationRecord
   def average_rating
     average = reviews.average('rating')
     average && average.to_f.round(2)
+  end
+
+  def self.send_confirmation
+    MaterialMailer.with(rental: self).confirmation.deliver_now!
   end
 end
