@@ -32,3 +32,5 @@ tmp/
 *.dump
 *.gem
 .byebug_history
+
+/postgres/vol/
