@@ -4,6 +4,8 @@ class Material < ApplicationRecord
   include PgSearch
 
   # after_update :send_confirmation
+  before_save :despublica, unless: :new_record?
+
 
 
   validates :name, :description, :average_price, :code, presence: true
@@ -61,6 +63,15 @@ class Material < ApplicationRecord
 
   def category
     MaterialCategory.where(material_id: id).count.positive?
+  end
+
+  def despublica
+    self.update_column 'published', false
+    
+    unless self.pre_published_changed?
+      pp "AAAAAAAAAAAAAAAAAAAAAAAAAAAA #{self.pre_published}"
+      self.update_column 'pre_published', false
+    end
   end
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize

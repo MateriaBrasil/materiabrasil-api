@@ -28,14 +28,17 @@ class MaterialsController < ApplicationController
     material = Material.find(params[:id])
     authorize material
     material.update(material_params)
-    # todo if pre_published is set to true send a email
-    Material.send_confirmation
+
+    if params[:material][:pre_published] == true
+      MaterialMailer.with(material: material).confirmation.deliver_later  
+    end
 
     render json: material
   end
 
   def destroy
     material = Material.find(params[:id])
+    authorize material
     material.destroy
   end
 
