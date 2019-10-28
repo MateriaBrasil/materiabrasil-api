@@ -26,11 +26,12 @@ class MaterialsController < ApplicationController
 
   def update
     material = Material.find(params[:id])
+    admins = User.where(admin: true)
     authorize material
     material.update(material_params)
 
     if params[:material][:pre_published] == true
-      MaterialMailer.with(material: material).confirmation.deliver_later  
+      admins.each{ |a| MaterialMailer.with(material: material, admin: a).confirmation.deliver_later }     
     end
 
     render json: material
