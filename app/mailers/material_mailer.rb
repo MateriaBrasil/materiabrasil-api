@@ -8,11 +8,14 @@ class MaterialMailer < ApplicationMailer
   def confirmation
     @material = params[:material]
     @web_url = params[:web_url]
-    mail(
-      to: 'admin@materiabrasil.net',
-      subject: 'Novo Material para ser publicado',
-      from: 'admin@materiabrasil.net',
-      reply_to: 'noreply@materiabrasil.net'
-    )
+    @admin = params[:admin]
+
+
+      mail(
+        to: @admin.email,
+        subject: 'Novo Material para ser publicado',
+        from: 'admin@materiabrasil.net',
+        reply_to: 'noreply@materiabrasil.net'
+      )
   end
 end
