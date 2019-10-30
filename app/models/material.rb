@@ -61,6 +61,28 @@ class Material < ApplicationRecord
     answers == questions
   end
 
+  def questionnaires_answered
+    answers = Answer.where(about_type: 'Material', about_id: id).count
+    questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
+
+    material_supplier = Supplier.find(self.supplier_id)
+    
+    case Supplier.type_of_companies[material_supplier.type_of_company]
+    when 1
+      tipe_per_weight = 'weight_for_small_companies'
+    when 2
+      tipe_per_weight = 'weight_for_medium_companies'
+    when 3
+      tipe_per_weight = 'weight_for_large_companies'
+    when 4
+      tipe_per_weight = 'weight_for_service_companies'
+    end
+
+    questions = Question.where(questionnaire_id: questionnaire_ids).where.not(tipe_per_weight.to_sym => 0).count
+    
+    answers == questions
+  end
+
   def category
     MaterialCategory.where(material_id: id).count.positive?
   end
