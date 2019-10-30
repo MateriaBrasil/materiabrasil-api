@@ -1,13 +1,14 @@
-version: '3'
+version: "3"
 
 services:
   rails:
     build: .
     entrypoint: /app/docker-entrypoint.sh
     env_file:
-    - .env
+      - .env
     command: ruby bin/rails s -p 3000 -b '0.0.0.0'
     volumes:
+      - .:/app
       - "./postgres/vol:/var/lib/postgresql/data"
     links:
       - postgres
@@ -20,7 +21,7 @@ services:
   postgres:
     image: postgres:10.4
     env_file:
-    - .env
+      - .env
     volumes:
       - ".:/app"
     ports:
