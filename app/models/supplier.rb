@@ -15,21 +15,25 @@ class Supplier < ApplicationRecord
   def questionnaires_answered
     answers = Answer.where(about_type: 'Supplier', about_id: id).count
     questionnaire_ids = Questionnaire.where(about_type: 'Supplier').pluck(:id)
-    questions = Question.where(questionnaire_id: questionnaire_ids).count
+
+    case Supplier.type_of_companies[type_of_company]
+    when 1
+      tipe_per_weight = 'weight_for_small_companies'
+    when 2
+      tipe_per_weight = 'weight_for_medium_companies'
+    when 3
+      tipe_per_weight = 'weight_for_large_companies'
+    when 4
+      tipe_per_weight = 'weight_for_service_companies'
+    end
+
+    questions = Question.where(questionnaire_id: questionnaire_ids).where.not(tipe_per_weight.to_sym => 0).count
     
     answers == questions
   end
 
   def type_of_company_index
     Supplier.type_of_companies[type_of_company]
-  end
-
-  def questionnaires_answered
-    answers = Answer.where(about_type: 'Supplier', about_id: id).count
-    questionnaire_ids = Questionnaire.where(about_type: 'Supplier').pluck(:id)
-    questions = Question.where(questionnaire_id: questionnaire_ids).count
-
-    answers == questions
   end
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
