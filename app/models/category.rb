@@ -28,7 +28,9 @@ class Category < ApplicationRecord
       name: name,
       sorting: sorting,
       multiple_choice: multiple_choice,
-      children: children.sorted.as_json
+      children: children.sorted.as_json,
+      description: description,
+      has_page: has_page
     }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_183100) do
+ActiveRecord::Schema.define(version: 2019_10_30_214837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2019_10_25_183100) do
     t.datetime "updated_at", null: false
     t.boolean "multiple_choice", default: true
     t.integer "sorting"
+    t.boolean "has_page", default: false
+    t.text "description"
   end
 
   create_table "comments", force: :cascade do |t|
