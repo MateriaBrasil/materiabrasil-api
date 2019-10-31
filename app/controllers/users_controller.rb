@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit!
+    params.require(:user).permit(:provider, :uid, :encrypted_password, :reset_password_token, :reset_password_sent_at, :allow_password_change, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :first_name, :email, :tokens, :public_profile, :last_name, :image_url, :city, :state, :country, :newsletter, :bio, :company, :work_title, :website, :iugu_id, :admin)
   end
 
   def not_unique

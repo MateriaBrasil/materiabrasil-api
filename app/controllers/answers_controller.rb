@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit!
+    params.require(:answer).permit(:about_type, :about_id, :question_id, :option_id)
   end
 
   def delete_previous_answer(params)

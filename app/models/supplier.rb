@@ -12,6 +12,8 @@ class Supplier < ApplicationRecord
   has_many :answers, as: :about, inverse_of: :about,
                      dependent: :destroy
 
+  accepts_nested_attributes_for :addresses, allow_destroy: true
+
   def questionnaires_answered
     answers = Answer.where(about_type: 'Supplier', about_id: id).count
     questionnaire_ids = Questionnaire.where(about_type: 'Supplier').pluck(:id)
@@ -55,6 +57,7 @@ class Supplier < ApplicationRecord
       user_id: user.id,
       questionnaires_completed: questionnaires_answered,
       materials: materials,
+      addresses: addresses,
       type_of_company: type_of_company_index,
     }
   end

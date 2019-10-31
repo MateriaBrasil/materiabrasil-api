@@ -66,6 +66,6 @@ class MaterialsController < ApplicationController
   private
 
   def material_params
-    params.require(:material).permit!
+    params.require(:material).permit(:name, :image_url, :description, :average_price, :code, :technical_specification_url, :highlighted, :cover_image_url, :highlight_image_url, :list_image_url, :supplier_id, :unit_of_sale, :minimum_purchase_quantity, :maximum_purchase_quantity, :ncm_code, :sh_code, :certifications, :prizes, :density, :dimensions, :availability, :certifications_url, :materiality_driver, :manufacture_driver, :management_driver, :social_driver, :published, :pre_published)
   end
 end

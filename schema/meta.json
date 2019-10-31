@@ -1,9 +1,0 @@
-{
- "description": "The API for MateriaBrasil",
- "id": "materiabrasil-api",
- "links": [{
-   "href": "https://api.materiabrasil.com",
-   "rel": "self"
- }],
- "title": "MateriaBrasil - API"
-}

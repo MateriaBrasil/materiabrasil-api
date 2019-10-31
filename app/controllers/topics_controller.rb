@@ -31,6 +31,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit!
+    params.require(:topic).permit(:user_id, :subject, :text)
   end
 end

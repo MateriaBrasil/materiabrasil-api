@@ -31,6 +31,6 @@ class FavoritesController < ApplicationController
   end
 
   def favorite_params
-    params.require(:favorite).permit!
+    params.require(:favorite).permit(:album_id, :favoritable_type, :favoritable_id)
   end
 end
