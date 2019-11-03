@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_214837) do
+ActiveRecord::Schema.define(version: 2019_11_03_005251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_10_30_214837) do
 
   create_table "addresses", force: :cascade do |t|
     t.bigint "supplier_id"
-    t.string "address_type", null: false
-    t.string "street_address", null: false
+    t.string "address_type"
+    t.string "street_address"
     t.string "city", null: false
     t.string "state", null: false
-    t.string "country", null: false
+    t.string "country"
     t.string "zip_code"
     t.string "phone_number"
     t.datetime "created_at", null: false

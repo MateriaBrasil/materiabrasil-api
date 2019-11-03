@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Address < ApplicationRecord
-  validates :supplier, :address_type, :street_address, :city, :state, :country,
-    presence: true
+  # validates :supplier, :address_type, :street_address, :city, :state, :country,
+  #   presence: true
+  validates :supplier, :city, :state, presence: :true
 
-  validates :address_type, inclusion: { in: %w[manufacture postal] }
+  validates :address_type, inclusion: { in: %w[manufacture postal] }, :allow_nil => true
 
   belongs_to :supplier
 

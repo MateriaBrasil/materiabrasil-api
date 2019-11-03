@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SuppliersController < ApplicationController
-  # before_action :authenticate_user!, except: %i[show addresses]
+  before_action :authenticate_user!, except: %i[show addresses]
 
   def show
     supplier = Supplier.find(params[:id])
@@ -9,7 +9,7 @@ class SuppliersController < ApplicationController
   end
 
   def create
-    supplier = Supplier.create(supplier_params.merge(user: current_user))
+    supplier = Supplier.create!(supplier_params.merge(user: current_user))
     render status: :created, json: supplier
   end
 
