@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_11_04_142743) do
 
   create_table "addresses", force: :cascade do |t|
     t.bigint "supplier_id"
-    t.string "address_type"
-    t.string "street_address"
+    t.string "address_type", null: false
+    t.string "street_address", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.string "country"
+    t.string "country", null: false
     t.string "zip_code"
     t.string "phone_number"
     t.datetime "created_at", null: false
