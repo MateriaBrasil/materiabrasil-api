@@ -131,7 +131,8 @@ class Material < ApplicationRecord
       published: published,
       pre_published: pre_published,
       questionnaires_completed: questionnaires_answered,
-      category: category
+      category: category,
+      state: state,
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
