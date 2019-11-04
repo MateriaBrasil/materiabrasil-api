@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_143143) do
     t.integer "sorting", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "label"
   end
 
   create_table "questions", force: :cascade do |t|

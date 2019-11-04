@@ -9,7 +9,6 @@ services:
     command: ruby bin/rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/app
-      - "./postgres/vol:/var/lib/postgresql/data"
     links:
       - postgres
       - mailcatcher
@@ -23,7 +22,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ".:/app"
+      - "./postgres/vol:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
     expose:

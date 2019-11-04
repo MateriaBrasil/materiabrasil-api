@@ -11,7 +11,8 @@ class Questionnaire < ApplicationRecord
       about_type: about_type,
       driver: driver,
       sorting: sorting,
-      questions: filtered_questions(options[:type_of_company])
+      questions: filtered_questions(options[:type_of_company]),
+      label: label
     }
   end
 
