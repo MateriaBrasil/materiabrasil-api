@@ -8,6 +8,12 @@ class AddressesController < ApplicationController
     render status: :created, json: address
   end
 
+  def update
+    address = Address.find(params[:id])
+    address.update(address_params)
+    render json: material
+  end
+
   private
 
   def address_params

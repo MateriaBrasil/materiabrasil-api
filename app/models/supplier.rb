@@ -57,7 +57,7 @@ class Supplier < ApplicationRecord
       user_id: user.id,
       questionnaires_completed: questionnaires_answered,
       materials: materials,
-      addresses: addresses,
+      addresses: addresses.first,
       type_of_company: type_of_company_index,
     }
   end
