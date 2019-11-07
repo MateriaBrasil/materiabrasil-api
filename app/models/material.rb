@@ -53,13 +53,6 @@ class Material < ApplicationRecord
     joins(:categories).where(categories: { id: ids })
   end
 
-  def questionnaires_answered
-    answers = Answer.where(about_type: 'Material', about_id: id).count
-    questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
-    questions = Question.where(questionnaire_id: questionnaire_ids).count
-
-    answers == questions
-  end
 
   def questionnaires_answered
     answers = Answer.where(about_type: 'Material', about_id: id).count
@@ -80,7 +73,11 @@ class Material < ApplicationRecord
 
     questions = Question.where(questionnaire_id: questionnaire_ids).where.not(tipe_per_weight.to_sym => 0).count
     
-    answers == questions
+    if answers < questions
+      false
+    else
+      true
+    end
   end
 
   def category

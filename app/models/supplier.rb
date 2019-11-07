@@ -30,8 +30,13 @@ class Supplier < ApplicationRecord
     end
 
     questions = Question.where(questionnaire_id: questionnaire_ids).where.not(tipe_per_weight.to_sym => 0).count
-    
-    answers == questions
+
+    if answers < questions
+      false
+    else
+      true
+    end
+
   end
 
   def type_of_company_index
