@@ -20,6 +20,9 @@ gem 'rails', '~> 5.2.0'
 gem 'rails-i18n', '~> 5.1.1'
 gem 'state_machines-activerecord', '~> 0.5.2'
 
+gem 'friendly_id', '~> 5.2.4'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

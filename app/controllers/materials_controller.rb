@@ -9,13 +9,13 @@ class MaterialsController < ApplicationController
       .order(highlighted: :desc, created_at: :desc)
 
     categories = params[:categories]
-    materials = materials.with_categories(categories) if categories
+    materials = materials.with_categories(categories).uniq if categories
 
     render json: materials
   end
 
   def show
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     render json: material
   end
 
@@ -25,7 +25,7 @@ class MaterialsController < ApplicationController
   end
 
   def update
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     admins = User.where(admin: true)
     authorize material
     material.update(material_params)
@@ -38,28 +38,28 @@ class MaterialsController < ApplicationController
   end
 
   def destroy
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     authorize material
     material.destroy
   end
 
   def comments
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     render json: material.comments
   end
 
   def reviews
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     render json: material.reviews
   end
 
   def categories
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     render json: material.material_categories
   end
 
   def answers
-    material = Material.find(params[:id])
+    material = Material.friendly.find(params[:id])
     render json: material.answers
   end
 

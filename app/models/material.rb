@@ -2,8 +2,9 @@
 
 class Material < ApplicationRecord
   include PgSearch
-
-  # after_update :send_confirmation
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
   before_save :despublica, unless: :new_record?
 
 
@@ -88,7 +89,6 @@ class Material < ApplicationRecord
     self.update_column 'published', false
     
     unless self.pre_published_changed?
-      pp "AAAAAAAAAAAAAAAAAAAAAAAAAAAA #{self.pre_published}"
       self.update_column 'pre_published', false
     end
   end
@@ -97,6 +97,7 @@ class Material < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
+      slug: slug,
       name: name,
       image_url: image_url,
       description: description,

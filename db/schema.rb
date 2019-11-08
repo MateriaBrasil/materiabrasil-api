@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_213128) do
+ActiveRecord::Schema.define(version: 2019_11_08_160054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -95,6 +95,17 @@ ActiveRecord::Schema.define(version: 2019_11_04_213128) do
     t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "material_categories", force: :cascade do |t|
     t.bigint "material_id"
     t.bigint "category_id"
@@ -136,6 +147,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_213128) do
     t.boolean "published", default: false
     t.boolean "pre_published", default: false
     t.string "state"
+    t.string "slug"
+    t.index ["slug"], name: "index_materials_on_slug", unique: true
     t.index ["supplier_id"], name: "index_materials_on_supplier_id"
   end
 
