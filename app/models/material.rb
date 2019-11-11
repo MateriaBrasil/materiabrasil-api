@@ -111,6 +111,7 @@ class Material < ApplicationRecord
       list_image_url: list_image_url,
       supplier_id: supplier.id,
       supplier_name: supplier.name,
+      supplier_slug: supplier.slug,
       unit_of_sale: unit_of_sale,
       minimum_purchase_quantity: minimum_purchase_quantity,
       maximum_purchase_quantity: maximum_purchase_quantity,
