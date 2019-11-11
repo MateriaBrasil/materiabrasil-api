@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_160054) do
+ActiveRecord::Schema.define(version: 2019_11_08_185050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -248,6 +248,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_160054) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.integer "type_of_company", default: 1
+    t.string "slug"
+    t.index ["slug"], name: "index_suppliers_on_slug", unique: true
     t.index ["user_id"], name: "index_suppliers_on_user_id"
   end
 

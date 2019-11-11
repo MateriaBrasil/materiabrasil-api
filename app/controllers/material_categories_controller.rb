@@ -5,7 +5,7 @@ class MaterialCategoriesController < ApplicationController
 
   # rubocop:disable Metrics/MethodLength
   def create
-    material = Material.find(params[:material_id])
+    material = Material.friendly.find(params[:material_id])
     category = Category.find(params[:category_id])
     material_category = MaterialCategory.new(
       material: material, category: category
@@ -24,7 +24,7 @@ class MaterialCategoriesController < ApplicationController
   # rubocop:enable Metrics/MethodLength
 
   def destroy
-    material_category = MaterialCategory.find(params[:id])
+    material_category = MaterialCategory.friendly.find(params[:id])
     authorize(material_category)
     material_category.destroy!
 

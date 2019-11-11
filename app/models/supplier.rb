@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Supplier < ApplicationRecord
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
+
   validates :name, :description, :website, :email, :cnpj, :company_name,
     :municipal_subscription, :state_subscription, :phone, :reach, presence: true
 
@@ -47,6 +51,7 @@ class Supplier < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
+      slug: slug,
       name: name,
       description: description,
       website: website,

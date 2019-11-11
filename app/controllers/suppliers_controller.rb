@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   before_action :authenticate_user!, except: %i[show addresses]
 
   def show
-    supplier = Supplier.find(params[:id])
+    supplier = Supplier.friendly.find(params[:id])
     render json: supplier
   end
 
@@ -14,7 +14,7 @@ class SuppliersController < ApplicationController
   end
 
   def update
-    supplier = Supplier.find(params[:id])
+    supplier = Supplier.friendly.find(params[:id])
     authorize supplier
     supplier.update!(supplier_params)
 
@@ -22,12 +22,12 @@ class SuppliersController < ApplicationController
   end
 
   def addresses
-    supplier = Supplier.find(params[:id])
+    supplier = Supplier.friendly.find(params[:id])
     render json: supplier.addresses
   end
 
   def answers
-    supplier = Supplier.find(params[:id])
+    supplier = Supplier.friendly.find(params[:id])
     render json: supplier.answers
   end
 

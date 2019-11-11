@@ -59,7 +59,7 @@ class Material < ApplicationRecord
     answers = Answer.where(about_type: 'Material', about_id: id).count
     questionnaire_ids = Questionnaire.where(about_type: 'Material').pluck(:id)
 
-    material_supplier = Supplier.find(self.supplier_id)
+    material_supplier = Supplier.friendly.find(self.supplier_id)
     
     case Supplier.type_of_companies[material_supplier.type_of_company]
     when 1
