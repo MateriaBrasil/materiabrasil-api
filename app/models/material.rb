@@ -5,7 +5,7 @@ class Material < ApplicationRecord
   extend FriendlyId
   
   friendly_id :name, use: :slugged
-  before_save :despublica, unless: :new_record?
+  # before_save :despublica, unless: :new_record?
 
 
 
