@@ -24,7 +24,7 @@ class FilterQuestionnaires
 
   def filtered_as_json
     # Get Supplier or Material
-    type_of_company = @resource_type.constantize.find(@resource_id)
+    type_of_company = @resource_type.constantize.friendly.find(@resource_id)
       .type_of_company
 
     Questionnaire.where(about_type: @resource_type)
