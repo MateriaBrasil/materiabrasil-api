@@ -6,6 +6,6 @@ module PolymorphicFind
   def polymorphic_find(association)
     [Material, Topic].find do |type|
       type.name == params["#{association}_type"]
-    end.find(params["#{association}_id"])
+    end.friendly.find(params["#{association}_id"])
   end
 end
