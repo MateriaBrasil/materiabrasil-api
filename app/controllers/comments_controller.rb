@@ -2,6 +2,7 @@
 
 class CommentsController < ApplicationController
   include PolymorphicFind
+  
 
   before_action :authenticate_user!
 
