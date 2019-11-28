@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_185050) do
+ActiveRecord::Schema.define(version: 2019_11_28_152501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_185050) do
     t.integer "sorting"
     t.boolean "has_page", default: false
     t.text "description"
+    t.string "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "comments", force: :cascade do |t|

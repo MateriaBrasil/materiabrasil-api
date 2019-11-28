@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   belongs_to :parent,
     class_name: 'Category',
     optional: true,
@@ -30,7 +33,8 @@ class Category < ApplicationRecord
       multiple_choice: multiple_choice,
       children: children.sorted.as_json,
       description: description,
-      has_page: has_page
+      has_page: has_page,
+      slug: slug
     }
   end
 end
