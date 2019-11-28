@@ -2,7 +2,7 @@
 
 class Category < ApplicationRecord
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
 
   belongs_to :parent,
     class_name: 'Category',
@@ -23,6 +23,17 @@ class Category < ApplicationRecord
 
   scope :root, -> { where(parent_id: nil) }
   scope :sorted, -> { order(sorting: :asc) }
+
+  def duplicates_count
+    Category.where(name: self.name).count + 1
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :duplicates_count]
+    ]
+  end
 
   def as_json(_options = {})
     {

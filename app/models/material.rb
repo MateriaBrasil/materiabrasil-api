@@ -4,7 +4,7 @@ class Material < ApplicationRecord
   include PgSearch
   extend FriendlyId
   
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
   # before_save :despublica, unless: :new_record?
 
 
@@ -52,6 +52,17 @@ class Material < ApplicationRecord
 
   def self.with_categories(ids)
     joins(:categories).where(categories: { id: ids })
+  end
+
+  def duplicates_count
+    Material.where(name: self.name).count + 1
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :duplicates_count]
+    ]
   end
 
 

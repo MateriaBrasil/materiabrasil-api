@@ -3,7 +3,7 @@
 class Supplier < ApplicationRecord
   extend FriendlyId
   
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
 
   validates :name, :description, :website, :email, :cnpj, :company_name,
     :municipal_subscription, :state_subscription, :phone, :reach, presence: true
@@ -17,6 +17,17 @@ class Supplier < ApplicationRecord
                      dependent: :destroy
 
   accepts_nested_attributes_for :addresses, allow_destroy: true
+
+  def duplicates_count
+    Supplier.where(name: self.name).count + 1
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :duplicates_count]
+    ]
+  end
 
   def questionnaires_answered
     answers = Answer.where(about_type: 'Supplier', about_id: id).count
