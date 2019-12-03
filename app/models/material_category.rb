@@ -11,7 +11,9 @@ class MaterialCategory < ApplicationRecord
     {
       id: id,
       material_id: material_id,
-      category_id: category_id
+      category_id: category_id,
+      category_name: self.category.name,
+      category_slug: self.category.slug,
     }
   end
 end

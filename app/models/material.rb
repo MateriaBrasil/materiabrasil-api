@@ -143,6 +143,8 @@ class Material < ApplicationRecord
       questionnaires_completed: questionnaires_answered,
       category: category,
       state: state,
+      categories: self.categories,
+      categories_has_page: self.categories.has_page_true
     }
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

@@ -23,6 +23,7 @@ class Category < ApplicationRecord
 
   scope :root, -> { where(parent_id: nil) }
   scope :sorted, -> { order(sorting: :asc) }
+  scope :has_page_true, -> { where(has_page: true) }
 
   def duplicates_count
     Category.where(name: self.name).count + 1
