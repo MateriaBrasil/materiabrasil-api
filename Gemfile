@@ -27,6 +27,7 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'faker'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'mailcatcher'

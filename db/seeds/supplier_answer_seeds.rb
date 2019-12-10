@@ -790,4 +790,20 @@ if Questionnaire.exists?(driver: 'raw_material')
       option: option
     )
   end
+
+
+  100.times do
+    Material.create!(
+      name: Faker::Name.name,
+      supplier: [supplier1, supplier2, supplier3].sample,
+      image_url: 'https://image.ibb.co/bPMTky/tecido.jpg',
+      description: Faker::Lorem.paragraphs,
+      average_price: 'R$ 30,00',
+      code: '00672',
+      highlighted: true,
+      technical_specification_url: 'https://www.w3.org/WAI/ER/tests/xhtml/'\
+        'testfiles/resources/pdf/dummy.pdf',
+      published: true
+    )
+  end
 end
