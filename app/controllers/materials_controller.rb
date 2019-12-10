@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class MaterialsController < ApplicationController
-  # before_action :authenticate_user!, only: %i[create update destroy]
+  before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
     materials = Material
       .where(published: true)
       .order(highlighted: :desc, created_at: :desc)
+      .page(params[:page]).per(params[:per_page])
 
     categories = params[:categories]
     materials = materials.with_categories(categories).uniq if categories

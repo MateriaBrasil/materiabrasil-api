@@ -4,12 +4,12 @@ class SearchesController < ApplicationController
   include PgSearch
 
   def show
-    results = Material.where(published: true).search(params[:term])
+    results = Material.where(published: true).order(highlighted: :desc, created_at: :desc).search(params[:term]).page(params[:page]).per(params[:per_page])
     # Search if categories are present
     if params[:categories]
       results = results.joins(:categories).where(
         categories: { id: params[:categories] }
-      )
+      ).order(highlighted: :desc, created_at: :desc).page(params[:page])per(params[:per_page])
     end
 
     return not_found if results.empty?

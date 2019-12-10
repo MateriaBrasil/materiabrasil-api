@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
+gem 'kaminari'
 gem 'awesome_print'
 gem 'committee'
 gem 'devise-i18n'
