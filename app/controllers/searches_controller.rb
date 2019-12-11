@@ -9,7 +9,7 @@ class SearchesController < ApplicationController
     if params[:categories]
       results = results.joins(:categories).where(
         categories: { id: params[:categories] }
-      ).order(highlighted: :desc, created_at: :desc).page(params[:page])per(params[:per_page])
+      ).order(highlighted: :desc, created_at: :desc).page(params[:page]).per(params[:per_page])
     end
 
     return not_found if results.empty?
