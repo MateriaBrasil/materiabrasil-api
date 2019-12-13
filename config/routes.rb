@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get 'categories', on: :member
     get 'answers', on: :member
   end
+  
+  resources :leads, only: %i[create]
 
   resources :addresses, only: %i[create]
   resources :comments, only: %i[create]
