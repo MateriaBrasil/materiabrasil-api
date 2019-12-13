@@ -91,7 +91,7 @@ GEM
     excon (0.62.0)
     faker (2.2.1)
       i18n (>= 0.8)
-    ffi (1.9.23)
+    ffi (1.11.3)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.1)
