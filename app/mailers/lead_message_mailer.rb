@@ -3,6 +3,7 @@ class LeadMessageMailer < ApplicationMailer
     @name = params[:name]
     @from = params[:from]
     @phone = params[:phone]
+    @interesse = params[:interesse]
     @admin = params[:admin]
 
 
