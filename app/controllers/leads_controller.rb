@@ -12,7 +12,7 @@ class LeadsController < ApplicationController
       from = params[:email]
       phone = params[:phone]
       message = params[:message]
-      supplier = User.find(params[:supplier_id])
+      supplier = Supplier.find(params[:supplier_id])
       SupplierLeadMessageMailer.with(name: name, from: from, phone: phone, message: message, supplier: supplier).email.deliver_later
     end
   end
