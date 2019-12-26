@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   resource :search, only: %i[show]
-  resources :categories, only: %i[index]
+  resources :categories, only: %i[index show]
   resources :material_categories, only: %i[create destroy]
   resources :album_users, only: %i[create]
   resources :messages, only: %i[create]

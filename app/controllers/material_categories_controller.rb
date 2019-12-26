@@ -6,7 +6,7 @@ class MaterialCategoriesController < ApplicationController
   # rubocop:disable Metrics/MethodLength
   def create
     material = Material.friendly.find(params[:material_id])
-    category = Category.find(params[:category_id])
+    category = Category.friendly.find(params[:category_id])
     material_category = MaterialCategory.new(
       material: material, category: category
     )

@@ -41,12 +41,14 @@ class Category < ApplicationRecord
       parent_id: parent_id,
       id: id,
       name: name,
+      description: description,
+      image_url: image_url,
       sorting: sorting,
       multiple_choice: multiple_choice,
       children: children.sorted.as_json,
       description: description,
       has_page: has_page,
-      slug: slug
+      slug: slug,
     }
   end
 end

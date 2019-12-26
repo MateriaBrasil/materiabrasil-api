@@ -51,7 +51,7 @@ class Material < ApplicationRecord
     ignoring: :accents
 
   def self.with_categories(ids)
-    joins(:categories).where(categories: { id: ids })
+    joins(:categories).where(categories: { id: ids }).or(joins(:categories).where(categories: { slug: ids}))
   end
 
   def duplicates_count
