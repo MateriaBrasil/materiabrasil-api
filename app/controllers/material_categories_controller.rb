@@ -24,7 +24,7 @@ class MaterialCategoriesController < ApplicationController
   # rubocop:enable Metrics/MethodLength
 
   def destroy
-    material_category = MaterialCategory.friendly.find(params[:id])
+    material_category = MaterialCategory.find(params[:id])
     authorize(material_category)
     material_category.destroy!
 
