@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Message < ApplicationRecord
-  after_create :send_email
+  # after_create :send_email
   belongs_to :from, polymorphic: true
   belongs_to :to, polymorphic: true
 

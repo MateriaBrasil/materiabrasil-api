@@ -5,6 +5,9 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.create!(message_params.merge(from: current_user))
+
+    MessageMailer.with(message: message).email.deliver_later
+    
     render json: message, status: :created
   end
 
