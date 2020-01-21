@@ -41,11 +41,11 @@ class Material < ApplicationRecord
   pg_search_scope :search,
     against: %i[name code ncm_code sh_code],
     associated_against: {
-      supplier: %i[name company_name]
+      supplier: %i[name]
     },
     ignoring: :accents
     # using: {
-    #   tsearch: { any_word: true, prefix: true },
+    #   tsearch: { any_word: false, prefix: true },
     #   trigram: { threshold: 0.03 }
     # },
 
