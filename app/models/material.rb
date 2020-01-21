@@ -39,16 +39,15 @@ class Material < ApplicationRecord
   delegate :user, :type_of_company, to: :supplier
 
   pg_search_scope :search,
-    against: %i[name description code ncm_code sh_code density
-                dimensions availability],
+    against: %i[name code ncm_code sh_code],
     associated_against: {
-      supplier: %i[name description website company_name]
-    },
-    using: {
-      tsearch: { any_word: true, prefix: true },
-      trigram: { threshold: 0.03 }
+      supplier: %i[name company_name]
     },
     ignoring: :accents
+    # using: {
+    #   tsearch: { any_word: true, prefix: true },
+    #   trigram: { threshold: 0.03 }
+    # },
 
   def self.with_categories(ids)
     joins(:categories).where(categories: { id: ids }).or(joins(:categories).where(categories: { slug: ids}))
