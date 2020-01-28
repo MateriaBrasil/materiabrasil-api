@@ -4,10 +4,14 @@ class MaterialsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
+    # materials_passed = [485, 449]
+    # passed_materials = page[:pas]
+
     materials = Material
       .where(published: true)
       .order(highlighted: :desc, created_at: :desc)
       .page(params[:page]).per(params[:per_page])
+      # .where.not(id: materials_passed)
 
     categories = params[:categories]
     materials = materials.with_categories(categories).uniq if categories
