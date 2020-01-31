@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     passwords: 'auth/passwords'
   }
 
+
   resources :materials, only: %i[index show create update destroy] do
     get 'comments', on: :member
     get 'reviews', on: :member
