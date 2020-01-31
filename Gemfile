@@ -20,6 +20,8 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.0'
 gem 'rails-i18n', '~> 5.1.1'
 gem 'state_machines-activerecord', '~> 0.5.2'
+gem 'quick_random_records'
+
 
 gem 'friendly_id', '~> 5.2.4'
 
