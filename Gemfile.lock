@@ -166,7 +166,7 @@ GEM
       activesupport (>= 3.0.0)
     quick_random_records (0.3.2)
       activerecord (>= 3)
-    rack (2.0.5)
+    rack (2.2.3)
     rack-cors (1.0.2)
     rack-protection (2.0.4)
       rack
